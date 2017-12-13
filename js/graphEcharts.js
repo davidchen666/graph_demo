@@ -1,64 +1,20 @@
-//悟空
-//公共样式部分
-//主题色系,例如：colors1:1指内含1种颜色;
-//purple_colors：指悟空紫色系主题；
-// var purple_colors1 = ['#732FC3'];
-// var purple_colors2 = ['#732FC3','#824DD2'];
-// var purple_colors3 = ['#732FC3','#824DD2','#9067E0'];
-// var purple_colors4 = ['#732FC3','#824DD2','#9067E0','#9D82EF'];
-// var purple_colors5 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF'];
-// var purple_colors6 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF'];
-// var purple_colors7 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD'];
-// var purple_colors8 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0'];
-// var purple_colors9 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB'];
-// var purple_colors10 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4'];
-// var purple_colors11 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690'];
-// var purple_colors12 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78'];
-// var purple_colors13 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B'];
-// var purple_colors14 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F'];
-// var purple_colors15 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3'];
-// var purple_colors16 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8'];
-// var purple_colors17 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB'];
-// var purple_colors18 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2'];
-// var purple_colors19 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2','#D1A3F1'];
-// var purple_colors20 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2','#D1A3F1','#C085EA'];
-// var purple_colors21 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2','#D1A3F1','#C085EA','#AA69DF'];
-// var purple_colors22 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2','#D1A3F1','#C085EA','#AA69DF','#9B58D6'];
-// var purple_colors23 = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2','#D1A3F1','#C085EA','#AA69DF','#9B58D6','#8B37D0'];
-var purple_colors = ['#732FC3','#824DD2','#9067E0','#9D82EF','#ADA1FF','#C0B7FF','#B7B1DD','#A099D0','#8A83BB','#726BA4','#5D5690','#443C78','#5A287B','#70438F','#885FA3','#9F7BB8','#B595CB','#D0B5E2','#D1A3F1','#C085EA','#AA69DF','#9B58D6','#8B37D0','#7811BD'];
-
-//colorful_colors1：指悟空彩色系主题
-// var colorful_colors1 = ['#077FB1'];
-// var colorful_colors2 = ['#077FB1','#E4B84B'];
-// var colorful_colors3 = ['#077FB1','#E4B84B','#40A588'];
-// var colorful_colors4 = ['#077FB1','#E4B84B','#40A588','#AC8957'];
-// var colorful_colors5 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D'];
-// var colorful_colors6 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172'];
-// var colorful_colors7 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0'];
-// var colorful_colors8 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8'];
-// var colorful_colors9 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781'];
-// var colorful_colors10 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676'];
-// var colorful_colors11 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797'];
-// var colorful_colors12 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666'];
-// var colorful_colors13 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1'];
-// var colorful_colors14 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760'];
-// var colorful_colors15 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000'];
-// var colorful_colors16 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45'];
-// var colorful_colors17 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A'];
-// var colorful_colors18 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D'];
-// var colorful_colors19 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F'];
-// var colorful_colors20 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99'];
-// var colorful_colors21 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99','#5C9C1A'];
-// var colorful_colors22 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99','#5C9C1A','#CBC900'];
-// var colorful_colors23 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99','#5C9C1A','#CBC900','#EA7127'];
-// var colorful_colors24 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99','#5C9C1A','#CBC900','#EA7127','#187486'];
-// var colorful_colors25 = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99','#5C9C1A','#CBC900','#EA7127','#187486','#96D359'];
-var colorful_colors = ['#077FB1','#E4B84B','#40A588','#AC8957','#05658D','#E3C172','#7858A0','#1F92A8','#C1A781','#BB7676','#87B797','#005666','#61B5B1','#008760','#A2A000','#896D45','#F3C81A','#EF955D','#A0435F','#D77F99','#5C9C1A','#CBC900','#EA7127','#187486','#96D359','#55B0D3'];
-
-
+//谛听
+// 公共样式
+//主题色系,例如：colors1，1指内含1种颜色;
+// var colors1 = ['#11BA89'];
+// var colors2 = ['#11BA89', '#118BF6'];
+// var colors3 = ['#11BA89', '#118BF6', '#F37676'];
+// var colors4 = ['#11BA89', '#118BF6', '#F37676', '#732FC3'];
+// var colors5 = ['#11BA89', '#118BF6', '#F37676', '#732FC3', '#F89E01'];
+// var colors6 = ['#11BA89', '#118BF6', '#F37676', '#732FC3', '#F89E01', '#098C66'];
+// var colors7 = ['#11BA89', '#118BF6', '#F37676', '#732FC3', '#F89E01', '#098C66', '#50E3C2'];
+// var colors8 = ['#11BA89', '#118BF6', '#F37676', '#732FC3', '#F89E01', '#098C66', '#50E3C2', '#7ED321'];
+// var colors9 = ['#11BA89', '#118BF6', '#F37676', '#732FC3', '#F89E01', '#098C66', '#50E3C2', '#7ED321', '#C1A781'];
+// var colors = ['#11BA89', '#118BF6', '#F37676', '#732FC3', '#F89E01', '#098C66', '#50E3C2', '#7ED321', '#C1A781', '#C95477'];
 
 //基本配置
-var animationDuration = '1500';                //加载动画
+// var legendTextstyleColor = '#999';              //组件字体颜色
+var animationDuration = '1500';                 //动画速度
 var backgroundColor = '#000';                  //图表背景颜色
 var titleColor = '#333';                        //标题字体颜色
 var subtitleColor = '#999';                     //副标题字体颜色
@@ -66,24 +22,24 @@ var markTextColor = '#333';                     //标签字体颜色
 var outWidth = 0;                                 //描边宽度(粗细)
 
 //视觉映射
-var visualMapMaxColor = '#732fc3';              //视觉映射颜色最大值
-var visualMapLeastColor = '#c0b7ff';            //视觉映射最小值
+var visualMapMaxColor = '#11ba89';              //视觉映射颜色最大值
+var visualMapLeastColor = '#b3e9d9';            //视觉映射最小值
 
 //坐标轴
 var axisLineColor = '#c4c4c4';                 //轴线颜色
 var axisTickColor = '#c4c4c4';                 //轴刻度颜色
 var axisLabeColor = '#333';                     //轴字体颜色
-var splitLineColor= '#eee' ;                    //网格颜色
-var splitAreaLightColor= '#fff';               //网格填充色（浅）
+var splitLineColor = '#eee';                    //网格(分隔线)颜色
+var splitAreaLightColor = '#fff';               //网格（分隔区域颜色）填充色（浅）
 var splitAreaDeepColor = '#eee';               //网格填充色（深）
-var splitAreaOpacity   = 0.3;                   //网格透明度
+var splitAreaOpacity = '0.3';                   //网格透明度
 
 //图例主色
-var legendbackgroundColor = '#333';        //图例主色
+var legendbackgroundColor = '#333';            //图例主色
 
 //工具箱
-var toolboxColor = '#999';                     //工具箱图标颜色
-var toolboxEmpasisColor = '#732fc3';          //工具箱悬停范围填充颜色
+var toolboxColor = '#999';                      //工具箱图标颜色
+var toolboxEmpasisColor = '#11ba89';          //工具箱悬停范围填充颜色
 
 //提示框
 var tooltipAxisColor = '#c4c4c4';                      //提示框指示线颜色
@@ -91,30 +47,32 @@ var tooltipAxisWidth = 1;                               //提示框指示线宽�
 
 //时间轴(dataZoom组件)
 var timelineItemColor = '#c4c4c4';                     //时间轴标记颜色
-var timelineItemColorE = '#732fc3';                    //时间轴标记悬停颜色
-var timelineCheckColor = '#732fc3';                    //时间轴标记选中范围填充颜色
-var timelineCheckBorderColor = '#732fc3';             //时间轴标记选中描边颜色
-var timelineItemBorderOpacity= '0.3';                    //时间轴标记选中描边透明度
+var timelineItemColorE = '#11ba89';                    //时间轴标记悬停颜色
+var timelineCheckColor = '#11ba89';                    //时间轴标记选中范围填充颜色
+var timelineCheckBorderColor = '#732FC3';             //时间轴标记选中描边颜色
+var timelineItemBorderNormalopacity = '0.3';             //时间轴标记选中描边透明度
 var timelineItemBorderWidth = '1px';                   //时间轴标记描边宽度
 var timelineLineColor = '#c4c4c4';                      //时间轴主轴颜色
 var timelineLineWidth = '1px';                          //时间轴主轴宽度
 var timelineControlColor = '#999';                     //时间轴控件填充色
 var timelineControlBorderColor = '#999';              //时间轴控件描边颜色
-var timelineControlWidth = '0.5';                       //时间轴控件描边宽度
+var timelineControlWidth = '0.5';                        //时间轴控件宽度
 var timelineLabelColor = '#333';                       //时间轴文字颜色
 
 //数据缩放
 var datazoomBackgroundColor = '#fff';      //数据缩放区域填充颜色
-var datazoomDataColor        =  '#eee';     //数据背景色
-var datazoomFillColor        = '#c3b7ff';   //填充色
-var datazoomHandleColor      = '#732fc3';   //控制手柄色
-var datazoomHandleWidth      = 100;          //控制手柄大小（宽度）
-var datazoomLabelColor       = '#732fc3';   //文字颜色
-//公共样式配置部分end
+var datazoomDataColor = '#eee';     //数据背景色
+var datazoomFillColor = '#b3e9d9';   //填充色
+var datazoomHandleColor = '#11ba89';   //控制手柄色
+var datazoomHandleWidth = 100;          //控制手柄大小（宽度）
+var datazoomLabelColor = '#11ba89';   //文字颜色
+//公共样式end
 
 //定义变量接收外部主题（json文件）
+//切换主题
 //谛听彩色主题
-var mlTheme={
+var dataThenme = [];
+dataThenme['ml'] = {
     "version": 1,
     "themeName": "DT",
     "theme": {
@@ -294,9 +252,9 @@ var mlTheme={
         "datazoomHandleWidth": "100",
         "datazoomLabelColor": "#11ba89"
     }
-}
+};
 //悟空紫色主题
-var wkTheme={
+dataThenme['wk_purple'] = {
     "version": 1,
     "themeName": "WK_purple",
     "theme": {
@@ -480,9 +438,9 @@ var wkTheme={
         "datazoomHandleWidth": "100",
         "datazoomLabelColor": "#732fc3"
     }
-}
+};
 //悟空彩色主题
-var wk2Theme={
+dataThenme['wk_colorful'] = {
     "version": 1,
     "themeName": "WK_colorful",
     "theme": {
@@ -668,9 +626,9 @@ var wk2Theme={
         "datazoomHandleWidth": "100",
         "datazoomLabelColor": "#732fc3"
     }
-}
+};
 //自定义主题
-var autoTheme={
+dataThenme['custom'] = {
     "version": 1,
     "themeName": "infographic",
     "theme": {
@@ -847,186 +805,230 @@ var autoTheme={
     }
 }
 
-var graph_ajax = function (data, obj, callback) {
-    var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
 
-    var graph_type = ['pie-doughnut', 'word', 'map', 'line', 'k','area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
+var graph_ajax = function (data, obj, callback) {
+    console.log(data)
+    var graphdata = {};
+    graphdata = $.parseJSON(data.data)
+    var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
+    // var graph_type = ['pie-doughnut', 'bar-y-category', 'gauge', 'bar-y-category-stack'];
+    //定义图表类型
+    //area：堆叠区域图
+    //gauge：仪表盘图
+    //scatter-relationship：散点关系图
+    //bar-y-category：纵向柱状图
+    //bar-y-category-stack：纵向柱状堆叠图
+    //line：折线图
+    //k：k线图
+    //graph：力导图
+    var graph_type = ['pie-doughnut', 'word', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
     if ($.inArray(data.graph, graph_type) == -1) {
-        alert('暂无该图标类型');
+        alert('暂无该图表类型');
         return false;
     }
-
-
-    var echartsTheme=mlTheme.theme;
+    var themename = data.theme;
+    // var themename='wk_colorful';
+    var echartsTheme = dataThenme[themename].theme;
     // console.log(echartsTheme)
     // console.log(mlTheme.theme)
     // console.log(wkTheme.theme)
     // console.log(wk2Theme.theme)
     // console.log(autoTheme.theme)
 
+    // 调用echarts.registerTheme()注册主题
+    echarts.registerTheme('DT', echartsTheme)
+    // echarts.registerTheme('WK_purple', echartsTheme)
+    //使用echarts.init()创建图标，第二个参数即为刚才注册的主题名字。
+    var myChart = echarts.init(document.getElementById(obj), 'DT');
+    // var myChart = echarts.init(document.getElementById(obj),'WK_purple');
 
 
     var feature = {}
     var source1 = ''
     var source2 = ''
-    if(typeof(d_data.source)!="undefined"){
-        source1=d_data.source;
+    if (typeof(d_data.source) != "undefined") {
+        source1 = d_data.source;
     }
-    if(typeof(d_data.source2)!="undefined"){
-        source2=d_data.source2;
+    if (typeof(d_data.source2) != "undefined") {
+        source2 = d_data.source2;
     }
-    if (d_data.downloadimg == 1) {
+    //对下载功能有无进行判断
+    if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1) {
         feature = {"saveAsImage": {"type": "png"}}
     }
+    //对网页自适应进行判断
+    var gTop = 30;
+    var gBottom = 30;
+    if (typeof(d_data.big_title) == "undefined") {
+        gTop -= 5
+        gBottom -= 5
+    }
+    if (typeof(d_data.small_title) == "undefined") {
+        gTop -= 5
+        gBottom -= 5
+    }
+    if (typeof(d_data.remarks1) == "undefined") {
+        gTop -= 5
+        gBottom -= 5
+    }
+    if (typeof(d_data.remarks2) == "undefined") {
+        gTop -= 5
+        gBottom -= 5
+    }
+    var grid = {
+        left: '4.3%',
+        right: '3%',
+        bottom: gBottom + '%',
+        top: gTop + '%',
+        containLabel: true
+    }
+    var title = [
+        {
+            // textStyle{
+            //     height:'2.1%'
+            // },
+            subtextStyle: {
+                height: '1.5%'
+            },
+            //标题内边距
+            padding: '2%',
+            //主标题和副标题之间的间距
+            itemGap: '1%',
+            text: graphdata['big_title'],
+            subtext: graphdata['small_title'],
+
+        }, {
+            text: '',
+            subtext: graphdata['remarks1'] + '\n\n' + graphdata['remarks2'],
+            left: '40.3%',
+            bottom: '30%'
+        }
+    ]
+
     // data.graph = 'gauge'
     // 指定图表的配置项和数据
     var option = {}
+    //圆环饼图
     if (data.graph == 'pie-doughnut') {
         option = {
-            "toolbox": {"feature": feature},
-            "grid": {
-                "show": false,
-                "top": "65px",
-                "height": "340px",
-                "left": "20%",
-                "right": "20%",
-                "width": "500px",
-                "z": 2,
-                "zlevel": 0,
-                "bottom": 30
+            // color: colors,
+            animationDuration: animationDuration,
+            toolbox: {
+                feature: {
+                    saveAsImage: {show: false}   //辅助工具-保存图片
+                }
             },
-            "legend": {
-                "selectedMode": false,
-                "itemWidth": 14,
-                "itemHeight": 14,
-                "itemGap": 20,
-                "bottom": 180,
-                "top": "middle",
-                "left": "0px",
-                "orient": "vertical",
-                "data": [d_data.y[0]['name'], d_data.y[1]['name']]
-            },
-            "series": [{
-                "type": "pie",
-                "radius": [110, 170],
-                "avoidLabelOverlap": false,
-                "hoverAnimation": false,
-                "stillShowZeroSum": false,
-                "height": 230,
-                "label": {"normal": {"position": "inside", "textStyle": {"color": "#fff"}}},
-                "data": [{
-                    "id": "001",
-                    "value": d_data.y[0]['data'][0],
-                    "name": d_data.y[0]['name'],
-                    "realValue": 13,
-                    "percent": 52
-                }, {
-                    "id": "002",
-                    "value": d_data.y[1]['data'][0],
-                    "name": d_data.y[1]['name'],
-                    "realValue": 12,
-                    "percent": 48
-                }]
-            }],
-            "color": ["#732FC3", "#824DD2", "#9067E0", "#9D82EF", "#ADA1FF", "#C0B7FF", "#B7B1DD", "#A099D0", "#8A83BB"],
-            "unit": "人",
-            "title": [{
-                "text": d_data.big_title,
-                "subtext": d_data.small_title,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 16
-                },
-                "left": 0,
-                "bottom": 0,
-                "top": "0px"
-            }, {
-                "text": "",
-                "subtext": source1 + "\n\n" + source2,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "12"
-                },
-                "left": 0,
-                "bottom": "30px",
-                "top": "510px"
-            }],
-            "chartHeight": "568"
+            series: [
+
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: ['50%', '70%'],
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: true
+                        }
+                    },
+                    data: [
+                        {
+                            value: d_data.y[0]['data'][0],
+                            name: d_data.y[0]['name'],
+                            label: {
+                                normal: {
+                                    position: 'center',
+                                    formatter: "{b}\n{d}%"
+                                }
+                            }
+                        },
+                        {
+                            value: d_data.y[1]['data'][0],
+                            name: d_data.y[1]['name'],
+                            label: {
+                                normal: {
+                                    show: false
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
         };
     }
 
-    var graphdata = {};
+    //词云
+    // if(data,graph == 'word')
+    // {
+
+    // }
+
+    //地图
+    // if(data,graph == 'map')
+    // {
+
+    // }
+    // console.log(data.data);
+
     //默认显示tooltip
     var tooltip = true;
-    graphdata = $.parseJSON(data.data)
 
-    // console.log(graphdata);
-    if(graphdata['tooltip']==2)
-    {
-    //    tooltip==2不显示
+    //tooptip==2时不显示
+    if (graphdata['tooltip'] == 2) {
         tooltip = false;
     }
-
+    // console.log(graphdata);
     //折线图
     if (data.graph == 'line') {
         var series = [];
         var legend = [];
+        var len = []
         // 第二种方案：使用循环将series循环输出
-        for(var i = 0;i<graphdata['y'].length;i++)
-        {
-            //循环折线图x轴上的name
-            legend[i]=graphdata['y'][i]['name']
-            series[i]={
-                name:graphdata['y'][i]['name'],
-                type:'line',
-                data:graphdata['y'][i]['data']
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+        }
+        for (var i = 0; i < len; i++) {
+            //循环折线图x轴上的legend
+            legend[i] = graphdata['y'][i]['name']
+            series[i] = {
+                name: graphdata['y'][i]['name'],
+                type: 'line',
+                data: graphdata['y'][i]['data']
             }
         }
+
         option = {
-            //引入预定义样式
-            color : purple_colors,
-            animationDuration: animationDuration,
-            animationDuration: animationDuration,
-            // backgroundColor: backgroundColor,
-            titleColor: titleColor,
-            subtitleColor: subtitleColor,
-            markTextColor: markTextColor,
-            outWidth: outWidth,
-            legendbackgroundColor: legendbackgroundColor,
-            toolboxColor: toolboxColor,
-            toolboxEmpasisColor: toolboxEmpasisColor,
-            tooltipAxisColor: tooltipAxisColor,
-            tooltipAxisWidth: tooltipAxisWidth,
-
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
+            toolbox: {
+                feature: feature
             },
-            title: [{
-                text: graphdata['big_title'],
-                subtext: graphdata['small_title'],
+            // color: colors,
+            animationDuration: animationDuration,
+            // // backgroundColor: backgroundColor,
+            // titleColor: titleColor,
+            // subtitleColor: subtitleColor,
+            // markTextColor: markTextColor,
+            // outWidth: outWidth,
+            // legendbackgroundColor: legendbackgroundColor,
+            // toolboxColor: toolboxColor,
+            // toolboxEmpasisColor: toolboxEmpasisColor,
+            // tooltipAxisColor: tooltipAxisColor,
+            // tooltipAxisWidth: tooltipAxisWidth,
 
-            },{
-                text: '',
-                subtext: graphdata['remarks1']+'\n\n'+graphdata['remarks2'],
-                bottom:'3%'
-            }],
+            grid: grid,
+            title: title,
             tooltip: {
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}'+graphdata['unit']
-            },
-            legend: {
-                data: [graphdata['y'][0]['name'], graphdata['y'][1]['name']]
-            },
 
+                show: tooltip,
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            // legend: {
+            //     //折线图上x轴的名字
+            //     data: legend
+            // },
             xAxis: {
                 // show: true,
                 // name: 'x',
@@ -1041,22 +1043,22 @@ var graph_ajax = function (data, obj, callback) {
                 axisTick: {
                     lineStyle: {
                         //轴刻度颜色
-                        color:axisTickColor
+                        color: axisTickColor
                     }
                 },
                 axisLable: {
-                        //轴字体颜色
-                        color:  axisLabeColor
+                    //轴字体颜色
+                    color: axisLabeColor
                 },
                 splitLine: {
-                        lineStyle: splitLineColor
+                    lineStyle: splitLineColor
                 },
-                splitArea:{
-                    areaStyle:{
+                splitArea: {
+                    areaStyle: {
                         // 分割区域（网格）颜色
                         // color: [splitAreaLightColor,splitAreaDeepColor],
                         //图形透明度
-                        opacity:splitAreaOpacity
+                        opacity: splitAreaOpacity
                     }
                 },
 
@@ -1077,203 +1079,463 @@ var graph_ajax = function (data, obj, callback) {
                 axisTick: {
                     lineStyle: {
                         //轴刻度颜色
-                        color:axisTickColor
+                        color: axisTickColor
                     }
                 },
                 axisLable: {
                     //轴字体颜色
-                    color:  axisLabeColor
+                    color: axisLabeColor
                 },
-                splitArea:{
-                    areaStyle:{
+                splitArea: {
+                    areaStyle: {
                         // 分割区域（网格）颜色
                         // color: [splitAreaLightColor,splitAreaDeepColor],
                         //图形透明度
-                        opacity:splitAreaOpacity
+                        opacity: splitAreaOpacity
                     }
                 },
 
 
                 // type: 'category'
             },
-            series:series
-            //     [
-            //     //第一种方案：有数据就按顺序写多少数据
-            //     {
-            //         line:{smooth: false},
-            //         name: graphdata['y'][0]['name'],
-            //         type: 'line',
-            //         data: graphdata['y'][0]['data']
-            //     },
+            series: series
+
+
+
+
+            // [
+            // {
+            //     line:{smooth: false},
+            //     name: graphdata['y'][0]['name'],
+            //     type: 'line',
+            //     data: graphdata['y'][0]['data']
+            // },
             //     {
             //         smooth: true,
             //         name:graphdata['y'][1]['name'],
             //         type: 'line',
             //         data: graphdata['y'][1]['data']
             //     }
+            // //开启平滑曲线
+            // // smooth: false,
+            // // type: 'line',
+            // // //图形形状
+            // // showSymbol: true,
+            // // //标记图形形状（默认空心圆）
+            // // symbol: 'CircleE',
+            // // // 圆形
+            // // Circle
+            // // // 方形
+            // // Rect
+            // // //空心方形
+            // // RectE
+            // // //圆角矩形
+            // // RoundRect
+            // // //空心圆角矩形
+            // // RoundRectE
+            // // //三角形
+            // // Tri
+            // // //空心三角形
+            // // TriE
+            // // //菱形
+            // // Diamond
+            // // //空心菱形
+            // // DiamondE
+            // // //水滴
+            // // Pin
+            // // //空心水滴
+            // // PinE
+            // // //箭头
+            // // Arrow
+            // // // 空心箭头
+            // // ArrowE
+            // // itemStyle:
+            // //     {
+            // //         normal:
+            // //             {
+            // //                 show: true,
+            // //                 borderWidth: 2
+            // //             },
+            // //         emphasis: {borderWidth: 2}
+            // //     },
+            //
+            // // data:
+            // //     [{
+            // //         // 图形大小
+            // //         symbolSize: 1,
+            // //         //图形描边宽度
+            // //         symbolBorderWidth: 1,
+            // //     }]
             // ]
+        };
+    }
 
+    //K线图
+    if (data.graph == 'k') {
 
+        //图形标题
+        app.title = '上证指数';
+        //设定X轴时间段
+        // reverse()用于数组中元素的顺序改为倒序
+        // 开盘(open),收盘(close),最低(lowest),最高(heightest)
+        var rawData = [[]].reverse();
+        //计算MA平均线.N日移动平均线=N日收盘价之和/N,dayCount要计算的天数
+        //把数组中的日期和数据分离,返回数组中的日期或数据
+        function calculateMA(dayCount, data) {
 
-            //开启平滑曲线
-            // smooth: false,
-            // type: 'line',
-            // //图形形状
-            // showSymbol: true,
-            // //标记图形形状（默认空心圆）
-            // symbol: 'CircleE',
-            // // 圆形
-            // Circle
-            // // 方形
-            // Rect
-            // //空心方形
-            // RectE
-            // //圆角矩形
-            // RoundRect
-            // //空心圆角矩形
-            // RoundRectE
-            // //三角形
-            // Tri
-            // //空心三角形
-            // TriE
-            // //菱形
-            // Diamond
-            // //空心菱形
-            // DiamondE
-            // //水滴
-            // Pin
-            // //空心水滴
-            // PinE
-            // //箭头
-            // Arrow
-            // // 空心箭头
-            // ArrowE
-            // itemStyle:
 
         }
 
-    }
-
-    if (data.graph == 'bar-y-category') {
-        option = {
-            "toolbox": {"feature": feature},
-            "grid": {
-                "show": false,
-                "top": "65px",
-                "height": 282,
-                "left": "20%",
-                "right": "20%",
-                "width": "70%",
-                "z": 2,
-                "zlevel": 0,
-                "bottom": 30
+        var option = {
+            //背景填充色
+            // backgroundColor:
+            //鼠标悬浮显示数据
+            //图例组件
+            legend: {
+                //图例里的数据数组
+                data: ['日K', 'M1'],
+                //图例关闭时的颜色
+                inactiveColor: '#777',
+                //字体颜色
+                textStyle: {
+                    color: '#fff'
+                }
             },
-            "unit": "人",
-            "chartHeight": 402,
-            "formatterScheme": "default",
-            "tooltip": {"show": true, "trigger": "axis"},
-            "backgroundColor": "#ffffff",
-            "series": [{
-                "barMaxWidth": "30",
-                "barCategoryGap": "30%",
-                "label": {
-                    "normal": {
-                        "show": true,
-                        "position": "right",
-                        "color": "#000000",
-                        "fontSize": "14px",
-                        "fontWeight": "bold"
+            //提示框组件
+            tooltip: {
+                //是否显示提示框组件
+                show: true,
+                //触发类型,axis:坐标轴触发，主要用在柱状图/折线图等
+                trigger: 'axis',
+                //什么都不触发
+                // trigger:'none',
+                //数据项图形触发，主要用在散点图/饼图等无类目轴的图表中使用。
+                // trigger:'item',
+
+                //坐标轴指示器配置项
+                axisPointer: {
+                    //图例翻页是否使用动画
+                    animation: false,
+                    //指示器类型，cross为十字准星指示器
+                    type: 'cross',
+                    //直线指示器
+                    // type:'line',
+                    //阴影指示器
+                    // type:'shadow',
+                    lineStyle: {
+                        //线的颜色
+                        color: '#376df4',
+                        //线宽
+                        width: 2,
+                        //线的类型
+                        //实线
+                        // type:'solid',
+                        //虚线
+                        // type:'dashed',
+                        //点线
+                        // type:'dotted',
+
+                        //图形透明度.0-1,为0时不绘制该图形
+                        opacity: 1
+                    }
+                }
+            },
+            //直角坐标系grid中的x轴,一般情况下单个grid组件最多只能放上下两个X轴
+            xAxis: {
+                //是否显示X轴
+                show: true,
+                //坐标轴类型
+                //类目轴,适用于离散的类目数据,为该类型时必须通过data设置类目数据
+                type: 'category',
+                // //数值轴,适用于连续数据
+                // type:'value',
+                // //时间轴,适用于连续的时序数据
+                // type:'time',
+                // //对数轴,适用于对数数据
+                // type:'log',
+
+                //类目数据,在类目轴(type:'category')中有效
+                data: dates,
+                axisLine: {lineStyle: {color: '#8392A5'}}
+            },
+            yAxis: {
+                //是否显示Y轴
+                show: true,
+                //
+                scale: true,
+                //坐标轴轴线相关设置
+                axisLine: {lineStyle: {color: '#8392A5'}},
+                //坐标轴在grid区域中的分割线
+                //是否显示分割线
+                splitLine: {show: false}
+            },
+            //直角坐标系内绘图网格,单个grid内最多可以放置上下两个X轴,左右两个Y 轴.可以在网格上绘制折线图/柱状图/散点图(气泡图).
+            gird: {
+                //grid组件离容器下侧的距离
+                //bottom值可以设置为80,也可以设置为80%这种相对于容器高宽的百分比
+                bottom: 80
+            },
+            //dataZoom组件用于区域缩放
+            dataZoom: [{
+                //字体颜色
+                textStyle: {
+                    color: '#8392A5'
+                },
+                //手柄形状为icon,支持路径字符串
+                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                //控制手柄的尺寸
+                handleSize: '80%',
+                //数据阴影的样式
+                dataBackground: {
+                    //数据阴影填充的颜色
+                    areaStyle: {
+                        color: '#8392A5'
+                    },
+                    //阴影的线条样式
+                    lineStyle: {
+                        //图形透明度
+                        opacity: 0.8,
+                        //线条颜色
+                        color: '#8392A5'
                     }
                 },
-                "type": "bar",
-                "data": [
-                    {
-                        "id": 0,
-                        "value": d_data.y[0]['data'][0],
-                        "name": d_data.y[0]['name'],
-                        "realValue": 3,
-                        "percent": 12
-                    },
-                    {
-                        "id": 1,
-                        "value": d_data.y[1]['data'][0],
-                        "name": d_data.y[1]['name'],
-                        "realValue": 1,
-                        "percent": 4
-                    }, {
-                        "id": 2,
-                        "value": d_data.y[2]['data'][0],
-                        "name": d_data.y[2]['name'],
-                        "realValue": 5,
-                        "percent": 20
-                    },
-                    {
-                        "id": 3,
-                        "value": d_data.y[3]['data'][0],
-                        "name": d_data.y[3]['name'],
-                        "realValue": 6,
-                        "percent": 24
-                    }, {
-                        "id": 4,
-                        "value": d_data.y[4]['data'][0],
-                        "name": d_data.y[4]['name'],
-                        "realValue": 2,
-                        "percent": 8
-                    },
-                    {
-                        "id": 5,
-                        "value": d_data.y[5]['data'][0],
-                        "name": d_data.y[5]['name'],
-                        "realValue": 8,
-                        "percent": 32
-                    }]
-            }],
-            "color": ["#732FC3", "#824DD2", "#9067E0", "#9D82EF", "#ADA1FF", "#C0B7FF"],
-            "title": [{
-                "text": d_data.big_title,
-                "subtext": d_data.small_title,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 16
-                },
-                "left": 0,
-                "bottom": 0,
-                "top": "0px"
+                //手柄样式配置
+                handleStyle: {
+                    //图形的颜色
+                    color: '#fff',
+                    //图形阴影的模糊大小
+                    shadowBlur: 3,
+                    //阴影水平方向上的偏移距离
+                    shadowOffsetX: 2,
+                    //阴影垂直方向上的偏移距离
+                    shadowOffsetY: 2
+                }
+
             }, {
-                "text": "",
-                "subtext": source1 + "\n\n" + source2,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "12"
+                //是否显示组件
+                show: true,
+                //组件类型:内置
+                type: 'inside'
+                // 组件类型:滑块
+                // type:'slider'
+            }],
+            //是否启用动画
+            animation: false,
+            series:
+                [{
+                    //图表类型:K线图
+                    type: 'candlestick',
+                    name: '日K',
+                    data: data,
+                    itemStyle:
+                        {
+                            normal:
+                                {
+                                    //阳线填充色
+                                    Color: '#b3e9d9',
+                                    //阴线填充色
+                                    Color0: '#11ba89',
+                                    //阳线图形描边色
+                                    borderColor: '#b3e9d9',
+                                    //阴线图形描边色
+                                    borderColor0: '#11ba89',
+                                    //描边图形宽度
+                                    borderWidth: '1'
+                                },
+                        }
+                }, {
+                    //系列名称,用于tooltip的显示
+                    name: 'M1',
+                    //线条类型
+                    type: 'line',
+                    //数据格式.对象
+                    data: calculateMA(5, data),
+                    //是否开启平滑曲线
+                    smooth: true,
+                    //是否显示Symbol
+                    showSymbol: false,
+                    //线条样式
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    }
+                }
+                    // {
+                    //     name: 'M2',
+                    //     type:'line',
+                    //     data: calculateMA(10,data),
+                    //     smooth: true,
+                    //     showSymbol:false,
+                    //     lineStyle:{
+                    //         normal:{
+                    //             width:1
+                    //         }
+                    //     }
+                    //
+                    //  },{
+                    //     name:'M3',
+                    //     type:'line',
+                    //     data:calculateMA(20,data),
+                    //     //是否开启平滑曲线
+                    //     smooth:true,
+                    //     showSymbol:false,
+                    //     lineStyle:{
+                    //         normal:{
+                    //             width:1
+                    //         }
+                    //     }
+                    // },{
+                    //     name:'M4',
+                    //     type:'line',
+                    //     data:calculateMA(30,data),
+                    //     //是否开启平滑曲线
+                    //     smooth:true,
+                    //     //是否显示Symbol
+                    //     showSymbol:false,
+                    //     lineStyle:{
+                    //         normal:{
+                    //             width:1
+                    //         }
+                    //     }
+                    // }
+                ]
+        }
+    }
+    ;
+
+
+    //横向柱状图
+    //if(data,graph == 'bar-x-category')
+    // {
+
+    // }
+
+    //横向柱状堆叠图
+    //if(data,graph == 'bar-x-category-stack')
+    //{
+
+    // }
+
+    //散点关系图
+    //if(data,graph == 'scatter-relationship')
+    // {
+
+    // }
+
+    //纵向柱状图
+    if (data.graph == 'bar-y-category') {
+        var series = []
+        for (i = 0; i < d_data.x['data'].length; i++) {
+            series[i] = {
+                name: d_data.y[i]['name'],
+                type: 'bar',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        formatter: '{c}%'
+                    }
                 },
-                "left": 0,
-                "bottom": "30px",
-                "top": "352px"
-            }],
-            "yAxis": [{
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "type": "category",
-                "data": d_data.x['data']
-            }],
-            "xAxis": [{
-                "type": "value",
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "show": false,
-                "min": 0,
-                "max": 100
-            }]
+                data: [d_data.y[i]['data'][0]]
+            }
+
+        }
+        option = {
+            //        backgroundColor: '#eee',
+            animationDuration: animationDuration,
+            toolbox: {
+                feature: {
+                    saveAsImage: {
+                        show: false
+                    } //辅助工具-保存图片
+                }
+            },
+            color: colors,
+            title: {},
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                textStyle: {
+                    color: legendTextstyleColor
+                },
+                bottom: 0,
+                // data: ['2017年']
+            },
+            grid: {
+                left: '3%',
+                right: '6%',
+                bottom: '7%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                splitLine: {
+                    show: false //去掉网格线
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: axislineLinestyleColor
+                    }
+                },
+                axisTick: {
+                    lineStyle: {
+                        color: axislineAxistickColor
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: axislineAxislabelColor
+                    }
+                },
+                type: 'value',
+                boundaryGap: [0, 0.01],
+
+            },
+            yAxis: {
+
+                axisLine: {
+                    lineStyle: {
+                        color: axislineLinestyleColor,
+                        width: '1'
+                    }
+                },
+                axisTick: {
+                    lineStyle: {
+                        color: axislineAxistickColor
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: axislineAxislabelColor
+                    }
+                },
+                splitLine: {
+                    show: false //去掉网格线
+                },
+                type: 'category',
+
+
+                data: [{
+                    value: '',
+                    barWidth: '40',
+                    // 突出周一
+                    textStyle: {
+
+                        color: '#999'
+                    }
+                }]
+            },
+            series: series
         };
     }
+    //仪表盘图
     if (data.graph == 'gauge') {
         option = {
             "toolbox": {"feature": feature},
@@ -1489,145 +1751,139 @@ var graph_ajax = function (data, obj, callback) {
             }]
         };
     }
+    //纵向柱状堆叠图
     if (data.graph == 'bar-y-category-stack') {
+        var series = []
+        var legend = []
+        for (i = 0; i < d_data.y.length; i++) {
+            var draw_value = [];
+            draw_value[i] = [];
+            $.each(d_data.y[i]['data'], function (j, val) {
+
+                if (val < 6) {
+                    draw_value[i][j] = {
+                        value: val,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'insideRight',
+                                formatter: '{c}%'
+                            }
+                        },
+                    }
+                } else {
+                    draw_value[i][j] = {
+                        value: val,
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'insideRight',
+                                formatter: '{c}%'
+                            }
+                        },
+                    }
+                }
+            });
+            legend[i] = d_data.y[i]['name'];
+            series[i] = {
+                name: d_data.y[i]['name'],
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        formatter: '{c}%'
+                    }
+                },
+                data: draw_value[i]
+            }
+        }
+
+
         option = {
-            "toolbox": {"feature": feature},
-            "calculable": true,
-            "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-            "grid": {
-                "show": false,
-                "top": "100px",
-                "height": 127,
-                "left": "20%",
-                "right": "20%",
-                "width": "70%",
-                "z": 2,
-                "zlevel": 0,
-                "bottom": 30
+            animationDuration: animationDuration,
+            toolbox: {
+                feature: {
+                    saveAsImage: {
+                        show: false
+                    } //辅助工具-保存图片
+                }
             },
-            "backgroundColor": "#ffffff",
-            "legend": {
-                "top": "85px",
-                "right": "10%",
-                "data": [d_data.y[0]['name'], d_data.y[1]['name'], d_data.y[2]['name'], d_data.y[3]['name'], d_data.y[4]['name']]
+            color: colors,
+            title: {},
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
             },
-            "series": [{
-                "name": d_data.y[0]['name'],
-                "data": [{
-                    "value": d_data.y[0]['data'][0],
-                    "percent": 4,
-                    "name": d_data.y[0]['name'],
-                    "realValue": 1,
-                    "colorScheme": "default"
-                }],
-                "type": "bar",
-                "stack": "总量",
-                "barMaxWidth": 60,
-                "itemStyle": {"normal": {"label": {"show": true, "position": "insideRight"}}}
-            }, {
-                "name": d_data.y[1]['name'],
-                "data": [{
-                    "value": d_data.y[1]['data'][0],
-                    "percent": 16,
-                    "name": d_data.y[1]['name'],
-                    "realValue": 4,
-                    "colorScheme": "default"
-                }],
-                "type": "bar",
-                "stack": "总量",
-                "barMaxWidth": 60,
-                "itemStyle": {"normal": {"label": {"show": true, "position": "insideRight"}}}
-            }, {
-                "name": d_data.y[2]['name'],
-                "data": [{
-                    "value": d_data.y[2]['data'][0],
-                    "percent": 24,
-                    "name": d_data.y[2]['name'],
-                    "realValue": 6,
-                    "colorScheme": "default"
-                }],
-                "type": "bar",
-                "stack": "总量",
-                "barMaxWidth": 60,
-                "itemStyle": {"normal": {"label": {"show": true, "position": "insideRight"}}}
-            }, {
-                "name": d_data.y[3]['name'],
-                "data": [{
-                    "value": d_data.y[3]['data'][0],
-                    "percent": 36,
-                    "name": d_data.y[3]['name'],
-                    "realValue": 9,
-                    "colorScheme": "default"
-                }],
-                "type": "bar",
-                "stack": "总量",
-                "barMaxWidth": 60,
-                "itemStyle": {"normal": {"label": {"show": true, "position": "insideRight"}}}
-            }, {
-                "name": d_data.y[4]['name'],
-                "data": [{
-                    "value": d_data.y[4]['data'][0],
-                    "percent": 20,
-                    "name": d_data.y[4]['name'],
-                    "realValue": 5,
-                    "colorScheme": "default"
-                }],
-                "type": "bar",
-                "stack": "总量",
-                "barMaxWidth": 60,
-                "itemStyle": {"normal": {"label": {"show": true, "position": "insideRight"}}}
-            }],
-            "color": ["#ADA1FF", "#9D82EF", "#9067E0", "#824DD2", "#732FC3"],
-            "yAxis": [{
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "type": "category",
-                "data": []
-            }],
-            "xAxis": [{
-                "type": "value",
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "show": false,
-                "min": 0,
-                "max": 100
-            }],
-            "unit": "人",
-            "chartHeight": 267,
-            "title": [{
-                "text": d_data.big_title,
-                "subtext": d_data.small_title,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 16
+            legend: {
+                textStyle: {
+                    color: legendTextstyleColor
                 },
-                "left": 0,
-                "bottom": 0,
-                "top": "0px"
-            }, {
-                "text": "",
-                "subtext": source1 + "\n\n" + source2,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "12"
+                bottom: 0,
+                data: legend,
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '7%',
+                top: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                axisLine: {
+                    lineStyle: {
+                        color: axislineLinestyleColor
+                    }
                 },
-                "left": 0,
-                "bottom": "30px",
-                "top": "209px"
-            }]
+                axisTick: {
+                    lineStyle: {
+                        color: axislineAxistickColor
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: axislineAxislabelColor
+                    }
+                },
+                splitLine: {
+                    show: false //去掉网格线
+                },
+                type: 'value'
+            },
+            yAxis: {
+                axisLine: {
+                    lineStyle: {
+                        color: axislineLinestyleColor
+                    }
+                },
+                axisTick: {
+                    lineStyle: {
+                        color: axislineAxistickColor
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: axislineAxislabelColor
+                    }
+                },
+                splitLine: {
+                    show: false //去掉网格线
+                },
+                type: 'category',
+
+                data: d_data.x['data']
+            },
+            series: series
         };
     }
 
     console.log(option)
-    // 使用刚指定的配置项和数据显示图表。
+// 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
     return
@@ -1635,7 +1891,7 @@ var graph_ajax = function (data, obj, callback) {
 
 //    var unit = data.params && data.params.unit || '万人';
     var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
-    // var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
+// var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
 
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图标类型');

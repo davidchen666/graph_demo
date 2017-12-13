@@ -2,7 +2,36 @@
 $type = !empty($_GET['type']) && is_numeric($_GET['type']) ? $_GET['type'] : 1;
 $post = '';
 switch ($type) {
-    case 11:
+    case 1:
+        $post = '{
+     "downloadimg":1,
+     "x":
+         {
+             "data":["第一季度","第二季度","第三季度"]
+         },
+     "y":
+         [{
+             "data":
+                 [1,3,2],
+             "name": "nick"
+         },{
+             "data":
+                 [10,20,30],
+             "name": "david"
+         },{
+             "data":
+                 [30,43,51],
+             "name": "tom"
+         }],
+     "big_title": "日收入",
+     "small_title": "副标题",
+     "remarks1":"备注1：",
+     "remarks2":"备注2：",
+     "unit":"k",
+     "tooltip":1
+ }';
+        break;
+    case 2:
         $post = '{
      "downloadimg":1,
      "x":
@@ -87,43 +116,7 @@ switch ($type) {
      "source2": "数据来源：Q11"
  }';
         break;
-    case 41:
-        $post = '{
-    "downloadimg": 1,
-    "y":
-        [
-            {
-                "data":
-                    [4],
-                "name": "完全不可能"
-            },
-            {
-                "data":
-                    [16],
-                "name": "2"
-            },
-            {
-                "data":
-                    [24],
-                "name": "3"
-            },
-            {
-                "data":
-                    [36],
-                "name": "4"
-            },
-            {
-                "data":
-                    [20],
-                "name": "极有可能"
-            }
-        ],
-    "big_title": "您对它功能更新的速度是否满意呢?(星型)",
-    "small_title": "%",
-    "source": "基数: 所有被访者 n=25",
-    "source2": "数据来源：Q18"
-}';
-        break;
+
 }
 echo $post;
 die;
