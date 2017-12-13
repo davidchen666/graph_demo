@@ -860,20 +860,20 @@ var graph_ajax = function (data, obj, callback) {
     var gTop = 7.3;
     var gBottom = 2.7;
     if (typeof(d_data.big_title) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+        gTop -= 1.7
+        gBottom -= 1..25
     }
     if (typeof(d_data.small_title) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+        gTop -= 1.7
+        gBottom -= 1.25
     }
     if (typeof(d_data.remarks1) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+        gTop -= 1..7
+        gBottom -= 1.25
     }
     if (typeof(d_data.remarks2) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+        gTop -= 1.7
+        gBottom -= 1.25
     }
     var grid = {
         left: '4.3%',
