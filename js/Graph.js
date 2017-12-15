@@ -857,23 +857,23 @@ var graph_ajax = function (data, obj, callback) {
         feature = {"saveAsImage": {"type": "png"}}
     }
     //对网页自适应进行判断
-    var gTop = 7.3;
-    var gBottom = 2.7;
+    var gTop = 23;
+    var gBottom = 27;
     if (typeof(d_data.big_title) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+        gTop -= 8
+
     }
     if (typeof(d_data.small_title) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+        gTop -= 8
+
     }
     if (typeof(d_data.remarks1) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+
+        gBottom -= 11
     }
     if (typeof(d_data.remarks2) == "undefined") {
-        gTop -= 5
-        gBottom -= 5
+
+        gBottom -= 11
     }
     var grid = {
         left: '4.3%',
@@ -881,6 +881,16 @@ var graph_ajax = function (data, obj, callback) {
         bottom: gBottom + '%',
         top: gTop + '%',
         containLabel: true
+    }
+    var remarks1=''
+    var remarks2=''
+    if (typeof(d_data.remarks2) != "undefined") {
+
+        remarks1=graphdata['remarks1']
+    }
+    if (typeof(d_data.remarks2) != "undefined") {
+
+        remarks2=graphdata['remarks2']
     }
     var title = [
         {
@@ -890,16 +900,16 @@ var graph_ajax = function (data, obj, callback) {
             },
 
             //标题内边距,上右下左
-            padding: [0,0,0,80],
+            padding: [20,0,0,40],
             //主标题和副标题之间的间距
             // itemGap: '1%',
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
         }, {
             text: '',
-            subtext: graphdata['remarks1'] + '\n\n' + graphdata['remarks2'],
+            subtext: remarks1 + '\n\n' + remarks2,
             left: '5.8%',
-            top:'93.5%'
+            top:'80%'
         }
     ]
 
