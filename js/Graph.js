@@ -824,7 +824,6 @@ var graph_ajax = function (data, obj, callback) {
     //设置标题配置项
     var title = [
         {
-
             subtextStyle: {
                 height: '1.5%'
             },
@@ -867,7 +866,7 @@ var graph_ajax = function (data, obj, callback) {
                             },
                         labelLine:
                             {
-                                //true时展示，false关闭
+                                //true时展示标签，false关闭
                                 normal: {show: true}
                             },
                         data:
@@ -876,6 +875,7 @@ var graph_ajax = function (data, obj, callback) {
                                 name: d_data.y[0]['name'],
                                 label:
                                     {
+                                        //标签
                                         normal:
                                             {
                                                 position: 'center',
@@ -888,6 +888,7 @@ var graph_ajax = function (data, obj, callback) {
                                     name: d_data.y[1]['name'],
                                     label:
                                         {
+                                            //false时关闭标签
                                             normal: {show: false}
                                         }
                                 }]
@@ -956,8 +957,6 @@ var graph_ajax = function (data, obj, callback) {
             //x轴配置项
             xAxis:
                 {
-
-
                     type: 'category',
                     name: 'x',
                     splitLine: {show: false},
@@ -1227,7 +1226,9 @@ var graph_ajax = function (data, obj, callback) {
 
     //纵向柱状图
     if (data.graph == 'bar-y-category') {
+        //定义空数组
         var series = []
+        //用循环将series循环输出
         for (i = 0; i < d_data.x['data'].length; i++) {
             series[i] =
                 {
@@ -1239,14 +1240,17 @@ var graph_ajax = function (data, obj, callback) {
                                 {
                                     show: true,
                                     position: 'right',
+                                    //拼接百分号
                                     formatter: '{c}%'
                                 }
                         },
+                    //y轴数据
                     data: [d_data.y[i]['data'][0]]
                 }
         }
         option =
             {   //backgroundColor: '#eee',
+                //动画渐进效果
                 animationDuration: animationDuration,
                 toolbox:
                     {
@@ -1300,28 +1304,33 @@ var graph_ajax = function (data, obj, callback) {
                             {
                                 lineStyle:
                                     {
+                                        //网格线颜色
                                         color: axislineAxistickColor
                                     }
                             },
                         axisLabel:
                             {
+                                //true时展示文字，false时不展示
                                 show: true,
                                 textStyle:
                                     {
+                                        //网格线颜色
                                         color: axislineAxislabelColor
                                     }
                             },
                         type: 'value',
+                        //坐标轴两边留白
                         boundaryGap: [0, 0.01],
                     },
                 yAxis:
                     {
-
                         axisLine:
                             {
                                 lineStyle:
                                     {
+                                        //调用文字样式颜色
                                         color: axislineLinestyleColor,
+                                        //宽度为1
                                         width: '1'
                                     }
                             },
@@ -1329,11 +1338,13 @@ var graph_ajax = function (data, obj, callback) {
                             {
                                 lineStyle:
                                     {
+                                        //线条颜色
                                         color: axislineAxistickColor
                                     }
                             },
                         axisLabel:
                             {
+                                //true时展示文字，false时不展示
                                 show: true,
                                 textStyle:
                                     {
@@ -1346,7 +1357,7 @@ var graph_ajax = function (data, obj, callback) {
                             },
                         type: 'category',
 
-
+                        //数据
                         data: [{
                             value: '',
                             barWidth: '40',
@@ -1364,6 +1375,7 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'gauge') {
         option =
             {
+                //toolbox工具箱
                 "toolbox": {"feature": feature},
                 "grid":
                     {
