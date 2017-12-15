@@ -743,23 +743,25 @@ dataThenme['custom'] = {
     }
 }
 
-//定义方法
+//封装图表
 var graph_ajax = function (data, obj, callback)
 {
     var graphdata = {};
     //转成json格式
     graphdata = $.parseJSON(data.data)
+    //eval(),计算字符串
     var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
     //定义图表类型
     //area：堆叠区域图,gauge：仪表盘图,scatter-relationship：散点关系图,bar-y-category：纵向柱状图,bar-y-category-stack：纵向柱状堆叠图,line：折线图,k：k线图,graph：力导图
     var graph_type = ['pie-doughnut', 'word', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
     if ($.inArray(data.graph, graph_type) == -1)
     {
+        //当状态码= -1时，输出“暂无该图表类型”
         alert('暂无该图表类型');
         return false;
     }
+    //接收html中selected下拉菜单传递过来的value
     var themename = data.theme;
-    // var themename='wk_colorful';
     var echartsTheme = dataThenme[themename].theme;
     // 调用echarts.registerTheme()注册主题
     echarts.registerTheme('DT', echartsTheme)
@@ -767,7 +769,6 @@ var graph_ajax = function (data, obj, callback)
     //使用echarts.init()创建图标，第二个参数即为刚才注册的主题名字。
     var myChart = echarts.init(document.getElementById(obj), 'DT');
     // var myChart = echarts.init(document.getElementById(obj),'WK_purple');
-
 
     var feature = {}
     var source1 = ''
@@ -789,6 +790,7 @@ var graph_ajax = function (data, obj, callback)
     //将顶部间距和底部间距用变量接收
     var gTop = 7.3;
     var gBottom = 2.7;
+    //测量顶部间距和底部间距，分别判断标题、副标题、备注1、备注2 未定义时的情况
     if (typeof(d_data.big_title) == "undefined")
     {
         gTop -= 1.7
@@ -953,6 +955,7 @@ var graph_ajax = function (data, obj, callback)
                 //     //折线图上x轴的名字
                 //     data: legend
                 // },
+                //x轴配置项
                     xAxis:
                         {
                             // show: true,
@@ -994,6 +997,7 @@ var graph_ajax = function (data, obj, callback)
                             splitLine: {show: false},
                             data: graphdata['x']['data']
                     },
+                    //y轴
                     yAxis:
                         {
                             show: true,
@@ -1828,10 +1832,10 @@ var graph_ajax = function (data, obj, callback)
 //    var unit = data.params && data.params.unit || '万人';
     var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
 // var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
-
+//    判断图表类型
     if ($.inArray(data.graph, graph_type) == -1)
     {
-        alert('暂无该图标类型');
+        alert('暂无该图表类型');
         return false;
     }
 
