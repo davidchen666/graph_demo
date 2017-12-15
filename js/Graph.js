@@ -956,39 +956,7 @@ var graph_ajax = function (data, obj, callback) {
             //x轴配置项
             xAxis:
                 {
-                    // show: true,
-                    // name: 'x',
-                    // //设置坐标轴类型，此处为类目轴
-                    // type: 'category',
-                    axisLine:
-                        {
-                            //轴线颜色
-                            lineStyle: {color: axisLineColor}
-                        },
-                    axisTick:
-                        {       //轴刻度颜色
-                            lineStyle: {color: axisTickColor}
-                        },
-                    axisLable:
-                        {       //轴字体颜色
-                            color: axisLabeColor
-                        },
 
-                    splitLine:
-                        {       //分割线颜色
-                            lineStyle: splitLineColor
-                        },
-
-                    splitArea:
-                        {
-                            areaStyle:
-                                {
-                                    // 分割区域（网格）颜色
-                                    // color: [splitAreaLightColor,splitAreaDeepColor],
-                                    //图形透明度
-                                    opacity: splitAreaOpacity
-                                }
-                        },
 
                     type: 'category',
                     name: 'x',
@@ -1000,28 +968,6 @@ var graph_ajax = function (data, obj, callback) {
                 {
                     show: true,
                     name: 'y',
-                    axisLine:
-                        {   //轴线颜色
-                            lineStyle: {color: axisLineColor}
-                        },
-                    axisTick:
-                        {   //轴刻度颜色
-                            lineStyle: {color: axisTickColor}
-                        },
-                    axisLable:
-                        {   //轴字体颜色
-                            color: axisLabeColor
-                        },
-                    splitArea:
-                        {
-                            areaStyle:
-                                {
-                                    // 分割区域（网格）颜色
-                                    // color: [splitAreaLightColor,splitAreaDeepColor],
-                                    //图形透明度
-                                    opacity: splitAreaOpacity
-                                }
-                        },
                     // type: 'category'
                 },
             series: series
