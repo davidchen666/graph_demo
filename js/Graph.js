@@ -744,8 +744,7 @@ dataThenme['custom'] = {
 }
 
 //封装图表
-var graph_ajax = function (data, obj, callback)
-{
+var graph_ajax = function (data, obj, callback) {
     var graphdata = {};
     //转成json格式
     graphdata = $.parseJSON(data.data)
@@ -754,8 +753,7 @@ var graph_ajax = function (data, obj, callback)
     //定义图表类型
     //area：堆叠区域图,gauge：仪表盘图,scatter-relationship：散点关系图,bar-y-category：纵向柱状图,bar-y-category-stack：纵向柱状堆叠图,line：折线图,k：k线图,graph：力导图
     var graph_type = ['pie-doughnut', 'word', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
-    if ($.inArray(data.graph, graph_type) == -1)
-    {
+    if ($.inArray(data.graph, graph_type) == -1) {
         //当状态码= -1时，输出“暂无该图表类型”
         alert('暂无该图表类型');
         return false;
@@ -773,105 +771,109 @@ var graph_ajax = function (data, obj, callback)
     var feature = {}
     var source1 = ''
     var source2 = ''
-    if (typeof(d_data.source) != "undefined")
-    {
+    if (typeof(d_data.source) != "undefined") {
         source1 = d_data.source;
     }
-    if (typeof(d_data.source2) != "undefined")
-    {
+    if (typeof(d_data.source2) != "undefined") {
         source2 = d_data.source2;
     }
     //对下载功能有无进行判断
-    if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1)
-    {
+    if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1) {
         feature = {"saveAsImage": {"type": "png"}}
     }
     //对网页自适应进行判断
     //将顶部间距和底部间距用变量接收
-    var gTop = 7.3;
-    var gBottom = 2.7;
-    //测量顶部间距和底部间距，分别判断标题、副标题、备注1、备注2 未定义时的情况
-    if (typeof(d_data.big_title) == "undefined")
-    {
-        gTop -= 1.7
-        gBottom -= 1..25
+    var gTop = 23;
+    var gBottom = 27;
+    if (typeof(d_data.big_title) == "undefined") {
+        gTop -= 8
+
     }
-    if (typeof(d_data.small_title) == "undefined")
-    {
-        gTop -= 1.7
-        gBottom -= 1.25
+    if (typeof(d_data.small_title) == "undefined") {
+        gTop -= 8
+
     }
-    if (typeof(d_data.remarks1) == "undefined")
-    {
-        gTop -= 1..7
-        gBottom -= 1.25
+    if (typeof(d_data.remarks1) == "undefined") {
+
+        gBottom -= 11
     }
-    if (typeof(d_data.remarks2) == "undefined")
-    {
-        gTop -= 1.7
-        gBottom -= 1.25
+    if (typeof(d_data.remarks2) == "undefined") {
+
+        gBottom -= 11
     }
     var grid =
-    {
-        left: '4.3%',
-        right: '3%',
-        //给上边距和下边距拼接百分号
-        bottom: gBottom + '%',
-        top: gTop + '%',
-        containLabel: true
+        {
+            left: '4.3%',
+            right: '3%',
+            //给上边距和下边距拼接百分号
+            bottom: gBottom + '%',
+            top: gTop + '%',
+            containLabel: true
+        }
+    //备注验证
+    var remarks1=''
+    var remarks2=''
+    if (typeof(d_data.remarks2) != "undefined") {
+
+        remarks1=graphdata['remarks1']
+    }
+    if (typeof(d_data.remarks2) != "undefined") {
+
+        remarks2=graphdata['remarks2']
     }
     //设置标题配置项
-    var title =
-    [
+    var title = [
         {
-            subtextStyle:
-            { height: '1.5%' },
+
+            subtextStyle: {
+                height: '1.5%'
+            },
+
             //标题内边距,上右下左
-            padding: [0,0,0,80],
+            padding: [20,0,0,40],
+            //主标题和副标题之间的间距
+            // itemGap: '1%',
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
-         },
-         {
+        }, {
             text: '',
-            // 配置项备注1，备注2
-            subtext: graphdata['remarks1'] + '\n\n' + graphdata['remarks2'],
+            subtext: remarks1 + '\n\n' + remarks2,
             left: '5.8%',
-            top:'93.5%'
-         }
+            top:'80%'
+        }
     ]
     // data.graph = 'gauge'
     // 指定图表的配置项和数据
     var option = {}
     //圆环饼图
-    if (data.graph == 'pie-doughnut')
-    {
+    if (data.graph == 'pie-doughnut') {
         option =
             {
                 // color: colors,
                 animationDuration: animationDuration,
                 toolbox:
                     {   //辅助工具-保存图片
-                        feature: { saveAsImage: {show: false}}
-                     },
+                        feature: {saveAsImage: {show: false}}
+                    },
                 //serise数据配置项
-               series:
-                   [{
+                series:
+                    [{
                         name: '访问来源',
                         type: 'pie',
                         radius: ['50%', '70%'],
                         label:
                             {
-                                normal: { position: 'inner'}
+                                normal: {position: 'inner'}
                             },
                         labelLine:
                             {
                                 //true时展示，false关闭
-                                normal: { show: true }
+                                normal: {show: true}
                             },
                         data:
                             [{
                                 value: d_data.y[0]['data'][0],
-                                name:  d_data.y[0]['name'],
+                                name: d_data.y[0]['name'],
                                 label:
                                     {
                                         normal:
@@ -881,14 +883,14 @@ var graph_ajax = function (data, obj, callback)
                                             }
                                     }
                             },
-                            {
-                                value: d_data.y[1]['data'][0],
-                                name:  d_data.y[1]['name'],
-                                label:
-                                    {
-                                        normal:{show: false}
-                                    }
-                              }]
+                                {
+                                    value: d_data.y[1]['data'][0],
+                                    name: d_data.y[1]['name'],
+                                    label:
+                                        {
+                                            normal: {show: false}
+                                        }
+                                }]
                     }]
             };
     }
@@ -909,23 +911,19 @@ var graph_ajax = function (data, obj, callback)
     //默认显示tooltip
     var tooltip = true;
     //tooptip==2时不显示
-    if (graphdata['tooltip'] == 2)
-    {
+    if (graphdata['tooltip'] == 2) {
         tooltip = false;
     }
     //折线图
-    if (data.graph == 'line')
-    {
+    if (data.graph == 'line') {
         var series = [];
         var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
-        if (typeof(graphdata['y'].length) != "undefined")
-        {
+        if (typeof(graphdata['y'].length) != "undefined") {
             len = graphdata['y'].length;
         }
-        for (var i = 0; i < len; i++)
-        {
+        for (var i = 0; i < len; i++) {
             //循环折线图上的legend
             legend[i] = graphdata['y'][i]['name']
             series[i] =
@@ -936,98 +934,98 @@ var graph_ajax = function (data, obj, callback)
                 }
         }
 
-        option ={
+        option = {
 
-                    toolbox: { feature: feature },
-                // color: colors,
-                //    动画渐进效果
-                //   animationDuration: animationDuration,
+            toolbox: {feature: feature},
+            // color: colors,
+            //    动画渐进效果
+            //   animationDuration: animationDuration,
 
-                    grid:  grid,
-                    title: title,
-                    tooltip:
+            grid: grid,
+            title: title,
+            tooltip:
+                {
+                    show: tooltip,
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+            // legend: {
+            //     //折线图上x轴的名字
+            //     data: legend
+            // },
+            //x轴配置项
+            xAxis:
+                {
+                    // show: true,
+                    // name: 'x',
+                    // //设置坐标轴类型，此处为类目轴
+                    // type: 'category',
+                    axisLine:
                         {
-                            show: tooltip,
-                            trigger: 'item',
-                            formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                            //轴线颜色
+                            lineStyle: {color: axisLineColor}
                         },
-                // legend: {
-                //     //折线图上x轴的名字
-                //     data: legend
-                // },
-                //x轴配置项
-                    xAxis:
-                        {
-                            // show: true,
-                            // name: 'x',
-                            // //设置坐标轴类型，此处为类目轴
-                            // type: 'category',
-                            axisLine:
-                                {
-                                        //轴线颜色
-                                        lineStyle:{ color: axisLineColor }
-                                },
-                            axisTick:
-                                {       //轴刻度颜色
-                                        lineStyle: { color: axisTickColor }
-                                },
-                            axisLable:
-                                {       //轴字体颜色
-                                        color: axisLabeColor
-                                } ,
-
-                            splitLine:
-                                {       //分割线颜色
-                                        lineStyle: splitLineColor
-                                },
-
-                            splitArea:
-                                {
-                                         areaStyle:
-                                                    {
-                                                        // 分割区域（网格）颜色
-                                                        // color: [splitAreaLightColor,splitAreaDeepColor],
-                                                        //图形透明度
-                                                        opacity: splitAreaOpacity
-                                                     }
-                                },
-
-                            type: 'category',
-                            name: 'x',
-                            splitLine: {show: false},
-                            data: graphdata['x']['data']
-                    },
-                    //y轴
-                    yAxis:
-                        {
-                            show: true,
-                            name: 'y',
-                            axisLine:
-                                {   //轴线颜色
-                                    lineStyle: { color: axisLineColor }
-                                },
-                            axisTick:
-                                {   //轴刻度颜色
-                                    lineStyle: { color: axisTickColor}
-                                },
-                            axisLable:
-                                {   //轴字体颜色
-                                     color: axisLabeColor
-                                },
-                            splitArea:
-                                {
-                                    areaStyle:
-                                            {
-                                                // 分割区域（网格）颜色
-                                                // color: [splitAreaLightColor,splitAreaDeepColor],
-                                                //图形透明度
-                                                opacity: splitAreaOpacity
-                                             }
-                                },
-                            // type: 'category'
+                    axisTick:
+                        {       //轴刻度颜色
+                            lineStyle: {color: axisTickColor}
                         },
-                    series: series
-            };
+                    axisLable:
+                        {       //轴字体颜色
+                            color: axisLabeColor
+                        },
+
+                    splitLine:
+                        {       //分割线颜色
+                            lineStyle: splitLineColor
+                        },
+
+                    splitArea:
+                        {
+                            areaStyle:
+                                {
+                                    // 分割区域（网格）颜色
+                                    // color: [splitAreaLightColor,splitAreaDeepColor],
+                                    //图形透明度
+                                    opacity: splitAreaOpacity
+                                }
+                        },
+
+                    type: 'category',
+                    name: 'x',
+                    splitLine: {show: false},
+                    data: graphdata['x']['data']
+                },
+            //y轴
+            yAxis:
+                {
+                    show: true,
+                    name: 'y',
+                    axisLine:
+                        {   //轴线颜色
+                            lineStyle: {color: axisLineColor}
+                        },
+                    axisTick:
+                        {   //轴刻度颜色
+                            lineStyle: {color: axisTickColor}
+                        },
+                    axisLable:
+                        {   //轴字体颜色
+                            color: axisLabeColor
+                        },
+                    splitArea:
+                        {
+                            areaStyle:
+                                {
+                                    // 分割区域（网格）颜色
+                                    // color: [splitAreaLightColor,splitAreaDeepColor],
+                                    //图形透明度
+                                    opacity: splitAreaOpacity
+                                }
+                        },
+                    // type: 'category'
+                },
+            series: series
+        };
     }
 
     // //K线图
@@ -1222,45 +1220,45 @@ var graph_ajax = function (data, obj, callback)
     //                     }
     //                 }
     //             }
-                    // {
-                    //     name: 'M2',
-                    //     type:'line',
-                    //     data: calculateMA(10,data),
-                    //     smooth: true,
-                    //     showSymbol:false,
-                    //     lineStyle:{
-                    //         normal:{
-                    //             width:1
-                    //         }
-                    //     }
-                    //
-                    //  },{
-                    //     name:'M3',
-                    //     type:'line',
-                    //     data:calculateMA(20,data),
-                    //     //是否开启平滑曲线
-                    //     smooth:true,
-                    //     showSymbol:false,
-                    //     lineStyle:{
-                    //         normal:{
-                    //             width:1
-                    //         }
-                    //     }
-                    // },{
-                    //     name:'M4',
-                    //     type:'line',
-                    //     data:calculateMA(30,data),
-                    //     //是否开启平滑曲线
-                    //     smooth:true,
-                    //     //是否显示Symbol
-                    //     showSymbol:false,
-                    //     lineStyle:{
-                    //         normal:{
-                    //             width:1
-                    //         }
-                    //     }
-                    // }
-                // ]};
+    // {
+    //     name: 'M2',
+    //     type:'line',
+    //     data: calculateMA(10,data),
+    //     smooth: true,
+    //     showSymbol:false,
+    //     lineStyle:{
+    //         normal:{
+    //             width:1
+    //         }
+    //     }
+    //
+    //  },{
+    //     name:'M3',
+    //     type:'line',
+    //     data:calculateMA(20,data),
+    //     //是否开启平滑曲线
+    //     smooth:true,
+    //     showSymbol:false,
+    //     lineStyle:{
+    //         normal:{
+    //             width:1
+    //         }
+    //     }
+    // },{
+    //     name:'M4',
+    //     type:'line',
+    //     data:calculateMA(30,data),
+    //     //是否开启平滑曲线
+    //     smooth:true,
+    //     //是否显示Symbol
+    //     showSymbol:false,
+    //     lineStyle:{
+    //         normal:{
+    //             width:1
+    //         }
+    //     }
+    // }
+    // ]};
 // }
 
     //横向柱状图
@@ -1282,145 +1280,142 @@ var graph_ajax = function (data, obj, callback)
     // }
 
     //纵向柱状图
-    if (data.graph == 'bar-y-category')
-    {
+    if (data.graph == 'bar-y-category') {
         var series = []
-        for (i = 0; i < d_data.x['data'].length; i++)
-        {
+        for (i = 0; i < d_data.x['data'].length; i++) {
             series[i] =
-                    {
-                        name: d_data.y[i]['name'],
-                        type: 'bar',
-                        label:
-                            {
-                                normal:
-                                    {
-                                        show: true,
-                                        position: 'right',
-                                        formatter: '{c}%'
-                                    }
-                            },
-                        data: [d_data.y[i]['data'][0]]
+                {
+                    name: d_data.y[i]['name'],
+                    type: 'bar',
+                    label:
+                        {
+                            normal:
+                                {
+                                    show: true,
+                                    position: 'right',
+                                    formatter: '{c}%'
+                                }
+                        },
+                    data: [d_data.y[i]['data'][0]]
                 }
         }
-            option =
-                    {   //backgroundColor: '#eee',
-                        animationDuration: animationDuration,
-                        toolbox:
+        option =
+            {   //backgroundColor: '#eee',
+                animationDuration: animationDuration,
+                toolbox:
+                    {
+                        feature:
                             {
-                                    feature:
-                                            {
-                                                    saveAsImage:
-                                                                {   //辅助工具-保存图片
-                                                                    show: false
-                                                                }
-                                            }
+                                saveAsImage:
+                                    {   //辅助工具-保存图片
+                                        show: false
+                                    }
+                            }
+                    },
+                color: colors,
+                title: {},
+                tooltip:
+                    {
+                        trigger: 'axis',
+                        axisPointer: {type: 'shadow'}
+                    },
+                legend:
+                    {
+                        textStyle:
+                            {
+                                color: legendTextstyleColor
                             },
-                        color:      colors,
-                        title: {},
-                        tooltip:
+                        bottom: 0,
+                        // data: ['2017年']
+                    },
+                grid:
+                    {
+                        left: '3%',
+                        right: '6%',
+                        bottom: '7%',
+                        top: '5%',
+                        containLabel: true
+                    },
+                xAxis:
+                    {
+                        splitLine:
                             {
-                                    trigger: 'axis',
-                                    axisPointer: { type: 'shadow'}
+                                show: false //去掉网格线
                             },
-                        legend:
+                        axisLine:
                             {
-                                    textStyle:
-                                        {
-                                                color: legendTextstyleColor
-                                        },
-                                    bottom: 0,
-                                    // data: ['2017年']
+                                lineStyle:
+                                    {
+                                        //网格线颜色
+                                        color: axislineLinestyleColor
+                                    }
                             },
-                        grid:
+                        axisTick:
                             {
-                                    left: '3%',
-                                    right: '6%',
-                                    bottom: '7%',
-                                    top: '5%',
-                                    containLabel: true
+                                lineStyle:
+                                    {
+                                        color: axislineAxistickColor
+                                    }
                             },
-                        xAxis:
+                        axisLabel:
                             {
-                                    splitLine:
-                                        {
-                                            show: false //去掉网格线
-                                        },
-                                    axisLine:
-                                        {
-                                            lineStyle:
-                                                {
-                                                    //网格线颜色
-                                                    color: axislineLinestyleColor
-                                                }
-                                        },
-                                    axisTick:
-                                        {
-                                            lineStyle:
-                                                {
-                                                    color: axislineAxistickColor
-                                                }
-                                        },
-                                    axisLabel:
-                                        {
-                                            show: true,
-                                            textStyle:
-                                                {
-                                                    color: axislineAxislabelColor
-                                                }
-                                        },
-                                    type: 'value',
-                                    boundaryGap: [0, 0.01],
+                                show: true,
+                                textStyle:
+                                    {
+                                        color: axislineAxislabelColor
+                                    }
                             },
-                        yAxis:
-                            {
+                        type: 'value',
+                        boundaryGap: [0, 0.01],
+                    },
+                yAxis:
+                    {
 
-                                    axisLine:
-                                        {
-                                            lineStyle:
-                                                {
-                                                    color: axislineLinestyleColor,
-                                                    width: '1'
-                                                }
-                                        },
-                                    axisTick:
-                                        {
-                                            lineStyle:
-                                                {
-                                                    color: axislineAxistickColor
-                                                }
-                                        },
-                                    axisLabel:
-                                        {
-                                            show: true,
-                                            textStyle:
-                                                {
-                                                    color: axislineAxislabelColor
-                                                }
-                                        },
-                                            splitLine:
-                                        {
-                                            show: false //去掉网格线
-                                        },
-                                    type: 'category',
-
-
-                                    data: [{
-                                            value: '',
-                                            barWidth: '40',
-                                            // 突出周一
-                                            textStyle:
-                                                {
-                                                            color: '#999'
-                                                }
-                                            }]
+                        axisLine:
+                            {
+                                lineStyle:
+                                    {
+                                        color: axislineLinestyleColor,
+                                        width: '1'
+                                    }
                             },
-            series: series
+                        axisTick:
+                            {
+                                lineStyle:
+                                    {
+                                        color: axislineAxistickColor
+                                    }
+                            },
+                        axisLabel:
+                            {
+                                show: true,
+                                textStyle:
+                                    {
+                                        color: axislineAxislabelColor
+                                    }
+                            },
+                        splitLine:
+                            {
+                                show: false //去掉网格线
+                            },
+                        type: 'category',
+
+
+                        data: [{
+                            value: '',
+                            barWidth: '40',
+                            // 突出周一
+                            textStyle:
+                                {
+                                    color: '#999'
+                                }
+                        }]
+                    },
+                series: series
             };
     }
     //仪表盘图
-    if (data.graph == 'gauge')
-    {
+    if (data.graph == 'gauge') {
         option =
             {
                 "toolbox": {"feature": feature},
@@ -1435,7 +1430,7 @@ var graph_ajax = function (data, obj, callback)
                         "z": 2,
                         "zlevel": 0,
                         "bottom": 30
-                },
+                    },
                 "series":
                     [{
                         "name": "推荐净值",
@@ -1447,9 +1442,9 @@ var graph_ajax = function (data, obj, callback)
                                         "opacity": 0.8,
                                         "color": [[0.5, "rgba(115, 47, 195, 0.4)"], [1, "#732FC3"]]
                                     }
-                        },
-                        "value":  d_data.y[0]['data'][0],
-                        "percent":d_data.y[0]['data'][0],
+                            },
+                        "value": d_data.y[0]['data'][0],
+                        "percent": d_data.y[0]['data'][0],
                         "detail": {"offsetCenter": [0, "100"], "textStyle": {"color": "#000", "fontSize": 24}},
                         "animation": false,
                         "data":
@@ -1457,7 +1452,7 @@ var graph_ajax = function (data, obj, callback)
                                 "value": d_data.y[0]['data'][0],
                                 "name": d_data.y[0]['name'],
                                 "serise_name": d_data.y[0]['name']
-                             }],
+                            }],
                         "type": "gauge",
                         "startAngle": 180,
                         "endAngle": 0,
@@ -1476,8 +1471,12 @@ var graph_ajax = function (data, obj, callback)
                         "splitNumber": 4,
                         "pointer": {"width": 12, "length": "50%", "color": "#000"},
                         "itemStyle": {"normal": {"color": "auto"}},
-                        "title": {"show": true, "offsetCenter": [0, "170"], "textStyle": {"fontSize": 24, "fontWeight": "bold"}}
-                }],
+                        "title": {
+                            "show": true,
+                            "offsetCenter": [0, "170"],
+                            "textStyle": {"fontSize": 24, "fontWeight": "bold"}
+                        }
+                    }],
                 "chartHeight": "650",
                 "title":
                     [{
@@ -1508,164 +1507,161 @@ var graph_ajax = function (data, obj, callback)
                         "left": 0,
                         "bottom": "30px",
                         "top": "548px"
-                }]
+                    }]
             }, {
-                "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
-                "grid":
-                    {
-                        "show": false,
-                        "top": "65px",
-                        "height": 170,
-                        "left": "center",
-                        "right": "20%",
-                        "width": 530,
-                        "z": 2,
-                        "zlevel": 0,
-                        "bottom": 30
-                    },
-                "graphic":
-                    [{
-                        "type": "text",
-                        "z": 100,
-                        "left": "center",
-                        "top": "260px",
-                        "style": {"fill": "#000", "text": ["全部"], "font": "bold 24px Microsoft YaHei"}
-                    }],
-                "yAxis":
-                    {
-                        "axisTick": {"show": false},
-                        "axisLine": {"show": false},
-                        "splitLine": {"show": false},
-                        "axisLabel": {"margin": 20, "textStyle": {"color": "#000", "fontSize": 14}},
-                        "data": ["贬损者 68", "中立者 20", "推荐者 12"]
-                    },
-                "xAxis":
-                    {
-                        "axisTick": {"show": false},
-                        "axisLine": {"show": false},
-                        "splitLine": {"show": false},
-                        "show": false,
-                        "min": 0,
-                        "max": 100
-                    },
-                "tooltip": {"show": true},
-                "series":
-                    [{
-                        "data":
-                            [{
-                                "name": "贬损者",
-                                "realValue": 17,
-                                "value": 68,
-                                "percent": 68,
-                                "people": 68,
-                                "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                                "itemStyle": {"normal": {"color": "#DC1E35"}}
-                            }, {
-                                "name": "中立者",
-                                "realValue": 5,
-                                "value": 20,
-                                "percent": 20,
-                                "people": 20,
-                                "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                                "itemStyle": {"normal": {"color": "#F6A623"}}
-                            }, {
-                                "name": "推荐者",
-                                "realValue": 3,
-                                "value": 12,
-                                "percent": 12,
-                                "people": 12,
-                                "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                                "itemStyle": {"normal": {"color": "#40BA2C"}}
-                        }],
-                        "animation": false,
-                        "type": "pictorialBar",
-                        "symbolRepeat": "10",
-                        "symbolMargin": "0",
-                        "symbolClip": true,
-                        "symbolSize": 40,
-                        "symbolBoundingData": 100
-                    }, {
-                        "data":
-                            [{
-                                "name": "贬损者",
-                                "realValue": 17,
-                                "value": 100,
-                                "percent": 68,
-                                "people": 68,
-                                "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                                "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
-                            }, {
-                                "name": "中立者",
-                                "realValue": 5,
-                                "value": 100,
-                                "percent": 20,
-                                "people": 20,
-                                "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                                "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
-                            }, {
-                                "name": "推荐者",
-                                "realValue": 3,
-                                "value": 100,
-                                "percent": 12,
-                                "people": 12,
-                                "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                                "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
-                        }],
-                        "animation": false,
-                        "type": "pictorialBar",
-                        "symbolRepeat": "10",
-                        "symbolMargin": "0",
-                        "symbolClip": true,
-                        "symbolSize": 40,
-                        "symbolBoundingData": 100,
-                        "z": -5
+            "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
+            "grid":
+                {
+                    "show": false,
+                    "top": "65px",
+                    "height": 170,
+                    "left": "center",
+                    "right": "20%",
+                    "width": 530,
+                    "z": 2,
+                    "zlevel": 0,
+                    "bottom": 30
+                },
+            "graphic":
+                [{
+                    "type": "text",
+                    "z": 100,
+                    "left": "center",
+                    "top": "260px",
+                    "style": {"fill": "#000", "text": ["全部"], "font": "bold 24px Microsoft YaHei"}
                 }],
-                "unit": "人",
-                "chartHeight": "450",
-                "formatterScheme": "default",
-                "title":
-                    [{
-                        "text": "人群分布:推荐者\/中立者\/贬损者",
-                        "subtext": "%",
-                        "textStyle":
-                            {
-                                "color": "#000",
-                                "fontStyle": "normal",
-                                "fontWeight": "bolder",
-                                "fontFamily": "Microsoft YaHei",
-                                "fontSize": 16
-                            },
-                        "left": 0,
-                        "bottom": 0,
-                        "top": "0px"
-                    }, {
-                        "text": "",
-                        "subtext": "基数: n=25 \n\n数据来源：Q11",
-                        "textStyle":
-                            {
-                                "color": "#000",
-                                "fontStyle": "normal",
-                                "fontWeight": "bolder",
-                                "fontFamily": "Microsoft YaHei",
-                                "fontSize": "12"
-                            },
-                        "left": 0,
-                        "bottom": "30px",
-                        "top": "300px"
+            "yAxis":
+                {
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "axisLabel": {"margin": 20, "textStyle": {"color": "#000", "fontSize": 14}},
+                    "data": ["贬损者 68", "中立者 20", "推荐者 12"]
+                },
+            "xAxis":
+                {
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "show": false,
+                    "min": 0,
+                    "max": 100
+                },
+            "tooltip": {"show": true},
+            "series":
+                [{
+                    "data":
+                        [{
+                            "name": "贬损者",
+                            "realValue": 17,
+                            "value": 68,
+                            "percent": 68,
+                            "people": 68,
+                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                            "itemStyle": {"normal": {"color": "#DC1E35"}}
+                        }, {
+                            "name": "中立者",
+                            "realValue": 5,
+                            "value": 20,
+                            "percent": 20,
+                            "people": 20,
+                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                            "itemStyle": {"normal": {"color": "#F6A623"}}
+                        }, {
+                            "name": "推荐者",
+                            "realValue": 3,
+                            "value": 12,
+                            "percent": 12,
+                            "people": 12,
+                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                            "itemStyle": {"normal": {"color": "#40BA2C"}}
+                        }],
+                    "animation": false,
+                    "type": "pictorialBar",
+                    "symbolRepeat": "10",
+                    "symbolMargin": "0",
+                    "symbolClip": true,
+                    "symbolSize": 40,
+                    "symbolBoundingData": 100
+                }, {
+                    "data":
+                        [{
+                            "name": "贬损者",
+                            "realValue": 17,
+                            "value": 100,
+                            "percent": 68,
+                            "people": 68,
+                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                            "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
+                        }, {
+                            "name": "中立者",
+                            "realValue": 5,
+                            "value": 100,
+                            "percent": 20,
+                            "people": 20,
+                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                            "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
+                        }, {
+                            "name": "推荐者",
+                            "realValue": 3,
+                            "value": 100,
+                            "percent": 12,
+                            "people": 12,
+                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                            "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
+                        }],
+                    "animation": false,
+                    "type": "pictorialBar",
+                    "symbolRepeat": "10",
+                    "symbolMargin": "0",
+                    "symbolClip": true,
+                    "symbolSize": 40,
+                    "symbolBoundingData": 100,
+                    "z": -5
+                }],
+            "unit": "人",
+            "chartHeight": "450",
+            "formatterScheme": "default",
+            "title":
+                [{
+                    "text": "人群分布:推荐者\/中立者\/贬损者",
+                    "subtext": "%",
+                    "textStyle":
+                        {
+                            "color": "#000",
+                            "fontStyle": "normal",
+                            "fontWeight": "bolder",
+                            "fontFamily": "Microsoft YaHei",
+                            "fontSize": 16
+                        },
+                    "left": 0,
+                    "bottom": 0,
+                    "top": "0px"
+                }, {
+                    "text": "",
+                    "subtext": "基数: n=25 \n\n数据来源：Q11",
+                    "textStyle":
+                        {
+                            "color": "#000",
+                            "fontStyle": "normal",
+                            "fontWeight": "bolder",
+                            "fontFamily": "Microsoft YaHei",
+                            "fontSize": "12"
+                        },
+                    "left": 0,
+                    "bottom": "30px",
+                    "top": "300px"
                 }]
-            };
+        };
     }
     //纵向柱状堆叠图
-    if (data.graph == 'bar-y-category-stack')
-    {
+    if (data.graph == 'bar-y-category-stack') {
         var series = []
         var legend = []
-        for (i = 0; i < d_data.y.length; i++)
-        {
+        for (i = 0; i < d_data.y.length; i++) {
             var draw_value = [];
             draw_value[i] = [];
-            $.each(d_data.y[i]['data'], function (j, val)
-            {
+            $.each(d_data.y[i]['data'], function (j, val) {
 
                 if (val < 6) {
                     draw_value[i][j] =
@@ -1695,7 +1691,7 @@ var graph_ajax = function (data, obj, callback)
                                         }
                                 },
                         }
-                    }
+                }
             });
             legend[i] = d_data.y[i]['name'];
             series[i] =
@@ -1705,12 +1701,12 @@ var graph_ajax = function (data, obj, callback)
                     stack: '总量',
                     label:
                         {
-                        normal:
-                            {
-                                show: true,
-                                position: 'insideRight',
-                                formatter: '{c}%'
-                            }
+                            normal:
+                                {
+                                    show: true,
+                                    position: 'insideRight',
+                                    formatter: '{c}%'
+                                }
                         },
                     data: draw_value[i]
                 }
@@ -1724,10 +1720,10 @@ var graph_ajax = function (data, obj, callback)
                     {
                         feature:
                             {
-                            saveAsImage:
-                                {   //辅助工具-保存图片
-                                    show: false
-                                }
+                                saveAsImage:
+                                    {   //辅助工具-保存图片
+                                        show: false
+                                    }
                             }
                     },
                 color: colors,
@@ -1748,7 +1744,7 @@ var graph_ajax = function (data, obj, callback)
                             },
                         bottom: 0,
                         data: legend,
-                },
+                    },
                 grid:
                     {
                         left: '3%',
@@ -1819,9 +1815,9 @@ var graph_ajax = function (data, obj, callback)
                         type: 'category',
 
                         data: d_data.x['data']
-                },
+                    },
                 series: series
-        };
+            };
     }
 
 // 使用刚指定的配置项和数据显示图表。
@@ -1833,8 +1829,7 @@ var graph_ajax = function (data, obj, callback)
     var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
 // var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
 //    判断图表类型
-    if ($.inArray(data.graph, graph_type) == -1)
-    {
+    if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
     }
@@ -1887,7 +1882,7 @@ var graph_ajax = function (data, obj, callback)
             yAxis:
                 {
                     lineWidth: 1,// Y轴的宽度
-        //					min: 0,
+                    //					min: 0,
                     title:
                         {
                             text: null,
@@ -1929,9 +1924,8 @@ var graph_ajax = function (data, obj, callback)
                     enabled: false
                 },
             series: '',//data.y//eval(data[1].series[0].name)
-    };
-    switch (data.graph)
-    {
+        };
+    switch (data.graph) {
         case 'solid_line' ://实心线性图
             params.chart.type = 'line';
             params.yAxis =
@@ -1942,20 +1936,20 @@ var graph_ajax = function (data, obj, callback)
                             text: null
                         },
                 }
-        break;
+            break;
         case 'doubleY_solid_line' ://实心线形(双Y轴)图
             params.chart.type = 'line';
             params.chart.zoomType = 'xy';
-        break;
+            break;
         case 'solid_xline' ://实心线性图
             params.chart.type = 'line';
             params.yAxis =
                 {
-                minPadding: 0,
-                title:
-                    {
-                        text: null
-                    },
+                    minPadding: 0,
+                    title:
+                        {
+                            text: null
+                        },
                 },
                 params.xAxis =
                     {
@@ -1966,7 +1960,7 @@ var graph_ajax = function (data, obj, callback)
                                 align: 'right'
                             }
                     }
-        break;
+            break;
         case 'reversed' ://Y轴倒序
             params.chart.type = 'line';
             params.yAxis =
@@ -1978,7 +1972,7 @@ var graph_ajax = function (data, obj, callback)
                             text: null
                         },
                 }
-        break;
+            break;
         case 'horizontal_bar' ://横向柱状图
             params.chart.type = 'bar';
             params.legend.enabled = false;
@@ -2003,7 +1997,7 @@ var graph_ajax = function (data, obj, callback)
                                 text: null
                             },
                     }
-        break;
+            break;
         case 'stack_bar' ://堆叠柱状图
             params.chart.type = 'column';
             params.colors = ['#b2d235', '#ffe600'];
@@ -2016,14 +2010,14 @@ var graph_ajax = function (data, obj, callback)
                             align: 'right'
                         },
                 },
-            params.yAxis =
-                {
-                    tickPixelInterval: 70,
-                    title:
-                        {
-                            text: null
-                        },
-                }
+                params.yAxis =
+                    {
+                        tickPixelInterval: 70,
+                        title:
+                            {
+                                text: null
+                            },
+                    }
             params.plotOptions =
                 {
                     column:
@@ -2041,7 +2035,7 @@ var graph_ajax = function (data, obj, callback)
                         }
                 }
             params.yAxis.reversedStacks = false;
-        break;
+            break;
         case 'dcolumn_bar' ://双柱状图
             params.chart.type = 'column';
             params.colors = ['#b2d235', '#ffe600'];
@@ -2050,7 +2044,7 @@ var graph_ajax = function (data, obj, callback)
 //                    pointPadding:  0,
 //                },
 //            };
-        break;
+            break;
         case 'dcolumn_xtilt_bar':
             params.chart.type = 'column';
             params.colors = ['#b2d235', '#ffe600'];
@@ -2063,13 +2057,13 @@ var graph_ajax = function (data, obj, callback)
                             align: 'right'
                         }
                 },
-            params.plotOptions =
-                {
-                    column:
-                        {
-                            pointPadding: 0,
-                        },
-                };
+                params.plotOptions =
+                    {
+                        column:
+                            {
+                                pointPadding: 0,
+                            },
+                    };
             params.yAxis =
                 {
                     lineWidth: 0,
@@ -2078,7 +2072,7 @@ var graph_ajax = function (data, obj, callback)
                             enabled: false
                         }
                 }
-        break;
+            break;
         case '2Dpie':
             params.chart.type = 'pie';
             params.colors = ['#b2d235', '#8dc63f', '#ffe600', '#fcb515', '#939598', '#20c4f4', '#02abe3', '#f48587'];
@@ -2096,7 +2090,7 @@ var graph_ajax = function (data, obj, callback)
                         }
                 }
 
-        break;
+            break;
         case 'hollow_line' ://空心线性图
             params.chart.type = 'line';
             params.plotOptions =
@@ -2122,7 +2116,7 @@ var graph_ajax = function (data, obj, callback)
                             text: null
                         },
                 }
-        break;
+            break;
         //多柱状堆叠图
         case 'mcolumn_bar' :
             params.chart.type = 'column';
@@ -2164,14 +2158,13 @@ var graph_ajax = function (data, obj, callback)
                 {
                     labels:
                         {
-                            formatter: function ()
-                                {
-                                    return this.value.substr(0, 5);
-                                }
+                            formatter: function () {
+                                return this.value.substr(0, 5);
+                            }
                         }
                 },
-            params.yAxis.reversedStacks = false;
-        break;
+                params.yAxis.reversedStacks = false;
+            break;
         case 'hcolumn_bar' ://横向柱状堆叠图
             params.chart.type = 'bar';
             params.yAxis =
@@ -2202,14 +2195,14 @@ var graph_ajax = function (data, obj, callback)
                             dataLabels:
                                 {
                                     enabled: true,
-            //                            overflow: false,
+                                    //                            overflow: false,
                                     format: '{point.percentage:.0f}%',
                                     color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'rgb(128, 128, 128)'
                                 }
                         },
                 }
             params.yAxis.reversedStacks = false;
-        break;
+            break;
         case 'single_bar' ://单柱状
             params.chart.type = 'column';
             params.legend.enabled = false;
@@ -2219,77 +2212,75 @@ var graph_ajax = function (data, obj, callback)
                     rotation: -45,
                     align: 'right'
                 },
-            params.yAxis =
-                {
-                    lineWidth: 0,
-                    title:
-                        {
-                            enabled: false
-                        }
-                }
+                params.yAxis =
+                    {
+                        lineWidth: 0,
+                        title:
+                            {
+                                enabled: false
+                            }
+                    }
             break;
         case 'imgsingle_bar' ://单柱状
             var categoryLinks =
                 {
-                '19岁及以下 ': 'http://180.169.19.166/graph_html5/js/img/19.png',
-                '20～29岁 ': 'http://180.169.19.166/graph_html5/js/img/20~29.png',
-                '30～39岁 ': 'http://180.169.19.166/graph_html5/js/img/30~39.png',
-                '40～49岁 ': 'http://180.169.19.166/graph_html5/js/img/40~49.png',
-                '50岁及以上 ': 'http://180.169.19.166/graph_html5/js/img/50.png',
+                    '19岁及以下 ': 'http://180.169.19.166/graph_html5/js/img/19.png',
+                    '20～29岁 ': 'http://180.169.19.166/graph_html5/js/img/20~29.png',
+                    '30～39岁 ': 'http://180.169.19.166/graph_html5/js/img/30~39.png',
+                    '40～49岁 ': 'http://180.169.19.166/graph_html5/js/img/40~49.png',
+                    '50岁及以上 ': 'http://180.169.19.166/graph_html5/js/img/50.png',
                 };
             params.chart.type = 'column';
             params.legend.enabled = false;
             params.xAxis.labels =
                 {
                     useHTML: true,
-                    formatter: function ()
-                    {
+                    formatter: function () {
                         return '<img src="' + categoryLinks[this.value] + '" width=50px>' + '<br />' + this.value
                     },
                     tickLength: 1,
                     align: 'center'
                 },
-            params.plotOptions =
-                {
-                    dataLabels:
-                        {
-                            enabled: true,
-                            inside: true,
-                        },
-                    column:
-                        {
-                            stacking: 'percentage'
-                        },
-                    series:
-                        {
-                            pointWidth: 50,
-                            dataLabels:
-                                {
-                                    enabled: true,
-                                    overflow: false,
-                                    format: '{point.y:.2f}%',
-                                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'rgb(128, 128, 128)'
-                                }
-                        }
-                },
-            params.yAxis =
-                {
-                    max: 100,
-                    lineWidth: 0,
-                    title:
-                        {
-                            enabled: false
-                        },
-                    labels:
-                        {
-                            formatter: function ()
-                                {
+                params.plotOptions =
+                    {
+                        dataLabels:
+                            {
+                                enabled: true,
+                                inside: true,
+                            },
+                        column:
+                            {
+                                stacking: 'percentage'
+                            },
+                        series:
+                            {
+                                pointWidth: 50,
+                                dataLabels:
+                                    {
+                                        enabled: true,
+                                        overflow: false,
+                                        format: '{point.y:.2f}%',
+                                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'rgb(128, 128, 128)'
+                                    }
+                            }
+                    },
+                params.yAxis =
+                    {
+                        max: 100,
+                        lineWidth: 0,
+                        title:
+                            {
+                                enabled: false
+                            },
+                        labels:
+                            {
+                                formatter: function () {
                                     return this.value + '%';
                                 }
-                        },
-                    opposite: true
-                }
-        break;
+                            },
+                        opposite: true
+                    }
+            break;
         //2D饼图
         case '2Dmpie':
             params.chart =
@@ -2297,8 +2288,7 @@ var graph_ajax = function (data, obj, callback)
                     type: 'pie',
                     events:
                         {
-                            load: function ()
-                            {
+                            load: function () {
                                 $(".highcharts-tooltip span").css
                                 ({
                                     'background-color': '#252525',
@@ -2319,16 +2309,14 @@ var graph_ajax = function (data, obj, callback)
                                 text: null
                             }
                     }
-        break;
+            break;
         default:
-        break;
+            break;
     }
 
-    function formatChar(d_data)
-    {
+    function formatChar(d_data) {
         callback && callback(d_data);
-        if (d_data.setParam)
-        {
+        if (d_data.setParam) {
             var unit = d_data.setParam[0].unit ? d_data.setParam[0].unit : '万人';
             var yReversed = d_data.setParam[0].yReversed ? d_data.setParam[0].yReversed : false;
             var xRotation = d_data.setParam[0].xRotation ? d_data.setParam[0].xRotation : 0;
@@ -2379,8 +2367,7 @@ var graph_ajax = function (data, obj, callback)
                             dashStyle: "longdash"
                         }
                 }
-            if (data.graph == "mcolumn_bar" || data.graph == "hcolumn_bar")
-            {
+            if (data.graph == "mcolumn_bar" || data.graph == "hcolumn_bar") {
                 params.tooltip =
                     {
                         style:
@@ -2394,11 +2381,10 @@ var graph_ajax = function (data, obj, callback)
                         backgroundColor: '#252525',
                         pointFormat: '<span style="color:{series.color}">{series.name}</span>:  <span style="color:#fff;font-weight: bold;">{point.y:.2f}(' + unit + ') ({point.percentage:.0f}%)</span><br/>',
                         shared: true,
-                }
+                    }
             }
         }
-        if (data.graph == "mcolumn_bar" || data.graph == "hcolumn_bar")
-        {
+        if (data.graph == "mcolumn_bar" || data.graph == "hcolumn_bar") {
             params.tooltip =
                 {
                     style:
@@ -2412,14 +2398,12 @@ var graph_ajax = function (data, obj, callback)
                     backgroundColor: '#252525',
                     pointFormat: '<span style="color:{series.color}">{series.name}</span>:  <span style="color:#fff;font-weight: bold;">{point.y:.2f} ({point.percentage:.2f}%)</span><br/>',
                     shared: true,
-            }
+                }
         }
         //2D饼图
-        if (data.graph == '2Dpie')
-        {
+        if (data.graph == '2Dpie') {
             var n = [];
-            for (var i = 0; i < d_data.x.data.length; i++)
-            {
+            for (var i = 0; i < d_data.x.data.length; i++) {
                 var y = [];
                 y[0] = d_data.x.data[i];
                 y[1] = d_data.y[0].data[i];
@@ -2428,8 +2412,7 @@ var graph_ajax = function (data, obj, callback)
             d_data.y[0].data = n;
         }
         //水平柱状图
-        if (data.graph == 'horizontal_bar')
-        {
+        if (data.graph == 'horizontal_bar') {
             var y = [];
             y[0] = d_data.y;
             d_data.y = y;
@@ -2437,18 +2420,14 @@ var graph_ajax = function (data, obj, callback)
         params.xAxis.categories = d_data.x.data;
         params.series = d_data.y;
         //平滑曲线图
-        if (data.graph == 'doubleY_solid_line')
-        {
+        if (data.graph == 'doubleY_solid_line') {
             var colors = Highcharts.getOptions().colors;
-            if (!d_data.y[0].unit)
-            {
+            if (!d_data.y[0].unit) {
                 d_data.y[0].unit = "";
             }
             ;
-            if (d_data.y[1])
-            {
-                if (!d_data.y[1].unit)
-                {
+            if (d_data.y[1]) {
+                if (!d_data.y[1].unit) {
                     d_data.y[1].unit = "";
                 }
             }
@@ -2476,8 +2455,7 @@ var graph_ajax = function (data, obj, callback)
                             format: '{value} ' + d_data.y[0].unit,
                         },
                 }]
-            if (d_data.y.length > 1)
-            {
+            if (d_data.y.length > 1) {
                 params.series[1] =
                     {
                         name: d_data.y[1].name,
@@ -2527,15 +2505,13 @@ var graph_ajax = function (data, obj, callback)
         }
         ;
         //2D饼图
-        if (data.graph == '2Dmpie')
-        {
+        if (data.graph == '2Dmpie') {
             var categoryLinks =
                 {
                     '男': 'http://180.169.19.166/graph_html5/js/img/man.png',
                     '女': 'http://180.169.19.166/graph_html5/js/img/woman.png',
                 };
-            if (d_data.x.data[0] != '男' || d_data.x.data[1] != '女')
-            {
+            if (d_data.x.data[0] != '男' || d_data.x.data[1] != '女') {
                 alert('数据格式不正确！');
                 return false;
             }
@@ -2565,8 +2541,7 @@ var graph_ajax = function (data, obj, callback)
                 }];
             var browserData = [];
             var versionsData = [];
-            for (var i = 0; i < data.length; i++)
-            {
+            for (var i = 0; i < data.length; i++) {
                 browserData.push
                 ({
                     name: categories[i],
@@ -2574,8 +2549,7 @@ var graph_ajax = function (data, obj, callback)
                     color: color[i]
                 });
 
-                for (var j = 0; j < data[i].drilldown.data.length; j++)
-                {
+                for (var j = 0; j < data[i].drilldown.data.length; j++) {
                     var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5;
                     versionsData.push
                     ({
@@ -2588,21 +2562,20 @@ var graph_ajax = function (data, obj, callback)
             ;
             params.tooltip =
                 {
-                style:
-                    {
-                        color: '#fff',
-                        opacity: 0.9,
-                        padding: 0
-                    },
-                borderRadius: 20,
-                borderWidth: 0,
-                shadow: true,
-                useHTML: true,
-                formatter: function ()
-                {
-                    return '<div class="tooltip" style="padding:8px">' + '<a style="font-size: 15px">' + this.point.name + '</a>' + '<br />' + '<b>' + this.series.name + '： ' + Highcharts.numberFormat(this.y) + '</b></div>';// ' + Highcharts.numberFormat(this.percentage, 2) + '%
-                }
-            },
+                    style:
+                        {
+                            color: '#fff',
+                            opacity: 0.9,
+                            padding: 0
+                        },
+                    borderRadius: 20,
+                    borderWidth: 0,
+                    shadow: true,
+                    useHTML: true,
+                    formatter: function () {
+                        return '<div class="tooltip" style="padding:8px">' + '<a style="font-size: 15px">' + this.point.name + '</a>' + '<br />' + '<b>' + this.series.name + '： ' + Highcharts.numberFormat(this.y) + '</b></div>';// ' + Highcharts.numberFormat(this.percentage, 2) + '%
+                    }
+                },
                 params.plotOptions =
                     {
                         pie:
@@ -2615,43 +2588,40 @@ var graph_ajax = function (data, obj, callback)
                     };
             params.series =
                 [{
-                name: d_data.y[0].name,
-                data: browserData,
-                size: '60%',
-                dataLabels:
-                    {
-                        distance: -1,
-                        enable: true,
-                        color: 'white',
-                        format: '{point.percentage:.2f}%'
-                    }
-            }, {
-                name: d_data.y[0].name,
-                data: versionsData,
-                size: '82%',
-                innerSize: '46%',
-                dataLabels:
-                    {
-                        zIndex: 1,
-                        enabled: true,
-                        useHTML: true,
-                        connectorWidth: 0,
-                        distance: 30,
-                        inside: true,
-                        y: -15,
-                        formatter: function ()
+                    name: d_data.y[0].name,
+                    data: browserData,
+                    size: '60%',
+                    dataLabels:
                         {
-                            return '<img src="' + categoryLinks[this.point.name] + '">'
-                        },
-                    }
-            }];
+                            distance: -1,
+                            enable: true,
+                            color: 'white',
+                            format: '{point.percentage:.2f}%'
+                        }
+                }, {
+                    name: d_data.y[0].name,
+                    data: versionsData,
+                    size: '82%',
+                    innerSize: '46%',
+                    dataLabels:
+                        {
+                            zIndex: 1,
+                            enabled: true,
+                            useHTML: true,
+                            connectorWidth: 0,
+                            distance: 30,
+                            inside: true,
+                            y: -15,
+                            formatter: function () {
+                                return '<img src="' + categoryLinks[this.point.name] + '">'
+                            },
+                        }
+                }];
         }
         var num = (d_data.y).length;
-        if (data.graph == 'imgsingle_bar')
-        {
+        if (data.graph == 'imgsingle_bar') {
             var total = 0;
-            for (var i = 0; i < d_data.y[0].data.length; i++)
-            {
+            for (var i = 0; i < d_data.y[0].data.length; i++) {
                 total += d_data.y[0].data[i];
             }
             params.series[0].data = [{y: d_data.y[0].data[0] / total * 100, extra: d_data.y[0].data[0]},
@@ -2659,8 +2629,7 @@ var graph_ajax = function (data, obj, callback)
                 {y: d_data.y[0].data[2] / total * 100, extra: d_data.y[0].data[2]},
                 {y: d_data.y[0].data[3] / total * 100, extra: d_data.y[0].data[3]},
                 {y: d_data.y[0].data[4] / total * 100, extra: d_data.y[0].data[4]}];
-            if (d_data.x.data[0] != "19岁及以下 " || d_data.x.data[1] != "20～29岁 " || d_data.x.data[2] != "30～39岁 " || d_data.x.data[3] != "40～49岁 " || d_data.x.data[4] != "50岁及以上 ")
-            {
+            if (d_data.x.data[0] != "19岁及以下 " || d_data.x.data[1] != "20～29岁 " || d_data.x.data[2] != "30～39岁 " || d_data.x.data[3] != "40～49岁 " || d_data.x.data[4] != "50岁及以上 ") {
                 alert('数据格式不正确！');
                 return false;
             }
@@ -2679,22 +2648,19 @@ var graph_ajax = function (data, obj, callback)
                     crosshairs: false,
                     pointFormat: '<span style="color:{series.color}">{series.name}</span>:  <span style="color:#fff;font-weight: bold;">{point.extra:.2f}</span><br/>',
                 }
-        };
+        }
+        ;
         //2D环形图
-        if (data.graph != '2Dpie')
-        {
-            switch (num)
-            {
+        if (data.graph != '2Dpie') {
+            switch (num) {
                 case 1:
                     params.colors = ['#b2d235'];
                     break;
                 case 2:
-                    if (data.graph == 'stack_bar')
-                    {
+                    if (data.graph == 'stack_bar') {
                         params.colors = ['#ffe600', '#b2d235'];
                     }
-                    if (data.graph == '2Dmpie')
-                    {
+                    if (data.graph == '2Dmpie') {
                         params.colors = ['#7cb5ec', '#f15c80'];
                     }
                     params.colors = ['#b2d235', '#ffe600'];
@@ -2728,8 +2694,7 @@ var graph_ajax = function (data, obj, callback)
         obj.highcharts(params);
     }
 
-    if (data.type == 'data')
-    {
+    if (data.type == 'data') {
         var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
         formatChar(d_data);
         return;
@@ -2742,18 +2707,15 @@ var graph_ajax = function (data, obj, callback)
         data: data.params,
         dataType: 'json',
 //                jsonp:'jsonp_callback',
-        beforeSend: function (data)
-        {
+        beforeSend: function (data) {
 //           obj.css({'height': '300px';'margin-top': '10%;'});
             obj.html('<div style="text-align: center;height: 300px;"><img style="margin-top:130px;" src="http://180.169.19.166/graph_html5/js/img/loading.gif" border="0" /></div>');
         },
-        success: function (d_data)
-        {
+        success: function (d_data) {
 
             formatChar(d_data);
         },
-        error: function (err)
-        {
+        error: function (err) {
             alert('ajax error');
         }
     });
