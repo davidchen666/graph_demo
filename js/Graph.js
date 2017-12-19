@@ -3952,7 +3952,7 @@ var graph_ajax = function (data, obj, callback) {
             "unit": "人",
             "type": "heapmap",
             "title": [{
-                "text": "城市",
+                "text": "热力地图",
                 "subtext": "%",
                 "textStyle": {
                     "color": "#000",
