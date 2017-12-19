@@ -807,7 +807,7 @@ var graph_ajax = function (data, obj, callback) {
     //line：折线图
     //k：k线图
     //graph：力导图
-    var graph_type = ['pie-doughnut', 'word', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
+    var graph_type = ['pie-doughnut', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -878,6 +878,14 @@ var graph_ajax = function (data, obj, callback) {
 
         remarks2 = graphdata['remarks2']
     }
+
+    //默认显示tooltip
+    var tooltip = true;
+    //tooptip==2时不显示
+    if (graphdata['tooltip'] == 2) {
+        tooltip = false;
+    }
+    // console.log(graphdata);
     var title = [
         {
 
@@ -955,117 +963,210 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //词云
-    if (data.graph == 'word') {
+    if (data.graph == 'wordCloud') {
         option = {
-                    "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
-                    "tooltip": {"show": true},
-                    "graphic": [{
-                        "type": "text",
-                        "z": 100,
-                        "left": "center",
-                        "bottom": 70,
-                        "style": {"fill": "#000", "text": "", "font": "bold 24px Microsoft YaHei"}
-                    }],
-                    "series": {
-                        "type": "wordCloud",
-                        "sizeRange": [12, 80],
-                        "rotationRange": [0, 0],
-                        "gridSize": 0,
-                        "width": "100%",
-                        "data": [{"id": 0, "value": 1, "name": "飓风", "realValue": "1人"}, {
-                            "id": 1,
-                            "value": 1,
-                            "name": "过年",
-                            "realValue": "1人"
-                        }, {"id": 2, "value": 1, "name": "sh", "realValue": "1人"}, {
-                            "id": 3,
-                            "value": 1,
-                            "name": "tuu",
-                            "realValue": "1人"
-                        }, {"id": 4, "value": 1, "name": "uh", "realValue": "1人"}, {
-                            "id": 5,
-                            "value": 1,
-                            "name": "wo",
-                            "realValue": "1人"
-                        }, {"id": 6, "value": 1, "name": "今生今世", "realValue": "1人"}, {
-                            "id": 7,
-                            "value": 1,
-                            "name": "健身",
-                            "realValue": "1人"
-                        }, {"id": 8, "value": 1, "name": "发", "realValue": "1人"}, {
-                            "id": 9,
-                            "value": 1,
-                            "name": "君君",
-                            "realValue": "1人"
-                        }, {"id": 10, "value": 1, "name": "家", "realValue": "1人"}, {
-                            "id": 11,
-                            "value": 1,
-                            "name": "放假",
-                            "realValue": "1人"
-                        }, {"id": 12, "value": 1, "name": "时间", "realValue": "1人"}, {
-                            "id": 13,
-                            "value": 1,
-                            "name": "浓浓",
-                            "realValue": "1人"
-                        }, {"id": 14, "value": 1, "name": "淡淡", "realValue": "1人"}, {
-                            "id": 15,
-                            "value": 1,
-                            "name": "现货",
-                            "realValue": "1人"
-                        }, {"id": 16, "value": 1, "name": "男女", "realValue": "1人"}, {
-                            "id": 17,
-                            "value": 1,
-                            "name": "看看书",
-                            "realValue": "1人"
-                        }, {"id": 18, "value": 1, "name": "解放军", "realValue": "1人"}, {
-                            "id": 19,
-                            "value": 1,
-                            "name": "oe",
-                            "realValue": "1人"
-                        }]
-                    },
-                    "grid": {
-                        "show": false,
-                        "top": "78px",
-                        "height": "375px",
-                        "left": "20%",
-                        "right": "20%",
-                        "width": "500px",
-                        "z": 2,
-                        "zlevel": 0,
-                        "bottom": 30
-                    },
-                    "unit": "人",
-                    "title": [{
-                        "text": "开放题",
-                        "subtext": "",
-                        "textStyle": {
-                            "color": "#000",
-                            "fontStyle": "normal",
-                            "fontWeight": "bolder",
-                            "fontFamily": "Microsoft YaHei",
-                            "fontSize": 18
+            "series": {
+                "type": "wordCloud",
+                "sizeRange": [20, 60],//字体大小范围
+                "rotationRange": [-40, 20],//角度
+                "gridSize": 10,//偏移
+                "width": "100%",//字浮云宽度
+                "data": [
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'blue'
+                            },
                         },
-                        "left": 0,
-                        "bottom": 0,
-                        "top": "0px"
-                    }, {
-                        "text": "",
-                        "subtext": "基数: 所有被访者 n=3 \n\n数据来源：Q5",
-                        "textStyle": {
-                            "color": "#000",
-                            "fontStyle": "normal",
-                            "fontWeight": "bolder",
-                            "fontFamily": "Microsoft YaHei",
-                            "fontSize": "14"
+                        "value": 1,
+                        "name": "飓风",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'red'
+                            },
                         },
-                        "left": 0,
-                        "bottom": "30px",
-                        "top": "490px"
-                    }],
-                    "chartHeight": "548"
-                }
+                        "value": 2,
+                        "name": "过年",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 3,
+                        "name": "sh",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 4,
+                        "name": "tuu",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 5,
+                        "name": "uh",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 6,
+                        "name": "wo",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 7,
+                        "name": "今生今世",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 8,
+                        "name": "sh",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 9,
+                        "name": "健身",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 10,
+                        "name": "发",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 11,
+                        "name": "君君",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 12,
+                        "name": "家",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 13,
+                        "name": "放假",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 14,
+                        "name": "时间",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 15,
+                        "name": "浓浓",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 16,
+                        "name": "淡淡",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 17,
+                        "name": "现货",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 18,
+                        "name": "男女",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 19,
+                        "name": "看看书",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 20,
+                        "name": "解放军",
+                    },
+                    {
+                        textStyle: {
+                            normal: {
+                                color: 'yellow'
+                            },
+                        },
+                        "value": 21,
+                        "name": "oe",
+                    }
+                ]
+            },
+
+
         }
+    }
 
     //地图
     if (data.graph == 'map') {
@@ -3983,14 +4084,7 @@ var graph_ajax = function (data, obj, callback) {
     }
     // console.log(data.data);
 
-    //默认显示tooltip
-    var tooltip = true;
 
-    //tooptip==2时不显示
-    if (graphdata['tooltip'] == 2) {
-        tooltip = false;
-    }
-    // console.log(graphdata);
     //折线图
     if (data.graph == 'line') {
         var series = [];
@@ -4181,238 +4275,238 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //K线图
-    if (data.graph == 'k') {
-
-        //图形标题
-        app.title = '上证指数';
-        //设定X轴时间段
-        // reverse()用于数组中元素的顺序改为倒序
-        // 开盘(open),收盘(close),最低(lowest),最高(heightest)
-        var rawData = [[]].reverse();
-        //计算MA平均线.N日移动平均线=N日收盘价之和/N,dayCount要计算的天数
-        //把数组中的日期和数据分离,返回数组中的日期或数据
-        function calculateMA(dayCount, data) {
-
-
-        }
-
-        var option = {
-            //背景填充色
-            // backgroundColor:
-            //鼠标悬浮显示数据
-            //图例组件
-            legend: {
-                //图例里的数据数组
-                data: ['日K', 'M1'],
-                //图例关闭时的颜色
-                inactiveColor: '#777',
-                //字体颜色
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            //提示框组件
-            tooltip: {
-                //是否显示提示框组件
-                show: true,
-                //触发类型,axis:坐标轴触发，主要用在柱状图/折线图等
-                trigger: 'axis',
-                //什么都不触发
-                // trigger:'none',
-                //数据项图形触发，主要用在散点图/饼图等无类目轴的图表中使用。
-                // trigger:'item',
-
-                //坐标轴指示器配置项
-                axisPointer: {
-                    //图例翻页是否使用动画
-                    animation: false,
-                    //指示器类型，cross为十字准星指示器
-                    type: 'cross',
-                    //直线指示器
-                    // type:'line',
-                    //阴影指示器
-                    // type:'shadow',
-                    lineStyle: {
-                        //线的颜色
-                        color: '#376df4',
-                        //线宽
-                        width: 2,
-                        //线的类型
-                        //实线
-                        // type:'solid',
-                        //虚线
-                        // type:'dashed',
-                        //点线
-                        // type:'dotted',
-
-                        //图形透明度.0-1,为0时不绘制该图形
-                        opacity: 1
-                    }
-                }
-            },
-            //直角坐标系grid中的x轴,一般情况下单个grid组件最多只能放上下两个X轴
-            xAxis: {
-                //是否显示X轴
-                show: true,
-                //坐标轴类型
-                //类目轴,适用于离散的类目数据,为该类型时必须通过data设置类目数据
-                type: 'category',
-                // //数值轴,适用于连续数据
-                // type:'value',
-                // //时间轴,适用于连续的时序数据
-                // type:'time',
-                // //对数轴,适用于对数数据
-                // type:'log',
-
-                //类目数据,在类目轴(type:'category')中有效
-                data: dates,
-                axisLine: {lineStyle: {color: '#8392A5'}}
-            },
-            yAxis: {
-                //是否显示Y轴
-                show: true,
-                //
-                scale: true,
-                //坐标轴轴线相关设置
-                axisLine: {lineStyle: {color: '#8392A5'}},
-                //坐标轴在grid区域中的分割线
-                //是否显示分割线
-                splitLine: {show: false}
-            },
-            //直角坐标系内绘图网格,单个grid内最多可以放置上下两个X轴,左右两个Y 轴.可以在网格上绘制折线图/柱状图/散点图(气泡图).
-            gird: {
-                //grid组件离容器下侧的距离
-                //bottom值可以设置为80,也可以设置为80%这种相对于容器高宽的百分比
-                bottom: 80
-            },
-            //dataZoom组件用于区域缩放
-            dataZoom: [{
-                //字体颜色
-                textStyle: {
-                    color: '#8392A5'
-                },
-                //手柄形状为icon,支持路径字符串
-                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
-                //控制手柄的尺寸
-                handleSize: '80%',
-                //数据阴影的样式
-                dataBackground: {
-                    //数据阴影填充的颜色
-                    areaStyle: {
-                        color: '#8392A5'
-                    },
-                    //阴影的线条样式
-                    lineStyle: {
-                        //图形透明度
-                        opacity: 0.8,
-                        //线条颜色
-                        color: '#8392A5'
-                    }
-                },
-                //手柄样式配置
-                handleStyle: {
-                    //图形的颜色
-                    color: '#fff',
-                    //图形阴影的模糊大小
-                    shadowBlur: 3,
-                    //阴影水平方向上的偏移距离
-                    shadowOffsetX: 2,
-                    //阴影垂直方向上的偏移距离
-                    shadowOffsetY: 2
-                }
-
-            }, {
-                //是否显示组件
-                show: true,
-                //组件类型:内置
-                type: 'inside'
-                // 组件类型:滑块
-                // type:'slider'
-            }],
-            //是否启用动画
-            animation: false,
-            series:
-                [{
-                    //图表类型:K线图
-                    type: 'candlestick',
-                    name: '日K',
-                    data: data,
-                    itemStyle:
-                        {
-                            normal:
-                                {
-                                    //阳线填充色
-                                    Color: '#b3e9d9',
-                                    //阴线填充色
-                                    Color0: '#11ba89',
-                                    //阳线图形描边色
-                                    borderColor: '#b3e9d9',
-                                    //阴线图形描边色
-                                    borderColor0: '#11ba89',
-                                    //描边图形宽度
-                                    borderWidth: '1'
-                                },
-                        }
-                }, {
-                    //系列名称,用于tooltip的显示
-                    name: 'M1',
-                    //线条类型
-                    type: 'line',
-                    //数据格式.对象
-                    data: calculateMA(5, data),
-                    //是否开启平滑曲线
-                    smooth: true,
-                    //是否显示Symbol
-                    showSymbol: false,
-                    //线条样式
-                    lineStyle: {
-                        normal: {
-                            width: 1
-                        }
-                    }
-                }
-                    // {
-                    //     name: 'M2',
-                    //     type:'line',
-                    //     data: calculateMA(10,data),
-                    //     smooth: true,
-                    //     showSymbol:false,
-                    //     lineStyle:{
-                    //         normal:{
-                    //             width:1
-                    //         }
-                    //     }
-                    //
-                    //  },{
-                    //     name:'M3',
-                    //     type:'line',
-                    //     data:calculateMA(20,data),
-                    //     //是否开启平滑曲线
-                    //     smooth:true,
-                    //     showSymbol:false,
-                    //     lineStyle:{
-                    //         normal:{
-                    //             width:1
-                    //         }
-                    //     }
-                    // },{
-                    //     name:'M4',
-                    //     type:'line',
-                    //     data:calculateMA(30,data),
-                    //     //是否开启平滑曲线
-                    //     smooth:true,
-                    //     //是否显示Symbol
-                    //     showSymbol:false,
-                    //     lineStyle:{
-                    //         normal:{
-                    //             width:1
-                    //         }
-                    //     }
-                    // }
-                ]
-        }
-    }
-    ;
+    // if (data.graph == 'k') {
+    //
+    //     //图形标题
+    //     app.title = '上证指数';
+    //     //设定X轴时间段
+    //     // reverse()用于数组中元素的顺序改为倒序
+    //     // 开盘(open),收盘(close),最低(lowest),最高(heightest)
+    //     var rawData = [[]].reverse();
+    //     //计算MA平均线.N日移动平均线=N日收盘价之和/N,dayCount要计算的天数
+    //     //把数组中的日期和数据分离,返回数组中的日期或数据
+    //     function calculateMA(dayCount, data) {
+    //
+    //
+    //     }
+    //
+    //     var option = {
+    //         //背景填充色
+    //         // backgroundColor:
+    //         //鼠标悬浮显示数据
+    //         //图例组件
+    //         legend: {
+    //             //图例里的数据数组
+    //             data: ['日K', 'M1'],
+    //             //图例关闭时的颜色
+    //             inactiveColor: '#777',
+    //             //字体颜色
+    //             textStyle: {
+    //                 color: '#fff'
+    //             }
+    //         },
+    //         //提示框组件
+    //         tooltip: {
+    //             //是否显示提示框组件
+    //             show: true,
+    //             //触发类型,axis:坐标轴触发，主要用在柱状图/折线图等
+    //             trigger: 'axis',
+    //             //什么都不触发
+    //             // trigger:'none',
+    //             //数据项图形触发，主要用在散点图/饼图等无类目轴的图表中使用。
+    //             // trigger:'item',
+    //
+    //             //坐标轴指示器配置项
+    //             axisPointer: {
+    //                 //图例翻页是否使用动画
+    //                 animation: false,
+    //                 //指示器类型，cross为十字准星指示器
+    //                 type: 'cross',
+    //                 //直线指示器
+    //                 // type:'line',
+    //                 //阴影指示器
+    //                 // type:'shadow',
+    //                 lineStyle: {
+    //                     //线的颜色
+    //                     color: '#376df4',
+    //                     //线宽
+    //                     width: 2,
+    //                     //线的类型
+    //                     //实线
+    //                     // type:'solid',
+    //                     //虚线
+    //                     // type:'dashed',
+    //                     //点线
+    //                     // type:'dotted',
+    //
+    //                     //图形透明度.0-1,为0时不绘制该图形
+    //                     opacity: 1
+    //                 }
+    //             }
+    //         },
+    //         //直角坐标系grid中的x轴,一般情况下单个grid组件最多只能放上下两个X轴
+    //         xAxis: {
+    //             //是否显示X轴
+    //             show: true,
+    //             //坐标轴类型
+    //             //类目轴,适用于离散的类目数据,为该类型时必须通过data设置类目数据
+    //             type: 'category',
+    //             // //数值轴,适用于连续数据
+    //             // type:'value',
+    //             // //时间轴,适用于连续的时序数据
+    //             // type:'time',
+    //             // //对数轴,适用于对数数据
+    //             // type:'log',
+    //
+    //             //类目数据,在类目轴(type:'category')中有效
+    //             data: dates,
+    //             axisLine: {lineStyle: {color: '#8392A5'}}
+    //         },
+    //         yAxis: {
+    //             //是否显示Y轴
+    //             show: true,
+    //             //
+    //             scale: true,
+    //             //坐标轴轴线相关设置
+    //             axisLine: {lineStyle: {color: '#8392A5'}},
+    //             //坐标轴在grid区域中的分割线
+    //             //是否显示分割线
+    //             splitLine: {show: false}
+    //         },
+    //         //直角坐标系内绘图网格,单个grid内最多可以放置上下两个X轴,左右两个Y 轴.可以在网格上绘制折线图/柱状图/散点图(气泡图).
+    //         gird: {
+    //             //grid组件离容器下侧的距离
+    //             //bottom值可以设置为80,也可以设置为80%这种相对于容器高宽的百分比
+    //             bottom: 80
+    //         },
+    //         //dataZoom组件用于区域缩放
+    //         dataZoom: [{
+    //             //字体颜色
+    //             textStyle: {
+    //                 color: '#8392A5'
+    //             },
+    //             //手柄形状为icon,支持路径字符串
+    //             handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+    //             //控制手柄的尺寸
+    //             handleSize: '80%',
+    //             //数据阴影的样式
+    //             dataBackground: {
+    //                 //数据阴影填充的颜色
+    //                 areaStyle: {
+    //                     color: '#8392A5'
+    //                 },
+    //                 //阴影的线条样式
+    //                 lineStyle: {
+    //                     //图形透明度
+    //                     opacity: 0.8,
+    //                     //线条颜色
+    //                     color: '#8392A5'
+    //                 }
+    //             },
+    //             //手柄样式配置
+    //             handleStyle: {
+    //                 //图形的颜色
+    //                 color: '#fff',
+    //                 //图形阴影的模糊大小
+    //                 shadowBlur: 3,
+    //                 //阴影水平方向上的偏移距离
+    //                 shadowOffsetX: 2,
+    //                 //阴影垂直方向上的偏移距离
+    //                 shadowOffsetY: 2
+    //             }
+    //
+    //         }, {
+    //             //是否显示组件
+    //             show: true,
+    //             //组件类型:内置
+    //             type: 'inside'
+    //             // 组件类型:滑块
+    //             // type:'slider'
+    //         }],
+    //         //是否启用动画
+    //         animation: false,
+    //         series:
+    //             [{
+    //                 //图表类型:K线图
+    //                 type: 'candlestick',
+    //                 name: '日K',
+    //                 data: data,
+    //                 itemStyle:
+    //                     {
+    //                         normal:
+    //                             {
+    //                                 //阳线填充色
+    //                                 Color: '#b3e9d9',
+    //                                 //阴线填充色
+    //                                 Color0: '#11ba89',
+    //                                 //阳线图形描边色
+    //                                 borderColor: '#b3e9d9',
+    //                                 //阴线图形描边色
+    //                                 borderColor0: '#11ba89',
+    //                                 //描边图形宽度
+    //                                 borderWidth: '1'
+    //                             },
+    //                     }
+    //             }, {
+    //                 //系列名称,用于tooltip的显示
+    //                 name: 'M1',
+    //                 //线条类型
+    //                 type: 'line',
+    //                 //数据格式.对象
+    //                 data: calculateMA(5, data),
+    //                 //是否开启平滑曲线
+    //                 smooth: true,
+    //                 //是否显示Symbol
+    //                 showSymbol: false,
+    //                 //线条样式
+    //                 lineStyle: {
+    //                     normal: {
+    //                         width: 1
+    //                     }
+    //                 }
+    //             }
+    //                 // {
+    //                 //     name: 'M2',
+    //                 //     type:'line',
+    //                 //     data: calculateMA(10,data),
+    //                 //     smooth: true,
+    //                 //     showSymbol:false,
+    //                 //     lineStyle:{
+    //                 //         normal:{
+    //                 //             width:1
+    //                 //         }
+    //                 //     }
+    //                 //
+    //                 //  },{
+    //                 //     name:'M3',
+    //                 //     type:'line',
+    //                 //     data:calculateMA(20,data),
+    //                 //     //是否开启平滑曲线
+    //                 //     smooth:true,
+    //                 //     showSymbol:false,
+    //                 //     lineStyle:{
+    //                 //         normal:{
+    //                 //             width:1
+    //                 //         }
+    //                 //     }
+    //                 // },{
+    //                 //     name:'M4',
+    //                 //     type:'line',
+    //                 //     data:calculateMA(30,data),
+    //                 //     //是否开启平滑曲线
+    //                 //     smooth:true,
+    //                 //     //是否显示Symbol
+    //                 //     showSymbol:false,
+    //                 //     lineStyle:{
+    //                 //         normal:{
+    //                 //             width:1
+    //                 //         }
+    //                 //     }
+    //                 // }
+    //             ]
+    //     }
+    // }
+    // ;
 
 
     //横向柱状图
