@@ -1164,7 +1164,6 @@ var graph_ajax = function (data, obj, callback) {
                 ]
             },
 
-
         }
     }
 
@@ -4546,74 +4545,41 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 "type": "bar",
                 "data": [{
-                    "id": 5,
-                    "value": 0,
-                    "name": "菜5",
-                    "realValue": "0人",
-                    "percent": 0,
-                    "realPercent": "0%"
-                }, {"id": 4, "value": 0, "name": "菜4", "realValue": "0人", "percent": 0, "realPercent": "0%"}, {
-                    "id": 10,
-                    "value": 33.333333333333336,
-                    "name": "菜10",
-                    "realValue": "1人",
-                    "percent": 33,
-                    "realPercent": "33.3333333333%"
-                }, {
-                    "id": 9,
-                    "value": 33.333333333333336,
-                    "name": "菜9",
-                    "realValue": "1人",
-                    "percent": 33,
-                    "realPercent": "33.3333333333%"
-                }, {
-                    "id": 8,
-                    "value": 33.333333333333336,
-                    "name": "菜8",
-                    "realValue": "1人",
-                    "percent": 33,
-                    "realPercent": "33.3333333333%"
-                }, {
-                    "id": 7,
-                    "value": 33.333333333333336,
-                    "name": "菜7",
-                    "realValue": "1人",
-                    "percent": 33,
-                    "realPercent": "33.3333333333%"
-                }, {
-                    "id": 6,
-                    "value": 33.333333333333336,
-                    "name": "菜6",
-                    "realValue": "1人",
-                    "percent": 33,
-                    "realPercent": "33.3333333333%"
-                }, {
-                    "id": 3,
-                    "value": 33.333333333333336,
-                    "name": "菜3",
-                    "realValue": "1人",
-                    "percent": 33,
-                    "realPercent": "33.3333333333%"
-                }, {
-                    "id": 2,
-                    "value": 66.66666666666667,
-                    "name": "菜2",
-                    "realValue": "2人",
-                    "percent": 67,
-                    "realPercent": "66.6666666667%"
-                }, {
-                    "id": 1,
-                    "value": 66.66666666666667,
+                    "value": 1,
                     "name": "菜1",
-                    "realValue": "2人",
-                    "percent": 67,
-                    "realPercent": "66.6666666667%"
+                }, {
+                    "value": 2,
+                    "name": "菜2",
+                }, {
+                    "value": 33,
+                    "name": "菜3",
+                }, {
+                    "value": 33,
+                    "name": "菜4",
+                }, {
+                    "value": 33,
+                    "name": "菜5",
+                }, {
+                    "value": 33,
+                    "name": "菜6",
+                }, {
+                    "value": 33,
+                    "name": "菜7",
+                }, {
+                    "value": 33,
+                    "name": "菜8",
+                }, {
+                    "value": 66,
+                    "name": "菜9",
+                }, {
+                    "value": 66,
+                    "name": "菜10",
                 }]
             }],
             "color": ["#732FC3", "#824DD2", "#9067E0", "#9D82EF", "#ADA1FF", "#C0B7FF", "#B7B1DD", "#A099D0", "#8A83BB", "#726BA4"],
             "title": [{
-                "text": "喜欢菜品？",
-                "subtext": "%",
+                "text": "条形图",
+                "subtext": "副标题副标题",
                 "textStyle": {
                     "color": "#000",
                     "fontStyle": "normal",
