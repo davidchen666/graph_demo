@@ -811,7 +811,7 @@ var graph_ajax = function (data, obj, callback) {
     //line：折线图
     //k：k线图
     //graph：力导图
-    var graph_type = ['pie', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
+    var graph_type = ['pie', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack','pictorial-x'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -845,6 +845,11 @@ var graph_ajax = function (data, obj, callback) {
     if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1) {
         feature = {"saveAsImage": {"type": "png"}}
     }
+    //设置动画开启开关
+    // if (typeof(d_data.animation) == "undefined" || d_data.animation == 1)
+    // {
+
+    // }
     //对网页自适应进行判断
     var gTop = 23;
     var gBottom = 27;
@@ -889,6 +894,8 @@ var graph_ajax = function (data, obj, callback) {
         tooltip = false;
     }
     // console.log(graphdata);
+
+
     var title = [
         {
 
@@ -929,17 +936,17 @@ var graph_ajax = function (data, obj, callback) {
                         "zlevel": 0,
                         "bottom": 30
                     },
-                    // "legend": {
-                    //     "selectedMode": false,
-                    //     "itemWidth": 14,
-                    //     "itemHeight": 14,
-                    //     "itemGap": 20,
-                    //     "bottom": 180,
-                    //     "top": "middle",
-                    //     "left": "0px",
-                    //     "orient": "vertical",
-                    //     "data": ["男", "女"]
-                    // },
+                    "legend": {
+                        "selectedMode": false,
+                        "itemWidth": 14,
+                        "itemHeight": 14,
+                        "itemGap": 20,
+                        "bottom": 180,
+                        "top": "middle",
+                        "left": "0px",
+                        "orient": "vertical",
+                        "data": ["男", "女"]
+                    },
                     "series": [{
                                 "type": "pie",
                                 "radius": [110, 170],
@@ -952,7 +959,7 @@ var graph_ajax = function (data, obj, callback) {
                                             {
                                             "value": 66.66666666666667,
                                             "name": "男",
-                                            },
+                                            }, 
                                             {
                                             "value": 33.333333333333336,
                                             "name": "女",
@@ -962,19 +969,19 @@ var graph_ajax = function (data, obj, callback) {
                     "unit": "人",
                     "tooltipNumberBits": 10,
                     "numberBits": 0,
-                    // "title": [{
-                    //     "text": "姓别？",
-                    //     "subtext": "%",
-                    //     "left": 0,
-                    //     "bottom": 0,
-                    //     "top": "0px"
-                    // }, {
-                    //     "text": "",
-                    //     "subtext": "基数: 所有被访者 n=3 \n\n数据来源：Q2",
-                    //     "left": 0,
-                    //     "bottom": "30px",
-                    //     "top": "510px"
-                    // }],
+                    "title": [{
+                        "text": "姓别？",
+                        "subtext": "%",
+                        "left": 0,
+                        "bottom": 0,
+                        "top": "0px"
+                    }, {
+                        "text": "",
+                        "subtext": "基数: 所有被访者 n=3 \n\n数据来源：Q2",
+                        "left": 0,
+                        "bottom": "30px",
+                        "top": "510px"
+                    }],
                     "chartHeight": "568"
         };
     }
@@ -1000,11 +1007,11 @@ var graph_ajax = function (data, obj, callback) {
         // }
         option = {
             animationDuration: animationDuration,
-            toolbox: {
-                feature: {
-                    saveAsImage: {show: true}   //辅助工具-保存图片
-                }
-            },
+            // toolbox: {
+            //     feature: {
+            //         saveAsImage: {show: true}   //辅助工具-保存图片
+            //     }
+            // },
             // series:series
             "series": {
                 "type": "wordCloud",
@@ -1064,11 +1071,7 @@ var graph_ajax = function (data, obj, callback) {
 
     //地图
     if (data.graph == 'map') {
-
-
-
         option = {
-            "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
             "tooltip": {"trigger": "item"},
             "visualMap": {
                 "type": "continuous",
@@ -2367,28 +2370,28 @@ var graph_ajax = function (data, obj, callback) {
             "unit": "人",
             "type": "heapmap",
             "title": [{
-                "text": "热力地图",
-                "subtext": "%",
-                "textStyle": {
-                    // "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 18
-                },
+                // "text": "热力地图",
+                // "subtext": "%",
+                // "textStyle": {
+                //     // "color": "#000",
+                //     "fontStyle": "normal",
+                //     "fontWeight": "bolder",
+                //     "fontFamily": "Microsoft YaHei",
+                //     "fontSize": 18
+                // },
                 "left": 0,
                 "bottom": 0,
                 "top": "0px"
             }, {
-                "text": "",
-                "subtext": "基数: 所有被访者 n=4 \n\n数据来源：Q3",
-                "textStyle": {
-                    // "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "14"
-                },
+                // "text": "",
+                // "subtext": "基数: 所有被访者 n=4 \n\n数据来源：Q3",
+                // "textStyle": {
+                //     // "color": "#000",
+                //     "fontStyle": "normal",
+                //     "fontWeight": "bolder",
+                //     "fontFamily": "Microsoft YaHei",
+                //     "fontSize": "14"
+                // },
                 "left": 0,
                 "bottom": "30px",
                 "top": "598px"
@@ -2790,7 +2793,7 @@ var graph_ajax = function (data, obj, callback) {
     //横向柱状堆叠图
     if (data.graph == 'bar-x-category-stack') {
         option = {
-            "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
+            // "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
             "calculable": true,
             "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
             "grid": {
@@ -3080,54 +3083,53 @@ var graph_ajax = function (data, obj, callback) {
     //仪表盘图
     if (data.graph == 'gauge') {
         option = {
-
-            "series": [{
-                "name": "推荐净值",
-                // wukong!
-                "axisLine": {
-                    "lineStyle": {
-                        "width": 80,
-                        "opacity": 0.8,
-                        "color": [[0.5, "rgba(115, 47, 195, 0.4)"], [1, "#732FC3"]]
-                    }
-                },
-                "detail": {"offsetCenter": [0, "62"],
-                    "textStyle": {"color": "#000", "fontSize": 18}
-                },
-                // wukong!
-                "data": [{"value": -100, "realPercent": "-100%", "name": "全部", "serise_name": "推荐净值"}],
-                "type": "gauge",
-                //起始旋转角度
-                "startAngle": 180,
-                //末尾旋转角度
-                "endAngle": 0,
-                "splitLine": {
-                    "length": "25",
-                    "lineStyle": {
-                        "width": 2,
-                        //线条类型
-                        "type": "solid",
-                        "opacity": 1
-                    }},
-                "axisTick": {
-                    "length": "15",
-                    "splitNumber": 10,
-                    "lineStyle": {"width": 2, "type": "solid", "opacity": 0.4}
-                },
-                "axisLabel": {
-                    "show": true,
-                    "distance": 64,
-                    "textStyle": {
-                        "fontSize": 14
-                    }},
-                //字体间距
-                "splitNumber": 4,
-                "pointer": {"width": 12, "length": "50%", "color": "#f00"},
-                "itemStyle": {"normal": {"color": "auto"}},
-                "title": {"show": true, "offsetCenter": [0, "110"], "textStyle": {"fontSize": 18}}
-            }],
-
-
+                    "series": [{
+                                "name": "推荐净值",
+                                // wukong!
+                                "axisLine": {
+                                            "lineStyle": {
+                                                            "width": 80,
+                                                            "opacity": 0.8,
+                                                            "color": [[0.5, "rgba(115, 47, 195, 0.4)"], [1, "#732FC3"]]
+                                                        }
+                                            },
+                                "detail": { "offsetCenter": [0, "62"],
+                                            "textStyle": {"color": "#000", "fontSize": 18}
+                                },
+                                // wukong!
+                                "data": [{"value": -100, "realPercent": "-100%", "name": "全部", "serise_name": "推荐净值"}],
+                                "type": "gauge",
+                                //起始旋转角度
+                                "startAngle": 180,
+                                //末尾旋转角度
+                                "endAngle": 0,
+                                "splitLine": {
+                                                "length": "25",
+                                                "lineStyle": {
+                                                                "width": 2,
+                                                                //线条类型
+                                                                "type": "solid",
+                                                                "opacity": 1
+                                                            }
+                                            },
+                                "axisTick": {
+                                                "length": "15",
+                                                "splitNumber": 10,
+                                                "lineStyle": {"width": 2, "type": "solid", "opacity": 0.4}
+                                            },
+                                "axisLabel": {
+                                                "show": true,
+                                                "distance": 64,
+                                                "textStyle": {
+                                                                "fontSize": 14
+                                                            }
+                                            },
+                                //字体间距
+                                "splitNumber": 4,
+                                "pointer": {"width": 12, "length": "50%", "color": "#f00"},
+                                "itemStyle": {"normal": {"color": "auto"}},
+                                "title": {"show": true, "offsetCenter": [0, "110"], "textStyle": {"fontSize": 18}}
+                            }],
         }
 
     }
@@ -3179,7 +3181,6 @@ var graph_ajax = function (data, obj, callback) {
                 data: draw_value[i]
             }
         }
-        
         option = {
             animationDuration: animationDuration,
             toolbox: {
@@ -3261,6 +3262,199 @@ var graph_ajax = function (data, obj, callback) {
         };
     }
 
+    //条形象形图
+    if (data.graph == 'pictorial-x')
+    {
+        option= {
+            "toolbox": {
+                "feature": {
+                    "saveAsImage": {
+                        "type": "png"
+                    }
+                }
+            },
+            "grid": {
+                "show": false,
+                "top": "65px",
+                "height": 170,
+                "left": "center",
+                "right": "20%",
+                "width": 417,
+                "z": 2,
+                "zlevel": 0,
+                "bottom": 30
+            },
+            "graphic": [
+                {
+                    "type": "text",
+                    "z": 100,
+                    "left": "center",
+                    "top": "245px",
+                    "style": {
+                        "fill": "#000",
+                        "text": [
+                            "全部"
+                        ],
+                        "font": "18px Microsoft YaHei"
+                    }
+                }
+            ],
+            "yAxis": {
+                "axisTick": {
+                    "show": false
+                },
+                "axisLine": {
+                    "show": false
+                },
+                "splitLine": {
+                    "show": false
+                },
+                "axisLabel": {
+                    "margin": 20,
+                    // "textStyle": {
+                    //     "color": "#000",
+                    //     "fontSize": 14
+                    // }
+                },
+                "data": [
+                    "贬损者 100",
+                    "中立者 0",
+                    "推荐者 0"
+                ]
+            },
+            "xAxis": {
+                "axisTick": {
+                    "show": false
+                },
+                "axisLine": {
+                    "show": false
+                },
+                "splitLine": {
+                    "show": false
+                },
+                "show": false,
+                "min": 0,
+                "max": 100
+            },
+            "tooltip": {
+                "show": true
+            },
+            "series": [
+                {
+                    "data": [
+                        {
+                            "realValue": "1人",
+                            "name": "贬损者",
+                            "value": 100,
+                            "percent": 100,
+                            "realPercent": "100%",
+                            "people": "1人",
+                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                            // "itemStyle": {
+                            //     "normal": {
+                            //         "color": "#DC1E35"
+                            //     }
+                            // }
+                        },
+                        {
+                            "realValue": "0人",
+                            "name": "中立者",
+                            "value": 0,
+                            "percent": 0,
+                            "realPercent": "0%",
+                            "people": "0人",
+                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                            // "itemStyle": {
+                            //     "normal": {
+                            //         "color": "#F6A623"
+                            //     }
+                            // }
+                        },
+                        {
+                            "realValue": "0人",
+                            "name": "推荐者",
+                            "value": 0,
+                            "percent": 0,
+                            "realPercent": "0%",
+                            "people": "0人",
+                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                            // "itemStyle": {
+                            //     "normal": {
+                            //         "color": "#40BA2C"
+                            //     }
+                            // }
+                        }
+                    ],
+                    "animation": false,
+                    "type": "pictorialBar",
+                    "symbolRepeat": "10",
+                    "symbolMargin": "0",
+                    "symbolClip": true,
+                    "symbolSize": 36,
+                    "symbolBoundingData": 100
+                },
+                {
+                    "data": [
+                        {
+                            "realValue": "1人",
+                            "name": "贬损者",
+                            "value": 100,
+                            "percent": 100,
+                            "realPercent": "100%",
+                            "people": "1人",
+                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                            // "itemStyle": {
+                            //     "normal": {
+                            //         "opacity": 0.2,
+                            //         "color": "#b1b1b1"
+                            //     }
+                            // }
+                        },
+                        {
+                            "realValue": "0人",
+                            "name": "中立者",
+                            "value": 100,
+                            "percent": 0,
+                            "realPercent": "0%",
+                            "people": "0人",
+                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                            // "itemStyle": {
+                            //     "normal": {
+                            //         "opacity": 0.2,
+                            //         "color": "#b1b1b1"
+                            //     }
+                            // }
+                        },
+                        {
+                            "realValue": "0人",
+                            "name": "推荐者",
+                            "value": 100,
+                            "percent": 0,
+                            "realPercent": "0%",
+                            "people": "0人",
+                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                            // "itemStyle": {
+                            //     "normal": {
+                            //         "opacity": 0.2,
+                            //         "color": "#b1b1b1"
+                            //     }
+                            // }
+                        }
+                    ],
+                    "animation": false,
+                    "type": "pictorialBar",
+                    "symbolRepeat": "10",
+                    "symbolMargin": "0",
+                    "symbolClip": true,
+                    "symbolSize": 36,
+                    "symbolBoundingData": 100,
+                    "z": -5
+                }
+            ],
+
+        }
+    }
+
     // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
@@ -3269,7 +3463,7 @@ var graph_ajax = function (data, obj, callback) {
 
 
 //    var unit = data.params && data.params.unit || '万人';
-    var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie', 'wordCloud', 'map', 'line','pie'];
+    var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie', 'wordCloud', 'map', 'line','pie','pictorial-x'];
 // var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
 
     if ($.inArray(data.graph, graph_type) == -1) {
