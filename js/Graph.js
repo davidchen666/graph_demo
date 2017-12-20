@@ -616,91 +616,95 @@ dataThenme['wk_colorful'] = {
 //自定义主题
 dataThenme['custom'] = {
     "version": 1,
-    "themeName": "infographic",
+    "themeName": "macarons",
     "theme": {
         "seriesCnt": "4",
         "backgroundColor": "rgba(0,0,0,0)",
-        "titleColor": "#27727b",
+        "titleColor": "#008acd",
         "subtitleColor": "#aaaaaa",
         "textColorShow": false,
         "textColor": "#333",
         "markTextColor": "#eeeeee",
         "color": [
-            "#c1232b",
-            "#27727b",
-            "#fcce10",
-            "#e87c25",
-            "#b5c334",
-            "#fe8463",
-            "#9bca63",
-            "#fad860",
-            "#f3a43b",
-            "#60c0dd",
-            "#d7504b",
-            "#c6e579",
-            "#f4e001",
-            "#f0805a",
-            "#26c0c0"
+            "#2ec7c9",
+            "#b6a2de",
+            "#5ab1ef",
+            "#ffb980",
+            "#d87a80",
+            "#8d98b3",
+            "#e5cf0d",
+            "#97b552",
+            "#95706d",
+            "#dc69aa",
+            "#07a2a4",
+            "#9a7fd1",
+            "#588dd5",
+            "#f5994e",
+            "#c05050",
+            "#59678c",
+            "#c9ab00",
+            "#7eb00a",
+            "#6f5553",
+            "#c14089"
         ],
         "borderColor": "#ccc",
         "borderWidth": 0,
         "visualMapColor": [
-            "#c1232b",
-            "#fcce10"
+            "#5ab1ef",
+            "#e0ffff"
         ],
         "legendTextColor": "#333333",
-        "kColor": "#c1232b",
-        "kColor0": "#b5c334",
-        "kBorderColor": "#c1232b",
-        "kBorderColor0": "#b5c334",
+        "kColor": "#d87a80",
+        "kColor0": "#2ec7c9",
+        "kBorderColor": "#d87a80",
+        "kBorderColor0": "#2ec7c9",
         "kBorderWidth": 1,
-        "lineWidth": "3",
-        "symbolSize": "5",
+        "lineWidth": 2,
+        "symbolSize": 3,
         "symbol": "emptyCircle",
         "symbolBorderWidth": 1,
-        "lineSmooth": false,
+        "lineSmooth": true,
         "graphLineWidth": 1,
         "graphLineColor": "#aaaaaa",
-        "mapLabelColor": "#c1232b",
-        "mapLabelColorE": "#640000",
+        "mapLabelColor": "#d87a80",
+        "mapLabelColorE": "rgb(100,0,0)",
         "mapBorderColor": "#eeeeee",
         "mapBorderColorE": "#444444",
         "mapBorderWidth": 0.5,
         "mapBorderWidthE": 1,
         "mapAreaColor": "#dddddd",
-        "mapAreaColorE": "#fe994e",
+        "mapAreaColorE": "rgba(254,153,78,1)",
         "axes": [
             {
                 "type": "all",
                 "name": "通用坐标轴",
                 "axisLineShow": true,
-                "axisLineColor": "#333",
+                "axisLineColor": "#eeeeee",
                 "axisTickShow": true,
-                "axisTickColor": "#333",
+                "axisTickColor": "#eeeeee",
                 "axisLabelShow": true,
-                "axisLabelColor": "#333",
+                "axisLabelColor": "#eeeeee",
                 "splitLineShow": true,
                 "splitLineColor": [
-                    "#ccc"
+                    "#aaaaaa"
                 ],
                 "splitAreaShow": false,
                 "splitAreaColor": [
-                    "rgba(250,250,250,0.3)",
-                    "rgba(200,200,200,0.3)"
+                    "#eeeeee"
                 ]
             },
             {
                 "type": "category",
                 "name": "类目坐标轴",
                 "axisLineShow": true,
-                "axisLineColor": "#27727b",
+                "axisLineColor": "#008acd",
                 "axisTickShow": true,
-                "axisTickColor": "#27727b",
+                "axisTickColor": "#333",
                 "axisLabelShow": true,
                 "axisLabelColor": "#333",
                 "splitLineShow": false,
                 "splitLineColor": [
-                    "#ccc"
+                    "#eee"
                 ],
                 "splitAreaShow": false,
                 "splitAreaColor": [
@@ -711,17 +715,17 @@ dataThenme['custom'] = {
             {
                 "type": "value",
                 "name": "数值坐标轴",
-                "axisLineShow": false,
-                "axisLineColor": "#333",
-                "axisTickShow": false,
+                "axisLineShow": true,
+                "axisLineColor": "#008acd",
+                "axisTickShow": true,
                 "axisTickColor": "#333",
                 "axisLabelShow": true,
                 "axisLabelColor": "#333",
                 "splitLineShow": true,
                 "splitLineColor": [
-                    "#ccc"
+                    "#eee"
                 ],
-                "splitAreaShow": false,
+                "splitAreaShow": true,
                 "splitAreaColor": [
                     "rgba(250,250,250,0.3)",
                     "rgba(200,200,200,0.3)"
@@ -731,16 +735,16 @@ dataThenme['custom'] = {
                 "type": "log",
                 "name": "对数坐标轴",
                 "axisLineShow": true,
-                "axisLineColor": "#27727b",
+                "axisLineColor": "#008acd",
                 "axisTickShow": true,
                 "axisTickColor": "#333",
                 "axisLabelShow": true,
                 "axisLabelColor": "#333",
                 "splitLineShow": true,
                 "splitLineColor": [
-                    "#ccc"
+                    "#eee"
                 ],
-                "splitAreaShow": false,
+                "splitAreaShow": true,
                 "splitAreaColor": [
                     "rgba(250,250,250,0.3)",
                     "rgba(200,200,200,0.3)"
@@ -750,14 +754,14 @@ dataThenme['custom'] = {
                 "type": "time",
                 "name": "时间坐标轴",
                 "axisLineShow": true,
-                "axisLineColor": "#27727b",
+                "axisLineColor": "#008acd",
                 "axisTickShow": true,
                 "axisTickColor": "#333",
                 "axisLabelShow": true,
                 "axisLabelColor": "#333",
                 "splitLineShow": true,
                 "splitLineColor": [
-                    "#ccc"
+                    "#eee"
                 ],
                 "splitAreaShow": false,
                 "splitAreaColor": [
@@ -767,33 +771,33 @@ dataThenme['custom'] = {
             }
         ],
         "axisSeperateSetting": true,
-        "toolboxColor": "#c1232b",
-        "toolboxEmpasisColor": "#e87c25",
-        "tooltipAxisColor": "#27727b",
-        "tooltipAxisWidth": 1,
-        "timelineLineColor": "#293c55",
+        "toolboxColor": "#2ec7c9",
+        "toolboxEmpasisColor": "#18a4a6",
+        "tooltipAxisColor": "#008acd",
+        "tooltipAxisWidth": "1",
+        "timelineLineColor": "#008acd",
         "timelineLineWidth": 1,
-        "timelineItemColor": "#27727b",
-        "timelineItemColorE": "#72d4e0",
-        "timelineCheckColor": "#c1232b",
-        "timelineCheckBorderColor": "rgba(194,53,49,0.5)",
+        "timelineItemColor": "#008acd",
+        "timelineItemColorE": "#a9334c",
+        "timelineCheckColor": "#2ec7c9",
+        "timelineCheckBorderColor": "rgba(46,199,201,0.4)",
         "timelineItemBorderWidth": 1,
-        "timelineControlColor": "#27727b",
-        "timelineControlBorderColor": "#27727b",
+        "timelineControlColor": "#008acd",
+        "timelineControlBorderColor": "#008acd",
         "timelineControlBorderWidth": 0.5,
-        "timelineLabelColor": "#293c55",
-        "datazoomBackgroundColor": "rgba(0,0,0,0)",
-        "datazoomDataColor": "rgba(181,195,52,0.3)",
-        "datazoomFillColor": "#b5c334",
-        "datazoomHandleColor": "#27727b",
+        "timelineLabelColor": "#008acd",
+        "datazoomBackgroundColor": "rgba(47,69,84,0)",
+        "datazoomDataColor": "rgba(239,239,255,1)",
+        "datazoomFillColor": "rgba(182,162,222,0.2)",
+        "datazoomHandleColor": "#008acd",
         "datazoomHandleWidth": "100",
-        "datazoomLabelColor": "#999999"
+        "datazoomLabelColor": "#333333"
     }
 }
 
 
 var graph_ajax = function (data, obj, callback) {
-    console.log(data)
+    // console.log(data)
     var graphdata = {};
     graphdata = $.parseJSON(data.data)
     var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
@@ -807,7 +811,7 @@ var graph_ajax = function (data, obj, callback) {
     //line：折线图
     //k：k线图
     //graph：力导图
-    var graph_type = ['pie-doughnut', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
+    var graph_type = ['pie', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -815,6 +819,7 @@ var graph_ajax = function (data, obj, callback) {
     var themename = data.theme;
     // var themename='wk_colorful';
     var echartsTheme = dataThenme[themename].theme;
+    // console.log(echartsTheme);
     // console.log(echartsTheme)
     // console.log(mlTheme.theme)
     // console.log(wkTheme.theme)
@@ -827,8 +832,6 @@ var graph_ajax = function (data, obj, callback) {
     //使用echarts.init()创建图标，第二个参数即为刚才注册的主题名字。
     var myChart = echarts.init(document.getElementById(obj), 'DT');
     // var myChart = echarts.init(document.getElementById(obj),'WK_purple');
-
-
     var feature = {}
     var source1 = ''
     var source2 = ''
@@ -911,60 +914,98 @@ var graph_ajax = function (data, obj, callback) {
     // 指定图表的配置项和数据
     var option = {}
     //圆环饼图
-    if (data.graph == 'pie-doughnut') {
+    if (data.graph == 'pie') {
         option = {
-            // color: colors,
-            animationDuration: animationDuration,
-            toolbox: {
-                feature: {
-                    saveAsImage: {show: false}   //辅助工具-保存图片
-                }
-            },
-            series: [
-
-                {
-                    name: '访问来源',
-                    type: 'pie',
-                    radius: ['50%', '70%'],
-                    label: {
-                        normal: {
-                            position: 'inner'
-                        }
+                    animationDuration: animationDuration,
+                    "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
+                    "grid": {
+                        "show": false,
+                        "top": "65px",
+                        "height": "340px",
+                        "left": "20%",
+                        "right": "20%",
+                        "width": "500px",
+                        "z": 2,
+                        "zlevel": 0,
+                        "bottom": 30
                     },
-                    labelLine: {
-                        normal: {
-                            show: true
-                        }
-                    },
-                    data: [
-                        {
-                            value: d_data.y[0]['data'][0],
-                            name: d_data.y[0]['name'],
-                            label: {
-                                normal: {
-                                    position: 'center',
-                                    formatter: "{b}\n{d}%"
-                                }
-                            }
-                        },
-                        {
-                            value: d_data.y[1]['data'][0],
-                            name: d_data.y[1]['name'],
-                            label: {
-                                normal: {
-                                    show: false
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
+                    // "legend": {
+                    //     "selectedMode": false,
+                    //     "itemWidth": 14,
+                    //     "itemHeight": 14,
+                    //     "itemGap": 20,
+                    //     "bottom": 180,
+                    //     "top": "middle",
+                    //     "left": "0px",
+                    //     "orient": "vertical",
+                    //     "data": ["男", "女"]
+                    // },
+                    "series": [{
+                                "type": "pie",
+                                "radius": [110, 170],
+                                "avoidLabelOverlap": false,
+                                "hoverAnimation": false,
+                                "stillShowZeroSum": false,
+                                "height": 230,
+                                //图表上的数据
+                                "data": [
+                                            {
+                                            "value": 66.66666666666667,
+                                            "name": "男",
+                                            },
+                                            {
+                                            "value": 33.333333333333336,
+                                            "name": "女",
+                                            }
+                                        ]
+                                }],
+                    "unit": "人",
+                    "tooltipNumberBits": 10,
+                    "numberBits": 0,
+                    // "title": [{
+                    //     "text": "姓别？",
+                    //     "subtext": "%",
+                    //     "left": 0,
+                    //     "bottom": 0,
+                    //     "top": "0px"
+                    // }, {
+                    //     "text": "",
+                    //     "subtext": "基数: 所有被访者 n=3 \n\n数据来源：Q2",
+                    //     "left": 0,
+                    //     "bottom": "30px",
+                    //     "top": "510px"
+                    // }],
+                    "chartHeight": "568"
         };
     }
 
     //词云
     if (data.graph == 'wordCloud') {
+        // var series = [];
+        // // var legend = [];
+        // //循环series
+        // for (var i = 0;i < len; i++)
+        // {
+        //     series[i] =
+        //         {
+        //             "type": "wordCloud",
+        //             "sizeRange": [20, 60],//字体大小范围
+        //             "rotationRange": [-40, 20],//角度
+        //             "gridSize": 10,//偏移
+        //             "width": "100%",//字浮云宽度
+        //             name: graphdata['y'][i]['name'],
+        //             value:graphdata['y'][i],
+        //             data: graphdata['y'][i]['data']
+        //         }
+        // }
         option = {
+            animationDuration: animationDuration,
+            toolbox: {
+                feature: {
+                    saveAsImage: {show: true}   //辅助工具-保存图片
+                }
+            },
+            // series:series
             "series": {
                 "type": "wordCloud",
                 "sizeRange": [20, 60],//字体大小范围
@@ -973,202 +1014,59 @@ var graph_ajax = function (data, obj, callback) {
                 "width": "100%",//字浮云宽度
                 "data": [
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'blue'
-                            },
-                        },
-                        "value": 1,
-                        "name": "飓风",
+                        value: 1,
+                        name: 'nick喜欢红烧肉',
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'red'
-                            },
-                        },
                         "value": 2,
-                        "name": "过年",
+                        "name": 'davy喜欢炸酱面',
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
                         "value": 3,
-                        "name": "sh",
+                        "name": 'gavin喜欢小笼包',
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
                         "value": 4,
-                        "name": "tuu",
+                        "name": '红灯笼',
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
                         "value": 5,
-                        "name": "uh",
+                        "name": '圣诞节',
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
                         "value": 6,
-                        "name": "wo",
+                        "name": '圣诞礼物',
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
                         "value": 7,
-                        "name": "今生今世",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 8,
-                        "name": "sh",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 9,
-                        "name": "健身",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 10,
-                        "name": "发",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 11,
-                        "name": "君君",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 12,
-                        "name": "家",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 13,
-                        "name": "放假",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 14,
-                        "name": "时间",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 15,
-                        "name": "浓浓",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 16,
-                        "name": "淡淡",
-                    },
-                    {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 17,
                         "name": "现货",
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 18,
+                        "value": 8,
                         "name": "男女",
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 19,
+                        "value": 9,
                         "name": "看看书",
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 20,
+                        "value": 10,
                         "name": "解放军",
                     },
                     {
-                        textStyle: {
-                            normal: {
-                                color: 'yellow'
-                            },
-                        },
-                        "value": 21,
+                        "value": 11,
                         "name": "oe",
                     }
                 ]
             },
-
-        }
+        };
     }
 
     //地图
     if (data.graph == 'map') {
+
+
+
         option = {
             "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
             "tooltip": {"trigger": "item"},
@@ -1176,8 +1074,7 @@ var graph_ajax = function (data, obj, callback) {
                 "type": "continuous",
                 "min": 0,
                 "max": 2,
-                "inRange": {"color": ["#eee", "#732FC3"]},
-                "outOfRange": {"color": ["rgba(177, 177, 177, 0.2)"]},
+                "inRange": {"color": [echartsTheme.visualMapColor[1], echartsTheme.visualMapColor[0]]},
                 "text": ["高", "低"],
                 "calculable": true,
                 "bottom": 50,
@@ -1224,2829 +1121,1247 @@ var graph_ajax = function (data, obj, callback) {
                     "normal": {
                         "borderWidth": 0.5,
                         "borderType": "solid",
-                        "borderColor": "rgba(196,196,196, 1)",
-                        "areaColor": "rgba(238,238,238,1)"
+                        // "borderColor": "rgba(196,196,196, 1)",
+                        // "areaColor": "rgba(238,238,238,1)"
                     },
                     "emphasis": {
                         "shadowOffsetX": 0,
-                        "areaColor": "#f5a623",
-                        "borderColor": "#666",
+                        // "areaColor": "#f5a623",
+                        // "borderColor": "#666",
                         "borderWidth": "0.5"
                     }
                 },
                 "label": {
-                    "normal": {"show": true, "textStyle": {"show": true}, "color": "#333333"},
-                    "emphasis": {"show": true, "textStyle": {"show": true, "color": "#732fc3"}}
+                    "normal": {
+                        "show": true,
+                        "textStyle": {"show": true},
+                        // "color": "#333333"
+                    },
+                    "emphasis": {
+                        "show": true,
+                        "textStyle": {
+                            "show": true,
+                            // "color": "#732fc3"
+                        }
+                    }
                 },
-                "data": [{
-                    "id": 150000,
-                    "value": 0,
-                    "name": "内蒙古",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 110000,
-                    "value": 2,
-                    "name": "北京",
-                    "realValue": "2人",
-                    "percent": 50,
-                    "realPercent": "50%"
-                }, {
-                    "id": 420000,
-                    "value": 0,
-                    "name": "湖北",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 460000,
-                    "value": 0,
-                    "name": "海南",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 140000,
-                    "value": 0,
-                    "name": "山西",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 810000,
-                    "value": 0,
-                    "name": "香港",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 230000,
-                    "value": 0,
-                    "name": "黑龙江",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 360000,
-                    "value": 0,
-                    "name": "江西",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 500000,
-                    "value": 0,
-                    "name": "重庆",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 410000,
-                    "value": 0,
-                    "name": "河南",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 220000,
-                    "value": 0,
-                    "name": "吉林",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 520000,
-                    "value": 0,
-                    "name": "贵州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 610000,
-                    "value": 0,
-                    "name": "陕西",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 130000,
-                    "value": 0,
-                    "name": "河北",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 440000,
-                    "value": 0,
-                    "name": "广东",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 640000,
-                    "value": 0,
-                    "name": "宁夏",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 370000,
-                    "value": 0,
-                    "name": "山东",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 120000,
-                    "value": 1,
-                    "name": "天津",
-                    "realValue": "1人",
-                    "percent": 25,
-                    "realPercent": "25%"
-                }, {
-                    "id": 650000,
-                    "value": 0,
-                    "name": "新疆",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 510000,
-                    "value": 0,
-                    "name": "四川",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 330000,
-                    "value": 0,
-                    "name": "浙江",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 350000,
-                    "value": 0,
-                    "name": "福建",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 210000,
-                    "value": 0,
-                    "name": "辽宁",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 710000,
-                    "value": 0,
-                    "name": "台湾",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 620000,
-                    "value": 0,
-                    "name": "甘肃",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 430000,
-                    "value": 0,
-                    "name": "湖南",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 340000,
-                    "value": 0,
-                    "name": "安徽",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 630000,
-                    "value": 0,
-                    "name": "青海",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 530000,
-                    "value": 0,
-                    "name": "云南",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 310000,
-                    "value": 1,
-                    "name": "上海",
-                    "realValue": "1人",
-                    "percent": 25,
-                    "realPercent": "25%"
-                }, {
-                    "id": 540000,
-                    "value": 0,
-                    "name": "西藏",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 820000,
-                    "value": 0,
-                    "name": "澳门",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {
-                    "id": 320000,
-                    "value": 0,
-                    "name": "江苏",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {"id": 450000, "value": 0, "name": "广西", "realValue": "0人", "percent": "", "realPercent": "0%"}],
+                "data": [
+                    {
+                        "value": 0,
+                        "name": "内蒙古",
+                    }, {
+                        "value": 2,
+                        "name": "北京",
+                    }, {
+                        "value": 0,
+                        "name": "湖北",
+                    }, {
+                        "value": 0,
+                        "name": "海南",
+                    }, {
+                        "value": 0,
+                        "name": "山西",
+                    }, {
+                        "value": 0,
+                        "name": "香港",
+                    }, {
+                        "value": 0,
+                        "name": "黑龙江",
+                    }, {
+                        "value": 0,
+                        "name": "江西",
+                    }, {
+                        "value": 0,
+                        "name": "重庆",
+                    }, {
+                        "value": 0,
+                        "name": "河南",
+                    }, {
+                        "value": 0,
+                        "name": "吉林",
+                    }, {
+                        "value": 0,
+                        "name": "贵州",
+                    }, {
+                        "value": 0,
+                        "name": "陕西",
+                    }, {
+                        "value": 0,
+                        "name": "河北",
+                    }, {
+                        "value": 0,
+                        "name": "广东",
+                    }, {
+                        "value": 0,
+                        "name": "宁夏",
+                    }, {
+                        "value": 0,
+                        "name": "山东",
+                    }, {
+                        "value": 1,
+                        "name": "天津",
+                    }, {
+                        "value": 0,
+                        "name": "新疆",
+                    }, {
+                        "value": 0,
+                        "name": "四川",
+                    }, {
+                        "value": 0,
+                        "name": "浙江",
+                    }, {
+                        "value": 0,
+                        "name": "福建",
+                    }, {
+                        "value": 0,
+                        "name": "辽宁",
+                    }, {
+                        "value": 0,
+                        "name": "台湾",
+                    }, {
+                        "value": 0,
+                        "name": "甘肃",
+                    }, {
+                        "value": 0,
+                        "name": "湖南",
+                    }, {
+                        "value": 0,
+                        "name": "安徽",
+                    }, {
+                        "value": 0,
+                        "name": "青海",
+                    }, {
+                        "value": 0,
+                        "name": "云南",
+                    }, {
+                        "value": 1,
+                        "name": "上海",
+                    }, {
+                        "value": 0,
+                        "name": "西藏",
+                    }, {
+                        "value": 0,
+                        "name": "澳门",
+                    }, {
+                        "value": 0,
+                        "name": "江苏",
+                    }, {
+                        "value": 0,
+                        "name": "广西",
+                    }],
                 "map_city": [{
-                    "id": 320300,
                     "value": 0,
                     "name": "徐州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 460300,
                     "value": 0,
                     "name": "三沙市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 654200,
                     "value": 0,
                     "name": "塔城地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441600,
                     "value": 0,
                     "name": "河源市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330100,
                     "value": 0,
                     "name": "杭州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410900,
                     "value": 0,
                     "name": "濮阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360800,
                     "value": 0,
                     "name": "吉安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 211100,
                     "value": 0,
                     "name": "盘锦市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410700,
                     "value": 0,
                     "name": "新乡市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130900,
                     "value": 0,
                     "name": "沧州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441800,
                     "value": 0,
                     "name": "清远市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430200,
                     "value": 0,
                     "name": "株洲市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469030,
                     "value": 0,
                     "name": "琼中黎族苗族自治县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340100,
                     "value": 0,
                     "name": "合肥市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 640200,
                     "value": 0,
                     "name": "石嘴山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620900,
                     "value": 0,
                     "name": "酒泉市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 520600,
                     "value": 0,
                     "name": "铜仁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220300,
                     "value": 0,
                     "name": "四平市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 632500,
                     "value": 0,
                     "name": "海南藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330400,
                     "value": 0,
                     "name": "嘉兴市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140800,
                     "value": 0,
                     "name": "运城市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440900,
                     "value": 0,
                     "name": "茂名市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530500,
                     "value": 0,
                     "name": "保山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 222400,
                     "value": 0,
                     "name": "延边朝鲜族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350600,
                     "value": 0,
                     "name": "漳州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 621200,
                     "value": 0,
                     "name": "陇南市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371100,
                     "value": 0,
                     "name": "日照市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411500,
                     "value": 0,
                     "name": "信阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 640100,
                     "value": 0,
                     "name": "银川市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 533400,
                     "value": 0,
                     "name": "迪庆藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 433100,
                     "value": 0,
                     "name": "湘西土家族苗族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360500,
                     "value": 0,
                     "name": "新余市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150600,
                     "value": 0,
                     "name": "鄂尔多斯市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441200,
                     "value": 0,
                     "name": "肇庆市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420800,
                     "value": 0,
                     "name": "荆门市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440300,
                     "value": 0,
                     "name": "深圳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 421000,
                     "value": 0,
                     "name": "荆州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 513400,
                     "value": 0,
                     "name": "凉山彝族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 540100,
                     "value": 0,
                     "name": "拉萨市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411200,
                     "value": 0,
                     "name": "三门峡市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469007,
                     "value": 0,
                     "name": "东方市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 533100,
                     "value": 0,
                     "name": "德宏傣族景颇族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 451300,
                     "value": 0,
                     "name": "来宾市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511300,
                     "value": 0,
                     "name": "南充市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 522700,
                     "value": 0,
                     "name": "黔南布依族苗族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430400,
                     "value": 0,
                     "name": "衡阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370600,
                     "value": 0,
                     "name": "烟台市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341000,
                     "value": 0,
                     "name": "黄山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230600,
                     "value": 0,
                     "name": "大庆市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510900,
                     "value": 0,
                     "name": "遂宁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320500,
                     "value": 0,
                     "name": "苏州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450900,
                     "value": 0,
                     "name": "玉林市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210700,
                     "value": 0,
                     "name": "锦州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 820100,
                     "value": 0,
                     "name": "澳门特别行政区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420700,
                     "value": 0,
                     "name": "鄂州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360200,
                     "value": 0,
                     "name": "景德镇市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150500,
                     "value": 0,
                     "name": "通辽市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 321100,
                     "value": 0,
                     "name": "镇江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430100,
                     "value": 0,
                     "name": "长沙市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370500,
                     "value": 0,
                     "name": "东营市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440600,
                     "value": 0,
                     "name": "佛山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 710100,
                     "value": 0,
                     "name": "台湾省",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610100,
                     "value": 0,
                     "name": "西安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 650400,
                     "value": 0,
                     "name": "吐鲁番地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
                     "id": 542500,
                     "value": 0,
                     "name": "阿里地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
+
                 }, {
-                    "id": 140500,
                     "value": 0,
                     "name": "晋城市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411100,
                     "value": 0,
                     "name": "漯河市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210400,
                     "value": 0,
                     "name": "抚顺市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511400,
                     "value": 0,
                     "name": "眉山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510400,
                     "value": 0,
                     "name": "攀枝花市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 622900,
                     "value": 0,
                     "name": "临夏回族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130200,
                     "value": 0,
                     "name": "唐山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 522600,
                     "value": 0,
                     "name": "黔东南苗族侗族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230300,
                     "value": 0,
                     "name": "鸡西市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420200,
                     "value": 0,
                     "name": "黄石市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341700,
                     "value": 0,
                     "name": "池州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230900,
                     "value": 0,
                     "name": "七台河市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140200,
                     "value": 0,
                     "name": "大同市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510300,
                     "value": 0,
                     "name": "自贡市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620200,
                     "value": 0,
                     "name": "嘉峪关市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220400,
                     "value": 0,
                     "name": "辽源市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511900,
                     "value": 0,
                     "name": "巴中市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450500,
                     "value": 0,
                     "name": "北海市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 310100,
                     "value": 1,
                     "name": "上海市",
-                    "realValue": "1人",
-                    "percent": 25,
-                    "realPercent": "25%"
                 }, {
-                    "id": 442000,
                     "value": 0,
                     "name": "中山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 331100,
                     "value": 0,
                     "name": "丽水市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 445100,
                     "value": 0,
                     "name": "潮州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 152900,
                     "value": 0,
                     "name": "阿拉善盟",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210100,
                     "value": 0,
                     "name": "沈阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150800,
                     "value": 0,
                     "name": "巴彦淖尔市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659003,
                     "value": 0,
                     "name": "图木舒克市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130500,
                     "value": 0,
                     "name": "邢台市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420300,
                     "value": 0,
                     "name": "十堰市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440200,
                     "value": 0,
                     "name": "韶关市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 520300,
                     "value": 0,
                     "name": "遵义市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 653000,
                     "value": 0,
                     "name": "克孜勒苏柯尔克孜自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340200,
                     "value": 0,
                     "name": "芜湖市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 611000,
                     "value": 0,
                     "name": "商洛市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 431000,
                     "value": 0,
                     "name": "郴州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130800,
                     "value": 0,
                     "name": "承德市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350100,
                     "value": 0,
                     "name": "福州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230700,
                     "value": 0,
                     "name": "伊春市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 513300,
                     "value": 0,
                     "name": "甘孜藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 429006,
                     "value": 0,
                     "name": "天门市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 429005,
                     "value": 0,
                     "name": "潜江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420100,
                     "value": 0,
                     "name": "武汉市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 429004,
                     "value": 0,
                     "name": "仙桃市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340500,
                     "value": 0,
                     "name": "马鞍山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 419001,
                     "value": 0,
                     "name": "济源市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 654300,
                     "value": 0,
                     "name": "阿勒泰地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 431300,
                     "value": 0,
                     "name": "娄底市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 650500,
                     "value": 0,
                     "name": "哈密地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 460200,
                     "value": 0,
                     "name": "三亚市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441700,
                     "value": 0,
                     "name": "阳江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441900,
                     "value": 0,
                     "name": "东莞市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360900,
                     "value": 0,
                     "name": "宜春市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 211000,
                     "value": 0,
                     "name": "辽阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620500,
                     "value": 0,
                     "name": "天水市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220700,
                     "value": 0,
                     "name": "松原市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410400,
                     "value": 0,
                     "name": "平顶山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530300,
                     "value": 0,
                     "name": "曲靖市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340800,
                     "value": 0,
                     "name": "安庆市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 232700,
                     "value": 0,
                     "name": "大兴安岭地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 460100,
                     "value": 0,
                     "name": "海口市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430800,
                     "value": 0,
                     "name": "张家界市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530900,
                     "value": 0,
                     "name": "临沧市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340600,
                     "value": 0,
                     "name": "淮北市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220200,
                     "value": 0,
                     "name": "吉林市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 640500,
                     "value": 0,
                     "name": "中卫市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620800,
                     "value": 0,
                     "name": "平凉市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140900,
                     "value": 0,
                     "name": "忻州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441400,
                     "value": 0,
                     "name": "梅州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330700,
                     "value": 0,
                     "name": "金华市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440800,
                     "value": 0,
                     "name": "湛江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 540200,
                     "value": 0,
                     "name": "日喀则地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 211300,
                     "value": 0,
                     "name": "朝阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410100,
                     "value": 0,
                     "name": "郑州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610600,
                     "value": 0,
                     "name": "延安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 231200,
                     "value": 0,
                     "name": "绥化市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350500,
                     "value": 0,
                     "name": "泉州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 445200,
                     "value": 0,
                     "name": "揭阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411400,
                     "value": 0,
                     "name": "商丘市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330900,
                     "value": 0,
                     "name": "舟山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530400,
                     "value": 0,
                     "name": "玉溪市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610800,
                     "value": 0,
                     "name": "榆林市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 152200,
                     "value": 0,
                     "name": "兴安盟",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 460400,
                     "value": 0,
                     "name": "儋州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210800,
                     "value": 0,
                     "name": "营口市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 131000,
                     "value": 0,
                     "name": "廊坊市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 421100,
                     "value": 0,
                     "name": "黄冈市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 522300,
                     "value": 0,
                     "name": "黔西南布依族苗族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441300,
                     "value": 0,
                     "name": "惠州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360600,
                     "value": 0,
                     "name": "鹰潭市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320100,
                     "value": 0,
                     "name": "南京市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 654000,
                     "value": 0,
                     "name": "伊犁哈萨克自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 621000,
                     "value": 0,
                     "name": "庆阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610500,
                     "value": 0,
                     "name": "渭南市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430500,
                     "value": 0,
                     "name": "邵阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510800,
                     "value": 0,
                     "name": "广元市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370900,
                     "value": 0,
                     "name": "泰安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 451200,
                     "value": 0,
                     "name": "河池市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511000,
                     "value": 0,
                     "name": "内江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 632600,
                     "value": 0,
                     "name": "果洛藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341300,
                     "value": 0,
                     "name": "宿州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360300,
                     "value": 0,
                     "name": "萍乡市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 652800,
                     "value": 0,
                     "name": "巴音郭楞蒙古自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150400,
                     "value": 0,
                     "name": "赤峰市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 321000,
                     "value": 0,
                     "name": "扬州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 120100,
                     "value": 1,
                     "name": "天津市",
-                    "realValue": "1人",
-                    "percent": 25,
-                    "realPercent": "25%"
                 }, {
-                    "id": 440500,
                     "value": 0,
                     "name": "汕头市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610200,
                     "value": 0,
                     "name": "铜川市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 421200,
                     "value": 0,
                     "name": "咸宁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420600,
                     "value": 0,
                     "name": "襄阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411000,
                     "value": 0,
                     "name": "许昌市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430700,
                     "value": 0,
                     "name": "常德市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 810100,
                     "value": 0,
                     "name": "香港特别行政区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140600,
                     "value": 0,
                     "name": "朔州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320600,
                     "value": 0,
                     "name": "南通市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450100,
                     "value": 0,
                     "name": "南宁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 451100,
                     "value": 0,
                     "name": "贺州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511500,
                     "value": 0,
                     "name": "宜宾市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510700,
                     "value": 0,
                     "name": "绵阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371400,
                     "value": 0,
                     "name": "德州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370400,
                     "value": 0,
                     "name": "枣庄市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 500100,
                     "value": 0,
                     "name": "重庆市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341600,
                     "value": 0,
                     "name": "亳州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420500,
                     "value": 0,
                     "name": "宜昌市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469002,
                     "value": 0,
                     "name": "琼海市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469001,
                     "value": 0,
                     "name": "五指山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210500,
                     "value": 0,
                     "name": "本溪市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469006,
                     "value": 0,
                     "name": "万宁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469005,
                     "value": 0,
                     "name": "文昌市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130100,
                     "value": 0,
                     "name": "石家庄市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 632800,
                     "value": 0,
                     "name": "海西蒙古族藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 540400,
                     "value": 0,
                     "name": "林芝地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140300,
                     "value": 0,
                     "name": "阳泉市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 152500,
                     "value": 0,
                     "name": "锡林郭勒盟",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370300,
                     "value": 0,
                     "name": "淄博市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 650200,
                     "value": 0,
                     "name": "克拉玛依市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 532900,
                     "value": 0,
                     "name": "大理白族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511600,
                     "value": 0,
                     "name": "广安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411700,
                     "value": 0,
                     "name": "驻马店市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620100,
                     "value": 0,
                     "name": "兰州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210200,
                     "value": 0,
                     "name": "大连市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450200,
                     "value": 0,
                     "name": "柳州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 630100,
                     "value": 0,
                     "name": "西宁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 532300,
                     "value": 0,
                     "name": "楚雄彝族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130400,
                     "value": 0,
                     "name": "邯郸市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440100,
                     "value": 0,
                     "name": "广州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340300,
                     "value": 0,
                     "name": "蚌埠市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 231000,
                     "value": 0,
                     "name": "牡丹江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 630200,
                     "value": 0,
                     "name": "海东市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150300,
                     "value": 0,
                     "name": "乌海市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 321300,
                     "value": 0,
                     "name": "宿迁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450700,
                     "value": 0,
                     "name": "钦州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 532600,
                     "value": 0,
                     "name": "文山壮族苗族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230400,
                     "value": 0,
                     "name": "鹤岗市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130700,
                     "value": 0,
                     "name": "张家口市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 231100,
                     "value": 0,
                     "name": "黑河市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410200,
                     "value": 0,
                     "name": "开封市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 211400,
                     "value": 0,
                     "name": "葫芦岛市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620700,
                     "value": 0,
                     "name": "张掖市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 361100,
                     "value": 0,
                     "name": "上饶市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 431200,
                     "value": 0,
                     "name": "怀化市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430600,
                     "value": 0,
                     "name": "岳阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 623000,
                     "value": 0,
                     "name": "甘南藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220800,
                     "value": 0,
                     "name": "白城市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510100,
                     "value": 0,
                     "name": "成都市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620400,
                     "value": 0,
                     "name": "白银市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220600,
                     "value": 0,
                     "name": "白山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410500,
                     "value": 0,
                     "name": "安阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
                     "id": 350300,
                     "value": 0,
                     "name": "莆田市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 422800,
                     "value": 0,
                     "name": "恩施土家族苗族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330300,
                     "value": 0,
                     "name": "温州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150900,
                     "value": 0,
                     "name": "乌兰察布市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 632200,
                     "value": 0,
                     "name": "海北藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 533300,
                     "value": 0,
                     "name": "怒江傈僳族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530800,
                     "value": 0,
                     "name": "普洱市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 141100,
                     "value": 0,
                     "name": "吕梁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 340700,
                     "value": 0,
                     "name": "铜陵市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350900,
                     "value": 0,
                     "name": "宁德市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 640400,
                     "value": 0,
                     "name": "固原市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430900,
                     "value": 0,
                     "name": "益阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371300,
                     "value": 0,
                     "name": "临沂市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 520400,
                     "value": 0,
                     "name": "安顺市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410800,
                     "value": 0,
                     "name": "焦作市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 540300,
                     "value": 0,
                     "name": "昌都地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 110100,
                     "value": 2,
                     "name": "北京市",
-                    "realValue": "2人",
-                    "percent": 50,
-                    "realPercent": "50%"
                 }, {
-                    "id": 320200,
                     "value": 0,
                     "name": "无锡市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 520200,
                     "value": 0,
                     "name": "六盘水市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 445300,
                     "value": 0,
                     "name": "云浮市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 441500,
                     "value": 0,
                     "name": "汕尾市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330600,
                     "value": 0,
                     "name": "绍兴市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 652300,
                     "value": 0,
                     "name": "昌吉回族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330800,
                     "value": 0,
                     "name": "衢州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 211200,
                     "value": 0,
                     "name": "铁岭市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610700,
                     "value": 0,
                     "name": "汉中市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220100,
                     "value": 0,
                     "name": "长春市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410600,
                     "value": 0,
                     "name": "鹤壁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350400,
                     "value": 0,
                     "name": "三明市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610900,
                     "value": 0,
                     "name": "安康市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210900,
                     "value": 0,
                     "name": "阜新市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 520100,
                     "value": 0,
                     "name": "贵阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 131100,
                     "value": 0,
                     "name": "衡水市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469025,
                     "value": 0,
                     "name": "白沙黎族自治县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320800,
                     "value": 0,
                     "name": "淮安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360700,
                     "value": 0,
                     "name": "赣州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341500,
                     "value": 0,
                     "name": "六安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 640300,
                     "value": 0,
                     "name": "吴忠市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450600,
                     "value": 0,
                     "name": "防城港市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610400,
                     "value": 0,
                     "name": "咸阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 621100,
                     "value": 0,
                     "name": "定西市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530600,
                     "value": 0,
                     "name": "昭通市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 512000,
                     "value": 0,
                     "name": "资阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370800,
                     "value": 0,
                     "name": "济宁市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511100,
                     "value": 0,
                     "name": "乐山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371000,
                     "value": 0,
                     "name": "威海市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 632700,
                     "value": 0,
                     "name": "玉树藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341200,
                     "value": 0,
                     "name": "阜阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341800,
                     "value": 0,
                     "name": "宣城市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 421300,
                     "value": 0,
                     "name": "随州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
                     "id": 652900,
                     "value": 0,
                     "name": "阿克苏地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360400,
                     "value": 0,
                     "name": "九江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150700,
                     "value": 0,
                     "name": "呼伦贝尔市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320700,
                     "value": 0,
                     "name": "连云港市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 652700,
                     "value": 0,
                     "name": "博尔塔拉蒙古自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 420900,
                     "value": 0,
                     "name": "孝感市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440400,
                     "value": 0,
                     "name": "珠海市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 610300,
                     "value": 0,
                     "name": "宝鸡市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330500,
                     "value": 0,
                     "name": "湖州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140700,
                     "value": 0,
                     "name": "晋中市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411300,
                     "value": 0,
                     "name": "南阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371500,
                     "value": 0,
                     "name": "聊城市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370700,
                     "value": 0,
                     "name": "潍坊市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 360100,
                     "value": 0,
                     "name": "南昌市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 451000,
                     "value": 0,
                     "name": "百色市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510600,
                     "value": 0,
                     "name": "德阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210600,
                     "value": 0,
                     "name": "丹东市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 532500,
                     "value": 0,
                     "name": "红河哈尼族彝族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230100,
                     "value": 0,
                     "name": "哈尔滨市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 429021,
                     "value": 0,
                     "name": "神农架林区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 341100,
                     "value": 0,
                     "name": "滁州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371200,
                     "value": 0,
                     "name": "莱芜市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 540500,
                     "value": 0,
                     "name": "山南地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140400,
                     "value": 0,
                     "name": "长治市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320400,
                     "value": 0,
                     "name": "常州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 440700,
                     "value": 0,
                     "name": "江门市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530700,
                     "value": 0,
                     "name": "丽江市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230800,
                     "value": 0,
                     "name": "佳木斯市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511700,
                     "value": 0,
                     "name": "达州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 411600,
                     "value": 0,
                     "name": "周口市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 542400,
                     "value": 0,
                     "name": "那曲地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 510500,
                     "value": 0,
                     "name": "泸州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371600,
                     "value": 0,
                     "name": "滨州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370200,
                     "value": 0,
                     "name": "青岛市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450300,
                     "value": 0,
                     "name": "桂林市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 210300,
                     "value": 0,
                     "name": "鞍山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659002,
                     "value": 0,
                     "name": "阿拉尔市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230200,
                     "value": 0,
                     "name": "齐齐哈尔市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659001,
                     "value": 0,
                     "name": "石河子市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659006,
                     "value": 0,
                     "name": "铁门关市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659007,
                     "value": 0,
                     "name": "双河市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659004,
                     "value": 0,
                     "name": "五家渠市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659005,
                     "value": 0,
                     "name": "北屯市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150100,
                     "value": 0,
                     "name": "呼和浩特市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 659008,
                     "value": 0,
                     "name": "可克达拉市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 532800,
                     "value": 0,
                     "name": "西双版纳傣族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 430300,
                     "value": 0,
                     "name": "湘潭市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 320900,
                     "value": 0,
                     "name": "盐城市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130300,
                     "value": 0,
                     "name": "秦皇岛市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 140100,
                     "value": 0,
                     "name": "太原市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450800,
                     "value": 0,
                     "name": "贵港市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 150200,
                     "value": 0,
                     "name": "包头市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 321200,
                     "value": 0,
                     "name": "泰州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 653200,
                     "value": 0,
                     "name": "和田地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 331000,
                     "value": 0,
                     "name": "台州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620300,
                     "value": 0,
                     "name": "金昌市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 220500,
                     "value": 0,
                     "name": "通化市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 130600,
                     "value": 0,
                     "name": "保定市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 450400,
                     "value": 0,
                     "name": "梧州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 451400,
                     "value": 0,
                     "name": "崇左市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 410300,
                     "value": 0,
                     "name": "洛阳市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350700,
                     "value": 0,
                     "name": "南平市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 230500,
                     "value": 0,
                     "name": "双鸭山市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 620600,
                     "value": 0,
                     "name": "武威市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 361000,
                     "value": 0,
                     "name": "抚州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469021,
                     "value": 0,
                     "name": "定安县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469023,
                     "value": 0,
                     "name": "澄迈县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
                     "id": 469022,
                     "value": 0,
                     "name": "屯昌县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 650100,
                     "value": 0,
                     "name": "乌鲁木齐市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469024,
                     "value": 0,
                     "name": "临高县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469027,
                     "value": 0,
                     "name": "乐东黎族自治县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469026,
                     "value": 0,
                     "name": "昌江黎族自治县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469029,
                     "value": 0,
                     "name": "保亭黎族苗族自治县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 469028,
                     "value": 0,
                     "name": "陵水黎族自治县",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 653100,
                     "value": 0,
                     "name": "喀什地区",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 370100,
                     "value": 0,
                     "name": "济南市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 511800,
                     "value": 0,
                     "name": "雅安市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 513200,
                     "value": 0,
                     "name": "阿坝藏族羌族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 431100,
                     "value": 0,
                     "name": "永州市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 530100,
                     "value": 0,
                     "name": "昆明市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 632300,
                     "value": 0,
                     "name": "黄南藏族自治州",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350200,
                     "value": 0,
                     "name": "厦门市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 330200,
                     "value": 0,
                     "name": "宁波市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 371700,
                     "value": 0,
                     "name": "菏泽市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 350800,
                     "value": 0,
                     "name": "龙岩市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 520500,
                     "value": 0,
                     "name": "毕节市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
                 }, {
-                    "id": 141000,
                     "value": 0,
                     "name": "临汾市",
-                    "realValue": "0人",
-                    "percent": "",
-                    "realPercent": "0%"
-                }, {"id": 340400, "value": 0, "name": "淮南市", "realValue": "0人", "percent": "", "realPercent": "0%"}]
+                }, {
+                    "value": 0,
+                    "name": "淮南市",
+                }]
             }],
             "animation": false,
             "unit": "人",
@@ -4055,7 +2370,7 @@ var graph_ajax = function (data, obj, callback) {
                 "text": "热力地图",
                 "subtext": "%",
                 "textStyle": {
-                    "color": "#000",
+                    // "color": "#000",
                     "fontStyle": "normal",
                     "fontWeight": "bolder",
                     "fontFamily": "Microsoft YaHei",
@@ -4068,7 +2383,7 @@ var graph_ajax = function (data, obj, callback) {
                 "text": "",
                 "subtext": "基数: 所有被访者 n=4 \n\n数据来源：Q3",
                 "textStyle": {
-                    "color": "#000",
+                    // "color": "#000",
                     "fontStyle": "normal",
                     "fontWeight": "bolder",
                     "fontFamily": "Microsoft YaHei",
@@ -4095,7 +2410,7 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name']
+            legend[i] = graphdata['y'][i]['name'];
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 type: 'line',
@@ -4109,21 +2424,9 @@ var graph_ajax = function (data, obj, callback) {
             },
             // color: colors,
             animationDuration: animationDuration,
-            // // backgroundColor: backgroundColor,
-            // titleColor: titleColor,
-            // subtitleColor: subtitleColor,
-            // markTextColor: markTextColor,
-            // outWidth: outWidth,
-            // legendbackgroundColor: legendbackgroundColor,
-            // toolboxColor: toolboxColor,
-            // toolboxEmpasisColor: toolboxEmpasisColor,
-            // tooltipAxisColor: tooltipAxisColor,
-            // tooltipAxisWidth: tooltipAxisWidth,
-
             grid: grid,
             title: title,
             tooltip: {
-
                 show: tooltip,
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
@@ -4158,8 +2461,6 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitArea: {
                     areaStyle: {
-                        // 分割区域（网格）颜色
-                        // color: [splitAreaLightColor,splitAreaDeepColor],
                         //图形透明度
                         opacity: splitAreaOpacity
                     }
@@ -4191,85 +2492,13 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitArea: {
                     areaStyle: {
-                        // 分割区域（网格）颜色
-                        // color: [splitAreaLightColor,splitAreaDeepColor],
                         //图形透明度
                         opacity: splitAreaOpacity
                     }
                 },
-
-
                 // type: 'category'
             },
             series: series
-
-
-
-
-            // [
-            // {
-            //     line:{smooth: false},
-            //     name: graphdata['y'][0]['name'],
-            //     type: 'line',
-            //     data: graphdata['y'][0]['data']
-            // },
-            //     {
-            //         smooth: true,
-            //         name:graphdata['y'][1]['name'],
-            //         type: 'line',
-            //         data: graphdata['y'][1]['data']
-            //     }
-            // //开启平滑曲线
-            // // smooth: false,
-            // // type: 'line',
-            // // //图形形状
-            // // showSymbol: true,
-            // // //标记图形形状（默认空心圆）
-            // // symbol: 'CircleE',
-            // // // 圆形
-            // // Circle
-            // // // 方形
-            // // Rect
-            // // //空心方形
-            // // RectE
-            // // //圆角矩形
-            // // RoundRect
-            // // //空心圆角矩形
-            // // RoundRectE
-            // // //三角形
-            // // Tri
-            // // //空心三角形
-            // // TriE
-            // // //菱形
-            // // Diamond
-            // // //空心菱形
-            // // DiamondE
-            // // //水滴
-            // // Pin
-            // // //空心水滴
-            // // PinE
-            // // //箭头
-            // // Arrow
-            // // // 空心箭头
-            // // ArrowE
-            // // itemStyle:
-            // //     {
-            // //         normal:
-            // //             {
-            // //                 show: true,
-            // //                 borderWidth: 2
-            // //             },
-            // //         emphasis: {borderWidth: 2}
-            // //     },
-            //
-            // // data:
-            // //     [{
-            // //         // 图形大小
-            // //         symbolSize: 1,
-            // //         //图形描边宽度
-            // //         symbolBorderWidth: 1,
-            // //     }]
-            // ]
         };
     }
 
@@ -4511,108 +2740,42 @@ var graph_ajax = function (data, obj, callback) {
     //横向柱状图
     if (data.graph == 'bar-x-category') {
         option = {
-            "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
-            "grid": {
-                "show": false,
-                "top": "65px",
-                "height": 470,
-                "left": "20%",
-                "right": "20%",
-                "width": "70%",
-                "z": 2,
-                "zlevel": 0,
-                "bottom": 30
-            },
-            "unit": "人",
-            "type": "clustered_bar",
-            "chartHeight": 600,
-            "formatterScheme": "default",
-            "tooltipNumberBits": 10,
-            "numberBits": true,
-            "tooltip": {"show": true, "trigger": "axis"},
-            "backgroundColor": "#ffffff",
             "series": [{
-                "barMaxWidth": "30",
-                "barCategoryGap": "30%",
-                "label": {
-                    "normal": {
-                        "show": true,
-                        "position": "right",
-                        "color": "#000000",
-                        "fontSize": "14px",
-                        "fontWeight": "bold"
-                    }
-                },
                 "type": "bar",
                 "data": [{
-                    "value": 1,
-                    "name": "菜1",
+                    "value": 0,
+                    "name": "其他",
                 }, {
-                    "value": 2,
-                    "name": "菜2",
+
+                    "value": 0,
+                    "name": "恋人\/配偶"
+
                 }, {
-                    "value": 33,
-                    "name": "菜3",
+                    "value": 100,
+                    "name": "家人"
                 }, {
-                    "value": 33,
-                    "name": "菜4",
+                    "value": 100,
+                    "name": "同事"
                 }, {
-                    "value": 33,
-                    "name": "菜5",
+                    "value": 100,
+                    "name": "同学"
                 }, {
-                    "value": 33,
-                    "name": "菜6",
-                }, {
-                    "value": 33,
-                    "name": "菜7",
-                }, {
-                    "value": 33,
-                    "name": "菜8",
-                }, {
-                    "value": 66,
-                    "name": "菜9",
-                }, {
-                    "value": 66,
-                    "name": "菜10",
+                    "value": 100,
+                    "name": "朋友"
                 }]
             }],
-            "color": ["#732FC3", "#824DD2", "#9067E0", "#9D82EF", "#ADA1FF", "#C0B7FF", "#B7B1DD", "#A099D0", "#8A83BB", "#726BA4"],
-            "title": [{
-                "text": "条形图",
-                "subtext": "副标题副标题",
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 18
-                },
-                "left": 0,
-                "bottom": 0,
-                "top": "0px"
-            }, {
-                "text": "",
-                "subtext": "基数: 所有被访者 n=3 \n\n数据来源：Q3",
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "14"
-                },
-                "left": 0,
-                "bottom": "30px",
-                "top": "540px"
-            }],
             "yAxis": [{
+                //wukong!
                 "axisTick": {"show": false},
                 "axisLine": {"show": false},
                 "splitLine": {"show": false},
                 "type": "category",
-                "axisPointer": false,
-                "data": ["菜5", "菜4", "菜10", "菜9", "菜8", "菜7", "菜6", "菜3", "菜2", "菜1"]
+                //错误代码
+                // "axisPointer": false,
+                "data": ["其他", "恋人\/配偶", "家人", "同事", "同学", "朋友"]
             }],
             "xAxis": [{
+                //wukong!
                 "type": "value",
                 "axisTick": {"show": false},
                 "axisLine": {"show": false},
@@ -4641,26 +2804,23 @@ var graph_ajax = function (data, obj, callback) {
                 "zlevel": 0,
                 "bottom": 30
             },
-            "backgroundColor": "#ffffff",
+            // "backgroundColor": "#ffffff",
             "legend": {"top": "85px", "right": "10%", "data": ["不满意", "2", "3", "4", "满意"]},
             "series": [{
                 "name": "不满意",
                 "data": [{
                     "value": 0,
-                    "percent": "",
                     "name": "不满意",
-                    "realPercent": "0%",
-                    "realValue": "0人",
-                    "colorScheme": {
-                        "labelFormat": "default",
-                        "numberBits": 0,
-                        "xAxisMax": 100,
-                        "colorSeries": {"color": "purple", "model": "default"},
-                        "chartTypeList": ["table", "stacked_bar"],
-                        "chartType": "stacked_bar",
-                        "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
-                        "unit": "人"
-                    }
+                    // "colorScheme": {
+                    //     "labelFormat": "default",
+                    //     "numberBits": 0,
+                    //     "xAxisMax": 100,
+                    //     "colorSeries": {"color": "purple", "model": "default"},
+                    //     "chartTypeList": ["table", "stacked_bar"],
+                    //     "chartType": "stacked_bar",
+                    //     "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
+                    //     "unit": "人"
+                    // }
                 }],
                 "type": "bar",
                 "stack": "总量",
@@ -4670,20 +2830,17 @@ var graph_ajax = function (data, obj, callback) {
                 "name": "2",
                 "data": [{
                     "value": 0,
-                    "percent": "",
                     "name": "2",
-                    "realPercent": "0%",
-                    "realValue": "0人",
-                    "colorScheme": {
-                        "labelFormat": "default",
-                        "numberBits": 0,
-                        "xAxisMax": 100,
-                        "colorSeries": {"color": "purple", "model": "default"},
-                        "chartTypeList": ["table", "stacked_bar"],
-                        "chartType": "stacked_bar",
-                        "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
-                        "unit": "人"
-                    }
+                    // "colorScheme": {
+                    //     "labelFormat": "default",
+                    //     "numberBits": 0,
+                    //     "xAxisMax": 100,
+                    //     "colorSeries": {"color": "purple", "model": "default"},
+                    //     "chartTypeList": ["table", "stacked_bar"],
+                    //     "chartType": "stacked_bar",
+                    //     "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
+                    //     "unit": "人"
+                    // }
                 }],
                 "type": "bar",
                 "stack": "总量",
@@ -4693,20 +2850,17 @@ var graph_ajax = function (data, obj, callback) {
                 "name": "3",
                 "data": [{
                     "value": 33.333333333333336,
-                    "percent": 33,
                     "name": "3",
-                    "realPercent": "33.3333333333%",
-                    "realValue": "1人",
-                    "colorScheme": {
-                        "labelFormat": "default",
-                        "numberBits": 0,
-                        "xAxisMax": 100,
-                        "colorSeries": {"color": "purple", "model": "default"},
-                        "chartTypeList": ["table", "stacked_bar"],
-                        "chartType": "stacked_bar",
-                        "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
-                        "unit": "人"
-                    }
+                    // "colorScheme": {
+                    //     "labelFormat": "default",
+                    //     "numberBits": 0,
+                    //     "xAxisMax": 100,
+                    //     "colorSeries": {"color": "purple", "model": "default"},
+                    //     "chartTypeList": ["table", "stacked_bar"],
+                    //     "chartType": "stacked_bar",
+                    //     "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
+                    //     "unit": "人"
+                    // }
                 }],
                 "type": "bar",
                 "stack": "总量",
@@ -4716,20 +2870,17 @@ var graph_ajax = function (data, obj, callback) {
                 "name": "4",
                 "data": [{
                     "value": 33.333333333333336,
-                    "percent": 33,
                     "name": "4",
-                    "realPercent": "33.3333333333%",
-                    "realValue": "1人",
-                    "colorScheme": {
-                        "labelFormat": "default",
-                        "numberBits": 0,
-                        "xAxisMax": 100,
-                        "colorSeries": {"color": "purple", "model": "default"},
-                        "chartTypeList": ["table", "stacked_bar"],
-                        "chartType": "stacked_bar",
-                        "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
-                        "unit": "人"
-                    }
+                    // "colorScheme": {
+                    //     "labelFormat": "default",
+                    //     "numberBits": 0,
+                    //     "xAxisMax": 100,
+                    //     "colorSeries": {"color": "purple", "model": "default"},
+                    //     "chartTypeList": ["table", "stacked_bar"],
+                    //     "chartType": "stacked_bar",
+                    //     "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
+                    //     "unit": "人"
+                    // }
                 }],
                 "type": "bar",
                 "stack": "总量",
@@ -4739,27 +2890,24 @@ var graph_ajax = function (data, obj, callback) {
                 "name": "满意",
                 "data": [{
                     "value": 33.333333333333336,
-                    "percent": 33,
                     "name": "满意",
-                    "realPercent": "33.3333333333%",
-                    "realValue": "1人",
-                    "colorScheme": {
-                        "labelFormat": "default",
-                        "numberBits": 0,
-                        "xAxisMax": 100,
-                        "colorSeries": {"color": "purple", "model": "default"},
-                        "chartTypeList": ["table", "stacked_bar"],
-                        "chartType": "stacked_bar",
-                        "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
-                        "unit": "人"
-                    }
+                    // "colorScheme": {
+                    //     "labelFormat": "default",
+                    //     "numberBits": 0,
+                    //     "xAxisMax": 100,
+                    //     "colorSeries": {"color": "purple", "model": "default"},
+                    //     "chartTypeList": ["table", "stacked_bar"],
+                    //     "chartType": "stacked_bar",
+                    //     "itemSortConfig": [{"id": {"type": 1, "sortOrder": 4}}],
+                    //     "unit": "人"
+                    // }
                 }],
                 "type": "bar",
                 "stack": "总量",
                 "barMaxWidth": 60,
                 "itemStyle": {"normal": {"label": {"show": true, "position": "insideRight"}}}
             }],
-            "color": ["#ADA1FF", "#9D82EF", "#9067E0", "#824DD2", "#732FC3"],
+            // "color": ["#ADA1FF", "#9D82EF", "#9067E0", "#824DD2", "#732FC3"],
             "yAxis": [{
                 "axisTick": {"show": false},
                 "axisLine": {"show": false},
@@ -4784,26 +2932,26 @@ var graph_ajax = function (data, obj, callback) {
             "title": [{
                 "text": "菜品味道打分",
                 "subtext": "%",
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 18
-                },
+                // "textStyle": {
+                //     "color": "#000",
+                //     "fontStyle": "normal",
+                //     "fontWeight": "bolder",
+                //     "fontFamily": "Microsoft YaHei",
+                //     "fontSize": 18
+                // },
                 "left": 0,
                 "bottom": 0,
                 "top": "0px"
             }, {
                 "text": "",
                 "subtext": "基数: 所有被访者 n=3 \n\n数据来源：Q4",
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "14"
-                },
+                // "textStyle": {
+                //     "color": "#000",
+                //     "fontStyle": "normal",
+                //     "fontWeight": "bolder",
+                //     "fontFamily": "Microsoft YaHei",
+                //     "fontSize": "14"
+                // },
                 "left": 0,
                 "bottom": "30px",
                 "top": "209px"
@@ -4845,7 +2993,7 @@ var graph_ajax = function (data, obj, callback) {
                     } //辅助工具-保存图片
                 }
             },
-            color: colors,
+            // color: colors,
             title: {},
             tooltip: {
                 trigger: 'axis',
@@ -4854,9 +3002,9 @@ var graph_ajax = function (data, obj, callback) {
                 }
             },
             legend: {
-                textStyle: {
-                    color: legendTextstyleColor
-                },
+                // textStyle: {
+                //     color: legendTextstyleColor
+                // },
                 bottom: 0,
                 // data: ['2017年']
             },
@@ -4872,20 +3020,20 @@ var graph_ajax = function (data, obj, callback) {
                     show: false //去掉网格线
                 },
                 axisLine: {
-                    lineStyle: {
-                        color: axislineLinestyleColor
-                    }
+                    // lineStyle: {
+                    //     color: axislineLinestyleColor
+                    // }
                 },
                 axisTick: {
-                    lineStyle: {
-                        color: axislineAxistickColor
-                    }
+                    // lineStyle: {
+                    //     color: axislineAxistickColor
+                    // }
                 },
                 axisLabel: {
                     show: true,
-                    textStyle: {
-                        color: axislineAxislabelColor
-                    }
+                    // textStyle: {
+                    //     color: axislineAxislabelColor
+                    // }
                 },
                 type: 'value',
                 boundaryGap: [0, 0.01],
@@ -4894,21 +3042,21 @@ var graph_ajax = function (data, obj, callback) {
             yAxis: {
 
                 axisLine: {
-                    lineStyle: {
-                        color: axislineLinestyleColor,
-                        width: '1'
-                    }
+                    // lineStyle: {
+                    //     color: axislineLinestyleColor,
+                    //     width: '1'
+                    // }
                 },
-                axisTick: {
-                    lineStyle: {
-                        color: axislineAxistickColor
-                    }
-                },
+                // axisTick: {
+                //     lineStyle: {
+                //         color: axislineAxistickColor
+                //     }
+                // },
                 axisLabel: {
                     show: true,
-                    textStyle: {
-                        color: axislineAxislabelColor
-                    }
+                    // textStyle: {
+                    //     color: axislineAxislabelColor
+                    // }
                 },
                 splitLine: {
                     show: false //去掉网格线
@@ -4920,10 +3068,10 @@ var graph_ajax = function (data, obj, callback) {
                     value: '',
                     barWidth: '40',
                     // 突出周一
-                    textStyle: {
-
-                        color: '#999'
-                    }
+                    // textStyle: {
+                    //
+                    //     color: '#999'
+                    // }
                 }]
             },
             series: series
@@ -4932,218 +3080,56 @@ var graph_ajax = function (data, obj, callback) {
     //仪表盘图
     if (data.graph == 'gauge') {
         option = {
-            "toolbox": {"feature": feature},
-            "grid": {
-                "show": false,
-                "top": "65px",
-                "height": "217px",
-                "left": "20%",
-                "right": "20%",
-                "width": "400px",
-                "z": 2,
-                "zlevel": 0,
-                "bottom": 30
-            },
+
             "series": [{
                 "name": "推荐净值",
+                // wukong!
                 "axisLine": {
                     "lineStyle": {
-                        "width": 100,
+                        "width": 80,
                         "opacity": 0.8,
                         "color": [[0.5, "rgba(115, 47, 195, 0.4)"], [1, "#732FC3"]]
                     }
                 },
-                "value": d_data.y[0]['data'][0],
-                "percent": d_data.y[0]['data'][0],
-                "detail": {"offsetCenter": [0, "100"], "textStyle": {"color": "#000", "fontSize": 24}},
-                "animation": false,
-                "data": [{
-                    "value": d_data.y[0]['data'][0],
-                    "name": d_data.y[0]['name'],
-                    "serise_name": d_data.y[0]['name']
-                }],
+                "detail": {"offsetCenter": [0, "62"],
+                    "textStyle": {"color": "#000", "fontSize": 18}
+                },
+                // wukong!
+                "data": [{"value": -100, "realPercent": "-100%", "name": "全部", "serise_name": "推荐净值"}],
                 "type": "gauge",
+                //起始旋转角度
                 "startAngle": 180,
+                //末尾旋转角度
                 "endAngle": 0,
-                "center": ["50%", "340"],
-                "radius": 200,
-                "splitLine": {"length": "25", "lineStyle": {"width": 2, "type": "solid", "opacity": 1}},
+                "splitLine": {
+                    "length": "25",
+                    "lineStyle": {
+                        "width": 2,
+                        //线条类型
+                        "type": "solid",
+                        "opacity": 1
+                    }},
                 "axisTick": {
                     "length": "15",
                     "splitNumber": 10,
                     "lineStyle": {"width": 2, "type": "solid", "opacity": 0.4}
                 },
-                "axisLabel": {"show": true, "distance": 90, "textStyle": {"fontSize": 18}},
-                "min": -100,
-                "max": 100,
+                "axisLabel": {
+                    "show": true,
+                    "distance": 64,
+                    "textStyle": {
+                        "fontSize": 14
+                    }},
+                //字体间距
                 "splitNumber": 4,
-                "pointer": {"width": 12, "length": "50%", "color": "#000"},
+                "pointer": {"width": 12, "length": "50%", "color": "#f00"},
                 "itemStyle": {"normal": {"color": "auto"}},
-                "title": {"show": true, "offsetCenter": [0, "170"], "textStyle": {"fontSize": 24, "fontWeight": "bold"}}
+                "title": {"show": true, "offsetCenter": [0, "110"], "textStyle": {"fontSize": 18}}
             }],
-            "chartHeight": "650",
-            "title": [{
-                "text": d_data.big_title,
-                "subtext": d_data.small_title,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 16
-                },
-                "left": 0,
-                "bottom": 0,
-                "top": "0px"
-            }, {
-                "text": "",
-                "subtext": source1 + "\n\n" + source2,
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "12"
-                },
-                "left": 0,
-                "bottom": "30px",
-                "top": "548px"
-            }]
-        }, {
-            "toolbox": {"feature": {"saveAsImage": {"type": "png"}}},
-            "grid": {
-                "show": false,
-                "top": "65px",
-                "height": 170,
-                "left": "center",
-                "right": "20%",
-                "width": 530,
-                "z": 2,
-                "zlevel": 0,
-                "bottom": 30
-            },
-            "graphic": [{
-                "type": "text",
-                "z": 100,
-                "left": "center",
-                "top": "260px",
-                "style": {"fill": "#000", "text": ["全部"], "font": "bold 24px Microsoft YaHei"}
-            }],
-            "yAxis": {
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "axisLabel": {"margin": 20, "textStyle": {"color": "#000", "fontSize": 14}},
-                "data": ["贬损者 68", "中立者 20", "推荐者 12"]
-            },
-            "xAxis": {
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "show": false,
-                "min": 0,
-                "max": 100
-            },
-            "tooltip": {"show": true},
-            "series": [{
-                "data": [{
-                    "name": "贬损者",
-                    "realValue": 17,
-                    "value": 68,
-                    "percent": 68,
-                    "people": 68,
-                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                    "itemStyle": {"normal": {"color": "#DC1E35"}}
-                }, {
-                    "name": "中立者",
-                    "realValue": 5,
-                    "value": 20,
-                    "percent": 20,
-                    "people": 20,
-                    "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                    "itemStyle": {"normal": {"color": "#F6A623"}}
-                }, {
-                    "name": "推荐者",
-                    "realValue": 3,
-                    "value": 12,
-                    "percent": 12,
-                    "people": 12,
-                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                    "itemStyle": {"normal": {"color": "#40BA2C"}}
-                }],
-                "animation": false,
-                "type": "pictorialBar",
-                "symbolRepeat": "10",
-                "symbolMargin": "0",
-                "symbolClip": true,
-                "symbolSize": 40,
-                "symbolBoundingData": 100
-            }, {
-                "data": [{
-                    "name": "贬损者",
-                    "realValue": 17,
-                    "value": 100,
-                    "percent": 68,
-                    "people": 68,
-                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                    "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
-                }, {
-                    "name": "中立者",
-                    "realValue": 5,
-                    "value": 100,
-                    "percent": 20,
-                    "people": 20,
-                    "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                    "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
-                }, {
-                    "name": "推荐者",
-                    "realValue": 3,
-                    "value": 100,
-                    "percent": 12,
-                    "people": 12,
-                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                    "itemStyle": {"normal": {"opacity": 0.2, "color": "#b1b1b1"}}
-                }],
-                "animation": false,
-                "type": "pictorialBar",
-                "symbolRepeat": "10",
-                "symbolMargin": "0",
-                "symbolClip": true,
-                "symbolSize": 40,
-                "symbolBoundingData": 100,
-                "z": -5
-            }],
-            "unit": "人",
-            "chartHeight": "450",
-            "formatterScheme": "default",
-            "title": [{
-                "text": "人群分布:推荐者\/中立者\/贬损者",
-                "subtext": "%",
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": 16
-                },
-                "left": 0,
-                "bottom": 0,
-                "top": "0px"
-            }, {
-                "text": "",
-                "subtext": "基数: n=25 \n\n数据来源：Q11",
-                "textStyle": {
-                    "color": "#000",
-                    "fontStyle": "normal",
-                    "fontWeight": "bolder",
-                    "fontFamily": "Microsoft YaHei",
-                    "fontSize": "12"
-                },
-                "left": 0,
-                "bottom": "30px",
-                "top": "300px"
-            }]
-        };
+
+
+        }
+
     }
     //纵向柱状堆叠图
     if (data.graph == 'bar-y-category-stack') {
@@ -5193,8 +3179,7 @@ var graph_ajax = function (data, obj, callback) {
                 data: draw_value[i]
             }
         }
-
-
+        
         option = {
             animationDuration: animationDuration,
             toolbox: {
@@ -5204,7 +3189,7 @@ var graph_ajax = function (data, obj, callback) {
                     } //辅助工具-保存图片
                 }
             },
-            color: colors,
+            // color: colors,
             title: {},
             tooltip: {
                 trigger: 'axis',
@@ -5213,9 +3198,9 @@ var graph_ajax = function (data, obj, callback) {
                 }
             },
             legend: {
-                textStyle: {
-                    color: legendTextstyleColor
-                },
+                // textStyle: {
+                //     color: legendTextstyleColor
+                // },
                 bottom: 0,
                 data: legend,
             },
@@ -5227,44 +3212,44 @@ var graph_ajax = function (data, obj, callback) {
                 containLabel: true
             },
             xAxis: {
-                axisLine: {
-                    lineStyle: {
-                        color: axislineLinestyleColor
-                    }
-                },
-                axisTick: {
-                    lineStyle: {
-                        color: axislineAxistickColor
-                    }
-                },
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: axislineAxislabelColor
-                    }
-                },
+                // axisLine: {
+                //     lineStyle: {
+                //         color: axislineLinestyleColor
+                //     }
+                // },
+                // axisTick: {
+                //     lineStyle: {
+                //         color: axislineAxistickColor
+                //     }
+                // },
+                // axisLabel: {
+                //     show: true,
+                //     textStyle: {
+                //         color: axislineAxislabelColor
+                //     }
+                // },
                 splitLine: {
                     show: false //去掉网格线
                 },
                 type: 'value'
             },
             yAxis: {
-                axisLine: {
-                    lineStyle: {
-                        color: axislineLinestyleColor
-                    }
-                },
-                axisTick: {
-                    lineStyle: {
-                        color: axislineAxistickColor
-                    }
-                },
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: axislineAxislabelColor
-                    }
-                },
+                // axisLine: {
+                //     lineStyle: {
+                //         color: axislineLinestyleColor
+                //     }
+                // },
+                // axisTick: {
+                //     lineStyle: {
+                //         color: axislineAxistickColor
+                //     }
+                // },
+                // axisLabel: {
+                //     show: true,
+                //     textStyle: {
+                //         color: axislineAxislabelColor
+                //     }
+                // },
                 splitLine: {
                     show: false //去掉网格线
                 },
@@ -5276,7 +3261,7 @@ var graph_ajax = function (data, obj, callback) {
         };
     }
 
-    console.log(option)
+    // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
@@ -5284,7 +3269,7 @@ var graph_ajax = function (data, obj, callback) {
 
 
 //    var unit = data.params && data.params.unit || '万人';
-    var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
+    var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie', 'wordCloud', 'map', 'line','pie'];
 // var graph_type = ['solid_line', 'doubleY_solid_line', 'solid_xline', 'reversed', 'horizontal_bar', 'stack_bar', 'dcolumn_bar', '2Dpie', 'hollow_line', 'mcolumn_bar', 'hcolumn_bar', 'single_bar', 'dcolumn_xtilt_bar', 'imgsingle_bar', '2Dmpie'];
 
     if ($.inArray(data.graph, graph_type) == -1) {
