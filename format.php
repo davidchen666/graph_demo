@@ -33,7 +33,7 @@ switch ($type) {
                          "unit":"k",
                          "tooltip":1,
                          "width":723,
-                         "height":548
+                         "height":550
                 }';
         break;
 //        饼图json
@@ -55,12 +55,14 @@ switch ($type) {
                                  "data":[70],
                                  "name": "mark"
                              }],
-                         "big_title": "性别",
+                         "big_title": "圆环图",
                          "small_title": "副标题",
                          "remarks1":"基数: 所有被访者 n=3 \n\n数据来源: Q2",
                          "remarks2":"备注2：",
                          "unit":"人",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":540
                      }';
         break;
 //        地图
@@ -88,7 +90,9 @@ switch ($type) {
                          "remarks1":"",
                          "remarks2":"基数: 所有被访者 n=4 \n\n数据来源：Q3",
                          "unit":"人",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":617
                 }';
         break;
 //        词云
@@ -161,7 +165,9 @@ switch ($type) {
                          "remarks1":"基数：所以被访者 n=3",
                          "remarks2":"数据来源：Q5",
                          "unit":"人",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":605
                 }';
         break;
 //        仪表盘图
@@ -179,7 +185,9 @@ switch ($type) {
                          "remarks1":"基数：n=1",
                          "remarks2":"数据来源：Q5",
                          "unit":"人",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":540
                 }';
         break;
 //        横向柱状图
@@ -210,12 +218,14 @@ switch ($type) {
                                      [10,70,30],
                                  "name": "小三"
                              }],
-                         "big_title": "横向柱状图",
+                         "big_title": "条形图",
                          "small_title": "%",
                          "remarks1":"基数：所有被访问者 n=3",
                          "remarks2":"数据来源：Q3",
                          "unit":"人",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":624
                 }';
         break;
 //        横向柱状堆叠图
@@ -251,7 +261,9 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=3",
                          "remarks2":"数据来源：Q4",
                          "unit":"人",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":298
                 }';
         break;
 //        条形象形图
@@ -269,12 +281,14 @@ switch ($type) {
                                  "data":[50,50,100],
                                  "name": ""
                              }],
-                         "big_title": "人群分布：推荐者/中立者/贬损者",
+                         "big_title": "人群分布:推荐者/中立者/贬损者",
                          "small_title": "%",
                          "remarks1":"基数： n=1",
                          "remarks2":"数据来源：Q5",
                          "unit":"k",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":360
                 }';
         break;
     case 9:
