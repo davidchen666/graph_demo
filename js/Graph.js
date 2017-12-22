@@ -935,7 +935,7 @@ var graph_ajax = function (data, obj, callback) {
             },
             grid: grid,
             title: title,
-            animationDuration: animationDuration,
+            // animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
@@ -944,11 +944,14 @@ var graph_ajax = function (data, obj, callback) {
             legend: {
                 //图例
                 data: legend,
-                //图例布局设置为垂直（水平/垂直）
+                //图例布局设置为垂直（水平/垂直,默认为水平）
                 orient: 'vertical',
                 y:'center',
                 left: '50px',
-
+                align:'auto',
+                itemGap:10,
+                itemWidth:14,
+                itemHeight:14
             },
             "series": [{
                 "type": "pie",
@@ -1115,7 +1118,11 @@ var graph_ajax = function (data, obj, callback) {
                 //图例
                 top: "14%",
                 right: "3%",
-                data: legend
+                data: legend,
+                align:'auto',
+                itemGap:10,
+                itemWidth:15,
+                itemHeight:0.5
             },
             xAxis: {
                 // show: true,
@@ -1290,7 +1297,11 @@ var graph_ajax = function (data, obj, callback) {
                 //图例
                 data: legend,
                 x: 'center',
-                top:"11%"
+                top:"11%",
+                align:'auto',
+                itemGap:10,
+                itemWidth:14,
+                itemHeight:14
             },
             "series": series,
             "yAxis": [{
