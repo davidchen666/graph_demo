@@ -919,30 +919,37 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
-                            name: graphdata['y'][i]['name'],
-                            value: graphdata['y'][i]['data']
-                        }
+                name: graphdata['y'][i]['name'],
+                value: graphdata['y'][i]['data']
+            }
         }
         option = {
             toolbox: {
-                        feature: feature
-                    },
+                feature: feature,
+                x:672,
+                y:18
+            },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
-                        show: tooltip,
-                        trigger: 'item',
-                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-                    },
+                show: tooltip,
+                trigger: 'item',
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
             legend: {
-                        //图例
-                        data: legend
-                    },
+                //图例
+                data: legend,
+                //图例布局设置为垂直（水平/垂直）
+                orient: 'vertical',
+                y:'center',
+                left: '50px',
+
+            },
             "series": [{
                 "type": "pie",
                 "radius": [110, 170],
@@ -963,11 +970,11 @@ var graph_ajax = function (data, obj, callback) {
             len = graphdata['y'].length;
         }
         for (var i = 0; i < len; i++) {
-            //循环折线图x轴上的legend
+            //循环legend图例
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
@@ -977,7 +984,9 @@ var graph_ajax = function (data, obj, callback) {
         }
         option = {
             toolbox: {
-                feature: feature
+                feature: feature,
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
@@ -985,7 +994,7 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //图例
@@ -1016,7 +1025,7 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             datamax[i] = graphdata['y'][i]['data'];
@@ -1027,7 +1036,10 @@ var graph_ajax = function (data, obj, callback) {
         }
         option = {
             toolbox: {
-                feature: feature
+                feature: feature,
+                x:672,
+                y:18
+                
             },
             grid: grid,
             title: title,
@@ -1035,7 +1047,7 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //图例
@@ -1063,7 +1075,7 @@ var graph_ajax = function (data, obj, callback) {
     //折线图
     if (data.graph == 'line') {
         var series = [];
-        var legend=[];
+        var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1074,7 +1086,7 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
@@ -1087,7 +1099,9 @@ var graph_ajax = function (data, obj, callback) {
         }
         option = {
             toolbox: {
-                feature: feature
+                feature: feature,
+                x:672,
+                y:18
             },
             animationDuration: animationDuration,
             grid: grid,
@@ -1095,15 +1109,12 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
-                axisPointer:{
-                    show:true,
-                    type:'cross'
-                },
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //图例
-                left: 'right',
+                top: "14%",
+                right: "3%",
                 data: legend
             },
             xAxis: {
@@ -1188,7 +1199,7 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
@@ -1199,24 +1210,22 @@ var graph_ajax = function (data, obj, callback) {
         }
         option = {
             toolbox: {
-                feature: feature
+                feature: feature,
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
-                trigger: 'axis',
-                axisPointer:{
-                                show:true,
-                                type:'cross'
-                            },
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                trigger: 'item',
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //图例
-                data: legend
-            },
+            // legend: {
+            //     //图例
+            //     data: legend
+            // },
             "series": series,
             "yAxis": [{
                 "axisTick": {"show": false},
@@ -1253,46 +1262,51 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
-                            name: graphdata['y'][i]['name'],
-                            data: graphdata['y'][i]['data'],
-                            type: "bar",
-                            stack: "总量"
-                        }
-                }
+                name: graphdata['y'][i]['name'],
+                data: graphdata['y'][i]['data'],
+                type: "bar",
+                stack: "总量"
+            }
+        }
         option = {
-            toolbox: {feature: feature},
+            toolbox: {
+                feature: feature,
+                x:672,
+                y:18
+            },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
-                        show: tooltip,
-                        trigger: 'axis',
-                        axisPointer:{
-                            show:true,
-                            type:'cross'
-                        },
-                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-                    },
+                show: tooltip,
+                trigger: 'item',
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
             legend: {
-                        //图例
-                        data: legend
-                    },
+                //图例
+                data: legend,
+                x: 'center',
+                top:"11%"
+            },
             "series": series,
             "yAxis": [{
-                        "type": "category",
-                        "data": graphdata['x']['data']
-                    }],
+                "type": "category",
+                "data": graphdata['x']['data'],
+                "axisTick": {"show": false},
+                "axisLine": {"show": false},
+                "splitLine": {"show": false},
+            }],
             "xAxis": [{
-                        "type": "value",
-                        "show": false,
-                        "min": 0,
-                        "max": 100
-                    }]
-                }
+                "type": "value",
+                "show": false,
+                "min": 0,
+                "max": 100
+            }]
+        }
     }
 
     //散点关系图
@@ -1309,7 +1323,7 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
@@ -1330,11 +1344,9 @@ var graph_ajax = function (data, obj, callback) {
             //        backgroundColor: '#eee',
             animationDuration: animationDuration,
             toolbox: {
-                feature: {
-                    saveAsImage: {
-                        show: false
-                    } //辅助工具-保存图片
-                }
+                feature: feature,
+                x:672,
+                y:18
             },
             // color: colors,
             title: {},
@@ -1425,16 +1437,18 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'gauge') {
         option = {
             toolbox: {
-                feature: feature
+                feature: feature,
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
-                        show: tooltip,
-                        trigger: 'item',
-                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-                    },
+                show: tooltip,
+                trigger: 'item',
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
             legend: {
                 //图例
                 data: legend
@@ -1498,7 +1512,6 @@ var graph_ajax = function (data, obj, callback) {
             var draw_value = [];
             draw_value[i] = [];
             $.each(d_data.y[i]['data'], function (j, val) {
-
                 if (val < 6) {
                     draw_value[i][j] = {
                         value: val,
@@ -1527,7 +1540,7 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            }else{
+            } else {
                 legend = [];
             }
             series[i] = {
@@ -1547,11 +1560,9 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             animationDuration: animationDuration,
             toolbox: {
-                feature: {
-                    saveAsImage: {
-                        show: false
-                    } //辅助工具-保存图片
-                }
+                feature: feature,
+                x: 672,
+                y: 18
             },
             // color: colors,
             title: {},
@@ -1629,16 +1640,18 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'pictorial-x') {
         option = {
             toolbox: {
-                feature: feature
+                feature: feature,
+                x:672,
+                y:18
             },
             animationDuration: animationDuration,
             grid: grid,
             title: title,
             tooltip: {
-                        show: tooltip,
-                        trigger: 'item',
-                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-                    },
+                show: tooltip,
+                trigger: 'item',
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
             legend: {
                 //图例
                 data: legend
@@ -1655,9 +1668,9 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
                 "data": [
-                    graphdata['x']['data'][0] +" "+graphdata['y'][0]['data'][0],
-                    graphdata['x']['data'][1] +" "+graphdata['y'][0]['data'][1],
-                    graphdata['x']['data'][2] +" "+graphdata['y'][0]['data'][2],
+                    graphdata['x']['data'][0] + " " + graphdata['y'][0]['data'][0],
+                    graphdata['x']['data'][1] + " " + graphdata['y'][0]['data'][1],
+                    graphdata['x']['data'][2] + " " + graphdata['y'][0]['data'][2],
                 ]
             },
             "xAxis": {
@@ -1676,9 +1689,9 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": [{
                 "data": [{
-                            "value": graphdata['y'][0]['data'][0],
-                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                            "itemStyle": {"normal": {"color": "#DC1E35"}}
+                    "value": graphdata['y'][0]['data'][0],
+                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                    "itemStyle": {"normal": {"color": "#DC1E35"}}
                 }, {
                     "value": graphdata['y'][0]['data'][1],
                     "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
