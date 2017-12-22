@@ -934,6 +934,10 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
+            legend: {
+                //图例
+                data: legend
+            },
             "series": [{
                 "type": "pie",
                 "radius": [110, 170],
@@ -972,6 +976,10 @@ var graph_ajax = function (data, obj, callback) {
                 show: tooltip,
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            legend: {
+                //图例
+                data: legend
             },
             "series": {
                 "type": "wordCloud",
@@ -1013,6 +1021,10 @@ var graph_ajax = function (data, obj, callback) {
                 show: tooltip,
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            legend: {
+                //图例
+                data: legend
             },
             visualMap: {
                 "type": "continuous",
@@ -1066,10 +1078,10 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            // legend: {
-            //     //折线图上x轴的名字
-            //     data: legend
-            // },
+            legend: {
+                //图例
+                data: legend
+            },
             xAxis: {
                 // show: true,
                 // name: 'x',
@@ -1168,6 +1180,10 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
+            legend: {
+                //图例
+                data: legend
+            },
             "series": series,
             "yAxis": [{
                 "axisTick": {"show": false},
@@ -1220,6 +1236,10 @@ var graph_ajax = function (data, obj, callback) {
                 show: tooltip,
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            legend: {
+                //图例
+                data: legend
             },
             "series": series,
             "yAxis": [{
@@ -1370,6 +1390,10 @@ var graph_ajax = function (data, obj, callback) {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                     },
+            legend: {
+                //图例
+                data: legend
+            },
             "series": [{
                 "name": "推荐净值",
                 // wukong!
@@ -1556,16 +1580,18 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: {
                 feature: feature
             },
-            // color: colors,
             animationDuration: animationDuration,
             grid: grid,
             title: title,
             tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                        show: tooltip,
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                    },
+            legend: {
+                //图例
+                data: legend
             },
-
             "yAxis": {
                 "axisTick": {
                     "show": false
