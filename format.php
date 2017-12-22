@@ -6,6 +6,7 @@ switch ($type) {
 //            折线图json
         $post = '{
                         "downloadimg":1,
+                        "legend":1,
                         "animation":1,
                          "x":
                              {
@@ -30,13 +31,17 @@ switch ($type) {
                          "remarks1":"备注1：",
                          "remarks2":"备注2：",
                          "unit":"k",
-                         "tooltip":1
+                         "tooltip":1,
+                         "width":723,
+                         "height":548
                 }';
         break;
 //        饼图json
     case 2:
         $post = ' {
                          "downloadimg":1,
+                         "legend":1,
+                         "animation":1,
                          "y":
                              [{
                                  "data":
@@ -61,7 +66,9 @@ switch ($type) {
 //        地图
     case 3:
         $post = '{
-                    "downloadimg":1,                        
+                    "downloadimg":1,  
+                    "legend":1,   
+                    "animation":1,                   
                          "y":
                              [{
                                  "data":
@@ -88,6 +95,8 @@ switch ($type) {
     case 4:
         $post = '{
                     "downloadimg":1,
+                    "legend":1,
+                    "animation":1,
                          "y":
                              [{
                                  "data":
@@ -159,6 +168,8 @@ switch ($type) {
     case 5:
         $post = '{
                     "downloadimg":1,
+                    "legend":1,
+                    "animation":1,
                          "x":
                              {
                                  "data":["全部"]
@@ -175,6 +186,8 @@ switch ($type) {
     case 6:
         $post = '{
                     "downloadimg":1,
+                    "legend":1,
+                    "animation":1,
                          "x":
                              {
                                  "data":["1","2","3"]
@@ -209,6 +222,8 @@ switch ($type) {
     case 7:
         $post = '{
                     "downloadimg":1,
+                    "legend":1,
+                    "animation":1,
                          "x":
                              {
                                  "data":["1","2","3"]
@@ -243,6 +258,8 @@ switch ($type) {
     case 8:
         $post = '{
                      "downloadimg":1,
+                     "legend":1,
+                     "animation":1,
                          "x":
                              {
                                  "data":["贬损者","中立者","推荐者"]
@@ -263,6 +280,8 @@ switch ($type) {
     case 9:
         $post = '{
      "downloadimg":1,
+     "legend":1,
+     "animation":1,
      "x":
          {
              "data":["第一季度","第二季度","第三季度"]
@@ -292,6 +311,8 @@ switch ($type) {
     case 10:
         $post = '{
      "downloadimg":1,
+     "legend":1,
+     "animation":1,
      "x":
          {
              "data":["第一季度","第二季度","第三季度"]
@@ -321,6 +342,7 @@ switch ($type) {
     case 21:
         $post = '{
     "downloadimg": 1,
+    "legend":1,
     "x":
         {
             "data":
@@ -366,6 +388,7 @@ switch ($type) {
     case 31:
         $post = '{
      "downloadimg":1,
+     "legend":1,
      "y":
          [{
              "data":

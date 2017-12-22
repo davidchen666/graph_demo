@@ -916,28 +916,33 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name'];
-            series[i] = {
-                name: graphdata['y'][i]['name'],
-                value: graphdata['y'][i]['data']
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
             }
+            series[i] = {
+                            name: graphdata['y'][i]['name'],
+                            value: graphdata['y'][i]['data']
+                        }
         }
         option = {
             toolbox: {
-                feature: feature
-            },
+                        feature: feature
+                    },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
+                        show: tooltip,
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                    },
             legend: {
-                //图例
-                data: legend
-            },
+                        //图例
+                        data: legend
+                    },
             "series": [{
                 "type": "pie",
                 "radius": [110, 170],
@@ -959,7 +964,12 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name'];
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
+            }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data']
@@ -1003,7 +1013,12 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name'];
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
+            }
             datamax[i] = graphdata['y'][i]['data'];
             series[i] = {
                 name: graphdata['y'][i]['name'],
@@ -1048,7 +1063,7 @@ var graph_ajax = function (data, obj, callback) {
     //折线图
     if (data.graph == 'line') {
         var series = [];
-        var legend = [];
+        var legend=[];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1056,7 +1071,12 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name'];
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
+            }
             series[i] = {
                 //引入动画开关
                 animation: animation,
@@ -1065,7 +1085,6 @@ var graph_ajax = function (data, obj, callback) {
                 data: graphdata['y'][i]['data']
             }
         }
-
         option = {
             toolbox: {
                 feature: feature
@@ -1075,11 +1094,16 @@ var graph_ajax = function (data, obj, callback) {
             title: title,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
+                trigger: 'axis',
+                axisPointer:{
+                    show:true,
+                    type:'cross'
+                },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //图例
+                left: 'right',
                 data: legend
             },
             xAxis: {
@@ -1161,7 +1185,12 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name'];
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
+            }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -1177,7 +1206,11 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
+                trigger: 'axis',
+                axisPointer:{
+                                show:true,
+                                type:'cross'
+                            },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
@@ -1217,44 +1250,49 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
-            legend[i] = graphdata['y'][i]['name'];
-            series[i] = {
-                name: graphdata['y'][i]['name'],
-                data: graphdata['y'][i]['data'],
-                type: "bar",
-                stack: "总量"
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
             }
-        }
+            series[i] = {
+                            name: graphdata['y'][i]['name'],
+                            data: graphdata['y'][i]['data'],
+                            type: "bar",
+                            stack: "总量"
+                        }
+                }
         option = {
-            toolbox: {
-                feature: feature
-            },
+            toolbox: {feature: feature},
             grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
+                        show: tooltip,
+                        trigger: 'axis',
+                        axisPointer:{
+                            show:true,
+                            type:'cross'
+                        },
+                        formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                    },
             legend: {
-                //图例
-                data: legend
-            },
+                        //图例
+                        data: legend
+                    },
             "series": series,
             "yAxis": [{
-                "type": "category",
-                "data": graphdata['x']['data']
-            }],
+                        "type": "category",
+                        "data": graphdata['x']['data']
+                    }],
             "xAxis": [{
-                "type": "value",
-                "show": false,
-                "min": 0,
-                "max": 100
-            }]
-
-        }
-
+                        "type": "value",
+                        "show": false,
+                        "min": 0,
+                        "max": 100
+                    }]
+                }
     }
 
     //散点关系图
@@ -1267,6 +1305,13 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'bar-y-category') {
         var series = []
         for (i = 0; i < d_data.x['data'].length; i++) {
+            //循环折线图x轴上的legend
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
+            }
             series[i] = {
                 name: d_data.y[i]['name'],
                 type: 'bar',
@@ -1478,7 +1523,13 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 }
             });
-            legend[i] = d_data.y[i]['name'];
+            //循环折线图x轴上的legend
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }else{
+                legend = [];
+            }
             series[i] = {
                 name: d_data.y[i]['name'],
                 type: 'bar',
