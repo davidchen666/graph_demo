@@ -924,7 +924,9 @@ var graph_ajax = function (data, obj, callback) {
             }
             series[i] = {
                 name: graphdata['y'][i]['name'],
-                value: graphdata['y'][i]['data']
+                value: graphdata['y'][i]['data'],
+                //是否开启鼠标移到扇形区域时的动画效果
+                hoverAnimation:false,
             }
         }
         option = {
