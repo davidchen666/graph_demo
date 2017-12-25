@@ -925,15 +925,15 @@ var graph_ajax = function (data, obj, callback) {
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data'],
-                //是否开启鼠标移到扇形区域时的动画效果
+                //鼠标移到扇形区域动画效果
                 hoverAnimation:false,
             }
         }
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
             },
             grid: grid,
             title: title,
@@ -990,8 +990,8 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
             },
             grid: grid,
             title: title,
@@ -1042,8 +1042,8 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
                 
             },
             grid: grid,
@@ -1105,8 +1105,8 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
             },
             animationDuration: animationDuration,
             grid: grid,
@@ -1122,9 +1122,10 @@ var graph_ajax = function (data, obj, callback) {
                 right: "3%",
                 data: legend,
                 align:'auto',
+                icon:"rect",
                 itemGap:10,
-                itemWidth:15,
-                itemHeight:0.5
+                itemWidth:12,
+                itemHeight:2
             },
             xAxis: {
                 // show: true,
@@ -1220,8 +1221,8 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
             },
             grid: grid,
             title: title,
@@ -1284,8 +1285,8 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
             },
             grid: grid,
             title: title,
@@ -1302,8 +1303,11 @@ var graph_ajax = function (data, obj, callback) {
                 top:"11%",
                 align:'auto',
                 itemGap:10,
+                icon:"rect",
                 itemWidth:14,
-                itemHeight:14
+                itemHeight:14,
+                //图例超出一行时滚动
+                type:"scroll"
             },
             "series": series,
             "yAxis": [{
@@ -1654,8 +1658,8 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                left:693,
+                top:30
             },
             animationDuration: animationDuration,
             grid: grid,

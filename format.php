@@ -3,14 +3,14 @@ $type = !empty($_GET['type']) && is_numeric($_GET['type']) ? $_GET['type'] : 1;
 $post = '';
 switch ($type) {
         case 1:
-//            折线图json
+//            折线图
         $post = '{
                         "downloadimg":1,
                         "legend":1,
                         "animation":1,
                          "x":
                              {
-                                 "data":["第一季度","第二季度","第三季度"]
+                                 "data":["2017/9/1","2017/9/2","2017/9/3","2017/9/4","2017/9/5","2017/9/6","2017/9/7"]
                              },
                          "y":
                              [{
@@ -33,10 +33,10 @@ switch ($type) {
                          "unit":"k",
                          "tooltip":1,
                          "width":723,
-                         "height":550
+                         "height":548
                 }';
         break;
-//        饼图json
+//        饼图
     case 2:
         $post = ' {
                          "downloadimg":1,
@@ -57,8 +57,8 @@ switch ($type) {
                              }],
                          "big_title": "圆环图",
                          "small_title": "副标题",
-                         "remarks1":"基数: 所有被访者 n=3 \n\n数据来源: Q2",
-                         "remarks2":"备注2：",
+                         "remarks1":"基数: 所有被访者 n=400 ",
+                         "remarks2":"数据来源: B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -87,8 +87,8 @@ switch ($type) {
                              }],
                          "big_title": "热力地图",
                          "small_title": "%",
-                         "remarks1":"",
-                         "remarks2":"基数: 所有被访者 n=4 \n\n数据来源：Q3",
+                         "remarks1":""基数: 所有被访者 n=400",
+                         "remarks2": 数据来源：  B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -162,8 +162,8 @@ switch ($type) {
                              ],
                          "big_title": "wordCloud",
                          "small_title": "副标题",
-                         "remarks1":"基数：所以被访者 n=3",
-                         "remarks2":"数据来源：Q5",
+                         "remarks1":"基数：所以被访者 n=400",
+                         "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -176,18 +176,15 @@ switch ($type) {
                     "downloadimg":1,
                     "legend":1,
                     "animation":1,
-                         "x":
-                             {
-                                 "data":["全部"]
-                             },
+                         "x": {"data":["全部"]},       
                          "big_title": "推荐净值(NPS)",
-                         "small_title": "%",
-                         "remarks1":"基数：n=1",
-                         "remarks2":"数据来源：Q5",
+                         "small_title": "副标题",
+                         "remarks1":"基数：n=400",
+                         "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
-                         "height":540
+                         "height":546
                 }';
         break;
 //        横向柱状图
@@ -220,8 +217,8 @@ switch ($type) {
                              }],
                          "big_title": "条形图",
                          "small_title": "%",
-                         "remarks1":"基数：所有被访问者 n=3",
-                         "remarks2":"数据来源：Q3",
+                         "remarks1":"基数：n=400",
+                         "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -258,8 +255,8 @@ switch ($type) {
                              }],
                          "big_title": "横向柱状堆叠图",
                          "small_title": "%",
-                         "remarks1":"基数：所有被访者 n=3",
-                         "remarks2":"数据来源：Q4",
+                         "remarks1":"基数：n=400",
+                         "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -283,8 +280,8 @@ switch ($type) {
                              }],
                          "big_title": "人群分布:推荐者/中立者/贬损者",
                          "small_title": "%",
-                         "remarks1":"基数： n=1",
-                         "remarks2":"数据来源：Q5",
+                         "remarks1":"基数： n=400",
+                         "remarks2":"数据来源：B12",
                          "unit":"k",
                          "tooltip":1,
                          "width":723,
