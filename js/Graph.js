@@ -925,15 +925,53 @@ var graph_ajax = function (data, obj, callback) {
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data'],
-                //鼠标移到扇形区域动画效果
+                //是否开启鼠标移到扇形区域时的动画效果
                 hoverAnimation:false,
             }
         }
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
@@ -988,10 +1026,48 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
@@ -1040,11 +1116,48 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            //添加水印方案2
+            graphic:
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
-                
+                x:672,
+                y:18
+
             },
             grid: grid,
             title: title,
@@ -1079,6 +1192,7 @@ var graph_ajax = function (data, obj, callback) {
 
     //折线图
     if (data.graph == 'line') {
+
         var series = [];
         var legend = [];
         var len = []
@@ -1103,10 +1217,48 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
+                x:672,
+                y:18
             },
             animationDuration: animationDuration,
             grid: grid,
@@ -1122,10 +1274,9 @@ var graph_ajax = function (data, obj, callback) {
                 right: "3%",
                 data: legend,
                 align:'auto',
-                icon:"rect",
                 itemGap:10,
-                itemWidth:12,
-                itemHeight:2
+                itemWidth:15,
+                itemHeight:0.5
             },
             xAxis: {
                 // show: true,
@@ -1219,10 +1370,48 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
@@ -1283,10 +1472,48 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
+                x:672,
+                y:18
             },
             grid: grid,
             title: title,
@@ -1303,11 +1530,8 @@ var graph_ajax = function (data, obj, callback) {
                 top:"11%",
                 align:'auto',
                 itemGap:10,
-                icon:"rect",
                 itemWidth:14,
-                itemHeight:14,
-                //图例超出一行时滚动
-                type:"scroll"
+                itemHeight:14
             },
             "series": series,
             "yAxis": [{
@@ -1453,6 +1677,44 @@ var graph_ajax = function (data, obj, callback) {
     //仪表盘图
     if (data.graph == 'gauge') {
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
                 x:672,
@@ -1656,10 +1918,48 @@ var graph_ajax = function (data, obj, callback) {
     //条形象形图
     if (data.graph == 'pictorial-x') {
         option = {
+            //添加水印方案2
+            graphic:
+
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 110,
+                    bottom: 110,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 50
+                            },
+                            style: {
+                                fill: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
             toolbox: {
                 feature: feature,
-                left:693,
-                top:30
+                x:672,
+                y:18
             },
             animationDuration: animationDuration,
             grid: grid,
