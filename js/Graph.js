@@ -937,8 +937,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -948,10 +948,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1033,8 +1037,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1044,10 +1048,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1118,12 +1126,13 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             //添加水印方案2
             graphic:
+
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1133,10 +1142,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1224,8 +1237,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1235,10 +1248,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+                                
                             }
                         },
                         {
@@ -1377,8 +1394,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1388,10 +1405,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1479,8 +1500,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1490,10 +1511,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1684,8 +1709,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1695,10 +1720,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1925,8 +1954,8 @@ var graph_ajax = function (data, obj, callback) {
                     type: 'group',
                     rotation: Math.PI / 4,
                     bounding: 'raw',
-                    right: 110,
-                    bottom: 110,
+                    right: 50,
+                    bottom:60,
                     z: 100,
                     children: [
                         {
@@ -1936,10 +1965,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height: 50
+                                height:40,
                             },
                             style: {
-                                fill: 'rgba(0,0,0,0.05)'
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
                             }
                         },
                         {
@@ -1955,7 +1988,6 @@ var graph_ajax = function (data, obj, callback) {
                         }
                     ]
                 },
-
             toolbox: {
                 feature: feature,
                 x:672,
