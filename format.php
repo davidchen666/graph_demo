@@ -29,7 +29,7 @@ switch ($type) {
                          "big_title": "日收入",
                          "small_title": "副标题",
                          "remarks1":"备注1：",
-                         "remarks2":"备注2：",
+                         "remarks2":"数据来源: Q2：",
                          "unit":"k",
                          "tooltip":1,
                          "width":723,
@@ -57,8 +57,8 @@ switch ($type) {
                              }],
                          "big_title": "性别",
                          "small_title": "副标题",
-                         "remarks1":"基数: 所有被访者 n=3 \n\n数据来源: Q2",
-                         "remarks2":"备注2：",
+                         "remarks1":"基数: 所有被访者 n=3",
+                         "remarks2":"数据来源: Q2：",
                          "unit":"人",
                          "tooltip":1
                      }';
@@ -303,7 +303,7 @@ switch ($type) {
      "big_title": "日收入",
      "small_title": "副标题",
      "remarks1":"备注1：",
-     "remarks2":"备注2：",
+     "remarks2":"数据来源: Q2：",
      "unit":"k",
      "tooltip":1
  }';
@@ -334,7 +334,7 @@ switch ($type) {
      "big_title": "日收入",
      "small_title": "副标题",
      "remarks1":"备注1：",
-     "remarks2":"备注2：",
+     "remarks2":"数据来源: Q2：",
      "unit":"k",
      "tooltip":1
  }';
