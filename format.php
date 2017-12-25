@@ -29,7 +29,7 @@ switch ($type) {
                          "big_title": "日收入",
                          "small_title": "副标题",
                          "remarks1":"备注1：",
-                         "remarks2":"备注2：",
+                         "remarks2":"数据来源: Q2：",
                          "unit":"k",
                          "tooltip":1,
                          "width":723,
@@ -87,8 +87,8 @@ switch ($type) {
                              }],
                          "big_title": "热力地图",
                          "small_title": "%",
-                         "remarks1":""基数: 所有被访者 n=400",
-                         "remarks2": 数据来源：  B12",
+                         "remarks1":"基数: 所有被访者 n=400",
+                         "remarks2": "数据来源：  B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -314,7 +314,7 @@ switch ($type) {
      "big_title": "日收入",
      "small_title": "副标题",
      "remarks1":"备注1：",
-     "remarks2":"备注2：",
+     "remarks2":"数据来源: Q2：",
      "unit":"k",
      "tooltip":1
  }';
@@ -345,7 +345,7 @@ switch ($type) {
      "big_title": "日收入",
      "small_title": "副标题",
      "remarks1":"备注1：",
-     "remarks2":"备注2：",
+     "remarks2":"数据来源: Q2：",
      "unit":"k",
      "tooltip":1
  }';
