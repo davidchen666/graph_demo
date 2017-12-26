@@ -173,18 +173,27 @@ switch ($type) {
 //        仪表盘图
     case 5:
         $post = '{
-                    "downloadimg":1,
-                    "legend":1,
-                    "animation":1,
-                         "x": {"data":["全部"]},       
-                         "big_title": "推荐净值(NPS)",
-                         "small_title": "副标题",
-                         "remarks1":"基数：n=400",
-                         "remarks2":"数据来源：B12",
-                         "unit":"人",
-                         "tooltip":1,
-                         "width":723,
-                         "height":546
+                    "downloadimg": 1,
+                    "legend": 1,
+                    "x":
+                        {
+                            "data": ["推荐净值（NPS）"]
+                        },
+                    "y":
+                        [{
+                            "data":
+                                [36],
+                            "name": "品牌名称"
+                        }],
+                    "animation": 1,
+                    "big_title": "仪表盘NPS",
+                    "small_title": "副标题",
+                    "remarks1": "基数：n=400",
+                    "remarks2": "数据来源：B12",
+                    "unit": "人",
+                    "tooltip": 1,
+                    "width": 723,
+                    "height": 546 
                 }';
         break;
 //        横向柱状图
@@ -269,14 +278,17 @@ switch ($type) {
                      "downloadimg":1,
                      "legend":1,
                      "animation":1,
-                         "x":
-                             {
-                                 "data":["贬损者","中立者","推荐者"]
-                             },
+                        
                          "y":
                              [{
-                                 "data":[50,50,100],
-                                 "name": ""
+                                 "data":[50],
+                                 "name": "贬损者"
+                             },{
+                                 "data":[50],
+                                 "name": "中立者"
+                             },{
+                                 "data":[100],
+                                 "name": "推荐者"
                              }],
                          "big_title": "人群分布:推荐者/中立者/贬损者",
                          "small_title": "%",
