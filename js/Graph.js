@@ -842,28 +842,31 @@ var graph_ajax = function (data, obj, callback) {
     var gTop = 22;
     var gBottom = 27;
     if (typeof(d_data.big_title) == "undefined") {
-        gTop -= 8
+        gTop -= 120
 
     }
     if (typeof(d_data.small_title) == "undefined") {
-        gTop -= 8
+        gTop -= 120
 
     }
     if (typeof(d_data.remarks1) == "undefined") {
 
-        gBottom -= 11
+        gBottom -= 65
     }
     if (typeof(d_data.remarks2) == "undefined") {
 
-        gBottom -= 11
+        gBottom -= 65
     }
     var grid = {
-        left: 32,
-        right: '3%',
+        top:105.5,
+        right: 91,
+        bottom:94.5,
+        left: 91,
+
         // bottom: gBottom + '%',
-        bottom:92,
+
         // top: gTop + '%',
-        top:142,
+
         containLabel: true
     }
     var remarks1 = ''
@@ -886,15 +889,16 @@ var graph_ajax = function (data, obj, callback) {
     // console.log(graphdata);
     var title = [
         {
-            // subtextStyle: {
-            //     height: '1.5%'
-            // },
+            subtextStyle: {
+                rich:{fontSize:14},
+                height: 14
+            },
             left: 23,
-            top: 22,
+            top: 20.4,
             //标题内边距,上右下左
             // padding: [20, 0, 0, 40],
             //主标题和副标题之间的间距
-            // itemGap: '1%',
+            itemGap:17,
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
 
@@ -1189,7 +1193,7 @@ var graph_ajax = function (data, obj, callback) {
                 // right:24,
                 // top:23
             },
-            grid: grid,
+
             title: title,
             animationDuration: animationDuration,
             tooltip: {
@@ -1197,12 +1201,7 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'axis',
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                // //legend超出一行时滚动
-                // type:"scroll",
-                //图例
-                data: legend
-            },
+
             visualMap: {
                 "type": "continuous",
                 "inRange": {"color": [echartsTheme.visualMapColor[1], echartsTheme.visualMapColor[0]]},
@@ -1213,10 +1212,32 @@ var graph_ajax = function (data, obj, callback) {
                 //??
                 bottom: 89,
                 left:24,
+                continuous:{
+                    itemWidth:20,
+                    itemHeight:140,
+                    textGap:163,
+                }
             },
             series: [{
                 "type": "map",
                 "mapType": "china",
+                top:105,
+                right: 91,
+                bottom:94,
+                left: 91,
+
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideTop',
+                        distance:111
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderColor: 'rgba(255, 255, 255, .1)'
+                    }
+                },
                 "data": series
             }]
         }

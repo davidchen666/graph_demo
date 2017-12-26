@@ -26,10 +26,10 @@ switch ($type) {
                                      [30,43,51],
                                  "name": "tom"
                              }],
-                         "big_title": "日收入",
-                         "small_title": "副标题",
-                         "remarks1":"备注1：",
-                         "remarks2":"数据来源: Q2：",
+                         "big_title": "折线图",
+                         "small_title": "副标题副标题副标题副标题副标题副标题副",
+                         "remarks1":"基数：所有被访者 n=400",
+                         "remarks2":"数据来源：B12",
                          "unit":"k",
                          "tooltip":1,
                          "width":723,
@@ -57,7 +57,7 @@ switch ($type) {
                              }],
                          "big_title": "圆环图",
                          "small_title": "副标题",
-                         "remarks1":"基数: 所有被访者 n=400 ",
+                         "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源: B12",
                          "unit":"人",
                          "tooltip":1,
@@ -215,9 +215,9 @@ switch ($type) {
                              }
                              ],
                          "big_title": "热力地图",
-                         "small_title": "%",
+                         "small_title": "副标题",
                          "remarks1":"基数: 所有被访者 n=400",
-                         "remarks2": "数据来源：  B12",
+                         "remarks2": "数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
@@ -234,64 +234,164 @@ switch ($type) {
                              [{
                                  "data":
                                      [1],
-                                 "name": "nick喜欢红烧肉"
+                                 "name": "不错"
                              },{
                                  "data":
                                      [2],
-                                 "name": "davy喜欢炸酱面"
+                                 "name": "活动"
                              },{
                                  "data":
                                      [3],
-                                 "name": "gavin喜欢小笼包"
+                                 "name": "安全带"
                              },{
                                  "data":
                                      [4],
-                                 "name": "红灯笼"
+                                 "name": "服务态度"
                              },{
                                  "data":
                                      [5],
-                                 "name": "圣诞节"
+                                 "name": "驾驶"
                              },{
                                  "data":
                                      [6],
-                                 "name": "圣诞礼物"
+                                 "name": "外观"
                              },{
                                  "data":
                                      [7],
-                                 "name": "现货"
+                                 "name": "汽车"
                              },{
                                  "data":
                                      [8],
-                                 "name": "男女"
+                                 "name": "驾驶"
                              },{
                                  "data":
                                      [9],
-                                 "name": "看看书"
+                                 "name": "外观"
                              },{
                                  "data":
                                      [10],
-                                 "name": "解放军"
+                                 "name": "车"
                              },{
                                  "data":
                                      [11],
-                                 "name": "oe"
+                                 "name": "降低"
                              },{
                                  "data":
                                      [12],
-                                 "name": "君君"
+                                 "name": "降价"
                              },{
                                  "data":
                                      [13],
-                                 "name": "tom"
+                                 "name": "省油"
                              },{
                                  "data":
                                      [14],
-                                 "name": "mark"
+                                 "name": "提供一点"
+                             },{
+                                 "data":
+                                     [15],
+                                 "name": "发动机"
+                             },{
+                                 "data":
+                                     [16],
+                                 "name": "油耗"
+                             },{
+                                 "data":
+                                     [17],
+                                 "name": "售后"
+                             },{
+                                 "data":
+                                     [18],
+                                 "name": "动力"
+                             },{
+                                 "data":
+                                     [19],
+                                 "name": "性价比"
+                             },{
+                                 "data":
+                                     [20],
+                                 "name": "性能"
+                             },{
+                                 "data":
+                                     [21],
+                                 "name": "质量"
+                             },{
+                                 "data":
+                                     [22],
+                                 "name": "品牌"
+                             },{
+                                 "data":
+                                     [23],
+                                 "name": "促销"
+                             },{
+                                 "data":
+                                     [24],
+                                 "name": "更好保养"
+                             },{
+                                 "data":
+                                     [25],
+                                 "name": "增加力度"
+                             },{
+                                 "data":
+                                     [26],
+                                 "name": "推荐"
+                             },{
+                                 "data":
+                                     [27],
+                                 "name": "舒适"
+                             },{
+                                 "data":
+                                     [28],
+                                 "name": "配置"
+                             },{
+                                 "data":
+                                     [29],
+                                 "name": "舒适度"
+                             },{
+                                 "data":
+                                     [30],
+                                 "name": "价格"
+                             },{
+                                 "data":
+                                     [31],
+                                 "name": "体验"
+                             },{
+                                 "data":
+                                     [32],
+                                 "name": "品质"
+                             },{
+                                 "data":
+                                     [33],
+                                 "name": "配置"
+                             },{
+                                 "data":
+                                     [34],
+                                 "name": "免费"
+                             },{
+                                 "data":
+                                     [35],
+                                 "name": "内饰"
+                             },{
+                                 "data":
+                                     [36],
+                                 "name": "点"
+                             },{
+                                 "data":
+                                     [37],
+                                 "name": "坐"
+                             },{
+                                 "data":
+                                     [38],
+                                 "name": "车子"
+                             },{
+                                 "data":
+                                     [39],
+                                 "name": "外形"
                              }
                              ],
-                         "big_title": "wordCloud",
+                         "big_title": "词云",
                          "small_title": "副标题",
-                         "remarks1":"基数：所以被访者 n=400",
+                         "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
@@ -317,7 +417,7 @@ switch ($type) {
                     "animation": 1,
                     "big_title": "仪表盘NPS",
                     "small_title": "副标题",
-                    "remarks1": "基数：n=400",
+                    "remarks1": "基数：所有被访者 n=400",
                     "remarks2": "数据来源：B12",
                     "unit": "人",
                     "tooltip": 1,
@@ -354,8 +454,8 @@ switch ($type) {
                                  "name": "小三"
                              }],
                          "big_title": "条形图",
-                         "small_title": "%",
-                         "remarks1":"基数：n=400",
+                         "small_title": "副标题副标题副标题副标题副标题副标题副",
+                         "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
@@ -391,9 +491,9 @@ switch ($type) {
                                      [5,5,5],
                                  "name": "lily"
                              }],
-                         "big_title": "横向柱状堆叠图",
+                         "big_title": "百分比堆叠条形图（单条）",
                          "small_title": "%",
-                         "remarks1":"基数：n=400",
+                         "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
@@ -419,9 +519,9 @@ switch ($type) {
                                  "data":[100],
                                  "name": ""
                              }],
-                         "big_title": "人群分布:推荐者/中立者/贬损者",
+                         "big_title": "条形象形图",
                          "small_title": "%",
-                         "remarks1":"基数： n=400",
+                         "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"k",
                          "tooltip":1,
