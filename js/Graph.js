@@ -986,6 +986,8 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
+                //legend超出一行时滚动
+                type:"scroll",
                 //图例
                 data: legend,
                 //图例布局设置为垂直（水平/垂直,默认为水平）
@@ -1086,6 +1088,8 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
+                //legend超出一行时滚动
+                type:"scroll",
                 //图例
                 data: legend
             },
@@ -1181,6 +1185,8 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
+                //legend超出一行时滚动
+                type:"scroll",
                 //图例
                 data: legend
             },
@@ -1205,7 +1211,6 @@ var graph_ajax = function (data, obj, callback) {
 
     //折线图
     if (data.graph == 'line') {
-
         var series = [];
         var legend = [];
         var len = []
@@ -1232,7 +1237,6 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -1274,8 +1278,8 @@ var graph_ajax = function (data, obj, callback) {
 
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                x:688,
+                y:30
             },
             animationDuration: animationDuration,
             grid: grid,
@@ -1286,14 +1290,17 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
+                //legend超出一行时滚动
+                type:"scroll",
                 //图例
                 top: "14%",
-                right: "3%",
+                right: 35,
                 data: legend,
                 align:'auto',
+                icon:"rect",
                 itemGap:10,
-                itemWidth:15,
-                itemHeight:0.5
+                itemWidth:13,
+                itemHeight:5
             },
             xAxis: {
                 // show: true,
@@ -1341,6 +1348,8 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    //是否显示轴刻度
+                    show:false,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -1556,7 +1565,8 @@ var graph_ajax = function (data, obj, callback) {
                 align:'auto',
                 itemGap:10,
                 itemWidth:14,
-                itemHeight:14
+                itemHeight:14,
+                type:"scroll"
             },
             "series": series,
             "yAxis": [{
@@ -1758,6 +1768,8 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
+                //legend超出一行时滚动
+                type:"scroll",
                 //图例
                 data: legend
             },
@@ -2002,6 +2014,8 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
+                //legend超出一行时滚动
+                type:"scroll",
                 //图例
                 data: legend
             },
