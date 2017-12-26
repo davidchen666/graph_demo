@@ -282,13 +282,13 @@ switch ($type) {
                          "y":
                              [{
                                  "data":[50],
-                                 "name": "贬损者"
+                                 "name": ""
                              },{
                                  "data":[50],
-                                 "name": "中立者"
+                                 "name": ""
                              },{
                                  "data":[100],
-                                 "name": "推荐者"
+                                 "name": ""
                              }],
                          "big_title": "人群分布:推荐者/中立者/贬损者",
                          "small_title": "%",

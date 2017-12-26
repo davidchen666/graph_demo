@@ -973,9 +973,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:672,
-                y:18
+                right:21,
+                top:21
             },
             grid: grid,
             title: title,
@@ -986,15 +987,15 @@ var graph_ajax = function (data, obj, callback) {
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
-                //legend超出一行时滚动
-                type:"scroll",
                 //图例
                 data: legend,
                 //图例布局设置为垂直（水平/垂直,默认为水平）
                 orient: 'vertical',
-                y:'center',
-                left: '50px',
+                // y:'center',
                 align:'auto',
+                icon:"rect",
+                left:24,
+                bottom:227,
                 itemGap:10,
                 itemWidth:14,
                 itemHeight:14
@@ -1034,7 +1035,6 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -1075,10 +1075,11 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                feature: feature,
-                x:672,
-                y:18
-            },
+                        itemSize:14,
+                        feature: feature,
+                        right:24,
+                        top:23
+                    },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
@@ -1130,7 +1131,6 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -1171,10 +1171,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:672,
-                y:18
-
+                right:24,
+                top:23
             },
             grid: grid,
             title: title,
@@ -1198,7 +1198,8 @@ var graph_ajax = function (data, obj, callback) {
                 "text": ["高", "低"],
                 "calculable": true,
                 //??
-                "bottom": 50
+                bottom: 89,
+                left:24,
             },
             series: [{
                 "type": "map",
@@ -1277,9 +1278,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:688,
-                y:30
+                right:22,
+                top:22
             },
             animationDuration: animationDuration,
             grid: grid,
@@ -1293,8 +1295,8 @@ var graph_ajax = function (data, obj, callback) {
                 //legend超出一行时滚动
                 type:"scroll",
                 //图例
-                top: "14%",
-                right: 35,
+                top: 99,
+                right: 25,
                 data: legend,
                 align:'auto',
                 icon:"rect",
@@ -1439,9 +1441,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:672,
-                y:18
+                right:22,
+                top:22
             },
             grid: grid,
             title: title,
@@ -1545,9 +1548,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:672,
-                y:18
+                right:22,
+                top:22
             },
             grid: grid,
             title: title,
@@ -1561,11 +1565,12 @@ var graph_ajax = function (data, obj, callback) {
                 //图例
                 data: legend,
                 x: 'center',
-                top:"11%",
+                top:99,
                 align:'auto',
                 itemGap:10,
                 itemWidth:14,
                 itemHeight:14,
+                icon:"rect",
                 type:"scroll"
             },
             "series": series,
@@ -1755,9 +1760,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:672,
-                y:18
+                right:24,
+                top:24
             },
             grid: grid,
             title: title,
@@ -1949,7 +1955,6 @@ var graph_ajax = function (data, obj, callback) {
                     show: false //去掉网格线
                 },
                 type: 'category',
-
                 data: d_data.x['data']
             },
             series: series
@@ -1961,7 +1966,6 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -2001,9 +2005,10 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
             toolbox: {
+                itemSize:14,
                 feature: feature,
-                x:672,
-                y:18
+                right:24,
+                top:24
             },
             animationDuration: animationDuration,
             grid: grid,
@@ -2031,10 +2036,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
                 "data": [
-                    graphdata['x']['data'][0] + " " + graphdata['y'][0]['data'][0],
-                    graphdata['x']['data'][1] + " " + graphdata['y'][0]['data'][1],
-                    graphdata['x']['data'][2] + " " + graphdata['y'][0]['data'][2],
-                ]
+                            graphdata['y'][2]['data'][0],
+                            graphdata['y'][1]['data'][0],
+                            graphdata['y'][0]['data'][0],
+                        ]
             },
             "xAxis": {
                 "axisTick": {
@@ -2052,15 +2057,15 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": [{
                 "data": [{
-                    "value": graphdata['y'][0]['data'][0],
+                    "value": graphdata['y'][2]['data'][0],
                     "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
                     "itemStyle": {"normal": {"color": "#DC1E35"}}
                 }, {
-                    "value": graphdata['y'][0]['data'][1],
+                    "value": graphdata['y'][1]['data'][0],
                     "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
                     "itemStyle": {"normal": {"color": "#F6A623"}}
                 }, {
-                    "value": graphdata['y'][0]['data'][2],
+                    "value": graphdata['y'][0]['data'][0],
                     "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
                     "itemStyle": {"normal": {"color": "#40BA2C"}}
                 }],
