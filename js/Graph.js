@@ -975,8 +975,10 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: {
                 itemSize:14,
                 feature: feature,
-                right:21,
-                top:21
+                right:22,
+                top:22
+                // right:21,
+                // top:21
             },
             grid: grid,
             title: title,
@@ -1077,8 +1079,10 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: {
                         itemSize:14,
                         feature: feature,
-                        right:24,
-                        top:23
+                right:22,
+                top:22
+                        // right:24,
+                        // top:23
                     },
             grid: grid,
             title: title,
@@ -1173,8 +1177,10 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: {
                 itemSize:14,
                 feature: feature,
-                right:24,
-                top:23
+                right:22,
+                top:22
+                // right:24,
+                // top:23
             },
             grid: grid,
             title: title,
@@ -1762,8 +1768,10 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: {
                 itemSize:14,
                 feature: feature,
-                right:24,
-                top:24
+                right:22,
+                top:22
+                // right:24,
+                // top:24
             },
             grid: grid,
             title: title,
@@ -2007,8 +2015,10 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: {
                 itemSize:14,
                 feature: feature,
-                right:24,
-                top:24
+                right:22,
+                top:22
+                // right:24,
+                // top:24
             },
             animationDuration: animationDuration,
             grid: grid,
