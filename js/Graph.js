@@ -839,7 +839,7 @@ var graph_ajax = function (data, obj, callback) {
         animation = true;
     }
     //对网页自适应进行判断
-    var gTop = 23;
+    var gTop = 22;
     var gBottom = 27;
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 8
@@ -858,10 +858,12 @@ var graph_ajax = function (data, obj, callback) {
         gBottom -= 11
     }
     var grid = {
-        left: '4.3%',
+        left: 32,
         right: '3%',
-        bottom: gBottom + '%',
-        top: gTop + '%',
+        // bottom: gBottom + '%',
+        bottom:92,
+        // top: gTop + '%',
+        top:142,
         containLabel: true
     }
     var remarks1 = ''
@@ -882,25 +884,30 @@ var graph_ajax = function (data, obj, callback) {
         tooltip = false;
     }
     // console.log(graphdata);
-
     var title = [
         {
-            subtextStyle: {
-                height: '1.5%'
-            },
+            // subtextStyle: {
+            //     height: '1.5%'
+            // },
+            left: 23,
+            top: 22,
             //标题内边距,上右下左
-            padding: [20, 0, 0, 40],
+            // padding: [20, 0, 0, 40],
             //主标题和副标题之间的间距
             // itemGap: '1%',
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
-        }, {
+
+        },{
             text: '',
             subtext: remarks1 + '\n\n' + remarks2,
-            left: '5.8%',
-            top: '80%'
+            left: 25,
+            bottom: 26
         }
+
     ]
+
+    // title=[{"name":"推荐净值(NPS)"},{"name":"备注"}];title.push({"name":"组名"}) ;title
 
     // data.graph = 'gauge'
     // 指定图表的配置项和数据
@@ -1187,12 +1194,12 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
+                trigger: 'axis',
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
-                //legend超出一行时滚动
-                type:"scroll",
+                // //legend超出一行时滚动
+                // type:"scroll",
                 //图例
                 data: legend
             },
@@ -1292,11 +1299,11 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             grid: grid,
             title: title,
-            tooltip: {
-                show: tooltip,
-                trigger: 'axis',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
+            // tooltip: {
+            //     show: tooltip,
+            //     trigger: 'axis',
+            //     //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            // },
             legend: {
                 //legend超出一行时滚动
                 type:"scroll",
@@ -1307,8 +1314,8 @@ var graph_ajax = function (data, obj, callback) {
                 align:'auto',
                 icon:"rect",
                 itemGap:10,
-                itemWidth:13,
-                itemHeight:5
+                itemWidth:14,
+                itemHeight:2
             },
             xAxis: {
                 // show: true,
