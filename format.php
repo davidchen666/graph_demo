@@ -193,7 +193,7 @@ switch ($type) {
                     "unit": "人",
                     "tooltip": 1,
                     "width": 723,
-                    "height": 546 
+                    "height": 546
                 }';
         break;
 //        横向柱状图
