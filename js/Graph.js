@@ -1212,33 +1212,29 @@ var graph_ajax = function (data, obj, callback) {
                 //??
                 bottom: 92,
                 left:28,
-                    itemWidth:20,
-                    itemHeight:140,
-                    textGap:10,
+                itemWidth:20,
+                itemHeight:140,
+                textGap:10,
 
             },
             series: [{
-                "type": "map",
-                "mapType": "china",
-                top:105,
-                right: 91,
-                bottom:94,
-                left: 91,
-
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'insideTop',
-                        distance:111
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        borderColor: 'rgba(255, 255, 255, .1)'
-                    }
-                },
-                "data": series
-            }]
+                        "type": "map",
+                        "mapType": "china",
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'insideTop',
+                                distance:111,
+                                padding:[0,0,0,-30]
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(255, 255, 255, .1)'
+                            }
+                        },
+                        "data": series
+                    }]
         }
     }
     // console.log(data.data);
