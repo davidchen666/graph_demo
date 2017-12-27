@@ -427,7 +427,7 @@ switch ($type) {
                     "animation": 1,
                     "big_title": "仪表盘NPS",
                     "small_title": "副标题",
-                    "remarks1": "基数：所有被访者 n=400",
+                    "remarks1": "基数：n=400",
                     "remarks2": "数据来源：B12",
                     "unit": "人",
                     "tooltip": 1,
@@ -520,18 +520,18 @@ switch ($type) {
                         
                          "y":
                              [{
-                                 "data":[50],
-                                 "name": ""
+                                 "data":[40],
+                                 "name": "推荐者"
+                             },{
+                                 "data":[20],
+                                 "name": "中立者"
                              },{
                                  "data":[50],
-                                 "name": ""
-                             },{
-                                 "data":[100],
-                                 "name": ""
+                                 "name": "贬损者"
                              }],
-                         "big_title": "条形象形图",
+                         "big_title": "人群分布:推荐者/中立者/贬损者",
                          "small_title": "%",
-                         "remarks1":"基数：所有被访者 n=400",
+                         "remarks1":"基数： n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"k",
                          "tooltip":1,

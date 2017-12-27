@@ -805,7 +805,7 @@ var graph_ajax = function (data, obj, callback) {
     // var graph_type = ['pie-doughnut', 'bar-y-category', 'gauge', 'bar-y-category-stack'];
     //定义图表类型
     //area：堆叠区域图，gauge：仪表盘图，scatter-relationship：散点关系图，bar-y-category：纵向柱状图，bar-y-category-stack：纵向柱状堆叠图，line：折线图，k：k线图，graph：力导图
-    var graph_type = ['pie', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack', 'pictorial-x'];
+    var graph_type = ['pie', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack', 'pictorialline'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -1210,13 +1210,12 @@ var graph_ajax = function (data, obj, callback) {
                 "text": ["高", "低"],
                 "calculable": true,
                 //??
-                bottom: 89,
-                left:24,
-                continuous:{
+                bottom: 92,
+                left:28,
                     itemWidth:20,
                     itemHeight:140,
-                    textGap:163,
-                }
+                    textGap:10,
+
             },
             series: [{
                 "type": "map",
@@ -1813,24 +1812,33 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": [{
                 "name": "推荐净值",
+                type: 'gauge',
+                min: -100,
+                max: 100,
                 top:104,
                 right: 130,
                 bottom:208,
                 left: 132,
+                radius:230,
+                silent:true,
                 // wukong!
                 "axisLine": {
                     "lineStyle": {
                         "width": 80,
                         "opacity": 0.8,
-                        "color": [[0.5, "rgba(115, 47, 195, 0.4)"], [1, "#732FC3"]]
+                        //轴线颜色
+                        "color": [[0.5, echartsTheme.visualMapColor[1]], [1, echartsTheme.visualMapColor[0]]]
                     }
                 },
                 "detail": {
+                    show:true,
                     "offsetCenter": [0, "62"],
-                    "textStyle": {"color": "#000", "fontSize": 18}
+                    "textStyle": {"color": "#000","fontSize":18},
+                    fontFamily:'PingFangSC-Medium',
+                    height:18,
                 },
                 // wukong!
-                "data": [{"value": -100, "name": "全部", "serise_name": "推荐净值"}],
+                "data": [{"value": 60, "name": "全部", "serise_name": "推荐净值"}],
                 "type": "gauge",
                 //起始旋转角度
                 "startAngle": 180,
@@ -1842,7 +1850,7 @@ var graph_ajax = function (data, obj, callback) {
                         "width": 2,
                         //线条类型
                         "type": "solid",
-                        "opacity": 1
+                        "opacity": 1,
                     }
                 },
                 "axisTick": {
@@ -1859,8 +1867,9 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 //字体间距
                 "splitNumber": 4,
-                "pointer": {"width": 12, "length": "50%", "color": "#f00"},
-                "itemStyle": {"normal": {"color": "auto"}},
+                "pointer": {"width": 12, "length": "50%", "color": "#000"},
+                "itemStyle": {"normal": {"color": echartsTheme.visualMapColor[0]}},
+                // title:{fontFamily:'PingFangSC-Medium'}
             }],
         }
 
@@ -1998,8 +2007,10 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //条形象形图
-    if (data.graph == 'pictorial-x') {
+    if (data.graph == 'pictorialline') {
         option = {
+
+
             //添加水印方案2
             graphic:
                 {
@@ -2093,7 +2104,8 @@ var graph_ajax = function (data, obj, callback) {
                 "min": 0,
                 "max": 100
             },
-            "series": [{
+            "series": [
+                {
                 "data": [{
                     "value": graphdata['y'][2]['data'][0],
                     "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
@@ -2134,7 +2146,10 @@ var graph_ajax = function (data, obj, callback) {
                 "symbolSize": 36,
                 "symbolBoundingData": 100,
                 "z": -5
-            }],
+            }
+                // barGap:4
+
+            ],
 
         }
     }
