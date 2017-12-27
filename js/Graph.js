@@ -1264,6 +1264,8 @@ var graph_ajax = function (data, obj, callback) {
             series[i] = {
                 //引入动画开关
                 animation: animation,
+                //关闭这线上的圆点
+                symbol:'none',
                 name: graphdata['y'][i]['name'],
                 type: 'line',
                 data: graphdata['y'][i]['data']
@@ -1363,10 +1365,10 @@ var graph_ajax = function (data, obj, callback) {
                     lineStyle: splitLineColor
                 },
                 splitArea: {
-                    areaStyle: {
-                        //图形透明度
-                        opacity: splitAreaOpacity
-                    }
+                    // areaStyle: {
+                    //     //图形透明度
+                    //     opacity: splitAreaOpacity
+                    // }
                 },
 
                 type: 'category',
@@ -1485,7 +1487,7 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
+                trigger:'axis',
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
@@ -1623,12 +1625,6 @@ var graph_ajax = function (data, obj, callback) {
             }]
         }
     }
-
-    //散点关系图
-    //if(data.graph == 'scatter-relationship')
-    // {
-
-    // }
 
     //纵向柱状图
     if (data.graph == 'bar-y-category') {
@@ -2138,6 +2134,7 @@ var graph_ajax = function (data, obj, callback) {
 
         }
     }
+
     // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
