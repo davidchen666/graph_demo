@@ -2009,6 +2009,9 @@ var graph_ajax = function (data, obj, callback) {
         //控制象形图上、左边距
         grid.left = 105,
         grid.top = 101,
+        grid.height =200,
+        grid.width = 515,
+
         option = {
             //添加水印方案2
             graphic:
