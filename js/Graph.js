@@ -1225,7 +1225,7 @@ var graph_ajax = function (data, obj, callback) {
                                 show: true,
                                 position: 'insideTop',
                                 distance:111,
-                                padding:[0,0,0,-30]
+                                padding:[20,0,0,-25]
                             }
                         },
                         itemStyle: {
@@ -2137,9 +2137,11 @@ var graph_ajax = function (data, obj, callback) {
                     "type": "pictorialBar",
                     //前后图形间距
                     symbolMargin: 4,
+                    //图形重叠
                     symbolRepeat: 'fixed',
                     "symbolClip": true,
-                    "symbolSize": 40,
+                    //图形的大小
+                    "symbolSize":[40,40],
                     "symbolBoundingData": 100,
             }, {
                 "data": [{
@@ -2171,7 +2173,7 @@ var graph_ajax = function (data, obj, callback) {
                     symbolMargin: 4,
                     symbolRepeat: 'fixed',
                     "symbolClip": true,
-                    "symbolSize": 40,
+                    "symbolSize":[40,40],
                     "symbolBoundingData": 100,
                 "z": -5
             }
