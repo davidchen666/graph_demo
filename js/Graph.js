@@ -1826,7 +1826,7 @@ var graph_ajax = function (data, obj, callback) {
                     "lineStyle": {
                         "width": 80,
                         "opacity": 0.8,
-                        //轴线颜色
+                        //仪表盘颜色
                         "color": [[0.5, echartsTheme.visualMapColor[1]], [1, echartsTheme.visualMapColor[0]]]
                     }
                 },
