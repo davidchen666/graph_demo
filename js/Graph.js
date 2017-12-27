@@ -1322,11 +1322,11 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             grid: grid,
             title: title,
-            // tooltip: {
-            //     show: tooltip,
-            //     trigger: 'axis',
+            tooltip: {
+                show: tooltip,
+                trigger:'axis',
             //     //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            // },
+            },
             legend: {
                 //legend超出一行时滚动
                 type:"scroll",
@@ -1813,6 +1813,10 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": [{
                 "name": "推荐净值",
+                top:104,
+                right: 130,
+                bottom:208,
+                left: 132,
                 // wukong!
                 "axisLine": {
                     "lineStyle": {
