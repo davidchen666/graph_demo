@@ -25,7 +25,20 @@ switch ($type) {
                                  "data":
                                      [30,43,51],
                                  "name": "tom"
-                             }],
+                             },{
+                                 "data":
+                                     [60,20,72],
+                                 "name": "gavin"
+                             },{
+                                 "data":
+                                     [85,39,55],
+                                 "name": "mark"
+                             },{
+                                 "data":
+                                     [101,66,121],
+                                 "name": "jeck"
+                             },
+                             ],
                          "big_title": "折线图",
                          "small_title": "副标题副标题副标题副标题副标题副标题副",
                          "remarks1":"基数：所有被访者 n=400",
