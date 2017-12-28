@@ -1151,7 +1151,7 @@ var graph_ajax = function (data, obj, callback) {
                 textStyle: {
                     normal: {
                         color: function() {
-                            //取主题随机色（四舍五入）
+                            //取主题颜色随机显示（四舍五入）
                             return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
                         }
                     }
