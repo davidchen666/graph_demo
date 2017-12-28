@@ -894,7 +894,7 @@ var graph_ajax = function (data, obj, callback) {
                 height: 14
             },
             left: 23,
-            top: 20.4,
+            top: 21.5,
             //标题内边距,上右下左
             // padding: [20, 0, 0, 40],
             //主标题和副标题之间的间距
@@ -906,7 +906,7 @@ var graph_ajax = function (data, obj, callback) {
             text: '',
             subtext: remarks1 + '\n\n' + remarks2,
             left: 25,
-            bottom: 26
+            bottom: 25.5
         }
 
     ]
@@ -2007,9 +2007,9 @@ var graph_ajax = function (data, obj, callback) {
     //条形象形图
     if (data.graph == 'pictorialline') {
         //控制象形图上、左边距
-        grid.left = 105,
+        grid.left = 106,
         grid.top = 96,
-        grid.height =200,
+        grid.height =199,
         grid.width = 515,
 
         option = {
