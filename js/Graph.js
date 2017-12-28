@@ -1257,6 +1257,7 @@ var graph_ajax = function (data, obj, callback) {
                 legend = [];
             }
             series[i] = {
+
                 //引入动画开关
                 animation: animation,
                 //关闭这线上的圆点
@@ -1741,6 +1742,25 @@ var graph_ajax = function (data, obj, callback) {
 
     //仪表盘图
     if (data.graph == 'gauge') {
+        title.push(
+            {
+                subtextStyle:
+                    {
+                        rich: {
+                            fontSize: 14
+                        },
+                        height: 14
+                    },
+                left: 23,
+                top: 21.5,
+                //标题内边距,上右下左
+                // padding: [20, 0, 0, 40],
+                //主标题和副标题之间的间距
+                itemGap: 17,
+                text: graphdata['big_title'],
+                subtext: graphdata['small_title'],
+            }
+        )
         option = {
             //添加水印方案2
             graphic:
@@ -1836,7 +1856,7 @@ var graph_ajax = function (data, obj, callback) {
                     height:18,
                 },
                 // wukong!
-                "data": [{"value": 60, "name": "全部", "serise_name": "推荐净值"}],
+                "data": [{"value":"60", "name":"推荐净值（NPS）", "serise_name":"品牌名称"}],
                 "type": "gauge",
                 //起始旋转角度
                 "startAngle": 180,
@@ -1870,7 +1890,6 @@ var graph_ajax = function (data, obj, callback) {
                 // title:{fontFamily:'PingFangSC-Medium'}
             }],
         }
-
     }
 
     //纵向柱状堆叠图
@@ -2010,7 +2029,7 @@ var graph_ajax = function (data, obj, callback) {
         grid.left = 106,
         grid.top = 96,
         grid.height =199,
-        grid.width = 515,
+        grid.width = 524,
 
         option = {
             //添加水印方案2
