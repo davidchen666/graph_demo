@@ -55,15 +55,15 @@ switch ($type) {
                          "y":
                              [{
                                  "data":
-                                     [10],
-                                 "name": "nick"
+                                     [50],
+                                 "name": "图例1"
                              },{
                                  "data":
-                                     [20],
-                                 "name": "david"
+                                     [25],
+                                 "name": "图例2"
                              },{
-                                 "data":[70],
-                                 "name": "mark"
+                                 "data":[25],
+                                 "name": "图例3"
                              }],
                          "big_title": "圆环图",
                          "small_title": "副标题",

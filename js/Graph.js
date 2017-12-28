@@ -816,6 +816,7 @@ var graph_ajax = function (data, obj, callback) {
 
     // 调用echarts.registerTheme()注册主题
     echarts.registerTheme('DT', echartsTheme)
+    // console.log(echartsTheme.color.length)
     // echarts.registerTheme('WK_purple', echartsTheme)
     //使用echarts.init()创建图标，第二个参数即为刚才注册的主题名字。
     var myChart = echarts.init(document.getElementById(obj), 'DT');
@@ -940,6 +941,10 @@ var graph_ajax = function (data, obj, callback) {
                 hoverAnimation:false,
             }
         }
+            // top:107,
+            // right:190,
+            // bottom:90,
+            // left:190,
         option = {
             //添加水印方案2
             graphic:
@@ -993,6 +998,8 @@ var graph_ajax = function (data, obj, callback) {
             },
             grid: grid,
             title: title,
+            //饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标
+            // center: ['50%', '56%'],
             // animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
@@ -1006,19 +1013,33 @@ var graph_ajax = function (data, obj, callback) {
                 orient: 'vertical',
                 // y:'center',
                 align:'auto',
+                //图例形状
                 icon:"rect",
                 left:24,
-                bottom:227,
-                itemGap:10,
+                bottom:226,
+                itemGap:13,
                 itemWidth:14,
                 itemHeight:14
             },
             "series": [{
+                //饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标
+                center: ['50%', '51%'],
+                //顺时针转动
+                clockwise:true,
                 "type": "pie",
+                //圆环内半径、外半径
                 "radius": [110, 170],
                 "height": 230,
                 //图表上的数据
-                "data": series
+                "data": series,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'inside',
+                        formatter: "{c}"
+                    },
+
+                },
             }],
         };
     }
@@ -1045,6 +1066,8 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data']
             }
         }
+        // var newW  = $('main').width()*3/4;
+        // var newH = $('main').width()*3/4;
         option = {
             //添加水印方案2
             graphic:
@@ -1111,11 +1134,28 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": {
                 "type": "wordCloud",
-                "sizeRange": [20, 60],//字体大小范围
-                "rotationRange": [-40, 20],//角度
+                "sizeRange": [14, 85],//字体大小范围（最小汉字-最大汉字）
+                "rotationRange": [-40, 20],//字体旋转角度
                 "gridSize": 10,//偏移
                 "width": "100%",//字浮云宽度
-                "data": series
+                "data": series,
+                gridSize: 1,//字符间距
+                //词云位置
+                // center:['50%','50%'],
+                width: 501,
+                height:324,
+                top:147,
+                left:113,
+                bottom:150,
+                right:105,
+                textStyle: {
+                    normal: {
+                        color: function() {
+                            //取主题随机色（四舍五入）
+                            return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
+                        }
+                    }
+                }
             },
         };
     }
@@ -1742,25 +1782,25 @@ var graph_ajax = function (data, obj, callback) {
 
     //仪表盘图
     if (data.graph == 'gauge') {
-        title.push(
-            {
-                subtextStyle:
-                    {
-                        rich: {
-                            fontSize: 14
-                        },
-                        height: 14
-                    },
-                left: 23,
-                top: 21.5,
-                //标题内边距,上右下左
-                // padding: [20, 0, 0, 40],
-                //主标题和副标题之间的间距
-                itemGap: 17,
-                text: graphdata['big_title'],
-                subtext: graphdata['small_title'],
-            }
-        )
+        // title.push(
+        //     {
+        //         subtextStyle:
+        //             {
+        //                 rich: {
+        //                     fontSize: 14
+        //                 },
+        //                 height: 14
+        //             },
+        //         left: 23,
+        //         top: 21.5,
+        //         //标题内边距,上右下左
+        //         // padding: [20, 0, 0, 40],
+        //         //主标题和副标题之间的间距
+        //         itemGap: 17,
+        //         text: graphdata['big_title'],
+        //         subtext: graphdata['small_title'],
+        //     }
+        // )
         option = {
             //添加水印方案2
             graphic:
