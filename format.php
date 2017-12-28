@@ -529,7 +529,7 @@ switch ($type) {
                                  "data":[50],
                                  "name": "贬损者"
                              }],
-                         "big_title": "人群分布:推荐者/中立者/贬损者",
+                         "big_title": "条形象形图",
                          "small_title": "%",
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
