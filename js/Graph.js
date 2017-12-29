@@ -1,3 +1,12 @@
+var colorRgb = function(sColor,Opacity){
+
+    var sColorChange = [];
+    for(var i=1; i<7; i+=2){
+        sColorChange.push(parseInt("0x"+sColor.slice(i,i+2)));
+    }
+    return "rgba(" + sColorChange.join(",") + ","+Opacity+")";
+
+};
 //基本配置
 // var legendTextstyleColor = '#999';              //组件字体颜色
 var animationDuration = '1500';                 //动画速度
@@ -859,9 +868,9 @@ var graph_ajax = function (data, obj, callback) {
         gBottom -= 65
     }
     var grid = {
-        top:105.5,
+        top: 105.5,
         right: 91,
-        bottom:94.5,
+        bottom: 94.5,
         left: 91,
 
         // bottom: gBottom + '%',
@@ -891,7 +900,7 @@ var graph_ajax = function (data, obj, callback) {
     var title = [
         {
             subtextStyle: {
-                rich:{fontSize:14},
+                rich: {fontSize: 14},
                 height: 14
             },
             left: 23,
@@ -899,11 +908,11 @@ var graph_ajax = function (data, obj, callback) {
             //标题内边距,上右下左
             // padding: [20, 0, 0, 40],
             //主标题和副标题之间的间距
-            itemGap:17,
+            itemGap: 17,
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
 
-        },{
+        }, {
             text: '',
             subtext: remarks1 + '\n\n' + remarks2,
             left: 25,
@@ -938,13 +947,13 @@ var graph_ajax = function (data, obj, callback) {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data'],
                 //是否开启鼠标移到扇形区域时的动画效果
-                hoverAnimation:false,
+                hoverAnimation: false,
             }
         }
-            // top:107,
-            // right:190,
-            // bottom:90,
-            // left:190,
+        // top:107,
+        // right:190,
+        // bottom:90,
+        // left:190,
         option = {
             //添加水印方案2
             graphic:
@@ -954,7 +963,7 @@ var graph_ajax = function (data, obj, callback) {
                     rotation: Math.PI / 4,
                     bounding: 'raw',
                     right: 50,
-                    bottom:60,
+                    bottom: 60,
                     z: 100,
                     children: [
                         {
@@ -964,7 +973,7 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height:40,
+                                height: 40,
                             },
                             style: {
                                 //填充色
@@ -989,10 +998,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                itemSize:14,
+                itemSize: 14,
                 feature: feature,
-                right:22,
-                top:22
+                right: 22,
+                top: 22
                 // right:21,
                 // top:21
             },
@@ -1012,20 +1021,20 @@ var graph_ajax = function (data, obj, callback) {
                 //图例布局设置为垂直（水平/垂直,默认为水平）
                 orient: 'vertical',
                 // y:'center',
-                align:'auto',
+                align: 'auto',
                 //图例形状
-                icon:"rect",
-                left:24.5,
-                bottom:226,
-                itemGap:13,
-                itemWidth:14,
-                itemHeight:14
+                icon: "rect",
+                left: 24.5,
+                bottom: 226,
+                itemGap: 13,
+                itemWidth: 14,
+                itemHeight: 14
             },
             "series": [{
                 //饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标
                 center: ['50%', '51%'],
                 //顺时针转动
-                clockwise:true,
+                clockwise: true,
                 "type": "pie",
                 //圆环内半径、外半径
                 "radius": [110, 170],
@@ -1076,7 +1085,7 @@ var graph_ajax = function (data, obj, callback) {
                     rotation: Math.PI / 4,
                     bounding: 'raw',
                     right: 50,
-                    bottom:60,
+                    bottom: 60,
                     z: 100,
                     children: [
                         {
@@ -1086,7 +1095,7 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height:40,
+                                height: 40,
                             },
                             style: {
                                 //填充色
@@ -1111,13 +1120,13 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                        itemSize:14,
-                        feature: feature,
-                right:22,
-                top:22
-                        // right:24,
-                        // top:23
-                    },
+                itemSize: 14,
+                feature: feature,
+                right: 22,
+                top: 22
+                // right:24,
+                // top:23
+            },
             grid: grid,
             title: title,
             animationDuration: animationDuration,
@@ -1128,7 +1137,7 @@ var graph_ajax = function (data, obj, callback) {
             },
             legend: {
                 //legend超出一行时滚动
-                type:"scroll",
+                type: "scroll",
                 //图例
                 data: legend
             },
@@ -1143,14 +1152,14 @@ var graph_ajax = function (data, obj, callback) {
                 //词云位置
                 // center:['50%','50%'],
                 width: 501,
-                height:324,
-                top:147,
-                left:113,
-                bottom:150,
-                right:105,
+                height: 324,
+                top: 147,
+                left: 113,
+                bottom: 150,
+                right: 105,
                 textStyle: {
                     normal: {
-                        color: function() {
+                        color: function () {
                             //取主题随机色（四舍五入）
                             return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
                         }
@@ -1191,7 +1200,7 @@ var graph_ajax = function (data, obj, callback) {
                     rotation: Math.PI / 4,
                     bounding: 'raw',
                     right: 50,
-                    bottom:60,
+                    bottom: 60,
                     z: 100,
                     children: [
                         {
@@ -1201,7 +1210,7 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height:40,
+                                height: 40,
                             },
                             style: {
                                 //填充色
@@ -1226,10 +1235,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                itemSize:14,
+                itemSize: 14,
                 feature: feature,
-                right:22,
-                top:22
+                right: 22,
+                top: 22
                 // right:24,
                 // top:23
             },
@@ -1251,30 +1260,30 @@ var graph_ajax = function (data, obj, callback) {
                 "calculable": true,
                 //??
                 bottom: 92,
-                left:28,
-                itemWidth:20,
-                itemHeight:140,
-                textGap:10,
+                left: 28,
+                itemWidth: 20,
+                itemHeight: 140,
+                textGap: 10,
 
             },
             series: [{
-                        "type": "map",
-                        "mapType": "china",
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'insideTop',
-                                distance:111,
-                                padding:[20,0,0,-25]
-                            }
-                        },
-                        itemStyle: {
-                            normal: {
-                                borderColor: 'rgba(255, 255, 255, .1)'
-                            }
-                        },
-                        "data": series
-                    }]
+                "type": "map",
+                "mapType": "china",
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideTop',
+                        distance: 111,
+                        padding: [20, 0, 0, -25]
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderColor: 'rgba(255, 255, 255, .1)'
+                    }
+                },
+                "data": series
+            }]
         }
     }
     // console.log(data.data);
@@ -1301,7 +1310,7 @@ var graph_ajax = function (data, obj, callback) {
                 //引入动画开关
                 animation: animation,
                 //关闭这线上的圆点
-                symbol:'none',
+                symbol: 'none',
                 name: graphdata['y'][i]['name'],
                 type: 'line',
                 data: graphdata['y'][i]['data']
@@ -1315,7 +1324,7 @@ var graph_ajax = function (data, obj, callback) {
                     rotation: Math.PI / 4,
                     bounding: 'raw',
                     right: 50,
-                    bottom:60,
+                    bottom: 60,
                     z: 100,
                     children: [
                         {
@@ -1325,14 +1334,14 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height:40,
+                                height: 40,
                             },
                             style: {
                                 //填充色
                                 fill: 'rgba(0,0,0,0.05)',
                                 //是否可拖拽
                                 // draggable: true,
-                                
+
                             }
                         },
                         {
@@ -1350,31 +1359,31 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                itemSize:14,
+                itemSize: 14,
                 feature: feature,
-                right:22,
-                top:22
+                right: 22,
+                top: 22
             },
             animationDuration: animationDuration,
             grid: grid,
             title: title,
             tooltip: {
                 show: tooltip,
-                trigger:'axis',
-            //     //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                trigger: 'axis',
+                //     //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //legend超出一行时滚动
-                type:"scroll",
+                type: "scroll",
                 //图例
                 top: 99,
                 right: 25,
                 data: legend,
-                align:'auto',
-                icon:"rect",
-                itemGap:10,
-                itemWidth:14,
-                itemHeight:2
+                align: 'auto',
+                icon: "rect",
+                itemGap: 10,
+                itemWidth: 14,
+                itemHeight: 2
             },
             xAxis: {
                 // show: true,
@@ -1423,7 +1432,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 axisTick: {
                     //是否显示轴刻度
-                    show:false,
+                    show: false,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -1464,12 +1473,17 @@ var graph_ajax = function (data, obj, callback) {
                 legend = [];
             }
             series[i] = {
+                //柱子宽度
+                //barWidth: 24,
+                //柱子间距
+                //barCategoryGap: 15,
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
                 type: "bar",
                 label: {
                     normal: {
                         show: true,
+                        // 柱子上的Value
                         position: 'right',
                         textStyle: {
                             color: 'black' //color of value
@@ -1482,7 +1496,7 @@ var graph_ajax = function (data, obj, callback) {
         var title = [
             {
                 subtextStyle: {
-                    rich:{fontSize:14},
+                    rich: {fontSize: 14},
                     height: 14
                 },
                 left: 23,
@@ -1490,11 +1504,11 @@ var graph_ajax = function (data, obj, callback) {
                 //标题内边距,上右下左
                 // padding: [20, 0, 0, 40],
                 //主标题和副标题之间的间距
-                itemGap:17,
+                itemGap: 17,
                 text: graphdata['big_title'],
                 subtext: graphdata['small_title'],
 
-            },{
+            }, {
                 text: '',
                 subtext: remarks1 + '\n\n' + remarks2,
                 left: 25,
@@ -1503,15 +1517,12 @@ var graph_ajax = function (data, obj, callback) {
 
         ]
         option = {
-            //柱子宽度
-            barWidth:24,
-            //柱子间距
-            barCategoryGap:15,
-            grid:{
-                top:85,
+
+            grid: {
+                top: 85,
                 // right:125,
                 // bottom:92,
-                left:130,
+                left: 130,
                 containLabel: false
             },
             //添加水印方案2
@@ -1521,7 +1532,7 @@ var graph_ajax = function (data, obj, callback) {
                     rotation: Math.PI / 4,
                     bounding: 'raw',
                     right: 50,
-                    bottom:60,
+                    bottom: 60,
                     z: 100,
                     children: [
                         {
@@ -1531,7 +1542,7 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height:40,
+                                height: 40,
                             },
                             style: {
                                 //填充色
@@ -1560,7 +1571,7 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
-                trigger:'axis',
+                trigger: 'axis',
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
@@ -1615,9 +1626,9 @@ var graph_ajax = function (data, obj, callback) {
         }
         option = {
             //柱子宽度
-            barWidth:40,
+            barWidth: 40,
             //柱子间距
-            // barGap:15,
+            barGap: 15,
             //添加水印方案2
             graphic:
                 {
@@ -1625,7 +1636,7 @@ var graph_ajax = function (data, obj, callback) {
                     rotation: Math.PI / 4,
                     bounding: 'raw',
                     right: 50,
-                    bottom:60,
+                    bottom: 60,
                     z: 100,
                     children: [
                         {
@@ -1635,7 +1646,7 @@ var graph_ajax = function (data, obj, callback) {
                             z: 100,
                             shape: {
                                 width: 400,
-                                height:40,
+                                height: 40,
                             },
                             style: {
                                 //填充色
@@ -1660,12 +1671,18 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                itemSize:14,
+                itemSize: 14,
                 feature: feature,
-                right:22,
-                top:22,
+                right: 22,
+                top: 22,
             },
-            grid: grid,
+            // grid: grid,
+            grid: {
+                top: 160,
+                right: 70,
+                bootom: 87,
+                left: 96,
+            },
             title: title,
             animationDuration: animationDuration,
             tooltip: {
@@ -1677,14 +1694,14 @@ var graph_ajax = function (data, obj, callback) {
                 //图例
                 data: legend,
                 x: 'center',
-                top:99,
-                align:'auto',
-                itemGap:10,
-                itemWidth:14,
-                itemHeight:14,
-                icon:"rect",
+                top: 99,
+                align: 'auto',
+                itemGap: 10,
+                itemWidth: 14,
+                itemHeight: 14,
+                icon: "rect",
                 //legend超出一行时滚动
-                type:"scroll"
+                type: "scroll"
             },
             "series": series,
             "yAxis": [{
@@ -1733,8 +1750,8 @@ var graph_ajax = function (data, obj, callback) {
             animationDuration: animationDuration,
             toolbox: {
                 feature: feature,
-                x:672,
-                y:18
+                x: 672,
+                y: 18
             },
             // color: colors,
             title: {},
@@ -1823,80 +1840,81 @@ var graph_ajax = function (data, obj, callback) {
 
     //仪表盘图
     if (data.graph == 'gauge') {
-            title.push(
-                {
-                    subtextStyle: {
-                        rich:{fontSize:14},
-                        height: 14
-                    },
-                    left: 'center',
-                    top: 295,
-                    //标题内边距,上右下左
-                    // padding: [20, 0, 0, 40],
-                    //主标题和副标题之间的间距
-                    itemGap:30,
-                    text: graphdata['x']['data'][0],
-                    subtext: graphdata['y'][0]['name'],
-
-                }
-            );
-            option = {
-                //添加水印方案2
-                graphic:
-                    {
-                        type: 'group',
-                        rotation: Math.PI / 4,
-                        bounding: 'raw',
-                        right: 50,
-                        bottom:60,
-                        z: 100,
-                        children: [
-                            {
-                                type: 'rect',
-                                left: 'center',
-                                top: 'center',
-                                z: 100,
-                                shape: {
-                                    width: 400,
-                                    height:40,
-                                },
-                                style: {
-                                    //填充色
-                                    fill: 'rgba(0,0,0,0.05)',
-                                    //是否可拖拽
-                                    // draggable: true,
-
-                                }
-                            },
-                            {
-                                type: 'text',
-                                left: 'center',
-                                top: 'center',
-                                z: 100,
-                                style: {
-                                    fill: 'rgba(255,255,255,1)',
-                                    text: 'Meta Insight',
-                                    font: 'bold 26px Microsoft YaHei'
-                                }
-                            }
-                        ]
-                    },
-                toolbox: {
-                    itemSize:14,
-                    feature: feature,
-                    right:22,
-                    top:22
-                    // right:24,
-                    // top:24
+        title.push(
+            {
+                subtextStyle: {
+                    rich: {fontSize: 14},
+                    height: 14
                 },
-                grid: grid,
-                title: title,
-                animationDuration: animationDuration,
-                tooltip: {
-                    show: tooltip},
+                left: 'center',
+                top: 350,
+                //标题内边距,上右下左
+                // padding: [20, 0, 0, 40],
+                //主标题和副标题之间的间距
+                itemGap: 30,
+                text: graphdata['x']['data'][0],
+                subtext: graphdata['y'][0]['name'],
+
+            }
+        );
+        option = {
+            //添加水印方案2
+            graphic:
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 50,
+                    bottom: 60,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 40,
+                            },
+                            style: {
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+            toolbox: {
+                itemSize: 14,
+                feature: feature,
+                right: 22,
+                top: 22
+                // right:24,
+                // top:24
+            },
+            grid: grid,
+            title: title,
+            animationDuration: animationDuration,
+            tooltip: {
+                show: tooltip
+            },
             legend: {
                 //legend超出一行时滚动
-                type:"scroll",
+                type: "scroll",
                 //图例
                 data: legend
             },
@@ -1909,28 +1927,38 @@ var graph_ajax = function (data, obj, callback) {
                 // right: 130,
                 // bottom:208,
                 // left: 132,
-                center:['50%','61.5%'],
+                center: ['50%', '61.5%'],
                 //仪表盘半径
-                radius:230,
-                silent:true,
+                radius: 230,
+                silent: true,
                 // wukong!
                 "axisLine": {
                     "lineStyle": {
                         "width": 80,
                         "opacity": 0.8,
                         //仪表盘颜色
-                        "color": [[0.5, echartsTheme.visualMapColor[1]], [1, echartsTheme.visualMapColor[0]]]
+                        "color": [
+                            [
+                                0.5,
+                                colorRgb(echartsTheme.visualMapColor[0], .4)
+                            ],
+                            [
+                                1,
+                                echartsTheme.visualMapColor[0]
+                            ]
+                        ]
                     }
                 },
                 "detail": {
-                    show:true,
+                    show: true,
+                    formatter: '{value}' + graphdata['unit'],
                     "offsetCenter": [0, "62"],
-                    "textStyle": {"color": "#000","fontSize":18},
-                    fontFamily:'PingFangSC-Medium',
-                    height:18,
+                    "textStyle": {"color": "#000", "fontSize": 18},
+                    fontFamily: 'PingFangSC-Medium',
+                    height: 18,
                 },
                 // wukong!
-                "data": [{"value":"", "name":"", "serise_name":""}],
+                "data": [{"value": graphdata['y'][0]['data'][0]}],
                 "type": "gauge",
                 //起始旋转角度
                 "startAngle": 180,
@@ -1960,7 +1988,7 @@ var graph_ajax = function (data, obj, callback) {
                 //字体间距
                 "splitNumber": 4,
                 "pointer": {"width": 12, "length": "50%", "color": "#000"},
-                "itemStyle": {"normal": {"color": echartsTheme.visualMapColor[0]}},
+                // "itemStyle": {"normal": {"color": echartsTheme.visualMapColor[0]}},  //指针颜色
                 // title:{fontFamily:'PingFangSC-Medium'}
             }],
         }
@@ -2101,183 +2129,183 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'pictorialline') {
         //控制象形图上、左边距
         grid.left = 105,
-        grid.top = 96,
-        grid.height =199,
-        grid.width = 524,
+            grid.top = 96,
+            grid.height = 199,
+            grid.width = 524,
 
-        option = {
-            //添加水印方案2
-            graphic:
-                {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom:60,
-                    z: 100,
-                    children: [
-                        {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height:40,
+            option = {
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
+
+                                }
                             },
-                            style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
+                            }
+                        ]
+                    },
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22
+                    // right:24,
+                    // top:24
+                },
+                animationDuration: animationDuration,
+                grid: grid,
+                title: title,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'item',
+                    //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+                legend: {
+                    //legend超出一行时滚动
+                    type: "scroll",
+                    //图例
+                    data: legend
+                },
+                "yAxis": {
+                    "axisTick": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "show": false
+                    },
+                    "splitLine": {
+                        "show": false
+                    },
 
-                            }
-                        },
-                        {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                font: 'bold 26px Microsoft YaHei'
-                            }
-                        }
+                    "data": [
+                        graphdata['y'][2]['name'] + '  ' + graphdata['y'][2]['data'][0],
+                        graphdata['y'][1]['name'] + '  ' + graphdata['y'][1]['data'][0],
+                        graphdata['y'][0]['name'] + '  ' + graphdata['y'][0]['data'][0],
                     ]
                 },
-            toolbox: {
-                itemSize:14,
-                feature: feature,
-                right:22,
-                top:22
-                // right:24,
-                // top:24
-            },
-            animationDuration: animationDuration,
-            grid: grid,
-            title: title,
-            tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
-            legend: {
-                //legend超出一行时滚动
-                type:"scroll",
-                //图例
-                data: legend
-            },
-            "yAxis": {
-                "axisTick": {
-                    "show": false
+                "xAxis": {
+                    "axisTick": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        "show": false
+                    },
+                    "splitLine": {
+                        "show": false
+                    },
+                    "show": false,
+                    "min": 0,
+                    "max": 100
                 },
-                "axisLine": {
-                    "show": false
-                },
-                "splitLine": {
-                    "show": false
-                },
+                "series": [
+                    {
+                        "data": [{
+                            "value": graphdata['y'][2]['data'][0],
+                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                            label: {
+                                normal: {
+                                    fontSize: "14px"
+                                }
+                            },
+                            "itemStyle": {"normal": {"color": "#DC1E35"}}
+                        }, {
+                            "value": graphdata['y'][1]['data'][0],
+                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                            label: {
+                                normal: {
+                                    fontSize: "14px"
+                                }
+                            },
+                            "itemStyle": {"normal": {"color": "#F6A623"}}
+                        }, {
+                            "value": graphdata['y'][0]['data'][0],
+                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                            label: {
+                                normal: {
+                                    fontSize: "14px"
+                                }
+                            },
+                            "itemStyle": {"normal": {"color": "#40BA2C"}}
+                        }],
+                        "animation": false,
+                        "type": "pictorialBar",
+                        //前后图形间距
+                        symbolMargin: 4,
+                        //图形重叠
+                        symbolRepeat: 'fixed',
+                        "symbolClip": true,
+                        //图形的大小
+                        "symbolSize": [40, 40],
+                        "symbolBoundingData": 100,
+                    }, {
+                        "data": [{
+                            "value": 100,
+                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                            label: {
+                                normal: {
+                                    fontSize: "14px"
+                                }
+                            },
+                            "itemStyle": {"normal": {"color": "#b1b1b1"}}
+                        }, {
+                            "value": 100,
+                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                            label: {
+                                normal: {
+                                    fontSize: "14px"
+                                }
+                            },
+                            "itemStyle": {"normal": {"color": "#b1b1b1"}}
+                        }, {
+                            "value": 100,
+                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                            "itemStyle": {"normal": {"color": "#b1b1b1"}}
+                        }],
+                        "animation": false,
+                        "type": "pictorialBar",
+                        //前后图形间距
+                        symbolMargin: 4,
+                        symbolRepeat: 'fixed',
+                        "symbolClip": true,
+                        "symbolSize": [40, 40],
+                        "symbolBoundingData": 100,
+                        "z": -5
+                    }
+                    // barGap:4
 
-                "data": [
-                            graphdata['y'][2]['name']+'  '+graphdata['y'][2]['data'][0],
-                            graphdata['y'][1]['name']+'  '+graphdata['y'][1]['data'][0],
-                            graphdata['y'][0]['name']+'  '+graphdata['y'][0]['data'][0],
-                        ]
-            },
-            "xAxis": {
-                "axisTick": {
-                    "show": false
-                },
-                "axisLine": {
-                    "show": false
-                },
-                "splitLine": {
-                    "show": false
-                },
-                "show": false,
-                "min": 0,
-                "max": 100
-            },
-            "series": [
-                {
-                "data": [{
-                    "value": graphdata['y'][2]['data'][0],
-                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                    label:{
-                        normal:{
-                            fontSize:"14px"
-                        }
-                    },
-                    "itemStyle": {"normal": {"color": "#DC1E35"}}
-                }, {
-                    "value": graphdata['y'][1]['data'][0],
-                    "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                    label:{
-                        normal:{
-                            fontSize:"14px"
-                        }
-                    },
-                    "itemStyle": {"normal": {"color": "#F6A623"}}
-                }, {
-                    "value": graphdata['y'][0]['data'][0],
-                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                    label:{
-                        normal:{
-                            fontSize:"14px"
-                        }
-                    },
-                    "itemStyle": {"normal": {"color": "#40BA2C"}}
-                }],
-                    "animation": false,
-                    "type": "pictorialBar",
-                    //前后图形间距
-                    symbolMargin: 4,
-                    //图形重叠
-                    symbolRepeat: 'fixed',
-                    "symbolClip": true,
-                    //图形的大小
-                    "symbolSize":[40,40],
-                    "symbolBoundingData": 100,
-            }, {
-                "data": [{
-                    "value": 100,
-                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                    label:{
-                        normal:{
-                            fontSize:"14px"
-                        }
-                    },
-                    "itemStyle": {"normal": {"color": "#b1b1b1"}}
-                }, {
-                    "value": 100,
-                    "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                    label:{
-                        normal:{
-                            fontSize:"14px"
-                        }
-                    },
-                    "itemStyle": {"normal": {"color": "#b1b1b1"}}
-                }, {
-                    "value": 100,
-                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                    "itemStyle": {"normal": {"color": "#b1b1b1"}}
-                }],
-                    "animation": false,
-                    "type": "pictorialBar",
-                    //前后图形间距
-                    symbolMargin: 4,
-                    symbolRepeat: 'fixed',
-                    "symbolClip": true,
-                    "symbolSize":[40,40],
-                    "symbolBoundingData": 100,
-                "z": -5
+                ],
+
             }
-                // barGap:4
-
-            ],
-
-        }
     }
 
     // console.log(option)
