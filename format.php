@@ -501,14 +501,14 @@ switch ($type) {
                                      [5,5,5],
                                  "name": "lily"
                              }],
-                         "big_title": "百分比堆叠条形图（单条）",
+                         "big_title": "百分比堆叠条形图",
                          "small_title": "%",
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
                          "tooltip":1,
                          "width":723,
-                         "height":298
+                         "height":419
                 }';
         break;
 //        条形象形图

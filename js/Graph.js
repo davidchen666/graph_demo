@@ -1447,7 +1447,7 @@ var graph_ajax = function (data, obj, callback) {
 
     //横向柱状图
     if (data.graph == 'bar-x-category') {
-        console.log(graphdata)
+        // console.log(graphdata)
         var series = [];
         var legend = [];
         var len = []
@@ -1466,13 +1466,56 @@ var graph_ajax = function (data, obj, callback) {
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
-                type: "bar"
+                type: "bar",
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        textStyle: {
+                            color: 'black' //color of value
+                        }
+                    }
+                },
+
             }
         }
+        var title = [
+            {
+                subtextStyle: {
+                    rich:{fontSize:14},
+                    height: 14
+                },
+                left: 23,
+                top: 23,
+                //标题内边距,上右下左
+                // padding: [20, 0, 0, 40],
+                //主标题和副标题之间的间距
+                itemGap:17,
+                text: graphdata['big_title'],
+                subtext: graphdata['small_title'],
+
+            },{
+                text: '',
+                subtext: remarks1 + '\n\n' + remarks2,
+                left: 25,
+                bottom: 24,
+            }
+
+        ]
         option = {
+            //柱子宽度
+            barWidth:24,
+            //柱子间距
+            barCategoryGap:15,
+            grid:{
+                top:85,
+                // right:125,
+                // bottom:92,
+                left:130,
+                containLabel: false
+            },
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -1512,13 +1555,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
-            toolbox: {
-                itemSize:14,
-                feature: feature,
-                right:22,
-                top:22
-            },
-            grid: grid,
+            // grid: grid,
             title: title,
             animationDuration: animationDuration,
             tooltip: {
@@ -1577,9 +1614,12 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            //柱子宽度
+            barWidth:40,
+            //柱子间距
+            // barGap:15,
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -1623,7 +1663,7 @@ var graph_ajax = function (data, obj, callback) {
                 itemSize:14,
                 feature: feature,
                 right:22,
-                top:22
+                top:22,
             },
             grid: grid,
             title: title,
@@ -1643,6 +1683,7 @@ var graph_ajax = function (data, obj, callback) {
                 itemWidth:14,
                 itemHeight:14,
                 icon:"rect",
+                //legend超出一行时滚动
                 type:"scroll"
             },
             "series": series,
