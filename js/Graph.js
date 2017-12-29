@@ -1802,7 +1802,6 @@ var graph_ajax = function (data, obj, callback) {
             option = {
                 //添加水印方案2
                 graphic:
-
                     {
                         type: 'group',
                         rotation: Math.PI / 4,
@@ -1841,7 +1840,6 @@ var graph_ajax = function (data, obj, callback) {
                             }
                         ]
                     },
-
                 toolbox: {
                     itemSize:14,
                     feature: feature,
@@ -1891,7 +1889,7 @@ var graph_ajax = function (data, obj, callback) {
                     height:18,
                 },
                 // wukong!
-                "data": [{"value":"60", "name":"推荐净值（NPS）", "serise_name":"品牌名称"}],
+                "data": [{"value":"", "name":"", "serise_name":""}],
                 "type": "gauge",
                 //起始旋转角度
                 "startAngle": 180,
@@ -1928,7 +1926,7 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //纵向柱状堆叠图
-    if (data.graph == 'bar-y-category-stack') { 
+    if (data.graph == 'bar-y-category-stack') {
         var series = []
         var legend = []
         for (i = 0; i < d_data.y.length; i++) {
