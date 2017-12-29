@@ -1928,7 +1928,7 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //纵向柱状堆叠图
-    if (data.graph == 'bar-y-category-stack') {
+    if (data.graph == 'bar-y-category-stack') { 
         var series = []
         var legend = []
         for (i = 0; i < d_data.y.length; i++) {
