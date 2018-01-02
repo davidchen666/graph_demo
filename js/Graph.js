@@ -1196,7 +1196,7 @@ var graph_ajax = function (data, obj, callback) {
                                         fill: 'rgba(255,255,255,1)',
                                         text: 'Meta Insight',
                                         // fontFamily: 'bold 26px, Microsoft YaHei'
-                                        fontFamily: 'Microsoft YaHei'
+                                        fontFamily: '微软雅黑',
                                     }
                                 }
                             ]
@@ -1227,10 +1227,13 @@ var graph_ajax = function (data, obj, callback) {
             "series": {
                 "type": "wordCloud",
                 "sizeRange": [14, 85],//字体大小范围（最小汉字-最大汉字）
-                "rotationRange": [-40, 40],//字体旋转角度
+                "rotationRange": [0, 0],//字体旋转角度
                 "gridSize": 10,//偏移
                 "width": "100%",//字浮云宽度
+                // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大
                 "data": series,
+                //设置cloud形状
+                // shape: 'cardioid',
                 gridSize: 1,//字符间距
                 //词云位置
                 // center:['50%','50%'],
