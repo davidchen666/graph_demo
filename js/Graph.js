@@ -2214,7 +2214,7 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'pictorialline') {
         //控制象形图上、左边距
         grid.left = 105,
-            grid.top = 96,
+            grid.top = 95,
             grid.height = 199,
             grid.width = 524,
 
