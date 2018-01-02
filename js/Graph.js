@@ -1930,7 +1930,6 @@ var graph_ajax = function (data, obj, callback) {
                                       },
                         textStyle: {
                                         fontSize:18,
-
                                         color:"#333",
                                     },fontFamily:'PingFangSC-Regular',
                         left: 'center',
