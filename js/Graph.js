@@ -879,6 +879,51 @@ var graph_ajax = function (data, obj, callback) {
 
         containLabel: true
     }
+
+
+    //legend
+    var legendValue = [];
+    var legend = {
+                    icon:'rect',
+                    // 图例布局设置为垂直（水平/垂直,默认为水平）
+                    orient:'vertical',
+                    align:'auto',
+                    // //图例形状
+                    // legend.left = 24.5,
+                    // legend.bottom = 226,
+                    itemGap:13,
+                    itemWidth:14,
+                    itemHeight:14
+                }
+//循环折线图x轴上的legend
+//设置图例开关
+    if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+        //控制图例位置
+        legend.orient = 'horizontal';
+        legend.left = 'right';
+        legend.top = '50';
+        //获取图例数据
+        for (var i = 0; i < graphdata['y'].length; i++) {
+            legendValue[i] = graphdata['y'][i]['name'];
+        }
+        legend.data = legendValue;
+        //图例自适应
+        grid.top += 50
+    }
+    if (d_data.legend == 2) {
+        legend.orient = 'vertical';
+        legend.left = 'left';
+        legend.top = '250';
+
+        for (var i = 0; i < graphdata['y'].length; i++) {
+            legendValue[i] = graphdata['y'][i]['name'];
+        }
+        legend.data = legendValue;
+        grid.left += 30
+    }
+
+//legend
+
     var remarks1 = ''
     var remarks2 = ''
     if (typeof(d_data.remarks2) != "undefined") {
@@ -921,6 +966,7 @@ var graph_ajax = function (data, obj, callback) {
 
     ]
 
+
     // title=[{"name":"推荐净值(NPS)"},{"name":"备注"}];title.push({"name":"组名"}) ;title
 
     // data.graph = 'gauge'
@@ -928,9 +974,11 @@ var graph_ajax = function (data, obj, callback) {
     var option = {}
     //圆环饼图
     if (data.graph == 'pie') {
+
         var series = [];
-        var legend = [];
-        var len = []
+        // var legend = [];
+
+        var len = [];
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
             len = graphdata['y'].length;
@@ -938,18 +986,22 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // } else {
+            //     legend = [];
+            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data'],
                 //是否开启鼠标移到扇形区域时的动画效果
                 hoverAnimation: false,
             }
+
         }
+
+//legend
+
         // top:107,
         // right:190,
         // bottom:90,
@@ -957,7 +1009,6 @@ var graph_ajax = function (data, obj, callback) {
         option = {
             //添加水印方案2
             graphic:
-
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
@@ -1015,21 +1066,22 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //图例
-                data: legend,
-                //图例布局设置为垂直（水平/垂直,默认为水平）
-                orient: 'vertical',
-                // y:'center',
-                align: 'auto',
-                //图例形状
-                icon: "rect",
-                left: 24.5,
-                bottom: 226,
-                itemGap: 13,
-                itemWidth: 14,
-                itemHeight: 14
-            },
+            legend: legend,
+            // legend: {
+            //     //图例
+            //     data: legend,
+            //     //图例布局设置为垂直（水平/垂直,默认为水平）
+            //     orient: 'vertical',
+            //     // y:'center',
+            //     align: 'auto',
+            //     //图例形状
+            //     icon: "rect",
+            //     left: 24.5,
+            //     bottom: 226,
+            //     itemGap: 13,
+            //     itemWidth: 14,
+            //     itemHeight: 14
+            // },
             "series": [{
                 //饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标
                 center: ['50%', '51%'],
@@ -1517,11 +1569,12 @@ var graph_ajax = function (data, obj, callback) {
 
         ]
         option = {
-
+            barWidth:24,
+            // barGap:7,
             grid: {
-                top: 85,
+                top: 100,
                 // right:125,
-                // bottom:92,
+                bottom:102,
                 left: 130,
                 containLabel: false
             },
@@ -1621,14 +1674,28 @@ var graph_ajax = function (data, obj, callback) {
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
                 type: "bar",
-                stack: "总量"
+                stack: "总量",
+                label: {
+                    normal: {
+                        show: true,
+                        // 柱子上的Value
+                        position: 'inside',
+                        textStyle: {
+                            color: "#fff", //color of value
+                        }
+                    }
+                },
+                //柱子宽度
+                barWidth: 40,
+                //柱子间距
+                barCategoryGap:17,
             }
         }
         option = {
-            //柱子宽度
-            barWidth: 40,
-            //柱子间距
-            barGap: 15,
+            // //柱子宽度
+            // barWidth: 40,
+            // //柱子间距
+            // barCategoryGap:17,
             //添加水印方案2
             graphic:
                 {
@@ -1678,11 +1745,11 @@ var graph_ajax = function (data, obj, callback) {
             },
             // grid: grid,
             grid: {
-                top: 160,
-                right: 70,
-                bootom: 87,
-                left: 96,
-            },
+                    top: 150,
+                    // right: 70,
+                    bootom: 105,
+                    left: 98,
+                  },
             title: title,
             animationDuration: animationDuration,
             tooltip: {
@@ -1701,7 +1768,7 @@ var graph_ajax = function (data, obj, callback) {
                 itemHeight: 14,
                 icon: "rect",
                 //legend超出一行时滚动
-                type: "scroll"
+                type: 'scroll'
             },
             "series": series,
             "yAxis": [{
