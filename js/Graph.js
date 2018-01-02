@@ -895,31 +895,31 @@ var graph_ajax = function (data, obj, callback) {
                     itemWidth:14,
                     itemHeight:14
                 }
-//循环折线图x轴上的legend
-//设置图例开关
+    //循环折线图x轴上的legend
+    //设置图例开关
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         //控制图例位置
         legend.orient = 'horizontal';
         legend.left = 'right';
-        legend.top = '50';
+        legend.top = '100';
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
         legend.data = legendValue;
         //图例自适应
-        grid.top += 50
+        grid.top += 96
     }
     if (d_data.legend == 2) {
         legend.orient = 'vertical';
-        legend.left = 'left';
-        legend.top = '250';
+        legend.left = '24';
+        legend.top = '233';
 
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
         legend.data = legendValue;
-        grid.left += 30
+        grid.left += 10
     }
 
 //legend
@@ -1301,7 +1301,6 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'axis',
                 //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-
             visualMap: {
                 "type": "continuous",
                 "inRange": {"color": [echartsTheme.visualMapColor[1], echartsTheme.visualMapColor[0]]},
@@ -1938,7 +1937,7 @@ var graph_ajax = function (data, obj, callback) {
                         //标题内边距,上右下左
                         // padding: [20, 0, 0, 40],
                         //主标题和副标题之间的间距
-                        itemGap: 43,
+                        itemGap: 41,
                         text: graphdata['x']['data'][0],
                         subtext: graphdata['y'][0]['name'],
                     });
