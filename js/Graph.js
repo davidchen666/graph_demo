@@ -887,11 +887,11 @@ var graph_ajax = function (data, obj, callback) {
                     icon:'rect',
                     // 图例布局设置为垂直（水平/垂直,默认为水平）
                     orient:'vertical',
+                    //图例形状
                     align:'auto',
-                    // //图例形状
                     // legend.left = 24.5,
                     // legend.bottom = 226,
-                    itemGap:13,
+                    itemGap:10,
                     itemWidth:14,
                     itemHeight:14
                 }
@@ -920,6 +920,23 @@ var graph_ajax = function (data, obj, callback) {
         }
         legend.data = legendValue;
         grid.left += 10
+    }
+    //线条状的legend
+    if (d_data.legend == 3) {
+        //控制图例位置
+        legend.orient = 'horizontal';
+        legend.left = 'right';
+        legend.top = '100';
+        legend.itemGap: '10',
+        legend.itemWidth: '14',
+        legend.itemHeight: 2
+        //获取图例数据
+        for (var i = 0; i < graphdata['y'].length; i++) {
+            legendValue[i] = graphdata['y'][i]['name'];
+        }
+        legend.data = legendValue;
+        //图例自适应
+        grid.top += 96
     }
 
 //legend
