@@ -23,7 +23,7 @@ var visualMapLeastColor = '#b3e9d9';            //视觉映射最小值
 //坐标轴
 var axisLineColor = '#c4c4c4';                 //轴线颜色
 var axisTickColor = '#c4c4c4';                 //轴刻度颜色
-var axisLabeColor = '#333';                     //轴字体颜色
+var axisLabeColor = '#333333';                 //轴字体颜色
 var splitLineColor = '#eee';                    //网格(分隔线)颜色
 var splitAreaLightColor = '#fff';               //网格（分隔区域颜色）填充色（浅）
 var splitAreaDeepColor = '#eee';               //网格填充色（深）
@@ -1000,7 +1000,6 @@ var graph_ajax = function (data, obj, callback) {
 
         }
 
-//legend
 
         // top:107,
         // right:190,
@@ -1454,10 +1453,15 @@ var graph_ajax = function (data, obj, callback) {
                         color: axisTickColor
                     }
                 },
-                axisLable: {
-                    //轴字体颜色
-                    color: axisLabeColor
+                axisLabel: {
+                    textStyle: {
+                        color:'#333'
+                    }
                 },
+                // axisLable: {
+                //     //轴字体颜色
+                //     color: axisLabeColor
+                // },
                 splitLine: {
                     lineStyle: splitLineColor
                 },
@@ -1538,117 +1542,125 @@ var graph_ajax = function (data, obj, callback) {
                         // 柱子上的Value
                         position: 'right',
                         textStyle: {
-                            color: 'black' //color of value
+                            color: 'black', //color of value
+                            fontSize: 14,
                         }
-                    }
-                },
+                    },
 
+                }
             }
-        }
-        var title = [
-            {
-                subtextStyle: {
-                    rich: {fontSize: 14},
-                    height: 14
-                },
-                left: 23,
-                top: 23,
-                //标题内边距,上右下左
-                // padding: [20, 0, 0, 40],
-                //主标题和副标题之间的间距
-                itemGap: 17,
-                text: graphdata['big_title'],
-                subtext: graphdata['small_title'],
-
-            }, {
-                text: '',
-                subtext: remarks1 + '\n\n' + remarks2,
-                left: 25,
-                bottom: 24,
-            }
-
-        ]
-        option = {
-            barWidth:24,
-            // barGap:7,
-            grid: {
-                top: 100,
-                // right:125,
-                bottom:102,
-                left: 130,
-                containLabel: false
-            },
-            //添加水印方案2
-            graphic:
+            var title = [
                 {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom: 60,
-                    z: 100,
-                    children: [
-                        {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height: 40,
-                            },
-                            style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
+                    subtextStyle: {
+                        rich: {fontSize: 14},
+                        height: 14
+                    },
+                    left: 23,
+                    top: 23,
+                    //标题内边距,上右下左
+                    // padding: [20, 0, 0, 40],
+                    //主标题和副标题之间的间距
+                    itemGap: 17,
+                    text: graphdata['big_title'],
+                    subtext: graphdata['small_title'],
 
-                            }
-                        },
-                        {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                font: 'bold 26px Microsoft YaHei'
-                            }
-                        }
-                    ]
+                }, {
+                    text: '',
+                    subtext: remarks1 + '\n\n' + remarks2,
+                    left: 25,
+                    bottom: 24,
+                }
+
+            ]
+            option = {
+                barWidth: 24,
+                // barGap:'2.8%',
+                barGap: '2.8%',
+                grid: {
+                    top: 100,
+                    // right:125,
+                    bottom: 102,
+                    left: 129,
+                    containLabel: false
                 },
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
 
-            // grid: grid,
-            title: title,
-            animationDuration: animationDuration,
-            tooltip: {
-                show: tooltip,
-                trigger: 'axis',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
-            // legend: {
-            //     //图例
-            //     data: legend
-            // },
-            "series": series,
-            "yAxis": [{
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "type": "category",
-                "data": graphdata['x']['data']
-            }],
-            "xAxis": [{
-                //wukong!
-                "type": "value",
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "show": false,
-                "min": 0,
-                "max": 100
-            }]
+                                }
+                            },
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
+                            }
+                        ]
+                    },
+
+                // grid: grid,
+                title: title,
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22,
+                },
+                animationDuration: animationDuration,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'axis',
+                    //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+                legend: {
+                    //图例
+                    data: legend
+                },
+                "series": series,
+                "yAxis": [{
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "type": "category",
+                    "data": graphdata['x']['data']
+                }],
+                "xAxis": [{
+                    //wukong!
+                    "type": "value",
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "show": false,
+                    "min": 0,
+                    "max": 100
+                }]
+            }
         }
     }
 
@@ -1907,23 +1919,30 @@ var graph_ajax = function (data, obj, callback) {
 
     //仪表盘图
     if (data.graph == 'gauge') {
-        title.push(
-            {
-                subtextStyle: {
-                    rich: {fontSize: 14},
-                    height: 14
-                },
-                left: 'center',
-                top: 350,
-                //标题内边距,上右下左
-                // padding: [20, 0, 0, 40],
-                //主标题和副标题之间的间距
-                itemGap: 30,
-                text: graphdata['x']['data'][0],
-                subtext: graphdata['y'][0]['name'],
+        title.push({
 
-            }
-        );
+                        subtextStyle: {
+                                        // rich: {fontSize:18,fontFamily:'PingFangSC-Regular'},
+                                        fontSize:18,
+                                        fontFamily:'PingFangSC-Medium',
+                                        color:"#333",
+                                        // height: 18,
+                                      },
+                        textStyle: {
+                                        fontSize:18,
+
+                                        color:"#333",
+                                    },fontFamily:'PingFangSC-Regular',
+                        left: 'center',
+                        top: 368,
+                        //标题内边距,上右下左
+                        // padding: [20, 0, 0, 40],
+                        //主标题和副标题之间的间距
+                        itemGap: 43,
+                        text: graphdata['x']['data'][0],
+                        subtext: graphdata['y'][0]['name'],
+                    });
+
         option = {
             //添加水印方案2
             graphic:
@@ -2019,9 +2038,9 @@ var graph_ajax = function (data, obj, callback) {
                 "detail": {
                     show: true,
                     formatter: '{value}' + graphdata['unit'],
-                    "offsetCenter": [0, "62"],
-                    "textStyle": {"color": "#000", "fontSize": 18},
-                    fontFamily: 'PingFangSC-Medium',
+                    "offsetCenter": [0, "77"],
+                    "textStyle": {"color": "#333333", "fontSize": 18,fontFamily: 'PingFangSC-Medium',},
+
                     height: 18,
                 },
                 // wukong!
