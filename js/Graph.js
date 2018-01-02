@@ -1930,8 +1930,9 @@ var graph_ajax = function (data, obj, callback) {
                                       },
                         textStyle: {
                                         fontSize:18,
+                                        fontFamily:'PingFangSC-Regular',
                                         color:"#333",
-                                    },fontFamily:'PingFangSC-Regular',
+                                    },
                         left: 'center',
                         top: 368,
                         //标题内边距,上右下左
