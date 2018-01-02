@@ -922,22 +922,22 @@ var graph_ajax = function (data, obj, callback) {
         grid.left += 10
     }
     //线条状的legend
-    if (d_data.legend == 3) {
-        //控制图例位置
-        legend.orient = 'horizontal';
-        legend.left = 'right';
-        legend.top = '100';
-        legend.itemGap: '10',
-        legend.itemWidth: '14',
-        legend.itemHeight: 2
-        //获取图例数据
-        for (var i = 0; i < graphdata['y'].length; i++) {
-            legendValue[i] = graphdata['y'][i]['name'];
-        }
-        legend.data = legendValue;
-        //图例自适应
-        grid.top += 96
-    }
+    // if (d_data.legend == 3) {
+    //     //控制图例位置
+    //     legend.orient = 'horizontal';
+    //     legend.left = 'right';
+    //     legend.top = '100';
+    //     legend.itemGap: '10';
+    //     legend.itemWidth: '14';
+    //     legend.itemHeight: '2';
+    //     //获取图例数据
+    //     for (var i = 0; i < graphdata['y'].length; i++) {
+    //         legendValue[i] = graphdata['y'][i]['name'];
+    //     }
+    //     legend.data = legendValue;
+    //     //图例自适应
+    //     grid.top += 96
+    // }
 
 //legend
 
@@ -1147,46 +1147,61 @@ var graph_ajax = function (data, obj, callback) {
         // var newH = $('main').width()*3/4;
         option = {
             //添加水印方案2
-            graphic:
-                {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom: 60,
-                    z: 100,
-                    children: [
+            graphic:[
+                        //词云背景图
                         {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height: 40,
-                            },
+                            type: 'image',
+                            right: 'center',
+                            top: 105,
+                            //  z: -10,
+                            bounding: 'raw',
                             style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
-
-                            }
+                                        image: '../echartsDemo/img/wordbg.png',
+                                        width: 538,
+                                        height: 405,
+                                        opacity: 1
+                                    }
                         },
                         {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
+                            type: 'group',
+                            rotation: Math.PI / 4,
+                            bounding: 'raw',
+                            right: 50,
+                            bottom: 60,
                             z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                font: 'bold 26px Microsoft YaHei'
-                            }
-                        }
-                    ]
-                },
+                            children: [
+                                {
+                                    type: 'rect',
+                                    left: 'center',
+                                    top: 'center',
+                                    z: 100,
+                                    shape: {
+                                        width: 400,
+                                        height: 40,
+                                    },
+                                    style: {
+                                        //填充色
+                                        fill: 'rgba(0,0,0,0.05)',
+                                        //是否可拖拽
+                                        // draggable: true,
 
+                                    }
+                                },
+                                {
+                                    type: 'text',
+                                    left: 'center',
+                                    top: 'center',
+                                    z: 100,
+                                    style: {
+                                        fill: 'rgba(255,255,255,1)',
+                                        text: 'Meta Insight',
+                                        // fontFamily: 'bold 26px, Microsoft YaHei'
+                                        fontFamily: 'Microsoft YaHei'
+                                    }
+                                }
+                            ]
+                        }
+                    ],
             toolbox: {
                 itemSize: 14,
                 feature: feature,
@@ -1212,7 +1227,7 @@ var graph_ajax = function (data, obj, callback) {
             "series": {
                 "type": "wordCloud",
                 "sizeRange": [14, 85],//字体大小范围（最小汉字-最大汉字）
-                "rotationRange": [-40, 20],//字体旋转角度
+                "rotationRange": [-40, 40],//字体旋转角度
                 "gridSize": 10,//偏移
                 "width": "100%",//字浮云宽度
                 "data": series,
