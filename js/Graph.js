@@ -814,7 +814,7 @@ var graph_ajax = function (data, obj, callback) {
     // var graph_type = ['pie-doughnut', 'bar-y-category', 'gauge', 'bar-y-category-stack'];
     //定义图表类型
     //area：堆叠区域图，gauge：仪表盘图，scatter-relationship：散点关系图，bar-y-category：纵向柱状图，bar-y-category-stack：纵向柱状堆叠图，line：折线图，k：k线图，graph：力导图
-    var graph_type = ['pie', 'wordCloud', 'map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack', 'pictorialline'];
+    var graph_type = ['pie', 'wordCloud1', 'wordCloud2','map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack', 'pictorialline'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -1122,7 +1122,7 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //词云1
-    if (data.graph == 'wordCloud') {
+    if (data.graph == 'wordCloud1') {
         var series = [];
         var legend = [];
         var len = []
@@ -1149,19 +1149,19 @@ var graph_ajax = function (data, obj, callback) {
             //添加水印方案2
             graphic:[
                         //词云背景图
-                        {
-                            type: 'image',
-                            right: 'center',
-                            top: 105,
-                            //  z: -10,
-                            bounding: 'raw',
-                            style: {
-                                        image: '../echartsDemo/img/wordbg.png',
-                                        width: 538,
-                                        height: 405,
-                                        opacity: 1
-                                    }
-                        },
+                        // {
+                        //     type: 'image',
+                        //     right: 'center',
+                        //     top: 105,
+                        //     //  z: -10,
+                        //     bounding: 'raw',
+                        //     style: {
+                        //                 image: '../echartsDemo/img/wordbg.png',
+                        //                 width: 538,
+                        //                 height: 405,
+                        //                 opacity: 1
+                        //             }
+                        // },
                         {
                             type: 'group',
                             rotation: Math.PI / 4,
@@ -1227,7 +1227,7 @@ var graph_ajax = function (data, obj, callback) {
             "series": {
                 "type": "wordCloud",
                 "sizeRange": [12, 85],//字体大小范围（最小汉字-最大汉字）
-                "rotationRange": [0, 0],//字体旋转角度
+                "rotationRange": [0,0],//字体旋转角度
                 "gridSize": 10,//偏移
                 "width": "100%",//字浮云宽度
                 // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大/词频
@@ -1238,7 +1238,7 @@ var graph_ajax = function (data, obj, callback) {
                 // shape: 'circle',
                 gridSize: 1,//字符间距
                 //词云位置
-                center:['50%','50%'],
+                // center:['50%','50%'],
                 width: 501,
                 height: 324,
                 top: 147,
@@ -1258,7 +1258,7 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //词云2
-    if (data.graph == 'wordCloud') {
+    if (data.graph == 'wordCloud2') {
         var series = [];
         var legend = [];
         var len = []
@@ -1285,19 +1285,19 @@ var graph_ajax = function (data, obj, callback) {
             //添加水印方案2
             graphic:[
                 //词云背景图
-                {
-                    type: 'image',
-                    right: 'center',
-                    top: 105,
-                    //  z: -10,
-                    bounding: 'raw',
-                    style: {
-                        image: '../echartsDemo/img/wordbg.png',
-                        width: 538,
-                        height: 405,
-                        opacity: 1
-                    }
-                },
+                // {
+                //     type: 'image',
+                //     right: 'center',
+                //     top: 105,
+                //     //  z: -10,
+                //     bounding: 'raw',
+                //     style: {
+                //         image: '../echartsDemo/img/wordbg.png',
+                //         width: 538,
+                //         height: 405,
+                //         opacity: 1
+                //     }
+                // },
                 {
                     type: 'group',
                     rotation: Math.PI / 4,
