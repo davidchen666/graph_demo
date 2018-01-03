@@ -1121,7 +1121,7 @@ var graph_ajax = function (data, obj, callback) {
         };
     }
 
-    //词云
+    //词云1
     if (data.graph == 'wordCloud') {
         var series = [];
         var legend = [];
@@ -1226,23 +1226,161 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": {
                 "type": "wordCloud",
-                "sizeRange": [14, 85],//字体大小范围（最小汉字-最大汉字）
+                "sizeRange": [12, 85],//字体大小范围（最小汉字-最大汉字）
                 "rotationRange": [0, 0],//字体旋转角度
                 "gridSize": 10,//偏移
                 "width": "100%",//字浮云宽度
-                // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大
+                // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大/词频
                 "data": series,
                 //设置cloud形状
                 // shape: 'cardioid',
+                // shape: 'pentagon',
+                // shape: 'circle',
                 gridSize: 1,//字符间距
                 //词云位置
-                // center:['50%','50%'],
+                center:['50%','50%'],
                 width: 501,
                 height: 324,
                 top: 147,
                 left: 113,
                 bottom: 150,
                 right: 105,
+                textStyle: {
+                    normal: {
+                        color: function () {
+                            //取主题随机色（四舍五入）
+                            return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
+                        }
+                    }
+                }
+            },
+        };
+    }
+
+    //词云2
+    if (data.graph == 'wordCloud') {
+        var series = [];
+        var legend = [];
+        var len = []
+        // 第二种方案：使用循环将series循环输出
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+        }
+        for (var i = 0; i < len; i++) {
+            //循环legend图例
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            } else {
+                legend = [];
+            }
+            series[i] = {
+                name: graphdata['y'][i]['name'],
+                value: graphdata['y'][i]['data']
+            }
+        }
+        // var newW  = $('main').width()*3/4;
+        // var newH = $('main').width()*3/4;
+        option = {
+            //添加水印方案2
+            graphic:[
+                //词云背景图
+                {
+                    type: 'image',
+                    right: 'center',
+                    top: 105,
+                    //  z: -10,
+                    bounding: 'raw',
+                    style: {
+                        image: '../echartsDemo/img/wordbg.png',
+                        width: 538,
+                        height: 405,
+                        opacity: 1
+                    }
+                },
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 50,
+                    bottom: 60,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 40,
+                            },
+                            style: {
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                // fontFamily: 'bold 26px, Microsoft YaHei'
+                                fontFamily: '微软雅黑',
+                            }
+                        }
+                    ]
+                }
+            ],
+            toolbox: {
+                itemSize: 14,
+                feature: feature,
+                right: 22,
+                top: 22
+                // right:24,
+                // top:23
+            },
+            grid: grid,
+            title: title,
+            animationDuration: animationDuration,
+            tooltip: {
+                show: tooltip,
+                trigger: 'item',
+                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            legend: {
+                //legend超出一行时滚动
+                type: "scroll",
+                //图例
+                data: legend
+            },
+            "series": {
+                "type": "wordCloud",
+                "sizeRange": [24, 50],//字体大小范围（最小汉字-最大汉字）
+                "rotationRange": [-45, 45],//字体旋转角度
+                // "gridSize": 10,//偏移
+                // "width": "100%",//字浮云宽度
+                // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大/词频
+                "data": series,
+                //设置cloud形状
+                // shape: 'cardioid',
+                // shape: 'pentagon',
+                shape: 'circle',
+                gridSize: 1,//字符间距
+                //词云位置
+                // center:['50%','50%'],
+                width: 800,
+                height: 600,
+                // top: 147,
+                // left: 113,
+                // bottom: 150,
+                // right: 105,
                 textStyle: {
                     normal: {
                         color: function () {

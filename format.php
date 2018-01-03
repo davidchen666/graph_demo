@@ -234,7 +234,7 @@ switch ($type) {
                          "height":617
                 }';
         break;
-//        词云
+//        词云1
     case 4:
         $post = '{
                     "downloadimg":1,
@@ -580,36 +580,208 @@ switch ($type) {
                          "height":360
                 }';
         break;
+//        词云2
     case 9:
         $post = '{
-     "downloadimg":1,
-     "legend":1,
-     "animation":1,
-     "x":
-         {
-             "data":["第一季度","第二季度","第三季度"]
-         },
-     "y":
-         [{
-             "data":
-                 [1,3,2],
-             "name": "nick"
-         },{
-             "data":
-                 [10,20,30],
-             "name": "david"
-         },{
-             "data":
-                 [30,43,51],
-             "name": "tom"
-         }],
-     "big_title": "日收入",
-     "small_title": "副标题",
-     "remarks1":"备注1：",
-     "remarks2":"数据来源: Q2：",
-     "unit":"k",
-     "tooltip":1
- }';
+                    "downloadimg":1,
+                    "legend":1,
+                    "animation":1,
+                         "y":
+                             [{
+                                 "data":
+                                     [1],
+                                 "name": "不错"
+                             },{
+                                 "data":
+                                     [2],
+                                 "name": "活动"
+                             },{
+                                 "data":
+                                     [3],
+                                 "name": "安全带"
+                             },{
+                                 "data":
+                                     [4],
+                                 "name": "服务态度"
+                             },{
+                                 "data":
+                                     [5],
+                                 "name": "驾驶"
+                             },{
+                                 "data":
+                                     [6],
+                                 "name": "外观"
+                             },{
+                                 "data":
+                                     [7],
+                                 "name": "汽车"
+                             },{
+                                 "data":
+                                     [8],
+                                 "name": "驾驶"
+                             },{
+                                 "data":
+                                     [9],
+                                 "name": "外观"
+                             },{
+                                 "data":
+                                     [10],
+                                 "name": "车"
+                             },{
+                                 "data":
+                                     [11],
+                                 "name": "降低"
+                             },{
+                                 "data":
+                                     [12],
+                                 "name": "降价"
+                             },{
+                                 "data":
+                                     [13],
+                                 "name": "省油"
+                             },{
+                                 "data":
+                                     [14],
+                                 "name": "提供一点"
+                             },{
+                                 "data":
+                                     [15],
+                                 "name": "发动机"
+                             },{
+                                 "data":
+                                     [16],
+                                 "name": "油耗"
+                             },{
+                                 "data":
+                                     [17],
+                                 "name": "售后"
+                             },{
+                                 "data":
+                                     [18],
+                                 "name": "动力"
+                             },{
+                                 "data":
+                                     [19],
+                                 "name": "性价比"
+                             },{
+                                 "data":
+                                     [20],
+                                 "name": "性能"
+                             },{
+                                 "data":
+                                     [21],
+                                 "name": "质量"
+                             },{
+                                 "data":
+                                     [22],
+                                 "name": "品牌"
+                             },{
+                                 "data":
+                                     [23],
+                                 "name": "促销"
+                             },{
+                                 "data":
+                                     [24],
+                                 "name": "更好保养"
+                             },{
+                                 "data":
+                                     [25],
+                                 "name": "增加力度"
+                             },{
+                                 "data":
+                                     [26],
+                                 "name": "推荐"
+                             },{
+                                 "data":
+                                     [27],
+                                 "name": "舒适"
+                             },{
+                                 "data":
+                                     [28],
+                                 "name": "配置"
+                             },{
+                                 "data":
+                                     [29],
+                                 "name": "舒适度"
+                             },{
+                                 "data":
+                                     [30],
+                                 "name": "价格"
+                             },{
+                                 "data":
+                                     [31],
+                                 "name": "体验"
+                             },{
+                                 "data":
+                                     [32],
+                                 "name": "品质"
+                             },{
+                                 "data":
+                                     [33],
+                                 "name": "配置"
+                             },{
+                                 "data":
+                                     [34],
+                                 "name": "免费"
+                             },{
+                                 "data":
+                                     [35],
+                                 "name": "内饰"
+                             },{
+                                 "data":
+                                     [36],
+                                 "name": "点"
+                             },{
+                                 "data":
+                                     [37],
+                                 "name": "坐"
+                             },{
+                                 "data":
+                                     [38],
+                                 "name": "车子"
+                             },{
+                                 "data":
+                                     [39],
+                                 "name": "外形"
+                             },{
+                                 "data":
+                                     [40],
+                                 "name": "M5"
+                             },{
+                                 "data":
+                                     [41],
+                                 "name": "GTR"
+                             },{
+                                 "data":
+                                     [42],
+                                 "name": "RS6"
+                             },{
+                                 "data":
+                                     [43],
+                                 "name": "AMG"
+                             },{
+                                 "data":
+                                     [44],
+                                 "name": "AE86"
+                             },{
+                                 "data":
+                                     [45],
+                                 "name": "Golf-R"
+                             },{
+                                 "data":
+                                     [46],
+                                 "name": "RCZ"
+                             }
+                             ],
+                         "big_title": "词云",
+                         "small_title": "副标题",
+                         "remarks1":"基数：所有被访者 n=400",
+                         "remarks2":"数据来源：B12",
+                         "unit":"人",
+                         "tooltip":1,
+                         "width":723,
+                         "height":605
+                }';
         break;
     case 10:
         $post = '{
@@ -642,6 +814,7 @@ switch ($type) {
      "tooltip":1
  }';
         break;
+
     case 21:
         $post = '{
     "downloadimg": 1,
