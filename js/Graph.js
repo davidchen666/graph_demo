@@ -900,7 +900,7 @@ var graph_ajax = function (data, obj, callback) {
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         //控制图例位置
         legend.orient = 'horizontal';
-        legend.left = 'right';
+        legend.right = '24';
         legend.top = '100';
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
@@ -925,11 +925,14 @@ var graph_ajax = function (data, obj, callback) {
     // if (d_data.legend == 3) {
     //     //控制图例位置
     //     legend.orient = 'horizontal';
+    //     // legend.right = '25';
     //     legend.left = 'right';
     //     legend.top = '100';
-    //     legend.itemGap: '10';
-    //     legend.itemWidth: '14';
-    //     legend.itemHeight: '2';
+    //     legend.itemGap = '10';
+    //     legend.itemWidth = '14';
+    //     legend.itemHeight = '2';
+    //     legend.align = 'auto';
+    //     legend.icon = "rect";
     //     //获取图例数据
     //     for (var i = 0; i < graphdata['y'].length; i++) {
     //         legendValue[i] = graphdata['y'][i]['name'];
