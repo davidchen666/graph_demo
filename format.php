@@ -397,6 +397,34 @@ switch ($type) {
                                  "data":
                                      [39],
                                  "name": "外形"
+                             },{
+                                 "data":
+                                     [40],
+                                 "name": "M5"
+                             },{
+                                 "data":
+                                     [41],
+                                 "name": "GTR"
+                             },{
+                                 "data":
+                                     [42],
+                                 "name": "RS6"
+                             },{
+                                 "data":
+                                     [43],
+                                 "name": "AMG"
+                             },{
+                                 "data":
+                                     [44],
+                                 "name": "AE86"
+                             },{
+                                 "data":
+                                     [45],
+                                 "name": "Golf-R"
+                             },{
+                                 "data":
+                                     [46],
+                                 "name": "RCZ"
                              }
                              ],
                          "big_title": "词云",
