@@ -900,7 +900,7 @@ var graph_ajax = function (data, obj, callback) {
         //控制图例位置
         legend.orient = 'horizontal';
         legend.right = '24';
-        legend.top = '100';
+        legend.top = '99';
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
