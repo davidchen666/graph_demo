@@ -1056,6 +1056,8 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data'],
                 //是否开启鼠标移到扇形区域时的动画效果
                 hoverAnimation: false,
+                //启用防止标签重叠策略
+                avoidLabelOverlap:true,
             }
 
         }
@@ -1124,7 +1126,11 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                // {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。
+                //在图形上显示具体数值
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                //在图形上显示数值所占百分比
+                formatter:'{d}' + graphdata['unit']
             },
             legend: legend,
             // legend: {
@@ -1157,7 +1163,8 @@ var graph_ajax = function (data, obj, callback) {
                     normal: {
                         show: true,
                         position: 'inside',
-                        formatter: "{c}"
+                        // formatter: "{c}"
+                        formatter:'{d}' + graphdata['unit']
                     },
 
                 },
@@ -1771,8 +1778,11 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                                         color: "#333333", //color of value
                                         fontSize: 14,
-                                        fontFamily:"PingFangSC-Regular",
+                                        fontS:"PingFangSC-Regular",
                                     }
+                        // color: "#333333", //color of value
+                        // fontSize: 14,
+                        // fontFamily:"PingFangSC-Regular"
                     },
 
                 }
@@ -1851,8 +1861,6 @@ var graph_ajax = function (data, obj, callback) {
                             }
                         ]
                     },
-
-                // grid: grid,
                 title: title,
                 toolbox: {
                     itemSize: 14,
@@ -1916,6 +1924,7 @@ var graph_ajax = function (data, obj, callback) {
                 data: graphdata['y'][i]['data'],
                 type: "bar",
                 stack: "总量",
+                // legendHoverLink:true,
                 label: {
                     normal: {
                         show: true,
@@ -1928,15 +1937,15 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 //柱子宽度
                 barWidth: 40,
+                // barMaxWidth:40,
                 //柱子间距
-                barCategoryGap:17,
+                // barCategoryGap:17,
+                barCategoryGap:'30%'
             }
         }
         option = {
             // //柱子宽度
             // barWidth: 40,
-            // //柱子间距
-            // barCategoryGap:17,
             //添加水印方案2
             graphic:
                 {
@@ -2002,7 +2011,7 @@ var graph_ajax = function (data, obj, callback) {
             legend: {
                 //图例
                 data: legend,
-                x: 'center',
+                x: 'right',
                 top: 99,
                 align: 'auto',
                 itemGap: 10,
