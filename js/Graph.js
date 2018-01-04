@@ -848,9 +848,20 @@ var graph_ajax = function (data, obj, callback) {
     if (typeof(d_data.animation) == "undefined" || d_data.animation == 1) {
         animation = true;
     }
+
+    // 1.标题、副标题、备注未定义时的间距
     //对网页自适应进行判断
     var gTop = 22;
     var gBottom = 27;
+    var grid = {
+        top: 105.5,
+        right: 91,
+        bottom: 94.5,
+        left: 91,
+        // bottom: gBottom + '%',
+        // top: gTop + '%',
+        containLabel: true
+    };
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 120
 
@@ -860,28 +871,15 @@ var graph_ajax = function (data, obj, callback) {
 
     }
     if (typeof(d_data.remarks1) == "undefined") {
-
         gBottom -= 65
+
     }
     if (typeof(d_data.remarks2) == "undefined") {
-
         gBottom -= 65
-    }
-    var grid = {
-        top: 105.5,
-        right: 91,
-        bottom: 94.5,
-        left: 91,
 
-        // bottom: gBottom + '%',
-
-        // top: gTop + '%',
-
-        containLabel: true
     }
 
-
-    //legend
+    //2.legend各种情况下的位置和间距
     var legendValue = [];
     var legend = {
                     icon:'rect',
@@ -893,7 +891,8 @@ var graph_ajax = function (data, obj, callback) {
                     // legend.bottom = 226,
                     itemGap:10,
                     itemWidth:14,
-                    itemHeight:14
+                    itemHeight:14,
+                    type:'scroll',
                 }
     //循环折线图x轴上的legend
     //设置图例开关
@@ -932,6 +931,7 @@ var graph_ajax = function (data, obj, callback) {
     //     legend.itemWidth = '14';
     //     legend.itemHeight = '2';
     //     legend.align = 'auto';
+    //     legend形状
     //     legend.icon = "rect";
     //     //获取图例数据
     //     for (var i = 0; i < graphdata['y'].length; i++) {
@@ -943,6 +943,43 @@ var graph_ajax = function (data, obj, callback) {
     // }
 
 //legend
+
+
+    //3.如果tittle/subtext不存在时，legend的间距和位置
+    //对网页自适应进行判断
+    //3-1.当legend为1时
+    // var gTop = 22;
+    // var gBottom = 27;
+    // if (typeof(d_data.big_title) == "undefined" || (d_data.legend) == "undefined" || (d_data.legend) == 1) {
+    //     gTop -= 120,
+    //     legend.top -= 82
+    // }
+    // if (typeof(d_data.small_title) == "undefined" || (d_data.legend) == "undefined" || (d_data.legend) == 1) {
+    //     gTop -= 120,
+    //     legend.top -= 86
+    // }
+    // if (typeof(d_data.big_title) == "undefined" || (d
+    // )(d_data.legend) == "undefined" || (d_data.legend) == 1) {
+    //     gTop -= 120,
+    //     legend.top -= 82
+    // }
+    // if (typeof(d_data.remarks1) == "undefined" || (d_data.legend) == "undefined") || (d_data.legend) == 1){
+    //     gBottom -= 65,
+    //     legend.top += 112
+    // }
+    //3-2.当legend为2时
+    // if (typeof(d_data.small_title) == "undefined" || (d_data.legend) == "undefined" || (d_data.legend) == 2) {
+    //     gTop -= 120
+    //     legend.top -= '215';
+    //     legend.left = '24';
+    // }
+    // if (typeof(d_data.remarks1) == "undefined" || (d_data.legend) == "undefined") || (d_data.legend) == 2){
+    //     gBottom -= 65
+    //     legend.top += '245';
+    //     legend.left = '24';
+    // }
+
+
 
     var remarks1 = ''
     var remarks2 = ''
@@ -966,7 +1003,7 @@ var graph_ajax = function (data, obj, callback) {
         {
             subtextStyle: {
                 rich: {fontSize: 14},
-                height: 14
+                fontSize: 14
             },
             left: 23,
             top: 21.5,
@@ -976,12 +1013,15 @@ var graph_ajax = function (data, obj, callback) {
             itemGap: 17,
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
+            fontSize: 18
 
         }, {
             text: '',
             subtext: remarks1 + '\n\n' + remarks2,
             left: 25,
-            bottom: 25.5
+            bottom: 24,
+            fontFamily:'PingFangSC-Regular',
+            itemGap: 5,
         }
 
     ]
@@ -1075,6 +1115,7 @@ var graph_ajax = function (data, obj, callback) {
                 // right:21,
                 // top:21
             },
+            // animation:animation,
             grid: grid,
             title: title,
             //饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标
@@ -1083,7 +1124,7 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: legend,
             // legend: {
@@ -1216,10 +1257,11 @@ var graph_ajax = function (data, obj, callback) {
             grid: grid,
             title: title,
             animationDuration: animationDuration,
+            animation:animation,
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //legend超出一行时滚动
@@ -1255,7 +1297,7 @@ var graph_ajax = function (data, obj, callback) {
                             return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
                         }
                     }
-                }
+                },
             },
         };
     }
@@ -1351,11 +1393,12 @@ var graph_ajax = function (data, obj, callback) {
             },
             grid: grid,
             title: title,
+            animation:animation,
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //legend超出一行时滚动
@@ -1393,7 +1436,8 @@ var graph_ajax = function (data, obj, callback) {
                             return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
                         }
                     }
-                }
+                },
+
             },
         };
     }
@@ -1471,13 +1515,14 @@ var graph_ajax = function (data, obj, callback) {
                 // right:24,
                 // top:23
             },
-
+            grid: grid,
             title: title,
+            animation:animation,
             animationDuration: animationDuration,
             tooltip: {
                 show: tooltip,
-                trigger: 'axis',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             visualMap: {
                 "type": "continuous",
@@ -1499,9 +1544,14 @@ var graph_ajax = function (data, obj, callback) {
                 "mapType": "china",
                 label: {
                     normal: {
+                        // verticalAlign:'bottom',
                         show: true,
-                        position: 'insideTop',
+                        // position: 'inside',
                         distance: 111,
+                        // position: [-20,35]
+                        // offset:[-20,40]
+                        // align:'left',
+                        // position: 'inside',
                         padding: [20, 0, 0, -25]
                     }
                 },
@@ -1541,7 +1591,7 @@ var graph_ajax = function (data, obj, callback) {
                 symbol: 'none',
                 name: graphdata['y'][i]['name'],
                 type: 'line',
-                data: graphdata['y'][i]['data']
+                data: graphdata['y'][i]['data'],
             }
         }
         option = {
@@ -1598,7 +1648,7 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
-                //     //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //legend超出一行时滚动
@@ -1719,9 +1769,10 @@ var graph_ajax = function (data, obj, callback) {
                         // 柱子上的Value
                         position: 'right',
                         textStyle: {
-                            color: 'black', //color of value
-                            fontSize: 14,
-                        }
+                                        color: "#333333", //color of value
+                                        fontSize: 14,
+                                        fontFamily:"PingFangSC-Regular",
+                                    }
                     },
 
                 }
@@ -1810,10 +1861,11 @@ var graph_ajax = function (data, obj, callback) {
                     top: 22,
                 },
                 animationDuration: animationDuration,
+                animation:animation,
                 tooltip: {
                     show: tooltip,
-                    trigger: 'axis',
-                    //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                 },
                 legend: {
                     //图例
@@ -1941,10 +1993,11 @@ var graph_ajax = function (data, obj, callback) {
                   },
             title: title,
             animationDuration: animationDuration,
+            animation:animation,
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
                 //图例
@@ -1959,6 +2012,7 @@ var graph_ajax = function (data, obj, callback) {
                 //legend超出一行时滚动
                 type: 'scroll'
             },
+            // legend:legend,
             "series": series,
             "yAxis": [{
                 "type": "category",
@@ -2101,23 +2155,30 @@ var graph_ajax = function (data, obj, callback) {
                         subtextStyle: {
                                         // rich: {fontSize:18,fontFamily:'PingFangSC-Regular'},
                                         fontSize:18,
-                                        fontFamily:'PingFangSC-Medium',
+                                        fontFamily:'PingFangSC-Regular',
+                                        // fontFamily:'PingFangSC-Regular',
                                         color:"#333",
+                                        lineHeight:18
                                         // height: 18,
                                       },
                         textStyle: {
                                         fontSize:18,
-                                        fontFamily:'PingFangSC-Regular',
+                                        fontFamily:'PingFangSC-Medium',
                                         color:"#333",
+                                        lineHeight:18
                                     },
                         left: 'center',
-                        top: 368,
+                        // top: 368,
+                        top:428,
                         //标题内边距,上右下左
-                        // padding: [20, 0, 0, 40],
+                        padding: [5, 0, 0, 0],
                         //主标题和副标题之间的间距
-                        itemGap: 41,
-                        text: graphdata['x']['data'][0],
-                        subtext: graphdata['y'][0]['name'],
+                        itemGap: -78,
+                        // text: graphdata['x']['data'][0],
+                        // subtext: graphdata['y'][0]['name'],
+                        subtext:  graphdata['x']['data'][0],
+                        text: graphdata['y'][0]['name'],
+
                     });
 
         option = {
@@ -2171,9 +2232,13 @@ var graph_ajax = function (data, obj, callback) {
             },
             grid: grid,
             title: title,
-            animationDuration: animationDuration,
+            // animation:animation,
+            // animationDuration: animationDuration,
             tooltip: {
-                show: tooltip
+                        show: tooltip,
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c}" + graphdata['unit']
+                        // formatter: "{a} <br/>{b} : {c}%"
             },
             legend: {
                 //legend超出一行时滚动
@@ -2193,7 +2258,8 @@ var graph_ajax = function (data, obj, callback) {
                 center: ['50%', '61.5%'],
                 //仪表盘半径
                 radius: 230,
-                silent: true,
+                //这个会影响tooltip显示
+                silent: false,
                 // wukong!
                 "axisLine": {
                     "lineStyle": {
@@ -2215,9 +2281,9 @@ var graph_ajax = function (data, obj, callback) {
                 "detail": {
                     show: true,
                     formatter: '{value}' + graphdata['unit'],
+                    // formatter: "{a} <br/>{b} : {c}" + graphdata['unit'],
                     "offsetCenter": [0, "77"],
                     "textStyle": {"color": "#333333", "fontSize": 18,fontFamily: 'PingFangSC-Medium',},
-
                     height: 18,
                 },
                 // wukong!
@@ -2250,9 +2316,9 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 //字体间距
                 "splitNumber": 4,
-                "pointer": {"width": 12, "length": "50%", "color": "#000"},
+                "pointer": {"width": 12, "length": "47%", "color": "#000"},
                 // "itemStyle": {"normal": {"color": echartsTheme.visualMapColor[0]}},  //指针颜色
-                // title:{fontFamily:'PingFangSC-Medium'}
+                title:{fontFamily:'PingFangSC-Medium'}
             }],
         }
     }
@@ -2311,6 +2377,7 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
         option = {
+            animation:animation,
             animationDuration: animationDuration,
             toolbox: {
                 feature: feature,
@@ -2445,13 +2512,14 @@ var graph_ajax = function (data, obj, callback) {
                     // right:24,
                     // top:24
                 },
+                animation:animation,
                 animationDuration: animationDuration,
                 grid: grid,
                 title: title,
                 tooltip: {
                     show: tooltip,
                     trigger: 'item',
-                    //formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                 },
                 legend: {
                     //legend超出一行时滚动
@@ -2491,82 +2559,81 @@ var graph_ajax = function (data, obj, callback) {
                     "max": 100
                 },
                 "series": [
-                    {
-                        "data": [{
-                            "value": graphdata['y'][2]['data'][0],
-                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                            label: {
-                                normal: {
-                                    fontSize: "14px"
-                                }
+                            {
+                                "data": [{
+                                    "value": graphdata['y'][2]['data'][0],
+                                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                                    label: {
+                                        normal: {
+                                            fontSize: "14px"
+                                        }
+                                    },
+                                    "itemStyle": {"normal": {"color": "#DC1E35"}}
+                                }, {
+                                    "value": graphdata['y'][1]['data'][0],
+                                    "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                                    label: {
+                                        normal: {
+                                            fontSize: "14px"
+                                        }
+                                    },
+                                    "itemStyle": {"normal": {"color": "#F6A623"}}
+                                }, {
+                                    "value": graphdata['y'][0]['data'][0],
+                                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                                    label: {
+                                        normal: {
+                                            fontSize: "14px"
+                                        }
+                                    },
+                                    "itemStyle": {"normal": {"color": "#40BA2C"}}
+                                }],
+                                "animation": false,
+                                "type": "pictorialBar",
+                                //前后图形间距
+                                symbolMargin: 4,
+                                //图形重叠
+                                symbolRepeat: 'fixed',
+                                "symbolClip": true,
+                                //图形的大小
+                                "symbolSize": [40, 40],
+                                "symbolBoundingData": 100,
+                            }, {
+                                "data": [{
+                                    "value": 100,
+                                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                                    label: {
+                                        normal: {
+                                            fontSize: "14px"
+                                        }
+                                    },
+                                    "itemStyle": {"normal": {"color": "#b1b1b1"}}
+                                }, {
+                                    "value": 100,
+                                    "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
+                                    label: {
+                                        normal: {
+                                            fontSize: "14px"
+                                        }
+                                    },
+                                    "itemStyle": {"normal": {"color": "#b1b1b1"}}
+                                }, {
+                                    "value": 100,
+                                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                                    "itemStyle": {"normal": {"color": "#b1b1b1"}}
+                                }],
+                                "animation": false,
+                                "type": "pictorialBar",
+                                //前后图形间距
+                                symbolMargin: 4,
+                                symbolRepeat: 'fixed',
+                                "symbolClip": true,
+                                "symbolSize": [40, 40],
+                                "symbolBoundingData": 100,
+                                "z": -5
                             },
-                            "itemStyle": {"normal": {"color": "#DC1E35"}}
-                        }, {
-                            "value": graphdata['y'][1]['data'][0],
-                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                            label: {
-                                normal: {
-                                    fontSize: "14px"
-                                }
-                            },
-                            "itemStyle": {"normal": {"color": "#F6A623"}}
-                        }, {
-                            "value": graphdata['y'][0]['data'][0],
-                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                            label: {
-                                normal: {
-                                    fontSize: "14px"
-                                }
-                            },
-                            "itemStyle": {"normal": {"color": "#40BA2C"}}
-                        }],
-                        "animation": false,
-                        "type": "pictorialBar",
-                        //前后图形间距
-                        symbolMargin: 4,
-                        //图形重叠
-                        symbolRepeat: 'fixed',
-                        "symbolClip": true,
-                        //图形的大小
-                        "symbolSize": [40, 40],
-                        "symbolBoundingData": 100,
-                    }, {
-                        "data": [{
-                            "value": 100,
-                            "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
-                            label: {
-                                normal: {
-                                    fontSize: "14px"
-                                }
-                            },
-                            "itemStyle": {"normal": {"color": "#b1b1b1"}}
-                        }, {
-                            "value": 100,
-                            "symbol": "path:\/\/M10.2565161,249 C10.2565161,386.531 121.178839,498 258.014968,498 C394.834581,498 505.740387,386.531 505.740387,249 C505.740387,111.4856 394.834581,0 258.014968,0 C121.178839,0 10.2565161,111.4856 10.2565161,249 Z M299.30529,182.6 C299.30529,159.6754 317.786839,141.1 340.579097,141.1 C363.387871,141.1 381.869419,159.6754 381.869419,182.6 C381.869419,205.508 363.387871,224.1 340.579097,224.1 C317.786839,224.1 299.30529,205.508 299.30529,182.6 Z M134.127484,182.6 C134.127484,159.6754 152.625548,141.1 175.417806,141.1 C198.226581,141.1 216.724645,159.6754 216.724645,182.6 C216.724645,205.508 198.226581,224.1 175.417806,224.1 C152.625548,224.1 134.127484,205.508 134.127484,182.6 Z M144.466581,329.925 C144.466581,321.9072 150.924387,315.4 158.901677,315.4 L357.095226,315.4 C365.072516,315.4 371.563355,321.9072 371.563355,329.925 C371.563355,337.9428 365.072516,344.45 357.095226,344.45 L158.901677,344.45 C150.924387,344.45 144.466581,337.9428 144.466581,329.925 Z",
-                            label: {
-                                normal: {
-                                    fontSize: "14px"
-                                }
-                            },
-                            "itemStyle": {"normal": {"color": "#b1b1b1"}}
-                        }, {
-                            "value": 100,
-                            "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
-                            "itemStyle": {"normal": {"color": "#b1b1b1"}}
-                        }],
-                        "animation": false,
-                        "type": "pictorialBar",
-                        //前后图形间距
-                        symbolMargin: 4,
-                        symbolRepeat: 'fixed',
-                        "symbolClip": true,
-                        "symbolSize": [40, 40],
-                        "symbolBoundingData": 100,
-                        "z": -5
-                    }
-                    // barGap:4
-
-                ],
+                            // barGap:4
+                        ],
 
             }
     }

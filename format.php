@@ -78,9 +78,7 @@ switch ($type) {
 //        地图
     case 3:
         $post = '{
-                    "downloadimg":1,  
-                    "legend":1,   
-                    "animation":1,                   
+                    "downloadimg":1,            
                          "y":
                              [{
                                  "data":
@@ -238,8 +236,6 @@ switch ($type) {
     case 4:
         $post = '{
                     "downloadimg":1,
-                    "legend":1,
-                    "animation":1,
                          "y":
                              [{
                                  "data":
@@ -441,7 +437,6 @@ switch ($type) {
     case 5:
         $post = '{
                     "downloadimg": 1,
-                    "legend": 1,
                     "x":
                         {
                             "data": ["推荐净值（NPS）"]
@@ -467,8 +462,6 @@ switch ($type) {
     case 6:
         $post = '{
                     "downloadimg":1,
-                    "legend":1,
-                    "animation":1,
                          "x":
                              {
                                  "data":["图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14"]
@@ -493,8 +486,6 @@ switch ($type) {
     case 7:
         $post = '{
                     "downloadimg":1,
-                    "legend":1,
-                    "animation":1,
                          "x":
                              {
                                  "data":["类目名称","类目名称","类目名称"]
@@ -556,9 +547,6 @@ switch ($type) {
     case 8:
         $post = '{
                      "downloadimg":1,
-                     "legend":1,
-                     "animation":1,
-                        
                          "y":
                              [{
                                  "data":[40],
@@ -574,7 +562,7 @@ switch ($type) {
                          "small_title": "%",
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
-                         "unit":"k",
+                         "unit":"人",
                          "tooltip":1,
                          "width":723,
                          "height":360
@@ -584,8 +572,6 @@ switch ($type) {
     case 9:
         $post = '{
                     "downloadimg":1,
-                    "legend":1,
-                    "animation":1,
                          "y":
                              [{
                                  "data":
