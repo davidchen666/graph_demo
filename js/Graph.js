@@ -1560,12 +1560,19 @@ var graph_ajax = function (data, obj, callback) {
                         // offset:[-20,40]
                         // align:'left',
                         // position: 'inside',
-                        padding: [20, 0, 0, -25]
+                        // padding: [20, 0, 0, -25]
+                        // position:'left'
+                        offset:[-60,0]
                     }
                 },
                 itemStyle: {
                     normal: {
-                        borderColor: 'rgba(255, 255, 255, .1)'
+                        borderColor: 'rgba(255, 255, 255, .1)',
+                        borderType:'solid'
+                    },
+                    emphasis:{
+                        borderType:'solid',
+                        areaColor:'#eee'
                     }
                 },
                 "data": series
