@@ -1128,9 +1128,9 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 // {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。
                 //在图形上显示具体数值
-                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit2']
                 //在图形上显示数值所占百分比
-                formatter:'{d}' + graphdata['unit']
+                // formatter:'{d}' + graphdata['unit']
             },
             legend: legend,
             // legend: {
@@ -1159,12 +1159,13 @@ var graph_ajax = function (data, obj, callback) {
                 "height": 230,
                 //图表上的数据
                 "data": series,
+                //图表上的字
                 label: {
                     normal: {
                         show: true,
                         position: 'inside',
                         // formatter: "{c}"
-                        formatter:'{d}' + graphdata['unit']
+                        formatter:'{d}' + graphdata['unit1']
                     },
 
                 },

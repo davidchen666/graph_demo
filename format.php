@@ -69,7 +69,8 @@ switch ($type) {
                          "small_title": "副标题",
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源: B12",
-                         "unit":"%",
+                         "unit1":"%",
+                         "unit2":"人",
                          "tooltip":1,
                          "width":723,
                          "height":540
