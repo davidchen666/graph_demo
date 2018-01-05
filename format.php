@@ -2,8 +2,8 @@
 $type = !empty($_GET['type']) && is_numeric($_GET['type']) ? $_GET['type'] : 1;
 $post = '';
 switch ($type) {
+//        折线图
         case 1:
-//            折线图
         $post = '{
                         "downloadimg":1,
                         "legend":1,
@@ -770,36 +770,66 @@ switch ($type) {
                          "height":605
                 }';
         break;
+//        纵向对比柱状图
     case 10:
         $post = '{
-     "downloadimg":1,
-     "legend":1,
-     "animation":1,
-     "x":
-         {
-             "data":["第一季度","第二季度","第三季度"]
-         },
-     "y":
-         [{
-             "data":
-                 [1,3,2],
-             "name": "nick"
-         },{
-             "data":
-                 [10,20,30],
-             "name": "david"
-         },{
-             "data":
-                 [30,43,51],
-             "name": "tom"
-         }],
-     "big_title": "日收入",
-     "small_title": "副标题",
-     "remarks1":"备注1：",
-     "remarks2":"数据来源: Q2：",
-     "unit":"k",
-     "tooltip":1
- }';
+                    "downloadimg":1,
+                          "legend":1,
+                         "x":
+                             {
+                                 "data":["2017/10/1","2017/10/2","2017/10/3","2017/10/4","2017/10/5","2017/10/6","2017/10/7"]
+                             },
+                         "y":
+                             [
+                                {
+                                     "data":
+                                         [10,20,30,40],
+                                     "name": ""
+                                },{
+                                     "data":
+                                         [20,30,40,50],
+                                     "name": ""
+                                },{
+                                     "data":
+                                         [30,40,50,60],
+                                     "name": ""
+                                },{
+                                     "data":
+                                         [40,50,60,70],
+                                     "name": ""
+                                }
+                             ],
+                         "big_title": "对比柱状图",
+                         "small_title": "副标题副标题副标题副标题副标题副标题副",
+                         "remarks1":"基数：所有被访者 n=400",
+                         "remarks2":"数据来源：B12",
+                         "unit":"人",
+                         "tooltip":1,
+                         "width":723,
+                         "height":548
+                }';
+        break;
+//        顶部显示数值柱状图
+    case 11:
+        $post = '{
+                        "downloadimg":1,
+                         "x":{
+                                 "data":["类目名称","类目名称","类目名称","类目名称","类目名称","类目名称","类目名称"]
+                            },
+                         "y":[{
+                                 "data":
+                                     [10000,13000,10000,13800,6000,2500,5000],
+                                 "name": ""
+                             }],
+                         "big_title": "顶部显示数值柱状图",
+                         "small_title": "副标题",
+                         "remarks1":"基数：所有被访者 n=400",
+                         "remarks2":"数据来源：B12",
+                         "unit":"k",
+                         "tooltip":1,
+                         "width":723,
+                         "height":501
+                }';
         break;
 
     case 21:

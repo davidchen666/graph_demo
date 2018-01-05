@@ -814,7 +814,7 @@ var graph_ajax = function (data, obj, callback) {
     // var graph_type = ['pie-doughnut', 'bar-y-category', 'gauge', 'bar-y-category-stack'];
     //定义图表类型
     //area：堆叠区域图，gauge：仪表盘图，scatter-relationship：散点关系图，bar-y-category：纵向柱状图，bar-y-category-stack：纵向柱状堆叠图，line：折线图，k：k线图，graph：力导图
-    var graph_type = ['pie', 'wordCloud1', 'wordCloud2','map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack', 'pictorialline'];
+    var graph_type = ['pie', 'wordCloud1', 'wordCloud2','map', 'line', 'k', 'area', 'gauge', 'bar-x-category', 'bar-y-category', 'bar-y-category-stack', 'scatter-relationship', 'bar-x-category-stack', 'pictorialline','bar-y-contrast','bar-y-value'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -838,10 +838,6 @@ var graph_ajax = function (data, obj, callback) {
     }
     if (typeof(d_data.source2) != "undefined") {
         source2 = d_data.source2;
-    }
-    //对下载功能有无进行判断
-    if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1) {
-        feature = {"saveAsImage": {"type": "png"}}
     }
     //设置动画开关
     var animation = false;
@@ -1032,12 +1028,23 @@ var graph_ajax = function (data, obj, callback) {
     ]
 
 
+    //对下载功能有无进行判断
+    // var toolbox = ''
+    if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1) {
+        feature = {"saveAsImage": {"type": "png"}}
+        // toolbox.right = 22;
+        // toolbox.top = 22;
+       }
+        // grid.top += 14;
+        // legend.top += 14;
+
+
     // title=[{"name":"推荐净值(NPS)"},{"name":"备注"}];title.push({"name":"组名"}) ;title
 
     // data.graph = 'gauge'
     // 指定图表的配置项和数据
     var option = {}
-    //圆环饼图
+    //圆环图
     if (data.graph == 'pie') {
         var series = [];
         // var legend = [];
@@ -1113,13 +1120,14 @@ var graph_ajax = function (data, obj, callback) {
                 },
 
             toolbox: {
-                itemSize: 14,
                 feature: feature,
+                itemSize: 14,
                 right: 22,
                 top: 22
                 // right:21,
                 // top:21
             },
+            // toolbox:toolbox,
             // animation:animation,
             grid: grid,
             title: title,
@@ -1717,10 +1725,9 @@ var graph_ajax = function (data, obj, callback) {
                     //     opacity: splitAreaOpacity
                     // }
                 },
-
+                splitLine: {show: false},
                 type: 'category',
                 name: 'x',
-                splitLine: {show: false},
                 data: graphdata['x']['data']
             },
             yAxis: {
@@ -2660,12 +2667,384 @@ var graph_ajax = function (data, obj, callback) {
             }
     }
 
-    //对比柱状图
+    //纵向对比柱状图
+    if(data.graph == 'bar-y-contrast') {
+        // console.log(graphdata)
+        var series = [];
+        var legend = [];
+        var len = []
+        // 第二种方案：使用循环将series循环输出
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+        }
+        for (var i = 0; i < len; i++) {
+            //循环折线图x轴上的legend
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            } else {
+                legend = [];
+            }
+            series[i] = {
+                //柱子宽度
+                //barWidth: 24,
+                //柱子间距
+                //barCategoryGap: 15,
+                name: graphdata['y'][i]['name'],
+                data: graphdata['y'][i]['data'],
+                type: "bar",
+                label: {
+                    normal: {
+                        show: false,
+                        // 柱子上的Value
+                        position: 'top',
+                        textStyle: {
+                            color: "#333333", //color of value
+                            fontSize: 14,
+                            fontS:"PingFangSC-Regular",
+                        }
+                        // color: "#333333", //color of value
+                        // fontSize: 14,
+                        // fontFamily:"PingFangSC-Regular"
+                    },
 
+                }
+            }
+            var title = [
+                {
+                    subtextStyle: {
+                        rich: {fontSize: 14},
+                        height: 14
+                    },
+                    left: 23,
+                    top: 23,
+                    //标题内边距,上右下左
+                    // padding: [20, 0, 0, 40],
+                    //主标题和副标题之间的间距
+                    itemGap: 17,
+                    text: graphdata['big_title'],
+                    subtext: graphdata['small_title'],
 
+                }, {
+                    text: '',
+                    subtext: remarks1 + '\n\n' + remarks2,
+                    left: 25,
+                    bottom: 24,
+                }
+
+            ]
+            option = {
+                //柱子最大宽度
+                barMaxWidth: 50,
+                barGap:4,
+                barCategoryGap:21,
+                barGap: '2.8%',
+                grid: {
+                    top: 100,
+                    // right:125,
+                    bottom: 102,
+                    left: 129,
+                    containLabel: false
+                },
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
+
+                                }
+                            },
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
+                            }
+                        ]
+                    },
+                title: title,
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22,
+                },
+                animationDuration: animationDuration,
+                animation:animation,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+                legend: {
+                    //图例
+                    data: legend,
+                    top: 99,
+                    align: 'auto',
+                    itemGap: 10,
+                    itemWidth: 14,
+                    itemHeight: 14,
+                    icon: "rect",
+                },
+                "series": series,
+                "xAxis": [{
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
+                        }
+                    },
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            //轴字体颜色
+                            color:'#333'
+                        },
+                        fontStyle:'PingFangSC-Regular',
+                        fontSize:14,
+                    },
+                    // axisLable: {
+                    //     //轴字体颜色
+                    //     color: axisLabeColor
+                    // },
+                    splitLine: {
+                        lineStyle: splitLineColor
+                    },
+                    splitArea: {
+                        // areaStyle: {
+                        //     //图形透明度
+                        //     opacity: splitAreaOpacity
+                        // }
+                    },
+                    splitLine: {show: false},
+                    "data": graphdata['x']['data'],
+                    "type": "category",
+                }],
+                "yAxis": [{
+                    //wukong!
+                    "type": "value",
+                    show: true,
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
+                        //    color: '#C4C4C4'
+                        }
+                    },
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
+                    },
+                    axisLabel: {
+                        show:true,
+                        textStyle: {
+                            //轴字体颜色
+                            color:'#333'
+                        },
+                        fontStyle:'PingFangSC-Regular',
+                        fontSize:14,
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            //图形透明度
+                            opacity: splitAreaOpacity
+                        }
+                    },
+                    splitLine: {show: true},
+                    "min": 0,
+                    "max": 100,
+
+                }]
+            }
+        }
+    }
 
     //顶部显示数值柱状图
+    if(data.graph == 'bar-y-value'){
+        // console.log(graphdata)
+        var series = [];
+        var legend = [];
+        var len = []
+        // 第二种方案：使用循环将series循环输出
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+        }
+        for (var i = 0; i < len; i++) {
+            //循环折线图x轴上的legend
+            //设置图例开关
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            } else {
+                legend = [];
+            }
+            series[i] = {
+                //柱子宽度
+                //barWidth: 24,
+                //柱子间距
+                //barCategoryGap: 15,
+                name: graphdata['y'][i]['name'],
+                data: graphdata['y'][i]['data'],
+                type: "bar",
+                label: {
+                    normal: {
+                        show: true,
+                        // 柱子上的Value
+                        position: 'right',
+                        textStyle: {
+                            color: "#333333", //color of value
+                            fontSize: 14,
+                            fontS:"PingFangSC-Regular",
+                        }
+                        // color: "#333333", //color of value
+                        // fontSize: 14,
+                        // fontFamily:"PingFangSC-Regular"
+                    },
 
+                }
+            }
+            var title = [
+                {
+                    subtextStyle: {
+                        rich: {fontSize: 14},
+                        height: 14
+                    },
+                    left: 23,
+                    top: 23,
+                    //标题内边距,上右下左
+                    // padding: [20, 0, 0, 40],
+                    //主标题和副标题之间的间距
+                    itemGap: 17,
+                    text: graphdata['big_title'],
+                    subtext: graphdata['small_title'],
+
+                }, {
+                    text: '',
+                    subtext: remarks1 + '\n\n' + remarks2,
+                    left: 25,
+                    bottom: 24,
+                }
+
+            ]
+            option = {
+                barWidth: 24,
+                // barGap:'2.8%',
+                barGap: '2.8%',
+                grid: {
+                    top: 100,
+                    // right:125,
+                    bottom: 102,
+                    left: 129,
+                    containLabel: false
+                },
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
+
+                                }
+                            },
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
+                            }
+                        ]
+                    },
+                title: title,
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22,
+                },
+                animationDuration: animationDuration,
+                animation:animation,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+                legend: {
+                    //图例
+                    data: legend
+                },
+                "series": series,
+                "yAxis": [{
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "type": "category",
+                    "data": graphdata['x']['data']
+                }],
+                "xAxis": [{
+                    //wukong!
+                    "type": "value",
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "show": false,
+                    "min": 0,
+                    "max": 100
+                }]
+            }
+        }
+    }
 
     // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
