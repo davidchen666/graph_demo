@@ -854,28 +854,28 @@ var graph_ajax = function (data, obj, callback) {
     var gTop = 22;
     var gBottom = 27;
     var grid = {
-        top: 105.5,
+        top: 105,
         right: 91,
-        bottom: 94.5,
+        bottom: 95,
         left: 91,
         // bottom: gBottom + '%',
         // top: gTop + '%',
         containLabel: true
     };
     if (typeof(d_data.big_title) == "undefined") {
-        gTop -= 120
+        gTop -= 18
 
     }
     if (typeof(d_data.small_title) == "undefined") {
-        gTop -= 120
+        gTop -= 14
 
     }
     if (typeof(d_data.remarks1) == "undefined") {
-        gBottom -= 65
+        gBottom -= 12
 
     }
     if (typeof(d_data.remarks2) == "undefined") {
-        gBottom -= 65
+        gBottom -= 12
 
     }
 
@@ -896,8 +896,10 @@ var graph_ajax = function (data, obj, callback) {
                 }
     //循环折线图x轴上的legend
     //设置图例开关
+    var radius =[110,170];
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         //控制图例位置
+        //legend水平
         legend.orient = 'horizontal';
         legend.right = '24';
         legend.top = '99';
@@ -907,9 +909,12 @@ var graph_ajax = function (data, obj, callback) {
         }
         legend.data = legendValue;
         //图例自适应
-        grid.top += 96
+        grid.top += 14;
+        radius[0]-=14;
+        radius[1]-=14;
     }
     if (d_data.legend == 2) {
+        //legend垂直
         legend.orient = 'vertical';
         legend.left = '24';
         legend.top = '233';
@@ -939,7 +944,7 @@ var graph_ajax = function (data, obj, callback) {
     //     }
     //     legend.data = legendValue;
     //     //图例自适应
-    //     grid.top += 96
+    //     grid.top += 14
     // }
 
 //legend
@@ -951,32 +956,32 @@ var graph_ajax = function (data, obj, callback) {
     // var gTop = 22;
     // var gBottom = 27;
     // if (typeof(d_data.big_title) == "undefined" || (d_data.legend) == "undefined" || (d_data.legend) == 1) {
-    //     gTop -= 120,
-    //     legend.top -= 82
+    //     gTop -= 18,
+    //     legend.top -= 18
     // }
     // if (typeof(d_data.small_title) == "undefined" || (d_data.legend) == "undefined" || (d_data.legend) == 1) {
-    //     gTop -= 120,
-    //     legend.top -= 86
+    //     gTop -= 14,
+    //     legend.top -= 14
     // }
     // if (typeof(d_data.big_title) == "undefined" || (d
     // )(d_data.legend) == "undefined" || (d_data.legend) == 1) {
-    //     gTop -= 120,
-    //     legend.top -= 82
+    //     gTop -= 18,
+    //     legend.top -= 18
     // }
     // if (typeof(d_data.remarks1) == "undefined" || (d_data.legend) == "undefined") || (d_data.legend) == 1){
-    //     gBottom -= 65,
-    //     legend.top += 112
+    //     gBottom -= 12,
+    //     legend.top += 12
     // }
     //3-2.当legend为2时
     // if (typeof(d_data.small_title) == "undefined" || (d_data.legend) == "undefined" || (d_data.legend) == 2) {
-    //     gTop -= 120
-    //     legend.top -= '215';
-    //     legend.left = '24';
+    //     gTop -= 14
+    //     legend.top -= 14;
+    //     legend.left = 14;
     // }
     // if (typeof(d_data.remarks1) == "undefined" || (d_data.legend) == "undefined") || (d_data.legend) == 2){
     //     gBottom -= 65
-    //     legend.top += '245';
-    //     legend.left = '24';
+    //     legend.top += 12;
+    //     legend.left = 12;
     // }
 
 
@@ -1034,10 +1039,8 @@ var graph_ajax = function (data, obj, callback) {
     var option = {}
     //圆环饼图
     if (data.graph == 'pie') {
-
         var series = [];
         // var legend = [];
-
         var len = [];
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1155,8 +1158,9 @@ var graph_ajax = function (data, obj, callback) {
                 clockwise: true,
                 "type": "pie",
                 //圆环内半径、外半径
-                "radius": [110, 170],
-                "height": 230,
+                // "radius": [110, 170],
+                radius:['35.5%','63%'],
+                // "height": 230,
                 //图表上的数据
                 "data": series,
                 //图表上的字
@@ -2655,6 +2659,13 @@ var graph_ajax = function (data, obj, callback) {
 
             }
     }
+
+    //对比柱状图
+
+
+
+    //顶部显示数值柱状图
+
 
     // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
