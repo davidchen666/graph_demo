@@ -2855,30 +2855,29 @@ var graph_ajax = function (data, obj, callback) {
             //     legend = [];
             // }
             series[i] = {
-                //柱子最大宽度
-                barMaxWidth: 50,
-                // barWidth:'5%',
-                barCategoryGap: '18%',
-                // barCategoryGap: 3,
-                barGap: '50%',
-                // barGap: 21,
-                name: graphdata['y'][i]['name'],
-                data: graphdata['y'][i]['data'],
-                type: "bar",
-                label: {
-                    normal: {
-                        show: false,
-                        // 柱子上的Value
-                        position: 'top',
-                        textStyle: {
-                            color: "#333333", //color of value
-                            fontSize: 14,
-                            fontS: "PingFangSC-Regular",
+                            //柱子最大宽度
+                            barMaxWidth: 50,
+                            // barWidth:'5%',
+                            barCategoryGap: '18%',
+                            // barCategoryGap: 3,
+                            barGap: '70%',
+                            // barGap: 21,
+                            name: graphdata['y'][i]['name'],
+                            data: graphdata['y'][i]['data'],
+                            type: "bar",
+                            label: {
+                                    normal: {
+                                    show: false,
+                                    // 柱子上的Value
+                                    position: 'top',
+                                    textStyle: {
+                                        color: "#333333", //color of value
+                                        fontSize: 14,
+                                        fontS: "PingFangSC-Regular",
+                                    }
+                                },
+                                    }
                         }
-                    },
-
-                }
-            }
             var title = [
                 {
                     subtextStyle: {
@@ -2903,7 +2902,7 @@ var graph_ajax = function (data, obj, callback) {
 
             ]
         }
-            option = {
+        option = {
                 grid: {
                     top: 100,
                     // right:125,
@@ -3064,9 +3063,9 @@ var graph_ajax = function (data, obj, callback) {
                 barMaxWidth: 50,
                 // barWidth: 45,
                 // barWidth: '6.22%',
-                barWidth: '61%',
+                barWidth: '66%',
                 // barCategoryGap: '5.53%',
-                barCategoryGap: '50%',
+                barGap: "80%",
                 // barGap: '20%',
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -3181,11 +3180,11 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 "series": series,
                 "xAxis": [{
-                    show:true,
                     axisLine: {
+                        show:false,
                         lineStyle: {
                             //轴线颜色
-                            color: "#fff"
+                            color: "#333"
                         }
                     },
                     axisTick: {
