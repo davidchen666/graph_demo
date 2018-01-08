@@ -3032,6 +3032,44 @@ var graph_ajax = function (data, obj, callback) {
             //     legend = [];
             // }
             series[i] = {
+                type: 'bar',
+                //柱子颜色渐变
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                                                                        0, 0, 0, 1,
+                                                                    [
+                                                                        {offset: 0, color: [
+                                                                                            0.5,
+                                                                                            colorRgb(echartsTheme.visualMapColor[0],1)
+                                                                                            ]
+                                                                        },
+                                                                        {offset: 1, color: [
+                                                                                            1,
+                                                                                            echartsTheme.visualMapColor[0]
+                                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                )
+                            },
+                    emphasis: {
+                        color: new echarts.graphic.LinearGradient(
+                                                                        0, 0, 0, 1,
+                                                                    [
+                                                                        {offset: 0, color: [
+                                                                                            1,
+                                                                                            echartsTheme.visualMapColor[0]
+                                                                                            ]
+                                                                        },
+                                                                        {offset: 1, color: [
+                                                                                            0.5,
+                                                                                            colorRgb(echartsTheme.visualMapColor[0], 1)
+                                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                )
+                            }
+                },
                 //柱子最大宽度
                 barMaxWidth: 50,
                 // barWidth: 45,
