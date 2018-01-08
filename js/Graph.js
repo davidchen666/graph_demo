@@ -809,7 +809,6 @@ var graph_ajax = function (data, obj, callback) {
 
     var graphdata = {};
     graphdata = $.parseJSON(data.data)
-
     // console.log(graphdata)
     var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
     // var graph_type = ['pie-doughnut', 'bar-y-category', 'gauge', 'bar-y-category-stack'];
