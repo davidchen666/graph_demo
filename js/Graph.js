@@ -2197,6 +2197,122 @@ var graph_ajax = function (data, obj, callback) {
             series: series
         };
     }
+    //百分比堆叠图
+    if (data.graph == 'bar-y-stack') {
+        // console.log(data)
+        var series = [];
+        var len = []
+        var lenv = []
+        // 第二种方案：使用循环将series循环输出
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+            lenv = graphdata['y'][0]['data'].length;
+        }
+
+        for (var i = 0; i < len; i++) {
+            //循环折线图x轴上的legend
+            //设置图例开关
+            var datav = []
+            for (var l = 0; l < lenv; l++) {
+
+                if (graphdata['y'][i]['data'][l] < 10) {
+                    datav[l] = {
+                        value: graphdata['y'][i]['data'][l],
+                        label: {
+                            normal: {
+                                show: false
+                            }
+                        }
+                    }
+                } else {
+                    datav[l] = graphdata['y'][i]['data'][l]
+                }
+
+            }
+
+            series[i] = {
+                name: graphdata['y'][i]['name'],
+                data: datav,
+                type: "bar",
+                stack: "总量",
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'inside',
+                    }
+                },
+                barMaxWidth: 50,
+            }
+        }
+        option = {
+            graphic:
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 50,
+                    bottom: 60,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 40,
+                            },
+                            style: {
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+            toolbox: toolbox,
+            grid: grid,
+
+            title: title,
+            animationDuration: animationDuration,
+            animation: animation,
+            tooltip: {
+                show: tooltip,
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            legend: legend,
+            "series": series,
+            "yAxis": [{
+                "type": "value",
+                "show": false,
+                "min": 0,
+                "max": 100
+
+            }],
+            "xAxis": [{
+                "type": "category",
+                "data": graphdata['x']['data'],
+                "axisTick": {"show": false},
+                "axisLine": {"show": false},
+                "splitLine": {"show": false}
+            }]
+        }
+    }
 
     //仪表盘图
     if (data.graph == 'gauge') {
