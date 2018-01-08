@@ -965,11 +965,12 @@ var graph_ajax = function (data, obj, callback) {
     var xaxisdata = []
     if (typeof(graphdata['x']) != "undefined") {
         for (var i = 0; i < graphdata['x']['data'].length; i++) {
-            console.log(graphdata['x']['data'][i])
+            // console.log(graphdata['x']['data'][i])
             xaxisdata[i] = {
                 value: graphdata['x']['data'][i],
                 textStyle: {
-                    fontSize: 14
+                    fontSize: 14,
+                    color: '#333'
                 }
             }
         }
@@ -2990,14 +2991,6 @@ var graph_ajax = function (data, obj, callback) {
                                 //是否显示轴刻度
                                 show: false
                             },
-                            "axisLabel": {
-                                            show: true,
-                                            textStyle: {
-                                                            //轴字体颜色
-                                                            color: '#333',
-                                                            fontSize:14,
-                                                        }
-                                        },
                             splitLine: {
                                 lineStyle: splitLineColor
                             },
@@ -3008,7 +3001,8 @@ var graph_ajax = function (data, obj, callback) {
                                                         }
                                         },
                             splitLine: {show: false},
-                            "data": graphdata['x']['data'],
+                            // "data": graphdata['x']['data'],
+                            data:xaxisdata,
                             type: 'category'
                         }],
                 "yAxis": [{
@@ -3187,23 +3181,16 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 "series": series,
                 "xAxis": [{
-                    show:false,
+                    show:true,
                     axisLine: {
                         lineStyle: {
                             //轴线颜色
-                            color: axisLineColor
+                            color: "#fff"
                         }
                     },
                     axisTick: {
                         //是否显示轴刻度
                         show: false
-                    },
-                    axisLabel: {
-                        textStyle: {
-                            //轴字体颜色
-                            color: '#333',
-                            fontSize: 14,
-                        },
                     },
                     splitLine: {
                         lineStyle: splitLineColor
@@ -3215,7 +3202,8 @@ var graph_ajax = function (data, obj, callback) {
                         }
                     },
                     splitLine: {show: false},
-                    "data": graphdata['x']['data'],
+                    // "data": graphdata['x']['data'],
+                    "data":xaxisdata,
                     type: 'category'
                 }],
                 "yAxis": [{
