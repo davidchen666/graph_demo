@@ -3051,7 +3051,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontS: "PingFangSC-Regular",
+                            fontFamily: "PingFangSC-Regular",
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
