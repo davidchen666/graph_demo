@@ -2,7 +2,7 @@
 $type = !empty($_GET['type']) && is_numeric($_GET['type']) ? $_GET['type'] : 1;
 $post = '';
 switch ($type) {
-        case 1:
+    case 1:
 //            折线图
         $post = '{
                         "downloadimg":1,
@@ -803,67 +803,68 @@ switch ($type) {
         break;
 
     case 21:
-        $post = '{
+        $post = '
+{
     "downloadimg": 1,
-    "legend":1,
-    "x":
+    "legend":2,
+    "animation":1,
+    "x": {
+        "data": [
+            "类目名称",
+            "类目名称",
+            "类目名称",
+            "类目名称",
+            "类目名称",
+            "类目名称"
+        ]
+    },
+    "y": [
         {
-            "data":
-                ["20岁以下", "21-25岁", "26-30岁", "31-45岁", "46-50岁", "50岁以上"]
+            "data": [
+                30,
+                24,
+                33,
+                46,
+                5,
+                33
+            ],
+            "name": "图例1"
         },
-    "y":
-        [{
-            "data":
-                [21],
-            "name": "20岁以下"
+        {
+            "data": [
+                33,
+                46,
+                17,
+                24,
+                60,
+                57
+            ],
+            "name": "图例2"
         },
-            {
-                "data":
-                    [8],
-                "name": "21-25岁"
-            },
-            {
-                "data":
-                    [24],
-                "name": "26-30岁"
-            },
-            {
-                "data":
-                    [20],
-                "name": "31-45岁"
-            },
-            {
-                "data":
-                    [4],
-                "name": "46-50岁"
-            },
-            {
-                "data":
-                    [12],
-                "name": "50岁以上"
-            }],
-    "big_title": "年龄",
+        {
+            "data": [
+                33,
+                30,
+                50,
+                33,
+                35,
+                10
+            ],
+            "name": "图例3"
+        }
+    ],
+    "big_title": "百分比堆叠柱状图",
     "small_title": "%",
-    "source": "基数: 所有被访者 n=25",
-    "source2": "数据来源：Q2"
-}';
+    "remarks1": "基数：所有被访者 n=400",
+    "remarks2": "数据来源：B12",
+    "unit": "人",
+    "tooltip": 1,
+    "width": 723,
+    "height": 464
+}      
+        ';
         break;
-    case 31:
-        $post = '{
-     "downloadimg":1,
-     "legend":1,
-     "y":
-         [{
-             "data":
-                 [-56],
-             "name": "全部"
-         }],
-     "big_title": "推荐净值(NPS)",
-     "small_title": "%",
-     "source": "基数:n=25",
-     "source2": "数据来源：Q11"
- }';
-        break;
+
 
 }
 echo $post;
