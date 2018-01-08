@@ -962,6 +962,18 @@ var graph_ajax = function (data, obj, callback) {
 
 //legend
 
+    var xaxisdata = []
+    if (typeof(graphdata['x']) != "undefined") {
+        for (var i = 0; i < graphdata['x']['data'].length; i++) {
+            console.log(graphdata['x']['data'][i])
+            xaxisdata[i] = {
+                value: graphdata['x']['data'][i],
+                textStyle: {
+                    fontSize: 14
+                }
+            }
+        }
+    }
 
     //3.如果tittle/subtext不存在时，legend的间距和位置
     //对网页自适应进行判断
@@ -2302,7 +2314,7 @@ var graph_ajax = function (data, obj, callback) {
             }],
             "xAxis": [{
                 "type": "category",
-                "data": graphdata['x']['data'],
+                "data": xaxisdata,
                 "axisTick": {"show": false},
                 "axisLine": {"show": false},
                 "splitLine": {"show": false}
