@@ -1818,6 +1818,8 @@ var graph_ajax = function (data, obj, callback) {
             //     legend = [];
             // }
             series[i] = {
+                barWidth: 24,
+                barGap: '2.8%',
                 //柱子宽度
                 //barWidth: 24,
                 //柱子间距
@@ -1866,89 +1868,94 @@ var graph_ajax = function (data, obj, callback) {
 
             ]
         }
-        option = {
-            barWidth: 24,
-            // barGap:'2.8%',
-            barGap: '2.8%',
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
-            //添加水印方案2
-            graphic:
-                {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom: 60,
-                    z: 100,
-                    children: [
-                        {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height: 40,
-                            },
-                            style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
-
-                            }
-                        },
-                        {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                font: 'bold 26px Microsoft YaHei'
-                            }
-                        }
-                    ]
+            option = {
+                grid: {
+                    top: 100,
+                    // right:125,
+                    bottom: 102,
+                    left: 129,
+                    containLabel: false
                 },
-            title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
-            animationDuration: animationDuration,
-            animation: animation,
-            tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
-            // legend: legend,
-            "series": series,
-            "yAxis": [{
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "type": "category",
-                "data": graphdata['x']['data']
-            }],
-            "xAxis": [{
-                //wukong!
-                "type": "value",
-                "axisTick": {"show": false},
-                "axisLine": {"show": false},
-                "splitLine": {"show": false},
-                "show": false,
-            }]
-        }
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
+
+                                }
+                            },
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
+                            }
+                        ]
+                    },
+                title: title,
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22,
+                },
+                animationDuration: animationDuration,
+                animation: animation,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+                // legend: legend,
+                "series": series,
+                "yAxis": [{
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "type": "category",
+                    "data": graphdata['x']['data'],
+                    "axisLabel": {
+                                    show: true,
+                                    textStyle: {
+                                                    //轴字体颜色
+                                                    color: '#333',
+                                                    fontSize:14,
+                                                }
+                                },
+                }],
+                "xAxis": [{
+                    //wukong!
+                    "type": "value",
+                    "axisTick": {"show": false},
+                    "axisLine": {"show": false},
+                    "splitLine": {"show": false},
+                    "show": false,
+                }]
+            }
 
     }
 
@@ -2080,132 +2087,139 @@ var graph_ajax = function (data, obj, callback) {
                 "axisTick": {"show": false},
                 "axisLine": {"show": false},
                 "splitLine": {"show": false},
+                "axisLabel": {
+                                show: true,
+                                textStyle: {
+                                                color: "#333",
+                                                fontSize:14
+                                            }
+                            }
             }],
             "xAxis": [{
                 "type": "value",
                 "show": false,
-                "min": 0,
-                "max": 100
+                // "min": 0,
+                // "max": 100
             }]
         }
     }
 
     //纵向柱状图
-    if (data.graph == 'bar-y-category') {
-        var series = []
-        for (i = 0; i < d_data.x['data'].length; i++) {
-            //循环折线图x轴上的legend
-            //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
-            series[i] = {
-                name: d_data.y[i]['name'],
-                type: 'bar',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'right',
-                        formatter: '{c}%'
-                    }
-                },
-                data: [d_data.y[i]['data'][0]]
-            }
-
-        }
-        option = {
-            //        backgroundColor: '#eee',
-            animationDuration: animationDuration,
-            toolbox: {
-                feature: feature,
-                x: 672,
-                y: 18
-            },
-            // color: colors,
-            title: {},
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                }
-            },
-            legend: {
-                // textStyle: {
-                //     color: legendTextstyleColor
-                // },
-                bottom: 0,
-                // data: ['2017年']
-            },
-            grid: {
-                left: '3%',
-                right: '6%',
-                bottom: '7%',
-                top: '5%',
-                containLabel: true
-            },
-            xAxis: {
-                splitLine: {
-                    show: false //去掉网格线
-                },
-                axisLine: {
-                    // lineStyle: {
-                    //     color: axislineLinestyleColor
-                    // }
-                },
-                axisTick: {
-                    // lineStyle: {
-                    //     color: axislineAxistickColor
-                    // }
-                },
-                axisLabel: {
-                    show: true,
-                    // textStyle: {
-                    //     color: axislineAxislabelColor
-                    // }
-                },
-                type: 'value',
-                boundaryGap: [0, 0.01],
-
-            },
-            yAxis: {
-                axisLine: {
-                    // lineStyle: {
-                    //     color: axislineLinestyleColor,
-                    //     width: '1'
-                    // }
-                },
-                // axisTick: {
-                //     lineStyle: {
-                //         color: axislineAxistickColor
-                //     }
-                // },
-                axisLabel: {
-                    show: true,
-                    // textStyle: {
-                    //     color: axislineAxislabelColor
-                    // }
-                },
-                splitLine: {
-                    show: false //去掉网格线
-                },
-                type: 'category',
-
-
-                data: [{
-                    value: '',
-                    barWidth: '40',
-                    // 突出周一
-                    // textStyle: {
-                    //
-                    //     color: '#999'
-                    // }
-                }]
-            },
-            series: series
-        };
-    }
+    // if (data.graph == 'bar-y-category') {
+    //     var series = []
+    //     for (i = 0; i < d_data.x['data'].length; i++) {
+    //         //循环折线图x轴上的legend
+    //         //设置图例开关
+    //         if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+    //             legend[i] = graphdata['y'][i]['name'];
+    //         } else {
+    //             legend = [];
+    //         }
+    //         series[i] = {
+    //             name: d_data.y[i]['name'],
+    //             type: 'bar',
+    //             label: {
+    //                 normal: {
+    //                     show: true,
+    //                     position: 'right',
+    //                     formatter: '{c}%'
+    //                 }
+    //             },
+    //             data: [d_data.y[i]['data'][0]]
+    //         }
+    //
+    //     }
+    //     option = {
+    //         //        backgroundColor: '#eee',
+    //         animationDuration: animationDuration,
+    //         toolbox: {
+    //             feature: feature,
+    //             x: 672,
+    //             y: 18
+    //         },
+    //         // color: colors,
+    //         title: {},
+    //         tooltip: {
+    //             trigger: 'axis',
+    //             axisPointer: {
+    //                 type: 'shadow'
+    //             }
+    //         },
+    //         legend: {
+    //             // textStyle: {
+    //             //     color: legendTextstyleColor
+    //             // },
+    //             bottom: 0,
+    //             // data: ['2017年']
+    //         },
+    //         grid: {
+    //             left: '3%',
+    //             right: '6%',
+    //             bottom: '7%',
+    //             top: '5%',
+    //             containLabel: true
+    //         },
+    //         xAxis: {
+    //             splitLine: {
+    //                 show: false //去掉网格线
+    //             },
+    //             axisLine: {
+    //                 // lineStyle: {
+    //                 //     color: axislineLinestyleColor
+    //                 // }
+    //             },
+    //             axisTick: {
+    //                 // lineStyle: {
+    //                 //     color: axislineAxistickColor
+    //                 // }
+    //             },
+    //             axisLabel: {
+    //                 show: true,
+    //                 // textStyle: {
+    //                 //     color: axislineAxislabelColor
+    //                 // }
+    //             },
+    //             type: 'value',
+    //             boundaryGap: [0, 0.01],
+    //
+    //         },
+    //         yAxis: {
+    //             axisLine: {
+    //                 // lineStyle: {
+    //                 //     color: axislineLinestyleColor,
+    //                 //     width: '1'
+    //                 // }
+    //             },
+    //             // axisTick: {
+    //             //     lineStyle: {
+    //             //         color: axislineAxistickColor
+    //             //     }
+    //             // },
+    //             axisLabel: {
+    //                 show: true,
+    //                 // textStyle: {
+    //                 //     color: axislineAxislabelColor
+    //                 // }
+    //             },
+    //             splitLine: {
+    //                 show: false //去掉网格线
+    //             },
+    //             type: 'category',
+    //
+    //
+    //             data: [{
+    //                 value: '',
+    //                 barWidth: '40',
+    //                 // 突出周一
+    //                 // textStyle: {
+    //                 //
+    //                 //     color: '#999'
+    //                 // }
+    //             }]
+    //         },
+    //         series: series
+    //     };
+    // }
 
     //百分比堆叠图
     if (data.graph == 'bar-y-stack') {
@@ -2580,77 +2594,136 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //纵向柱状堆叠图
-    if (data.graph == 'bar-y-category-stack') {
-        var series = []
-
-        for (i = 0; i < d_data.y.length; i++) {
-            var draw_value = [];
-            draw_value[i] = [];
-            $.each(d_data.y[i]['data'], function (j, val) {
-                if (val < 6) {
-                    draw_value[i][j] = {
-                        value: val,
-                        label: {
-                            normal: {
-                                show: false,
-                                position: 'insideRight',
-                                formatter: '{c}%'
-                            }
-                        },
-                    }
-                } else {
-                    draw_value[i][j] = {
-                        value: val,
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'insideRight',
-                                formatter: '{c}%'
-                            }
-                        },
-                    }
-                }
-            });
-            series[i] = {
-                name: d_data.y[i]['name'],
-                type: 'bar',
-                stack: '总量',
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'insideRight',
-                        formatter: '{c}%'
-                    }
-                },
-                data: draw_value[i]
-            }
-        }
-        option = {
-            animation: animation,
-            toolbox: toolbox,
-            title: title,
-            tooltip: tooltip,
-            legend: legend,
-            grid: grid,
-            xAxis: {
-
-                splitLine: {
-                    show: false //去掉网格线
-                },
-                type: 'value'
-            },
-            yAxis: {
-
-                splitLine: {
-                    show: false //去掉网格线
-                },
-                type: 'category',
-                data: d_data.x['data']
-            },
-            series: series
-        };
-    }
-
+    // if (data.graph == 'bar-y-category-stack') {
+    //     var series = []
+    //     var legend = []
+    //     for (i = 0; i < d_data.y.length; i++) {
+    //         var draw_value = [];
+    //         draw_value[i] = [];
+    //         $.each(d_data.y[i]['data'], function (j, val) {
+    //             if (val < 6) {
+    //                 draw_value[i][j] = {
+    //                     value: val,
+    //                     label: {
+    //                         normal: {
+    //                             show: false,
+    //                             position: 'insideRight',
+    //                             formatter: '{c}%'
+    //                         }
+    //                     },
+    //                 }
+    //             } else {
+    //                 draw_value[i][j] = {
+    //                     value: val,
+    //                     label: {
+    //                         normal: {
+    //                             show: true,
+    //                             position: 'insideRight',
+    //                             formatter: '{c}%'
+    //                         }
+    //                     },
+    //                 }
+    //             }
+    //         });
+    //         //循环折线图x轴上的legend
+    //         //设置图例开关
+    //         if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+    //             legend[i] = graphdata['y'][i]['name'];
+    //         } else {
+    //             legend = [];
+    //         }
+    //         series[i] = {
+    //             name: d_data.y[i]['name'],
+    //             type: 'bar',
+    //             stack: '总量',
+    //             label: {
+    //                 normal: {
+    //                     show: true,
+    //                     position: 'insideRight',
+    //                     formatter: '{c}%'
+    //                 }
+    //             },
+    //             data: draw_value[i]
+    //         }
+    //     }
+    //     option = {
+    //         animation: animation,
+    //         animationDuration: animationDuration,
+    //         toolbox: {
+    //             feature: feature,
+    //             x: 672,
+    //             y: 18
+    //         },
+    //         // color: colors,
+    //         title: {},
+    //         tooltip: {
+    //             trigger: 'axis',
+    //             axisPointer: { // 坐标轴指示器，坐标轴触发有效
+    //                 type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+    //             }
+    //         },
+    //         legend: {
+    //             // textStyle: {
+    //             //     color: legendTextstyleColor
+    //             // },
+    //             bottom: 0,
+    //             data: legend,
+    //         },
+    //         grid: {
+    //             left: '3%',
+    //             right: '4%',
+    //             bottom: '7%',
+    //             top: '5%',
+    //             containLabel: true
+    //         },
+    //         xAxis: {
+    //             // axisLine: {
+    //             //     lineStyle: {
+    //             //         color: axislineLinestyleColor
+    //             //     }
+    //             // },
+    //             // axisTick: {
+    //             //     lineStyle: {
+    //             //         color: axislineAxistickColor
+    //             //     }
+    //             // },
+    //             // axisLabel: {
+    //             //     show: true,
+    //             //     textStyle: {
+    //             //         color: axislineAxislabelColor
+    //             //     }
+    //             // },
+    //             splitLine: {
+    //                 show: false //去掉网格线
+    //             },
+    //             type: 'value'
+    //         },
+    //         yAxis: {
+    //             // axisLine: {
+    //             //     lineStyle: {
+    //             //         color: axislineLinestyleColor
+    //             //     }
+    //             // },
+    //             // axisTick: {
+    //             //     lineStyle: {
+    //             //         color: axislineAxistickColor
+    //             //     }
+    //             // },
+    //             // axisLabel: {
+    //             //     show: true,
+    //             //     textStyle: {
+    //             //         color: axislineAxislabelColor
+    //             //     }
+    //             // },
+    //             splitLine: {
+    //                 show: false //去掉网格线
+    //             },
+    //             type: 'category',
+    //             data: d_data.x['data']
+    //         },
+    //         series: series
+    //     };
+    // }
 
     //条形象形图
     if (data.graph == 'pictorialline') {
@@ -2725,6 +2798,14 @@ var graph_ajax = function (data, obj, callback) {
                     data: legend
                 },
                 "yAxis": {
+                    "axisLabel": {
+                        show: true,
+                        textStyle: {
+                            //轴字体颜色
+                            color: '#333',
+                            fontSize:14,
+                        }
+                    },
                     "axisTick": {
                         "show": false
                     },
@@ -2734,7 +2815,6 @@ var graph_ajax = function (data, obj, callback) {
                     "splitLine": {
                         "show": false
                     },
-
                     "data": [
                         graphdata['y'][2]['name'] + '  ' + graphdata['y'][2]['data'][0],
                         graphdata['y'][1]['name'] + '  ' + graphdata['y'][1]['data'][0],
@@ -2855,30 +2935,29 @@ var graph_ajax = function (data, obj, callback) {
             //     legend = [];
             // }
             series[i] = {
-                //柱子最大宽度
-                barMaxWidth: 50,
-                // barWidth:'5%',
-                barCategoryGap: '18%',
-                // barCategoryGap: 3,
-                barGap: '50%',
-                // barGap: 21,
-                name: graphdata['y'][i]['name'],
-                data: graphdata['y'][i]['data'],
-                type: "bar",
-                label: {
-                    normal: {
-                        show: false,
-                        // 柱子上的Value
-                        position: 'top',
-                        textStyle: {
-                            color: "#333333", //color of value
-                            fontSize: 14,
-                            fontS: "PingFangSC-Regular",
+                            //柱子最大宽度
+                            barMaxWidth: 50,
+                            // barWidth:'5%',
+                            barCategoryGap: '18%',
+                            // barCategoryGap: 3,
+                            barGap: '70%',
+                            // barGap: 21,
+                            name: graphdata['y'][i]['name'],
+                            data: graphdata['y'][i]['data'],
+                            type: "bar",
+                            label: {
+                                    normal: {
+                                    show: false,
+                                    // 柱子上的Value
+                                    position: 'top',
+                                    textStyle: {
+                                        color: "#333333", //color of value
+                                        fontSize: 14,
+                                        fontS: "PingFangSC-Regular",
+                                    }
+                                },
+                                    }
                         }
-                    },
-
-                }
-            }
             var title = [
                 {
                     subtextStyle: {
@@ -2904,147 +2983,139 @@ var graph_ajax = function (data, obj, callback) {
             ]
         }
         option = {
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
-            //添加水印方案2
-            graphic:
-                {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom: 60,
-                    z: 100,
-                    children: [
-                        {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height: 40,
-                            },
-                            style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
+                grid: {
+                    top: 100,
+                    // right:125,
+                    bottom: 102,
+                    left: 129,
+                    containLabel: false
+                },
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
 
+                                }
+                            },
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
                             }
-                        },
-                        {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                font: 'bold 26px Microsoft YaHei'
-                            }
-                        }
-                    ]
-                },
-            title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
-            animationDuration: animationDuration,
-            animation: animation,
-            tooltip: {
-                show: tooltip,
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                },
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
-            // legend: {
-            //     //图例
-            //     data: legend,
-            //     top: 99,
-            //     align: 'auto',
-            //     itemGap: 10,
-            //     itemWidth: 14,
-            //     itemHeight: 14,
-            //     icon: "rect",
-            // },
-            legend: legend,
-            "series": series,
-            "xAxis": [{
-                axisLine: {
-                    lineStyle: {
-                        //轴线颜色
-                        color: axisLineColor
-                    }
-                },
-                axisTick: {
-                    //是否显示轴刻度
-                    show: false
-                },
-                axisLabel: {
-                    textStyle: {
-                        //轴字体颜色
-                        color: '#333'
+                        ]
                     },
-                    fontStyle: 'PingFangSC-Regular',
-                    fontSize: 14,
+                title: title,
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22,
                 },
-                splitLine: {
-                    lineStyle: splitLineColor
+                animationDuration: animationDuration,
+                animation: animation,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                 },
-                splitArea: {
-                    areaStyle: {
-                        //图形透明度
-                        opacity: splitAreaOpacity
-                    }
-                },
-                splitLine: {show: false},
-                "data": graphdata['x']['data'],
-                type: 'category'
-            }],
-            "yAxis": [{
-                //wukong!
-                "type": "value",
-                show: true,
-                axisLine: {
-                    lineStyle: {
-                        //轴线颜色
-                        color: axisLineColor
-                        //    color: '#C4C4C4'
-                    }
-                },
-                axisTick: {
-                    //是否显示轴刻度
-                    show: false
-                },
-                axisLabel: {
+                // legend: {
+                //     //图例
+                //     data: legend,
+                //     top: 99,
+                //     align: 'auto',
+                //     itemGap: 10,
+                //     itemWidth: 14,
+                //     itemHeight: 14,
+                //     icon: "rect",
+                // },
+                // legend: legend,
+                "series": series,
+                "xAxis": [{
+                            axisLine: {
+                                        lineStyle: {
+                                    //轴线颜色
+                                    color: axisLineColor
+                                }
+                            },
+                            axisTick: {
+                                //是否显示轴刻度
+                                show: false
+                            },
+                            splitLine: {
+                                lineStyle: splitLineColor
+                            },
+                            splitArea: {
+                                            areaStyle: {
+                                                        //图形透明度
+                                                        opacity: splitAreaOpacity
+                                                        }
+                                        },
+                            splitLine: {show: false},
+                            // "data": graphdata['x']['data'],
+                            data:xaxisdata,
+                            type: 'category'
+                        }],
+                "yAxis": [{
+                    //wukong!
+                    "type": "value",
                     show: true,
-                    textStyle: {
-                        //轴字体颜色
-                        color: '#333'
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
+                            //    color: '#C4C4C4'
+                        }
                     },
-                    fontStyle: 'PingFangSC-Regular',
-                    fontSize: 14,
-                },
-                splitArea: {
-                    areaStyle: {
-                        //图形透明度
-                        opacity: splitAreaOpacity
-                    }
-                },
-                splitLine: {show: true},
-            }]
-        }
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            //轴字体颜色
+                            color: '#333',
+                            fontSize: 14,
+                        },
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            //图形透明度
+                            opacity: splitAreaOpacity
+                        }
+                    },
+                    splitLine: {show: true},
+                }]
+            }
 
     }
 
@@ -3119,144 +3190,144 @@ var graph_ajax = function (data, obj, callback) {
 
             ]
         }
-        option = {
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
-            //添加水印方案2
-            graphic:
-                {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom: 60,
-                    z: 100,
-                    children: [
-                        {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height: 40,
-                            },
-                            style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
+            option = {
+                grid: {
+                    top: 100,
+                    // right:125,
+                    bottom: 102,
+                    left: 129,
+                    containLabel: false
+                },
+                //添加水印方案2
+                graphic:
+                    {
+                        type: 'group',
+                        rotation: Math.PI / 4,
+                        bounding: 'raw',
+                        right: 50,
+                        bottom: 60,
+                        z: 100,
+                        children: [
+                            {
+                                type: 'rect',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                shape: {
+                                    width: 400,
+                                    height: 40,
+                                },
+                                style: {
+                                    //填充色
+                                    fill: 'rgba(0,0,0,0.05)',
+                                    //是否可拖拽
+                                    // draggable: true,
 
+                                }
+                            },
+                            {
+                                type: 'text',
+                                left: 'center',
+                                top: 'center',
+                                z: 100,
+                                style: {
+                                    fill: 'rgba(255,255,255,1)',
+                                    text: 'Meta Insight',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
                             }
-                        },
-                        {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                font: 'bold 26px Microsoft YaHei'
-                            }
+                        ]
+                    },
+                title: title,
+                toolbox: {
+                    itemSize: 14,
+                    feature: feature,
+                    right: 22,
+                    top: 22,
+                },
+                animationDuration: animationDuration,
+                animation: animation,
+                // legend: legend,
+                tooltip: {
+                    show: tooltip,
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                },
+                legend: {
+                    //图例
+                    data: legend
+                },
+                "series": series,
+                "xAxis": [{
+                    show:false,
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
                         }
-                    ]
-                },
-            title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
-            animationDuration: animationDuration,
-            animation: animation,
-            // legend: legend,
-            tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
-            legend: {
-                //图例
-                data: legend
-            },
-            "series": series,
-            "xAxis": [{
-                show: false,
-                axisLine: {
-                    lineStyle: {
-                        //轴线颜色
-                        color: axisLineColor
-                    }
-                },
-                axisTick: {
-                    //是否显示轴刻度
-                    show: false
-                },
-                axisLabel: {
-                    textStyle: {
-                        //轴字体颜色
-                        color: '#333'
                     },
-                    fontStyle: 'PingFangSC-Regular',
-                    fontSize: 14,
-                },
-                splitLine: {
-                    lineStyle: splitLineColor
-                },
-                splitArea: {
-                    areaStyle: {
-                        //图形透明度
-                        opacity: splitAreaOpacity
-                    }
-                },
-                splitLine: {show: false},
-                "data": graphdata['x']['data'],
-                type: 'category'
-            }],
-            "yAxis": [{
-                //wukong!
-                "type": "value",
-                show: false,
-                axisLine: {
-                    lineStyle: {
-                        //轴线颜色
-                        color: axisLineColor
-                        //    color: '#C4C4C4'
-                    }
-                },
-                axisTick: {
-                    //是否显示轴刻度
-                    show: false
-                },
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        //轴字体颜色
-                        color: '#333'
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
                     },
-                    fontStyle: 'PingFangSC-Regular',
-                    fontSize: 14,
-                },
-                splitArea: {
-                    areaStyle: {
-                        //图形透明度
-                        opacity: splitAreaOpacity
-                    }
-                },
-                splitLine: {show: true},
-            }]
-        }
+                    axisLabel: {
+                        textStyle: {
+                            //轴字体颜色
+                            color: '#333'
+                        },
+                        fontStyle: 'PingFangSC-Regular',
+                        fontSize: 14,
+                    },
+                    splitLine: {
+                        lineStyle: splitLineColor
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            //图形透明度
+                            opacity: splitAreaOpacity
+                        }
+                    },
+                    splitLine: {show: false},
+                    "data": graphdata['x']['data'],
+                    type: 'category'
+                }],
+                "yAxis": [{
+                    //wukong!
+                    "type": "value",
+                    show: false,
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
+                            //    color: '#C4C4C4'
+                        }
+                    },
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            //轴字体颜色
+                            color: '#333'
+                        },
+                        fontStyle: 'PingFangSC-Regular',
+                        fontSize: 14,
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            //图形透明度
+                            opacity: splitAreaOpacity
+                        }
+                    },
+                    splitLine: {show: true},
+                }]
+            }
 
     }
 
-    console.log(option)
+    // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
