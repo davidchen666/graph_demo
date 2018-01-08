@@ -1851,6 +1851,7 @@ var graph_ajax = function (data, obj, callback) {
                 }
 
             ]
+        }
             option = {
                 barWidth: 24,
                 // barGap:'2.8%',
@@ -1935,11 +1936,9 @@ var graph_ajax = function (data, obj, callback) {
                     "axisLine": {"show": false},
                     "splitLine": {"show": false},
                     "show": false,
-                    "min": 0,
-                    "max": 100
                 }]
             }
-        }
+
     }
 
     //横向柱状堆叠图
@@ -2160,7 +2159,6 @@ var graph_ajax = function (data, obj, callback) {
 
             },
             yAxis: {
-
                 axisLine: {
                     // lineStyle: {
                     //     color: axislineLinestyleColor,
@@ -2197,6 +2195,7 @@ var graph_ajax = function (data, obj, callback) {
             series: series
         };
     }
+
     //百分比堆叠图
     if (data.graph == 'bar-y-stack') {
         // console.log(data)
@@ -2824,10 +2823,13 @@ var graph_ajax = function (data, obj, callback) {
                 legend = [];
             }
             series[i] = {
-                //柱子宽度
-                //barWidth: 24,
-                //柱子间距
-                //barCategoryGap: 15,
+                //柱子最大宽度
+                barMaxWidth: 50,
+                // barWidth:'5%',
+                barCategoryGap: '18%',
+                // barCategoryGap: 3,
+                barGap: '50%',
+                // barGap: 21,
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
                 type: "bar",
@@ -2841,9 +2843,6 @@ var graph_ajax = function (data, obj, callback) {
                             fontSize: 14,
                             fontS: "PingFangSC-Regular",
                         }
-                        // color: "#333333", //color of value
-                        // fontSize: 14,
-                        // fontFamily:"PingFangSC-Regular"
                     },
 
                 }
@@ -2871,12 +2870,8 @@ var graph_ajax = function (data, obj, callback) {
                 }
 
             ]
+        }
             option = {
-                //柱子最大宽度
-                barMaxWidth: 50,
-                barGap: 4,
-                barCategoryGap: 21,
-                barGap: '2.8%',
                 grid: {
                     top: 100,
                     // right:125,
@@ -2971,22 +2966,20 @@ var graph_ajax = function (data, obj, callback) {
                         fontStyle: 'PingFangSC-Regular',
                         fontSize: 14,
                     },
-                    // axisLable: {
-                    //     //轴字体颜色
-                    //     color: axisLabeColor
-                    // },
                     splitLine: {
                         lineStyle: splitLineColor
                     },
                     splitArea: {
-                        // areaStyle: {
-                        //     //图形透明度
-                        //     opacity: splitAreaOpacity
-                        // }
-                    },
+                                    areaStyle: {
+                                                //图形透明度
+                                                opacity: splitAreaOpacity
+                                                }
+                                },
                     splitLine: {show: false},
-                    "data": graphdata['x']['data'],
-                    "type": "category",
+                    // data: data,
+                    name:name,
+                    data:graphdata['x']['data'],
+                    type: 'category'
                 }],
                 "yAxis": [{
                     //wukong!
@@ -3019,12 +3012,9 @@ var graph_ajax = function (data, obj, callback) {
                         }
                     },
                     splitLine: {show: true},
-                    "min": 0,
-                    "max": 100,
-
                 }]
             }
-        }
+
     }
 
     //顶部显示数值柱状图
@@ -3046,10 +3036,14 @@ var graph_ajax = function (data, obj, callback) {
                 legend = [];
             }
             series[i] = {
-                //柱子宽度
-                //barWidth: 24,
-                //柱子间距
-                //barCategoryGap: 15,
+                //柱子最大宽度
+                barMaxWidth: 50,
+                // barWidth: 45,
+                // barWidth: '6.22%',
+                barWidth: '61%',
+                // barCategoryGap: '5.53%',
+                barCategoryGap: '50%',
+                // barGap: '20%',
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
                 type: "bar",
@@ -3057,7 +3051,7 @@ var graph_ajax = function (data, obj, callback) {
                     normal: {
                         show: true,
                         // 柱子上的Value
-                        position: 'right',
+                        position: 'top',
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
@@ -3093,10 +3087,8 @@ var graph_ajax = function (data, obj, callback) {
                 }
 
             ]
+        }
             option = {
-                barWidth: 24,
-                // barGap:'2.8%',
-                barGap: '2.8%',
                 grid: {
                     top: 100,
                     // right:125,
@@ -3163,25 +3155,75 @@ var graph_ajax = function (data, obj, callback) {
                     data: legend
                 },
                 "series": series,
-                "yAxis": [{
-                    "axisTick": {"show": false},
-                    "axisLine": {"show": false},
-                    "splitLine": {"show": false},
-                    "type": "category",
-                    "data": graphdata['x']['data']
-                }],
                 "xAxis": [{
+                    show:false,
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
+                        }
+                    },
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            //轴字体颜色
+                            color: '#333'
+                        },
+                        fontStyle: 'PingFangSC-Regular',
+                        fontSize: 14,
+                    },
+                    splitLine: {
+                        lineStyle: splitLineColor
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            //图形透明度
+                            opacity: splitAreaOpacity
+                        }
+                    },
+                    splitLine: {show: false},
+                    // data: data,
+                    name:name,
+                    data:graphdata['x']['data'],
+                    type: 'category'
+                }],
+                "yAxis": [{
                     //wukong!
                     "type": "value",
-                    "axisTick": {"show": false},
-                    "axisLine": {"show": false},
-                    "splitLine": {"show": false},
-                    "show": false,
-                    "min": 0,
-                    "max": 100
+                    show: false,
+                    axisLine: {
+                        lineStyle: {
+                            //轴线颜色
+                            color: axisLineColor
+                            //    color: '#C4C4C4'
+                        }
+                    },
+                    axisTick: {
+                        //是否显示轴刻度
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            //轴字体颜色
+                            color: '#333'
+                        },
+                        fontStyle: 'PingFangSC-Regular',
+                        fontSize: 14,
+                    },
+                    splitArea: {
+                        areaStyle: {
+                            //图形透明度
+                            opacity: splitAreaOpacity
+                        }
+                    },
+                    splitLine: {show: true},
                 }]
             }
-        }
+
     }
 
     // console.log(option)
