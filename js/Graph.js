@@ -3031,7 +3031,6 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             //轴字体颜色
                             color: '#333',
-                            fontStyle: 'PingFangSC-Regular',
                             fontSize: 14,
                         },
                     },
@@ -3202,10 +3201,9 @@ var graph_ajax = function (data, obj, callback) {
                     axisLabel: {
                         textStyle: {
                             //轴字体颜色
-                            color: '#333'
+                            color: '#333',
+                            fontSize: 14,
                         },
-                        fontStyle: 'PingFangSC-Regular',
-                        fontSize: 14,
                     },
                     splitLine: {
                         lineStyle: splitLineColor
