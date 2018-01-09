@@ -932,7 +932,6 @@ var graph_ajax = function (data, obj, callback) {
         legend.orient = 'vertical';
         legend.left = '24';
         legend.top = '233';
-
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
@@ -2852,8 +2851,6 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
             //     legend[i] = graphdata['y'][i]['name'];
-            // } else {
-            //     legend = [];
             // }
             series[i] = {
                             //柱子最大宽度
@@ -3277,7 +3274,7 @@ var graph_ajax = function (data, obj, callback) {
             }
             series[i] ={
                             type: type,
-                            //关闭这线上的圆点
+                            //折线上标记的图形，none为不显示
                             symbol: 'none',
                             //柱子最大宽度
                             barMaxWidth: 50,
