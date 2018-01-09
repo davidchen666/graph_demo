@@ -2991,7 +2991,8 @@ var graph_ajax = function (data, obj, callback) {
                                         lineStyle: {
                                     //轴线颜色
                                     // color: axisLineColor
-                                            color: "#c4c4c4"
+                                            color: "#c4c4c4",
+                                            width:2
                                 }
                             },
                             axisTick: {
@@ -3020,7 +3021,8 @@ var graph_ajax = function (data, obj, callback) {
                         lineStyle: {
                             //轴线颜色
                             // color: axisLineColor
-                                color: "#c4c4c4"
+                                color: "#c4c4c4",
+                                width:2
                         }
                     },
                     axisTick: {
@@ -3043,7 +3045,8 @@ var graph_ajax = function (data, obj, callback) {
                     },
                     splitLine: {
                         show: true,
-                        lineStyle:{color:"#eee"}
+                        lineStyle:{color:"#eee",
+                            width:2}
                     },
                 }]
             }
@@ -3270,6 +3273,8 @@ var graph_ajax = function (data, obj, callback) {
             }
             series[i] ={
                             type: type,
+                            //关闭这线上的圆点
+                            symbol: 'none',
                             //柱子最大宽度
                             barMaxWidth: 50,
                             // barWidth: 45,
@@ -3391,6 +3396,7 @@ var graph_ajax = function (data, obj, callback) {
                     lineStyle: {
                         //轴线颜色
                         color: "#c4c4c4",
+                        width:2
                     }
                 },
                 axisTick: {
@@ -3419,7 +3425,8 @@ var graph_ajax = function (data, obj, callback) {
                             lineStyle: {
                                 //轴线颜色
                                 // color: axisLineColor
-                                   color: "#c4c4c4"
+                                   color: "#c4c4c4",
+                                width:2
                             }
                         },
                         axisTick: {
@@ -3442,7 +3449,8 @@ var graph_ajax = function (data, obj, callback) {
                         },
                         splitLine: {
                                     show: true,
-                                    lineStyle:{color:"#eee"}
+                                    lineStyle:{color:"#eee",
+                                        width:2}
                         },
                     }]
         }
