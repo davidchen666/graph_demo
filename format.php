@@ -923,6 +923,7 @@ switch ($type) {
 
 
 }
+//echo
 echo $post;
 die;
 ?>

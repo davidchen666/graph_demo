@@ -3449,7 +3449,7 @@ var graph_ajax = function (data, obj, callback) {
 
     }
 
-    console.log(option)
+    // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
