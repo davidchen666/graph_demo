@@ -3377,6 +3377,11 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(196,196,196,1)'
+                    }
+                },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
