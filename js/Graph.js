@@ -827,6 +827,7 @@ var graph_ajax = function (data, obj, callback) {
         'bar-y-category',
         'bar-y-category-stack',
         'scatter',
+        'linemaker',
         'bar-y-stack',
         'scatter-relationship',
         'bar-x-category-stack',
@@ -897,7 +898,7 @@ var graph_ajax = function (data, obj, callback) {
     //2.legend各种情况下的位置和间距
     var legendValue = [];
     var legend = {
-        icon: 'rect',
+        // icon: 'rect',
         // 图例布局设置为垂直（水平/垂直,默认为水平）
         orient: 'vertical',
         //图例形状
@@ -1632,7 +1633,12 @@ var graph_ajax = function (data, obj, callback) {
     //折线图
     if (data.graph == 'line') {
         var series = [];
-        var legend = [];
+        legend['icon']="rect"
+        legend['itemGap']=10
+        legend['itemWidth']=14
+        legend['itemHeight']=2
+
+
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1641,11 +1647,7 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+
             series[i] = {
 
                 //引入动画开关
@@ -1713,19 +1715,7 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'axis',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //legend超出一行时滚动
-                type: "scroll",
-                //图例
-                top: 99,
-                right: 25,
-                data: legend,
-                align: 'auto',
-                icon: "rect",
-                itemGap: 10,
-                itemWidth: 14,
-                itemHeight: 2
-            },
+            legend: legend,
             xAxis: {
                 // show: true,
                 // name: 'x',
@@ -1763,12 +1753,11 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 type: 'category',
-                name: 'x',
+
                 data: graphdata['x']['data']
             },
             yAxis: {
                 show: true,
-                name: 'y',
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1783,7 +1772,173 @@ var graph_ajax = function (data, obj, callback) {
                         color: axisTickColor
                     }
                 },
-                axisLable: {
+                axisLabel: {
+                    //轴字体颜色
+                    color: axisLabeColor
+                },
+                splitArea: {
+                    areaStyle: {
+                        //图形透明度
+                        opacity: splitAreaOpacity
+                    }
+                },
+                // type: 'category'
+            },
+            series: series
+        };
+    }
+
+    //折线图(maker)
+    if (data.graph == 'linemaker') {
+        var series = [];
+        var len = []
+        // 第二种方案：使用循环将series循环输出
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+        }
+        var ii=0;
+        for (var i = 0; i < len; i++) {
+            //循环折线图x轴上的legend
+            //设置图例开关
+
+            series[i] = {
+
+
+                symbol: symbol[i],
+                symbolSize:10,
+                name: graphdata['y'][i]['name'],
+                type: 'line',
+                data: graphdata['y'][i]['data'],
+            }
+            if(i%10==0){
+                ii=0
+            }else{
+                ii=i
+            }
+        }
+        option = {
+            //添加水印方案2
+            graphic:
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 50,
+                    bottom: 60,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 40,
+                            },
+                            style: {
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+
+            toolbox: {
+                itemSize: 14,
+                feature: feature,
+                right: 22,
+                top: 22
+            },
+            animationDuration: animationDuration,
+            grid: grid,
+            title: title,
+            tooltip: {
+                show: tooltip,
+                trigger: 'axis',
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            legend: legend,
+            //     {
+            //     left: 'left',
+            //     data: [
+            //         'david',
+            //         'gavin',
+            //         'mark',
+            //         'tom'
+            //     ]
+            // },
+            xAxis: {
+                // show: true,
+                // name: 'x',
+                // //设置坐标轴类型，此处为类目轴
+                // type: 'category',
+                axisLine: {
+                    lineStyle: {
+                        //轴线颜色
+                        color: axisLineColor
+                    }
+                },
+                axisTick: {
+                    lineStyle: {
+                        //轴刻度颜色
+                        color: axisTickColor
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#333'
+                    }
+                },
+                // axisLable: {
+                //     //轴字体颜色
+                //     color: axisLabeColor
+                // },
+                splitLine: {
+                    lineStyle: splitLineColor
+                },
+                splitArea: {
+                    // areaStyle: {
+                    //     //图形透明度
+                    //     opacity: splitAreaOpacity
+                    // }
+                },
+                splitLine: {show: false},
+                type: 'category',
+
+                data: graphdata['x']['data']
+            },
+            yAxis: {
+                show: true,
+                axisLine: {
+                    lineStyle: {
+                        //轴线颜色
+                        color: axisLineColor
+                    }
+                },
+                axisTick: {
+                    //是否显示轴刻度
+                    show: false,
+                    lineStyle: {
+                        //轴刻度颜色
+                        color: axisTickColor
+                    }
+                },
+                axisLabel: {
                     //轴字体颜色
                     color: axisLabeColor
                 },
