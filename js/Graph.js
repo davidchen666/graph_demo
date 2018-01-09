@@ -2837,7 +2837,7 @@ var graph_ajax = function (data, obj, callback) {
             }
     }
 
-    //纵向对比柱状图
+    //对比柱状图
     if (data.graph == 'bar-y-contrast') {
         // console.log(graphdata)
         var series = [];
@@ -2965,11 +2965,14 @@ var graph_ajax = function (data, obj, callback) {
                             trigger: 'axis',
                             //区域阴影
                             axisPointer: {
-                                            show:true,
+                                            show:false,
                                             type: 'shadow',
                                             shadowStyle:{
                                                             //阴影颜色
-                                                            color: 'rgba(238,238,238,0.50)',
+                                                            color: "#c4c4c4",
+                                                            //阴影部分透明度
+                                                            opacity:0.2,
+
                                                         },
                                         },
                             formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
@@ -2984,7 +2987,7 @@ var graph_ajax = function (data, obj, callback) {
                 //     itemHeight: 14,
                 //     icon: "rect",
                 // },
-                // legend: legend,
+                legend: legend,
                 "series": series,
                 "xAxis": [{
                             axisLine: {
@@ -3093,6 +3096,7 @@ var graph_ajax = function (data, obj, callback) {
                             color: "#333333", //color of value
                             fontSize: 14,
                             fontFamily: "PingFangSC-Regular",
+                            fontWeight:'bold',
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -3182,16 +3186,16 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 animationDuration: animationDuration,
                 animation: animation,
-                // legend: legend,
+                legend: legend,
                 tooltip: {
                     show: tooltip,
                     trigger: 'item',
                     formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                 },
-                legend: {
-                    //图例
-                    data: legend
-                },
+                // legend: {
+                //     //图例
+                //     data: legend
+                // },
                 "series": series,
                 "xAxis": [{
                     axisLine: {
@@ -3372,7 +3376,7 @@ var graph_ajax = function (data, obj, callback) {
             },
             animationDuration: animationDuration,
             animation: animation,
-            // legend: legend,
+            legend: legend,
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',

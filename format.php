@@ -770,7 +770,7 @@ switch ($type) {
                          "height":605
                 }';
         break;
-//        纵向对比柱状图
+//        对比柱状图
     case 10:
         $post = '{
                     "downloadimg":1,
