@@ -3362,9 +3362,9 @@ var graph_ajax = function (data, obj, callback) {
                 itemSize: 14,
                 feature: {
                             //这个可以用toolbox直接切换图形，有点厉害。。。
-                            dataView: {show: true, readOnly: false},
-                            magicType: {show: true, type: ['line', 'bar']},
-                            restore: {show: true},
+                            // dataView: {show: true, readOnly: false},
+                            // magicType: {show: true, type: ['line', 'bar']},
+                            // restore: {show: true},
                             saveAsImage: {show: true}
                           },
                 right: 22,
