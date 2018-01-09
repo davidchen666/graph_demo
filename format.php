@@ -3,7 +3,7 @@ $type = !empty($_GET['type']) && is_numeric($_GET['type']) ? $_GET['type'] : 1;
 $post = '';
 switch ($type) {
 //        折线图
-        case 1:
+    case 1:
         $post = '{
                         "downloadimg":1,
                         "legend":1,
@@ -46,7 +46,7 @@ switch ($type) {
                          "height":548
                 }';
         break;
-//        饼图
+//        圆环图
     case 2:
         $post = ' {
                          "downloadimg":1,
@@ -459,7 +459,7 @@ switch ($type) {
                     "height": 546
                 }';
         break;
-//        横向柱状图
+//        条形图
     case 6:
         $post = '{
                     "downloadimg":1,
@@ -825,6 +825,37 @@ switch ($type) {
                          "tooltip":1,
                          "width":723,
                          "height":501
+                }';
+        break;
+//        折柱图
+    case 12:
+        $post = '{
+                    "downloadimg":1,
+                          "legend":1,
+                         "x":
+                             {
+                                 "data":["2017/9/1","2017/9/2","2017/9/3","2017/9/4","2017/9/5","2017/9/6","2017/9/7"]
+                             },
+                          "y":
+                             [
+                                {
+                                  "type":"line",
+                                      "data":[30,50,30,60,40,20,30],
+                                     "name": ""
+                                },{
+                                  	"type":"bar",
+                                     "data":[20,40,20,45,30,15,25],
+                                     "name": ""
+                                }
+                             ],
+                         "big_title": "对比柱状图",
+                         "small_title": "副标题副标题副标题副标题副标题副标题副",
+                         "remarks1":"基数：所有被访者 n=400",
+                         "remarks2":"数据来源：B12",
+                         "unit":"人",
+                         "tooltip":1,
+                         "width":723,
+                         "height":548
                 }';
         break;
 
