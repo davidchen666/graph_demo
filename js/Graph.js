@@ -1104,10 +1104,7 @@ var graph_ajax = function (data, obj, callback) {
                 //启用防止标签重叠策略
                 avoidLabelOverlap: true,
             }
-
         }
-
-
         // top:107,
         // right:190,
         // bottom:90,
@@ -2866,7 +2863,7 @@ var graph_ajax = function (data, obj, callback) {
                             // barWidth:'5%',
                             barCategoryGap: '18%',
                             // barCategoryGap: 3,
-                            barGap: '30%',
+                            barGap: '10%',
                             // barGap: 21,
                             name: graphdata['y'][i]['name'],
                             data: graphdata['y'][i]['data'],
