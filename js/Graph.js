@@ -833,7 +833,8 @@ var graph_ajax = function (data, obj, callback) {
         'bar-x-category-stack',
         'pictorialline',
         'bar-y-contrast',
-        'bar-y-value'];
+        'bar-y-value',
+        'line-bar'];
     if ($.inArray(data.graph, graph_type) == -1) {
         alert('暂无该图表类型');
         return false;
@@ -1959,7 +1960,7 @@ var graph_ajax = function (data, obj, callback) {
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: '#00c4c4'
+                        color: axisLineColor
                     }
                 },
                 axisTick: {
@@ -1986,7 +1987,7 @@ var graph_ajax = function (data, obj, callback) {
         };
     }
 
-    //横向柱状图
+    //条形图
     if (data.graph == 'bar-x-category') {
         // console.log(graphdata)
         var series = [];
@@ -2022,7 +2023,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontS: "PingFangSC-Regular",
+                            fontFamily:"PingFangSC-Regular",
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -2130,7 +2131,7 @@ var graph_ajax = function (data, obj, callback) {
                     textStyle: {
                         //轴字体颜色
                         color: '#333',
-                        fontSize: 14,
+                        fontSize:14,
                     }
                 },
             }],
@@ -2146,11 +2147,11 @@ var graph_ajax = function (data, obj, callback) {
 
     }
 
-    //横向柱状堆叠图
+    //百分比堆叠条形图
     if (data.graph == 'bar-x-category-stack') {
         // console.log(data)
         var series = [];
-        var legend = [];
+        // var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -2159,11 +2160,12 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // }
+            // else {
+            //     legend = [];
+            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -2253,20 +2255,20 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //图例
-                data: legend,
-                x: 'right',
-                top: 99,
-                align: 'auto',
-                itemGap: 10,
-                itemWidth: 14,
-                itemHeight: 14,
-                icon: "rect",
-                //legend超出一行时滚动
-                type: 'scroll'
-            },
-            // legend:legend,
+            // legend: {
+            //     //图例
+            //     data: legend,
+            //     x: 'right',
+            //     top: 99,
+            //     align: 'auto',
+            //     itemGap: 10,
+            //     itemWidth: 14,
+            //     itemHeight: 14,
+            //     icon: "rect",
+            //     //legend超出一行时滚动
+            //     type: 'scroll'
+            // },
+            legend:legend,
             "series": series,
             "yAxis": [{
                 "type": "category",
@@ -2278,7 +2280,7 @@ var graph_ajax = function (data, obj, callback) {
                     show: true,
                     textStyle: {
                         color: "#333",
-                        fontSize: 14
+                        fontSize:14
                     }
                 }
             }],
@@ -3075,7 +3077,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             //轴字体颜色
                             color: '#333',
-                            fontSize: 14,
+                            fontSize:14,
                         }
                     },
                     "axisTick": {
@@ -3188,7 +3190,7 @@ var graph_ajax = function (data, obj, callback) {
             }
     }
 
-    //纵向对比柱状图
+    //对比柱状图
     if (data.graph == 'bar-y-contrast') {
         // console.log(graphdata)
         var series = [];
@@ -3201,9 +3203,10 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-            //     legend[i] = graphdata['y'][i]['name'];
-            // } else {
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }
+            // else {
             //     legend = [];
             // }
             series[i] = {
@@ -3212,7 +3215,7 @@ var graph_ajax = function (data, obj, callback) {
                 // barWidth:'5%',
                 barCategoryGap: '18%',
                 // barCategoryGap: 3,
-                barGap: '70%',
+                barGap: '30%',
                 // barGap: 21,
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -3225,7 +3228,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontS: "PingFangSC-Regular",
+                            fontFamily:"PingFangSC-Regular",
                         }
                     },
                 }
@@ -3314,28 +3317,41 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
+                //区域阴影
                 axisPointer: {
-                    type: 'shadow'
+                    show:true,
+                    type: 'shadow',
+                    shadowStyle:{
+                        //阴影颜色
+                        color: "#c4c4c4",
+                        //阴影部分透明度
+                        opacity:0.2,
+                    },
                 },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
             //     //图例
             //     data: legend,
+            //     x: 'right',
             //     top: 99,
             //     align: 'auto',
             //     itemGap: 10,
             //     itemWidth: 14,
             //     itemHeight: 14,
             //     icon: "rect",
+            //     //legend超出一行时滚动
+            //     type: 'scroll'
             // },
-            // legend: legend,
+            legend: legend,
             "series": series,
             "xAxis": [{
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
+                        // color: axisLineColor
+                        color: "#c4c4c4",
+                        width:2
                     }
                 },
                 axisTick: {
@@ -3345,15 +3361,15 @@ var graph_ajax = function (data, obj, callback) {
                 splitLine: {
                     lineStyle: splitLineColor
                 },
-                splitArea: {
-                    areaStyle: {
-                        //图形透明度
-                        opacity: splitAreaOpacity
-                    }
-                },
+                // splitArea: {
+                //                 areaStyle: {
+                //                             //图形透明度
+                //                             opacity: splitAreaOpacity
+                //                             }
+                //             },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                data: xaxisdata,
+                data:xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3363,8 +3379,9 @@ var graph_ajax = function (data, obj, callback) {
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
-                        //    color: '#C4C4C4'
+                        // color: axisLineColor
+                        color: "#c4c4c4",
+                        width:2
                     }
                 },
                 axisTick: {
@@ -3385,7 +3402,11 @@ var graph_ajax = function (data, obj, callback) {
                         opacity: splitAreaOpacity
                     }
                 },
-                splitLine: {show: true},
+                splitLine: {
+                    show: true,
+                    lineStyle:{color:"#eee",
+                        width:2}
+                },
             }]
         }
 
@@ -3410,13 +3431,14 @@ var graph_ajax = function (data, obj, callback) {
             //     legend = [];
             // }
             series[i] = {
+                type: 'bar',
                 //柱子最大宽度
                 barMaxWidth: 50,
                 // barWidth: 45,
                 // barWidth: '6.22%',
-                barWidth: '61%',
+                barWidth: '66%',
                 // barCategoryGap: '5.53%',
-                barCategoryGap: '50%',
+                barGap: "80%",
                 // barGap: '20%',
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -3430,6 +3452,7 @@ var graph_ajax = function (data, obj, callback) {
                             color: "#333333", //color of value
                             fontSize: 14,
                             fontFamily: "PingFangSC-Regular",
+                            fontWeight:'bold',
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -3519,36 +3542,28 @@ var graph_ajax = function (data, obj, callback) {
             },
             animationDuration: animationDuration,
             animation: animation,
-            // legend: legend,
+            legend: legend,
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //图例
-                data: legend
-            },
+            // legend: {
+            //     //图例
+            //     data: legend
+            // },
             "series": series,
             "xAxis": [{
-                show: false,
                 axisLine: {
+                    show:false,
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
+                        color: "#333"
                     }
                 },
                 axisTick: {
                     //是否显示轴刻度
                     show: false
-                },
-                axisLabel: {
-                    textStyle: {
-                        //轴字体颜色
-                        color: '#333'
-                    },
-                    fontStyle: 'PingFangSC-Regular',
-                    fontSize: 14,
                 },
                 splitLine: {
                     lineStyle: splitLineColor
@@ -3560,7 +3575,8 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 splitLine: {show: false},
-                "data": graphdata['x']['data'],
+                // "data": graphdata['x']['data'],
+                "data":xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3582,10 +3598,10 @@ var graph_ajax = function (data, obj, callback) {
                     show: true,
                     textStyle: {
                         //轴字体颜色
-                        color: '#333'
+                        color: '#333',
+                        fontSize: 14,
                     },
-                    fontStyle: 'PingFangSC-Regular',
-                    fontSize: 14,
+
                 },
                 splitArea: {
                     areaStyle: {
@@ -3599,7 +3615,214 @@ var graph_ajax = function (data, obj, callback) {
 
     }
 
-    console.log(option)
+    //折柱图
+    if (data.graph == 'line-bar') {
+        // console.log(graphdata)
+        var series = [];
+        // var legend = [];
+        var len = []
+        // 第二种方案：使用循环将series循环输出
+        if (typeof(graphdata['y'].length) != "undefined") {
+            len = graphdata['y'].length;
+        }
+        for (var i = 0; i < len; i++) {
+            if(i==0){
+                var type='line'
+            }else{
+                var type='bar'
+            }
+            series[i] ={
+                type: type,
+                //折线上标记的图形，none为不显示
+                symbol: 'none',
+                //柱子最大宽度
+                barMaxWidth: 50,
+                // barWidth: 45,
+                barWidth: '66%',
+                // barCategoryGap: '5.53%',
+                barGap: "80%",
+                name: graphdata['y'][i]['name'],
+                data: graphdata['y'][i]['data'],
+            }
+
+            var title = [
+                {
+                    subtextStyle: {
+                        rich: {fontSize: 14},
+                        height: 14
+                    },
+                    left: 23,
+                    top: 23,
+                    //标题内边距,上右下左
+                    // padding: [20, 0, 0, 40],
+                    //主标题和副标题之间的间距
+                    itemGap: 17,
+                    text: graphdata['big_title'],
+                    subtext: graphdata['small_title'],
+
+                }, {
+                    text: '',
+                    subtext: remarks1 + '\n\n' + remarks2,
+                    left: 25,
+                    bottom: 24,
+                }
+
+            ]
+        }
+        option = {
+            grid: {
+                top: 100,
+                // right:125,
+                bottom: 102,
+                left: 129,
+                containLabel: false
+            },
+            //添加水印方案2
+            graphic:
+                {
+                    type: 'group',
+                    rotation: Math.PI / 4,
+                    bounding: 'raw',
+                    right: 50,
+                    bottom: 60,
+                    z: 100,
+                    children: [
+                        {
+                            type: 'rect',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            shape: {
+                                width: 400,
+                                height: 40,
+                            },
+                            style: {
+                                //填充色
+                                fill: 'rgba(0,0,0,0.05)',
+                                //是否可拖拽
+                                // draggable: true,
+
+                            }
+                        },
+                        {
+                            type: 'text',
+                            left: 'center',
+                            top: 'center',
+                            z: 100,
+                            style: {
+                                fill: 'rgba(255,255,255,1)',
+                                text: 'Meta Insight',
+                                font: 'bold 26px Microsoft YaHei'
+                            }
+                        }
+                    ]
+                },
+            title: title,
+            toolbox: {
+                itemSize: 14,
+                feature: {
+                    //这个可以用toolbox直接切换图形，有点厉害。。。
+                    // dataView: {show: true, readOnly: false},
+                    // magicType: {show: true, type: ['line', 'bar']},
+                    // restore: {show: true},
+                    saveAsImage: {show: true}
+                },
+                right: 22,
+                top: 22,
+            },
+            animationDuration: animationDuration,
+            animation: animation,
+            legend: legend,
+            tooltip: {
+                show: tooltip,
+                trigger: 'axis',
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(196,196,196,1)'
+                    }
+                },
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+            },
+            // legend: {
+            //     //图例
+            //     data: legend
+            // },
+            "series": series,
+            "xAxis": [{
+                //坐标轴指示器
+                axisPointer: {
+                    type: 'line',
+                    crossStyle: {
+                        color: '#c4c4c4'
+                    }
+                },
+                axisLine: {
+                    show:true,
+                    lineStyle: {
+                        //轴线颜色
+                        color: "#c4c4c4",
+                        width:2
+                    }
+                },
+                axisTick: {
+                    //是否显示轴刻度
+                    show: false
+                },
+                splitLine: {
+                    lineStyle: splitLineColor
+                },
+                splitArea: {
+                    areaStyle: {
+                        //图形透明度
+                        opacity: splitAreaOpacity
+                    }
+                },
+                splitLine: {show: false},
+                // "data": graphdata['x']['data'],
+                "data":xaxisdata,
+                type: 'category'
+            }],
+            "yAxis": [{
+                //wukong!
+                "type": "value",
+                show: true,
+                axisLine: {
+                    lineStyle: {
+                        //轴线颜色
+                        // color: axisLineColor
+                        color: "#c4c4c4",
+                        width:2
+                    }
+                },
+                axisTick: {
+                    //是否显示轴刻度
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
+                },
+                splitArea: {
+                    areaStyle: {
+                        //图形透明度
+                        opacity: splitAreaOpacity
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle:{color:"#eee",
+                        width:2}
+                },
+            }]
+        }
+
+    }
+
+    // console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
