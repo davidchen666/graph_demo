@@ -2866,22 +2866,22 @@ var graph_ajax = function (data, obj, callback) {
                             // barWidth:'5%',
                             barCategoryGap: '18%',
                             // barCategoryGap: 3,
-                            barGap: '70%',
+                            barGap: '30%',
                             // barGap: 21,
                             name: graphdata['y'][i]['name'],
                             data: graphdata['y'][i]['data'],
                             type: "bar",
                             label: {
-                                    normal: {
-                                    show: false,
-                                    // 柱子上的Value
-                                    position: 'top',
-                                    textStyle: {
-                                        color: "#333333", //color of value
-                                        fontSize: 14,
-                                        fontFamily:"PingFangSC-Regular",
-                                    }
-                                },
+                                        normal: {
+                                                    show: false,
+                                                    // 柱子上的Value
+                                                    position: 'top',
+                                                    textStyle: {
+                                                                    color: "#333333", //color of value
+                                                                    fontSize: 14,
+                                                                    fontFamily:"PingFangSC-Regular",
+                                                                }
+                                                },
                                     }
                         }
             var title = [
