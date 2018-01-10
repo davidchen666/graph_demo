@@ -1223,7 +1223,7 @@ var graph_ajax = function (data, obj, callback) {
     //词云1
     if (data.graph == 'wordCloud1') {
         var series = [];
-        var legend = [];
+        // var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1232,11 +1232,12 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环legend图例
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // } 
+            // else {
+            //     legend = [];
+            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data']
@@ -1360,7 +1361,7 @@ var graph_ajax = function (data, obj, callback) {
     //词云2
     if (data.graph == 'wordCloud2') {
         var series = [];
-        var legend = [];
+        // var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1369,11 +1370,12 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环legend图例
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // } 
+            // else {
+            //     legend = [];
+            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data']
@@ -1500,7 +1502,7 @@ var graph_ajax = function (data, obj, callback) {
     //地图
     if (data.graph == 'map') {
         var series = [];
-        var legend = [];
+        // var legend = [];
         var len = [];
         var datamax = []
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1511,9 +1513,10 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            } 
+            // else {
+            //     legend = [];
+            // }
             datamax[i] = graphdata['y'][i]['data'];
             series[i] = {
                 name: graphdata['y'][i]['name'],
@@ -1642,9 +1645,10 @@ var graph_ajax = function (data, obj, callback) {
             //设置图例开关
             if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
                 legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            } 
+            // else {
+            //     legend = [];
+            // }
             series[i] = {
 
                 //引入动画开关
@@ -1836,7 +1840,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontS: "PingFangSC-Regular",
+                            fontFamily:"PingFangSC-Regular",
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -1964,7 +1968,7 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'bar-x-category-stack') {
         // console.log(data)
         var series = [];
-        var legend = [];
+        // var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1973,11 +1977,12 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // }
+            // else {
+            //     legend = [];
+            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -2067,20 +2072,20 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'item',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //图例
-                data: legend,
-                x: 'right',
-                top: 99,
-                align: 'auto',
-                itemGap: 10,
-                itemWidth: 14,
-                itemHeight: 14,
-                icon: "rect",
-                //legend超出一行时滚动
-                type: 'scroll'
-            },
-            // legend:legend,
+            // legend: {
+            //     //图例
+            //     data: legend,
+            //     x: 'right',
+            //     top: 99,
+            //     align: 'auto',
+            //     itemGap: 10,
+            //     itemWidth: 14,
+            //     itemHeight: 14,
+            //     icon: "rect",
+            //     //legend超出一行时滚动
+            //     type: 'scroll'
+            // },
+            legend:legend,
             "series": series,
             "yAxis": [{
                 "type": "category",
@@ -2849,8 +2854,11 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-            //     legend[i] = graphdata['y'][i]['name'];
+            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+                legend[i] = graphdata['y'][i]['name'];
+            }
+            // else {
+            //     legend = [];
             // }
             series[i] = {
                             //柱子最大宽度
@@ -2871,7 +2879,7 @@ var graph_ajax = function (data, obj, callback) {
                                     textStyle: {
                                         color: "#333333", //color of value
                                         fontSize: 14,
-                                        fontS: "PingFangSC-Regular",
+                                        fontFamily:"PingFangSC-Regular",
                                     }
                                 },
                                     }
@@ -2962,14 +2970,13 @@ var graph_ajax = function (data, obj, callback) {
                             trigger: 'axis',
                             //区域阴影
                             axisPointer: {
-                                            show:false,
+                                            show:true,
                                             type: 'shadow',
                                             shadowStyle:{
                                                             //阴影颜色
                                                             color: "#c4c4c4",
                                                             //阴影部分透明度
                                                             opacity:0.2,
-
                                                         },
                                         },
                             formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
@@ -2977,12 +2984,15 @@ var graph_ajax = function (data, obj, callback) {
                 // legend: {
                 //     //图例
                 //     data: legend,
+                //     x: 'right',
                 //     top: 99,
                 //     align: 'auto',
                 //     itemGap: 10,
                 //     itemWidth: 14,
                 //     itemHeight: 14,
                 //     icon: "rect",
+                //     //legend超出一行时滚动
+                //     type: 'scroll'
                 // },
                 legend: legend,
                 "series": series,
@@ -3002,12 +3012,12 @@ var graph_ajax = function (data, obj, callback) {
                             splitLine: {
                                 lineStyle: splitLineColor
                             },
-                            splitArea: {
-                                            areaStyle: {
-                                                        //图形透明度
-                                                        opacity: splitAreaOpacity
-                                                        }
-                                        },
+                            // splitArea: {
+                            //                 areaStyle: {
+                            //                             //图形透明度
+                            //                             opacity: splitAreaOpacity
+                            //                             }
+                            //             },
                             splitLine: {show: false},
                             // "data": graphdata['x']['data'],
                             data:xaxisdata,
