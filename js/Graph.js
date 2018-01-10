@@ -1818,12 +1818,6 @@ var graph_ajax = function (data, obj, callback) {
             if (ii == 4 ) {
                 symbolSize = 11
             }
-            // if (ii == 2 || ii == 3 || ii == 7 || ii == 9) {
-            //     symbolSize = 12
-            // }
-            // if (ii == 1 || ii == 0) {
-            //     symbolSize = 10
-            // }
             if (ii == 5) {
                 symbolSize = 8
             }
@@ -1833,7 +1827,6 @@ var graph_ajax = function (data, obj, callback) {
             if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
                 symbolSize = 9
             }
-console.log(ii+'-'+i)
             series[i] = {
 
 
@@ -2533,25 +2526,23 @@ console.log(ii+'-'+i)
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-
             ii = i % 10
 
-            var symbolSize = 0;
-            //减1
-            if (ii == 5 || ii == 6 || ii == 8) {
-                symbolSize = 9
-            }
-            //加2
-            if (ii == 2 || ii == 3 || ii == 7 || ii == 9) {
+            var symbolSize = 10;
+            if (ii == 3 ) {
                 symbolSize = 12
             }
-            //常规
-            if (ii == 1 || ii == 0) {
-                symbolSize = 10
+            if (ii == 4 ) {
+                symbolSize = 11
             }
-            //加2减1
-            if (ii == 4) {
+            if (ii == 5) {
                 symbolSize = 8
+            }
+            if (ii == 8) {
+                symbolSize =11
+            }
+            if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
+                symbolSize = 9
             }
 
             series[i] =
