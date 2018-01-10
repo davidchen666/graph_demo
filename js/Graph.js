@@ -1727,7 +1727,7 @@ var graph_ajax = function (data, obj, callback) {
                 // //设置坐标轴类型，此处为类目轴
                 // type: 'category',
 
-                boundaryGap: false,
+
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1735,6 +1735,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    alignWithLabel: true,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -1810,24 +1811,29 @@ var graph_ajax = function (data, obj, callback) {
 
             ii = i % 10
 
-            var symbolSize = 0;
-            //减1
-            if (ii == 5 || ii == 6 || ii == 8) {
-                symbolSize = 9
-            }
-            //加2
-            if (ii == 2 || ii == 3 || ii == 7 || ii == 9) {
+            var symbolSize = 10;
+            if (ii == 3 ) {
                 symbolSize = 12
             }
-            //常规
-            if (ii == 1 || ii == 0) {
-                symbolSize = 10
+            if (ii == 4 ) {
+                symbolSize = 11
             }
-            //加2减1
-            if (ii == 4) {
+            // if (ii == 2 || ii == 3 || ii == 7 || ii == 9) {
+            //     symbolSize = 12
+            // }
+            // if (ii == 1 || ii == 0) {
+            //     symbolSize = 10
+            // }
+            if (ii == 5) {
                 symbolSize = 8
             }
-
+            if (ii == 8) {
+                symbolSize =11
+            }
+            if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
+                symbolSize = 9
+            }
+console.log(ii+'-'+i)
             series[i] = {
 
 
@@ -1904,22 +1910,10 @@ var graph_ajax = function (data, obj, callback) {
                 }
             },
             legend: legend,
-            //     {
-            //     left: 'left',
-            //     data: [
-            //         'david',
-            //         'gavin',
-            //         'mark',
-            //         'tom'
-            //     ]
-            // },
-            xAxis: {
-                // show: true,
-                // name: 'x',
-                // //设置坐标轴类型，此处为类目轴
-                // type: 'category',
 
-                boundaryGap: false,
+            xAxis: {
+
+
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1927,6 +1921,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    alignWithLabel: true,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -2023,7 +2018,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontFamily:"PingFangSC-Regular",
+                            fontFamily: "PingFangSC-Regular",
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -2131,7 +2126,7 @@ var graph_ajax = function (data, obj, callback) {
                     textStyle: {
                         //轴字体颜色
                         color: '#333',
-                        fontSize:14,
+                        fontSize: 14,
                     }
                 },
             }],
@@ -2268,7 +2263,7 @@ var graph_ajax = function (data, obj, callback) {
             //     //legend超出一行时滚动
             //     type: 'scroll'
             // },
-            legend:legend,
+            legend: legend,
             "series": series,
             "yAxis": [{
                 "type": "category",
@@ -2280,7 +2275,7 @@ var graph_ajax = function (data, obj, callback) {
                     show: true,
                     textStyle: {
                         color: "#333",
-                        fontSize:14
+                        fontSize: 14
                     }
                 }
             }],
@@ -2635,7 +2630,7 @@ var graph_ajax = function (data, obj, callback) {
             legend: legend,
             xAxis: {
 
-                boundaryGap: false,
+
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -2643,6 +2638,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    alignWithLabel: true,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -3077,7 +3073,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             //轴字体颜色
                             color: '#333',
-                            fontSize:14,
+                            fontSize: 14,
                         }
                     },
                     "axisTick": {
@@ -3228,7 +3224,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontFamily:"PingFangSC-Regular",
+                            fontFamily: "PingFangSC-Regular",
                         }
                     },
                 }
@@ -3319,13 +3315,13 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'axis',
                 //区域阴影
                 axisPointer: {
-                    show:true,
+                    show: true,
                     type: 'shadow',
-                    shadowStyle:{
+                    shadowStyle: {
                         //阴影颜色
                         color: "#c4c4c4",
                         //阴影部分透明度
-                        opacity:0.2,
+                        opacity: 0.2,
                     },
                 },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
@@ -3351,7 +3347,7 @@ var graph_ajax = function (data, obj, callback) {
                         //轴线颜色
                         // color: axisLineColor
                         color: "#c4c4c4",
-                        width:2
+                        width: 2
                     }
                 },
                 axisTick: {
@@ -3369,7 +3365,7 @@ var graph_ajax = function (data, obj, callback) {
                 //             },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                data:xaxisdata,
+                data: xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3381,7 +3377,7 @@ var graph_ajax = function (data, obj, callback) {
                         //轴线颜色
                         // color: axisLineColor
                         color: "#c4c4c4",
-                        width:2
+                        width: 2
                     }
                 },
                 axisTick: {
@@ -3404,8 +3400,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {
                     show: true,
-                    lineStyle:{color:"#eee",
-                        width:2}
+                    lineStyle: {
+                        color: "#eee",
+                        width: 2
+                    }
                 },
             }]
         }
@@ -3452,7 +3450,7 @@ var graph_ajax = function (data, obj, callback) {
                             color: "#333333", //color of value
                             fontSize: 14,
                             fontFamily: "PingFangSC-Regular",
-                            fontWeight:'bold',
+                            fontWeight: 'bold',
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -3555,7 +3553,7 @@ var graph_ajax = function (data, obj, callback) {
             "series": series,
             "xAxis": [{
                 axisLine: {
-                    show:false,
+                    show: false,
                     lineStyle: {
                         //轴线颜色
                         color: "#333"
@@ -3576,7 +3574,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                "data":xaxisdata,
+                "data": xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3626,12 +3624,12 @@ var graph_ajax = function (data, obj, callback) {
             len = graphdata['y'].length;
         }
         for (var i = 0; i < len; i++) {
-            if(i==0){
-                var type='line'
-            }else{
-                var type='bar'
+            if (i == 0) {
+                var type = 'line'
+            } else {
+                var type = 'bar'
             }
-            series[i] ={
+            series[i] = {
                 type: type,
                 //折线上标记的图形，none为不显示
                 symbol: 'none',
@@ -3736,9 +3734,9 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
-                axisPointer:{
-                    lineStyle:{
-                        color:'rgba(196,196,196,1)'
+                axisPointer: {
+                    lineStyle: {
+                        color: 'rgba(196,196,196,1)'
                     }
                 },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
@@ -3757,11 +3755,11 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLine: {
-                    show:true,
+                    show: true,
                     lineStyle: {
                         //轴线颜色
                         color: "#c4c4c4",
-                        width:2
+                        width: 2
                     }
                 },
                 axisTick: {
@@ -3779,7 +3777,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                "data":xaxisdata,
+                "data": xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3791,7 +3789,7 @@ var graph_ajax = function (data, obj, callback) {
                         //轴线颜色
                         // color: axisLineColor
                         color: "#c4c4c4",
-                        width:2
+                        width: 2
                     }
                 },
                 axisTick: {
@@ -3814,8 +3812,10 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {
                     show: true,
-                    lineStyle:{color:"#eee",
-                        width:2}
+                    lineStyle: {
+                        color: "#eee",
+                        width: 2
+                    }
                 },
             }]
         }
