@@ -1921,12 +1921,7 @@ var graph_ajax = function (data, obj, callback) {
             legend: legend,
 
             xAxis: {
-                // show: true,
-                // name: 'x',
-                // //设置坐标轴类型，此处为类目轴
-                // type: 'category',
 
-                boundaryGap: false,
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1941,6 +1936,7 @@ var graph_ajax = function (data, obj, callback) {
                         color: axisTickColor
                     }
                 },
+
                 axisLabel: {
                     show: true,
                     textStyle: {
