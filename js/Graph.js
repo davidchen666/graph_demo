@@ -1175,6 +1175,10 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
                 // {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。
                 //在图形上显示具体数值
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit2']
@@ -1456,6 +1460,10 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: {
@@ -1580,6 +1588,10 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             visualMap: {
@@ -1612,17 +1624,28 @@ var graph_ajax = function (data, obj, callback) {
                         // position: 'inside',
                         // padding: [20, 0, 0, -25]
                         // position:'left'
-                        offset: [-60, 0]
+                        offset: [-60, 0],
+                        fontFamily:'PingFangSC-Regular',
+                        fontSize:12,
+                        color:'#333',
+                    },
+                    emphasis:{
+                        show: true,
+                        fontFamily:'PingFangSC-Regular',
+                        fontSize:12,
                     }
                 },
                 itemStyle: {
                     normal: {
-                        borderColor: 'rgba(255, 255, 255, .1)',
-                        borderType: 'solid'
+                        borderColor: 'rgba(196, 196, 196, .1)',
+                        borderType: 'solid',
+                        borderWidth:0.5,
                     },
                     emphasis: {
                         borderType: 'solid',
-                        areaColor: '#eee'
+                        borderColor: 'rgba(102, 102, 102, .1)',
+                        areaColor: '#F5A623',
+                        borderWidth:0.5,
                     }
                 },
                 "data": series
@@ -1914,6 +1937,10 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit'],
                 axisPointer: {
                     lineStyle: {color: '#c4c4c4'}
@@ -2136,7 +2163,12 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit'],
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
+
             },
             // legend: legend,
             "series": series,
@@ -2272,8 +2304,26 @@ var graph_ajax = function (data, obj, callback) {
             animation: animation,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                trigger: 'axis',
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(15,15,15,0)'
+                    },
+                },
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
+                formatter:function(params)
+                {
+                    // x轴名称
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                    }
+                    return relVal;
+                }
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
             //     //图例
@@ -2520,14 +2570,31 @@ var graph_ajax = function (data, obj, callback) {
                 },
             toolbox: toolbox,
             grid: grid,
-
             title: title,
             animationDuration: animationDuration,
             animation: animation,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                trigger: 'axis',
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(15,15,15,0)'
+                    },
+                },
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
+                formatter:function(params)
+                {
+                    // x轴名称
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                    }
+                    return relVal;
+                }
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: legend,
             "series": series,
@@ -2646,8 +2713,26 @@ var graph_ajax = function (data, obj, callback) {
             animation: animation,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                trigger: 'axis',
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(15,15,15,0)'
+                    },
+                },
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
+                formatter:function(params)
+                {
+                    // x轴名称
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                    }
+                    return relVal;
+                }
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: legend,
             xAxis: {
@@ -2813,6 +2898,10 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
                 formatter: "{a} <br/>{b} : {c}" + graphdata['unit']
             },
             legend: {
@@ -3093,8 +3182,26 @@ var graph_ajax = function (data, obj, callback) {
                 title: title,
                 tooltip: {
                     show: tooltip,
-                    trigger: 'item',
-                    formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                    trigger: 'axis',
+                    axisPointer:{
+                        lineStyle:{
+                            color:'rgba(15,15,15,0)'
+                        },
+                    },
+                    //悬浮框中文字向左对齐
+                    textStyle:{
+                        align:'left'
+                    },
+                    formatter:function(params)
+                    {
+                        // x轴名称
+                        var relVal = params[0].name;
+                        for (var i = 0, l = params.length; i < l; i++) {
+                            relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                        }
+                        return relVal;
+                    }
+                    // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                 },
                 legend: {
                     //legend超出一行时滚动
@@ -3360,7 +3467,20 @@ var graph_ajax = function (data, obj, callback) {
                         opacity:0.2,
                     },
                 },
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                //悬浮框中文字向左对齐
+                textStyle:{align:'left'},
+                formatter:function(params)
+                {
+                    console.log(params)
+                    // x轴名称
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                    }
+                    return relVal;
+                },
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
             //     //图例
@@ -3577,21 +3697,27 @@ var graph_ajax = function (data, obj, callback) {
             legend: legend,
             tooltip: {
                 show: tooltip,
-                trigger: 'item',
+                trigger: 'axis',
                 //悬浮框中文字向左对齐
                 textStyle:{
                     align:'left'
                 },
                 formatter:function(params)
                 {
+                    console.log(params)
                     // x轴名称
-                    var relVal = params[0].name
+                    var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
                         relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
                     }
                     return relVal;
-                }
+                },
                 // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(15,15,15,0)'
+                    },
+                },
             },
             // legend: {
             //     //图例

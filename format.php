@@ -42,7 +42,7 @@ switch ($type) {
                          "height":548
                 }';
         break;
-//        饼图
+//        圆环图
     case 2:
         $post = ' {
                          "downloadimg":1,
