@@ -1042,7 +1042,9 @@ var graph_ajax = function (data, obj, callback) {
     var title = [
         {
             subtextStyle: {
-                fontSize: 14
+                fontSize: 14,
+                color:'#999',
+                fontFamily: 'PingFangSC-Regular'
             },
             left: 23,
             top: 21.5,
@@ -3585,7 +3587,7 @@ var graph_ajax = function (data, obj, callback) {
                     // x轴名称
                     var relVal = params[0].name
                     for (var i = 0, l = params.length; i < l; i++) {
-                        relVal += '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:'+params[i].color+';"></span>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
                     }
                     return relVal;
                 }
@@ -3801,7 +3803,7 @@ var graph_ajax = function (data, obj, callback) {
                     // x轴名称
                     var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
-                        relVal += '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:'+params[i].color+';"></span>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
                     }
                     return relVal;
                 }
