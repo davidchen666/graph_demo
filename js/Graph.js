@@ -1724,7 +1724,7 @@ var graph_ajax = function (data, obj, callback) {
                 // //设置坐标轴类型，此处为类目轴
                 // type: 'category',
 
-                boundaryGap: false,
+
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1733,6 +1733,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    alignWithLabel: true,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -1918,15 +1919,7 @@ var graph_ajax = function (data, obj, callback) {
                 }
             },
             legend: legend,
-            //     {
-            //     left: 'left',
-            //     data: [
-            //         'david',
-            //         'gavin',
-            //         'mark',
-            //         'tom'
-            //     ]
-            // },
+
             xAxis: {
                 // show: true,
                 // name: 'x',
@@ -1942,6 +1935,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    alignWithLabel: true,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -1950,10 +1944,8 @@ var graph_ajax = function (data, obj, callback) {
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        //轴字体颜色
-                        color: '#333',
-                        fontSize: 14,
-                    },
+                        color: '#333'
+                    }
                 },
                 // axisLable: {
                 //     //轴字体颜色
@@ -2171,6 +2163,7 @@ var graph_ajax = function (data, obj, callback) {
                 "show": false,
             }]
         }
+
     }
 
     //百分比堆叠条形图
@@ -2552,7 +2545,6 @@ var graph_ajax = function (data, obj, callback) {
             }]
         }
     }
-
     //散点图
     if (data.graph == 'scatter') {
         var series = []
@@ -2565,25 +2557,23 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-
             ii = i % 10
 
-            var symbolSize = 0;
-            //减1
-            if (ii == 5 || ii == 6 || ii == 8) {
-                symbolSize = 9
-            }
-            //加2
-            if (ii == 2 || ii == 3 || ii == 7 || ii == 9) {
+            var symbolSize = 10;
+            if (ii == 3 ) {
                 symbolSize = 12
             }
-            //常规
-            if (ii == 1 || ii == 0) {
-                symbolSize = 10
+            if (ii == 4 ) {
+                symbolSize = 11
             }
-            //加2减1
-            if (ii == 4) {
+            if (ii == 5) {
                 symbolSize = 8
+            }
+            if (ii == 8) {
+                symbolSize =11
+            }
+            if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
+                symbolSize = 9
             }
 
             series[i] =
@@ -2661,7 +2651,7 @@ var graph_ajax = function (data, obj, callback) {
             legend: legend,
             xAxis: {
 
-                boundaryGap: false,
+
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -2670,6 +2660,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisTick: {
+                    alignWithLabel: true,
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
@@ -3116,7 +3107,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             //轴字体颜色
                             color: '#333',
-                            fontSize:14,
+                            fontSize: 14,
                         }
                     },
                     "axisTick": {
