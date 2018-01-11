@@ -27,7 +27,7 @@ var axisLabeColor = '#333333';                 //轴字体颜色
 var splitLineColor = '#eee';                    //网格(分隔线)颜色
 var splitAreaLightColor = '#fff';               //网格（分隔区域颜色）填充色（浅）
 var splitAreaDeepColor = '#eee';               //网格填充色（深）
-var splitAreaOpacity = '0.3';                   //网格透明度
+var splitAreaOpacity = '0.2';                   //网格透明度
 
 //图例主色
 var legendbackgroundColor = '#333';            //图例主色
@@ -1042,7 +1042,6 @@ var graph_ajax = function (data, obj, callback) {
     var title = [
         {
             subtextStyle: {
-                rich: {fontSize: 14},
                 fontSize: 14
             },
             left: 23,
@@ -1053,8 +1052,8 @@ var graph_ajax = function (data, obj, callback) {
             itemGap: 17,
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
-            fontSize: 18
-
+            fontSize:18,
+            fontFamily:"PingFangSC-Medium"
         }, {
             text: '',
             subtext: remarks1 + '\n\n' + remarks2,
@@ -1062,6 +1061,7 @@ var graph_ajax = function (data, obj, callback) {
             bottom: 24,
             fontFamily: 'PingFangSC-Regular',
             itemGap: 5,
+            fontSize:12
         }
 
     ]
@@ -1108,10 +1108,7 @@ var graph_ajax = function (data, obj, callback) {
                 //启用防止标签重叠策略
                 avoidLabelOverlap: true,
             }
-
         }
-
-
         // top:107,
         // right:190,
         // bottom:90,
@@ -1225,141 +1222,141 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     //词云1
-    if (data.graph == 'wordCloud1') {
-        var series = [];
-        var legend = [];
-        var len = []
-        // 第二种方案：使用循环将series循环输出
-        if (typeof(graphdata['y'].length) != "undefined") {
-            len = graphdata['y'].length;
-        }
-        for (var i = 0; i < len; i++) {
-            //循环legend图例
-            //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
-            series[i] = {
-                name: graphdata['y'][i]['name'],
-                value: graphdata['y'][i]['data']
-            }
-        }
-        // var newW  = $('main').width()*3/4;
-        // var newH = $('main').width()*3/4;
-        option = {
-            //添加水印方案2
-            graphic: [
-                //词云背景图
-                // {
-                //     type: 'image',
-                //     right: 'center',
-                //     top: 105,
-                //     //  z: -10,
-                //     bounding: 'raw',
-                //     style: {
-                //                 image: '../echartsDemo/img/wordbg.png',
-                //                 width: 538,
-                //                 height: 405,
-                //                 opacity: 1
-                //             }
-                // },
-                {
-                    type: 'group',
-                    rotation: Math.PI / 4,
-                    bounding: 'raw',
-                    right: 50,
-                    bottom: 60,
-                    z: 100,
-                    children: [
-                        {
-                            type: 'rect',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            shape: {
-                                width: 400,
-                                height: 40,
-                            },
-                            style: {
-                                //填充色
-                                fill: 'rgba(0,0,0,0.05)',
-                                //是否可拖拽
-                                // draggable: true,
-
-                            }
-                        },
-                        {
-                            type: 'text',
-                            left: 'center',
-                            top: 'center',
-                            z: 100,
-                            style: {
-                                fill: 'rgba(255,255,255,1)',
-                                text: 'Meta Insight',
-                                // fontFamily: 'bold 26px, Microsoft YaHei'
-                                fontFamily: '微软雅黑',
-                            }
-                        }
-                    ]
-                }
-            ],
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22
-                // right:24,
-                // top:23
-            },
-            grid: grid,
-            title: title,
-            animationDuration: animationDuration,
-            animation: animation,
-            tooltip: {
-                show: tooltip,
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
-            },
-            legend: {
-                //legend超出一行时滚动
-                type: "scroll",
-                //图例
-                data: legend
-            },
-            "series": {
-                "type": "wordCloud",
-                "sizeRange": [12, 85],//字体大小范围（最小汉字-最大汉字）
-                "rotationRange": [0, 0],//字体旋转角度
-                "gridSize": 10,//偏移
-                "width": "100%",//字浮云宽度
-                // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大/词频
-                "data": series,
-                //设置cloud形状
-                // shape: 'cardioid',
-                // shape: 'pentagon',
-                // shape: 'circle',
-                gridSize: 1,//字符间距
-                //词云位置
-                // center:['50%','50%'],
-                width: 501,
-                height: 324,
-                top: 147,
-                left: 113,
-                bottom: 150,
-                right: 105,
-                textStyle: {
-                    normal: {
-                        color: function () {
-                            //取主题随机色（四舍五入）
-                            return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
-                        }
-                    }
-                },
-            },
-        };
-    }
+    // if (data.graph == 'wordCloud1') {
+    //     var series = [];
+    //     var legend = [];
+    //     var len = []
+    //     // 第二种方案：使用循环将series循环输出
+    //     if (typeof(graphdata['y'].length) != "undefined") {
+    //         len = graphdata['y'].length;
+    //     }
+    //     for (var i = 0; i < len; i++) {
+    //         //循环legend图例
+    //         //设置图例开关
+    //         if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+    //             legend[i] = graphdata['y'][i]['name'];
+    //         } else {
+    //             legend = [];
+    //         }
+    //         series[i] = {
+    //             name: graphdata['y'][i]['name'],
+    //             value: graphdata['y'][i]['data']
+    //         }
+    //     }
+    //     // var newW  = $('main').width()*3/4;
+    //     // var newH = $('main').width()*3/4;
+    //     option = {
+    //         //添加水印方案2
+    //         graphic: [
+    //             //词云背景图
+    //             // {
+    //             //     type: 'image',
+    //             //     right: 'center',
+    //             //     top: 105,
+    //             //     //  z: -10,
+    //             //     bounding: 'raw',
+    //             //     style: {
+    //             //                 image: '../echartsDemo/img/wordbg.png',
+    //             //                 width: 538,
+    //             //                 height: 405,
+    //             //                 opacity: 1
+    //             //             }
+    //             // },
+    //             {
+    //                 type: 'group',
+    //                 rotation: Math.PI / 4,
+    //                 bounding: 'raw',
+    //                 right: 50,
+    //                 bottom: 60,
+    //                 z: 100,
+    //                 children: [
+    //                     {
+    //                         type: 'rect',
+    //                         left: 'center',
+    //                         top: 'center',
+    //                         z: 100,
+    //                         shape: {
+    //                             width: 400,
+    //                             height: 40,
+    //                         },
+    //                         style: {
+    //                             //填充色
+    //                             fill: 'rgba(0,0,0,0.05)',
+    //                             //是否可拖拽
+    //                             // draggable: true,
+    //
+    //                         }
+    //                     },
+    //                     {
+    //                         type: 'text',
+    //                         left: 'center',
+    //                         top: 'center',
+    //                         z: 100,
+    //                         style: {
+    //                             fill: 'rgba(255,255,255,1)',
+    //                             text: 'Meta Insight',
+    //                             // fontFamily: 'bold 26px, Microsoft YaHei'
+    //                             fontFamily: '微软雅黑',
+    //                         }
+    //                     }
+    //                 ]
+    //             }
+    //         ],
+    //         toolbox: {
+    //             itemSize: 14,
+    //             feature: feature,
+    //             right: 22,
+    //             top: 22
+    //             // right:24,
+    //             // top:23
+    //         },
+    //         grid: grid,
+    //         title: title,
+    //         animationDuration: animationDuration,
+    //         animation: animation,
+    //         tooltip: {
+    //             show: tooltip,
+    //             trigger: 'item',
+    //             formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+    //         },
+    //         legend: {
+    //             //legend超出一行时滚动
+    //             type: "scroll",
+    //             //图例
+    //             data: legend
+    //         },
+    //         "series": {
+    //             "type": "wordCloud",
+    //             "sizeRange": [12, 85],//字体大小范围（最小汉字-最大汉字）
+    //             "rotationRange": [0, 0],//字体旋转角度
+    //             "gridSize": 10,//偏移
+    //             "width": "100%",//字浮云宽度
+    //             // data必选包含name和value选项,name即为显示的字符，value越大字符字体大小越大/词频
+    //             "data": series,
+    //             //设置cloud形状
+    //             // shape: 'cardioid',
+    //             // shape: 'pentagon',
+    //             // shape: 'circle',
+    //             gridSize: 1,//字符间距
+    //             //词云位置
+    //             // center:['50%','50%'],
+    //             width: 501,
+    //             height: 324,
+    //             top: 147,
+    //             left: 113,
+    //             bottom: 150,
+    //             right: 105,
+    //             textStyle: {
+    //                 normal: {
+    //                     color: function () {
+    //                         //取主题随机色（四舍五入）
+    //                         return echartsTheme.color[Math.round(Math.random() * echartsTheme.color.length)];
+    //                     }
+    //                 }
+    //             },
+    //         },
+    //     };
+    // }
 
     //词云2
     if (data.graph == 'wordCloud2') {
@@ -1467,7 +1464,7 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": {
                 "type": "wordCloud",
-                "sizeRange": [24, 50],//字体大小范围（最小汉字-最大汉字）
+                "sizeRange": [15, 100],//字体大小范围（最小汉字-最大汉字）
                 "rotationRange": [0, 0],//字体旋转角度
                 // "gridSize": 10,//偏移
                 // "width": "100%",//字浮云宽度
@@ -1717,7 +1714,7 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'axis',
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit'],
                 axisPointer: {
-                    lineStyle: {color: '#c4c4c4'}
+                    lineStyle: {width:1,color: '#c4c4c4'}
                 }
             },
             legend: legend,
@@ -1731,7 +1728,8 @@ var graph_ajax = function (data, obj, callback) {
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
+                        color: axisLineColor,
+                        width:1
                     }
                 },
                 axisTick: {
@@ -1742,9 +1740,12 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLabel: {
+                    show: true,
                     textStyle: {
-                        color: '#333'
-                    }
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
                 },
                 // axisLable: {
                 //     //轴字体颜色
@@ -1769,7 +1770,8 @@ var graph_ajax = function (data, obj, callback) {
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
+                        color: axisLineColor,
+                        width:1
                     }
                 },
                 axisTick: {
@@ -1781,8 +1783,20 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLabel: {
-                    //轴字体颜色
-                    color: axisLabeColor
+                    show: true,
+                    textStyle: {
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
+                },
+                //
+                splitLine: {
+                    show: true,
+                    lineStyle:{
+                        color:"#eee",
+                        width:1
+                    }
                 },
                 splitArea: {
                     areaStyle: {
@@ -2608,7 +2622,6 @@ var graph_ajax = function (data, obj, callback) {
                 },
             toolbox: toolbox,
             grid: grid,
-
             title: title,
             animationDuration: animationDuration,
             animation: animation,
@@ -2624,7 +2637,8 @@ var graph_ajax = function (data, obj, callback) {
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
+                        color: axisLineColor,
+                        width:1
                     }
                 },
                 axisTick: {
@@ -2635,15 +2649,18 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLabel: {
+                    show: true,
                     textStyle: {
-                        color: '#333'
-                    }
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
                 },
-
                 splitLine: {
-                    lineStyle: splitLineColor
+                    show: true,
+                    lineStyle:{color:"#eee",
+                        width:1}
                 },
-                splitLine: {show: false},
 
 
             },
@@ -2652,7 +2669,8 @@ var graph_ajax = function (data, obj, callback) {
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
-                        color: axisLineColor
+                        color: axisLineColor,
+                        width:1
                     }
                 },
                 axisTick: {
@@ -2664,8 +2682,12 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLabel: {
-                    //轴字体颜色
-                    color: axisLabeColor
+                    show: true,
+                    textStyle: {
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
                 },
                 splitArea: {
                     areaStyle: {
@@ -2673,11 +2695,16 @@ var graph_ajax = function (data, obj, callback) {
                         opacity: splitAreaOpacity
                     }
                 },
-                splitLine: {show: false},
+                splitLine: {
+                    show: true,
+                    lineStyle:{color:"#eee",
+                        width:1}
+                },
             },
             series: series
         };
     }
+
     //仪表盘图
     if (data.graph == 'gauge') {
         title.push({
@@ -2768,7 +2795,6 @@ var graph_ajax = function (data, obj, callback) {
                 show: tooltip,
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c}" + graphdata['unit']
-                // formatter: "{a} <br/>{b} : {c}%"
             },
             legend: {
                 //legend超出一行时滚动
@@ -3196,12 +3222,13 @@ var graph_ajax = function (data, obj, callback) {
             //     legend = [];
             // }
             series[i] = {
+
                 //柱子最大宽度
                 barMaxWidth: 50,
                 // barWidth:'5%',
                 barCategoryGap: '18%',
                 // barCategoryGap: 3,
-                barGap: '30%',
+                barGap: '10%',
                 // barGap: 21,
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
@@ -3214,7 +3241,7 @@ var graph_ajax = function (data, obj, callback) {
                         textStyle: {
                             color: "#333333", //color of value
                             fontSize: 14,
-                            fontFamily: "PingFangSC-Regular",
+                            fontFamily:"PingFangSC-Regular",
                         }
                     },
                 }
@@ -3305,13 +3332,13 @@ var graph_ajax = function (data, obj, callback) {
                 trigger: 'axis',
                 //区域阴影
                 axisPointer: {
-                    show: true,
+                    show:true,
                     type: 'shadow',
-                    shadowStyle: {
+                    shadowStyle:{
                         //阴影颜色
                         color: "#c4c4c4",
                         //阴影部分透明度
-                        opacity: 0.2,
+                        opacity:0.2,
                     },
                 },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
@@ -3337,15 +3364,20 @@ var graph_ajax = function (data, obj, callback) {
                         //轴线颜色
                         // color: axisLineColor
                         color: "#c4c4c4",
-                        width: 2
+                        width:1
                     }
                 },
                 axisTick: {
                     //是否显示轴刻度
                     show: false
                 },
-                splitLine: {
-                    lineStyle: splitLineColor
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
                 },
                 // splitArea: {
                 //                 areaStyle: {
@@ -3355,7 +3387,7 @@ var graph_ajax = function (data, obj, callback) {
                 //             },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                data: xaxisdata,
+                data:xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3367,7 +3399,7 @@ var graph_ajax = function (data, obj, callback) {
                         //轴线颜色
                         // color: axisLineColor
                         color: "#c4c4c4",
-                        width: 2
+                        width:1
                     }
                 },
                 axisTick: {
@@ -3390,9 +3422,9 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {
                     show: true,
-                    lineStyle: {
-                        color: "#eee",
-                        width: 2
+                    lineStyle:{
+                        color:"#eee",
+                        width:1
                     }
                 },
             }]
@@ -3405,7 +3437,7 @@ var graph_ajax = function (data, obj, callback) {
         // console.log(graphdata)
         var series = [];
         // var legend = [];
-        var len = []
+        var len = [];
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
             len = graphdata['y'].length;
@@ -3422,12 +3454,8 @@ var graph_ajax = function (data, obj, callback) {
                 type: 'bar',
                 //柱子最大宽度
                 barMaxWidth: 50,
-                // barWidth: 45,
-                // barWidth: '6.22%',
-                barWidth: '66%',
-                // barCategoryGap: '5.53%',
-                barGap: "80%",
-                // barGap: '20%',
+                barCategoryGap: '18%',
+                barGap: "30%",
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
                 type: "bar",
@@ -3440,11 +3468,8 @@ var graph_ajax = function (data, obj, callback) {
                             color: "#333333", //color of value
                             fontSize: 14,
                             fontFamily: "PingFangSC-Regular",
-                            fontWeight: 'bold',
+                            fontWeight:'bold',
                         }
-                        // color: "#333333", //color of value
-                        // fontSize: 14,
-                        // fontFamily:"PingFangSC-Regular"
                     },
 
                 }
@@ -3534,6 +3559,20 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'item',
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
+                // formatter:function(params)
+                // {
+                //     // x轴名称
+                //     var relVal = params[0].name;
+                //     for (var i = 0, l = params.length; i < l; i++) {
+                //         relVal += '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:'+params[i].color+';"></span>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                //     }
+                //     return relVal;
+                // }
+
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
@@ -3543,7 +3582,7 @@ var graph_ajax = function (data, obj, callback) {
             "series": series,
             "xAxis": [{
                 axisLine: {
-                    show: false,
+                    show:false,
                     lineStyle: {
                         //轴线颜色
                         color: "#333"
@@ -3552,6 +3591,14 @@ var graph_ajax = function (data, obj, callback) {
                 axisTick: {
                     //是否显示轴刻度
                     show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
                 },
                 splitLine: {
                     lineStyle: splitLineColor
@@ -3564,7 +3611,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                "data": xaxisdata,
+                "data":xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3614,12 +3661,12 @@ var graph_ajax = function (data, obj, callback) {
             len = graphdata['y'].length;
         }
         for (var i = 0; i < len; i++) {
-            if (i == 0) {
-                var type = 'line'
-            } else {
-                var type = 'bar'
+            if(i==0){
+                var type='line'
+            }else{
+                var type='bar'
             }
-            series[i] = {
+            series[i] ={
                 type: type,
                 //折线上标记的图形，none为不显示
                 symbol: 'none',
@@ -3724,12 +3771,25 @@ var graph_ajax = function (data, obj, callback) {
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
-                axisPointer: {
-                    lineStyle: {
-                        color: 'rgba(196,196,196,1)'
-                    }
+                axisPointer:{
+                    lineStyle:{
+                        color:'rgba(196,196,196,1)'
+                    },
                 },
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                //悬浮框中文字向左对齐
+                textStyle:{
+                    align:'left'
+                },
+                formatter:function(params)
+                {
+                    // x轴名称
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:'+params[i].color+';"></span>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                    }
+                    return relVal;
+                }
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
             //     //图例
@@ -3745,16 +3805,24 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLine: {
-                    show: true,
+                    show:true,
                     lineStyle: {
                         //轴线颜色
                         color: "#c4c4c4",
-                        width: 2
+                        width:1
                     }
                 },
                 axisTick: {
                     //是否显示轴刻度
                     show: false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        //轴字体颜色
+                        color: '#333',
+                        fontSize: 14,
+                    },
                 },
                 splitLine: {
                     lineStyle: splitLineColor
@@ -3767,7 +3835,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 // "data": graphdata['x']['data'],
-                "data": xaxisdata,
+                "data":xaxisdata,
                 type: 'category'
             }],
             "yAxis": [{
@@ -3779,7 +3847,7 @@ var graph_ajax = function (data, obj, callback) {
                         //轴线颜色
                         // color: axisLineColor
                         color: "#c4c4c4",
-                        width: 2
+                        width:1
                     }
                 },
                 axisTick: {
@@ -3802,10 +3870,8 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {
                     show: true,
-                    lineStyle: {
-                        color: "#eee",
-                        width: 2
-                    }
+                    lineStyle:{color:"#eee",
+                        width:1}
                 },
             }]
         }

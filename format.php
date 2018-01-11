@@ -844,7 +844,7 @@ switch ($type) {
                                      "name": ""
                                 }
                              ],
-                         "big_title": "柱折图",
+                         "big_title": "折柱图",
                          "small_title": "副标题副标题副标题副标题副标题副标题副",
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
