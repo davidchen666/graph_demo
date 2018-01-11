@@ -2079,29 +2079,7 @@ var graph_ajax = function (data, obj, callback) {
 
                 }
             }
-            var title = [
-                {
-                    subtextStyle: {
-                        rich: {fontSize: 14},
-                        height: 14
-                    },
-                    left: 23,
-                    top: 23,
-                    //标题内边距,上右下左
-                    // padding: [20, 0, 0, 40],
-                    //主标题和副标题之间的间距
-                    itemGap: 17,
-                    text: graphdata['big_title'],
-                    subtext: graphdata['small_title'],
 
-                }, {
-                    text: '',
-                    subtext: remarks1 + '\n\n' + remarks2,
-                    left: 25,
-                    bottom: 24,
-                }
-
-            ]
         }
         option = {
             grid: {
@@ -2186,6 +2164,8 @@ var graph_ajax = function (data, obj, callback) {
                         fontSize:14,
                     }
                 },
+                //数据排序
+                inverse:true,
             }],
             "xAxis": [{
                 //wukong!
@@ -2353,7 +2333,8 @@ var graph_ajax = function (data, obj, callback) {
                         color: '#333',
                         fontSize: 14,
                     },
-                }
+                },
+                inverse:true,
             }],
             "xAxis": [{
                 "type": "value",
@@ -2601,8 +2582,9 @@ var graph_ajax = function (data, obj, callback) {
             "yAxis": [{
                 "type": "value",
                 "show": false,
-                "min": 0,
-                "max": 100
+                // "min": 0,
+                // "max": 100,
+                inverse:true,
 
             }],
             "xAxis": [{
@@ -2610,7 +2592,7 @@ var graph_ajax = function (data, obj, callback) {
                 "data": xaxisdata,
                 "axisTick": {"show": false},
                 "axisLine": {"show": false},
-                "splitLine": {"show": false}
+                "splitLine": {"show": false},
             }]
         }
     }
@@ -3372,29 +3354,7 @@ var graph_ajax = function (data, obj, callback) {
                     },
                 }
             }
-            var title = [
-                {
-                    subtextStyle: {
-                        rich: {fontSize: 14},
-                        height: 14
-                    },
-                    left: 23,
-                    top: 23,
-                    //标题内边距,上右下左
-                    // padding: [20, 0, 0, 40],
-                    //主标题和副标题之间的间距
-                    itemGap: 17,
-                    text: graphdata['big_title'],
-                    subtext: graphdata['small_title'],
 
-                }, {
-                    text: '',
-                    subtext: remarks1 + '\n\n' + remarks2,
-                    left: 25,
-                    bottom: 24,
-                }
-
-            ]
         }
         option = {
             grid: {
@@ -3613,29 +3573,7 @@ var graph_ajax = function (data, obj, callback) {
 
                 }
             }
-            var title = [
-                {
-                    subtextStyle: {
-                        rich: {fontSize: 14},
-                        height: 14
-                    },
-                    left: 23,
-                    top: 23,
-                    //标题内边距,上右下左
-                    // padding: [20, 0, 0, 40],
-                    //主标题和副标题之间的间距
-                    itemGap: 17,
-                    text: graphdata['big_title'],
-                    subtext: graphdata['small_title'],
 
-                }, {
-                    text: '',
-                    subtext: remarks1 + '\n\n' + remarks2,
-                    left: 25,
-                    bottom: 24,
-                }
-
-            ]
         }
         option = {
             grid: {
@@ -3824,29 +3762,6 @@ var graph_ajax = function (data, obj, callback) {
                 data: graphdata['y'][i]['data'],
             }
 
-            var title = [
-                {
-                    subtextStyle: {
-                        rich: {fontSize: 14},
-                        height: 14
-                    },
-                    left: 23,
-                    top: 23,
-                    //标题内边距,上右下左
-                    // padding: [20, 0, 0, 40],
-                    //主标题和副标题之间的间距
-                    itemGap: 17,
-                    text: graphdata['big_title'],
-                    subtext: graphdata['small_title'],
-
-                }, {
-                    text: '',
-                    subtext: remarks1 + '\n\n' + remarks2,
-                    left: 25,
-                    bottom: 24,
-                }
-
-            ]
         }
         option = {
             grid: {
