@@ -1812,17 +1812,17 @@ var graph_ajax = function (data, obj, callback) {
             ii = i % 10
 
             var symbolSize = 10;
-            if (ii == 3 ) {
+            if (ii == 3) {
                 symbolSize = 12
             }
-            if (ii == 4 ) {
+            if (ii == 4) {
                 symbolSize = 11
             }
             if (ii == 5) {
                 symbolSize = 8
             }
             if (ii == 8) {
-                symbolSize =11
+                symbolSize = 11
             }
             if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
                 symbolSize = 9
@@ -2529,17 +2529,17 @@ var graph_ajax = function (data, obj, callback) {
             ii = i % 10
 
             var symbolSize = 10;
-            if (ii == 3 ) {
+            if (ii == 3) {
                 symbolSize = 12
             }
-            if (ii == 4 ) {
+            if (ii == 4) {
                 symbolSize = 11
             }
             if (ii == 5) {
                 symbolSize = 8
             }
             if (ii == 8) {
-                symbolSize =11
+                symbolSize = 11
             }
             if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
                 symbolSize = 9
@@ -2561,7 +2561,6 @@ var graph_ajax = function (data, obj, callback) {
                     itemStyle: {
                         normal: {}
                     }
-
 
                 }
 
