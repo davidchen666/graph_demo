@@ -1737,7 +1737,8 @@ var graph_ajax = function (data, obj, callback) {
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
-                    }
+                    },
+                    interval:'0'
                 },
                 axisLabel: {
                     show: true,
@@ -1921,7 +1922,6 @@ var graph_ajax = function (data, obj, callback) {
             legend: legend,
 
             xAxis: {
-
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1934,13 +1934,14 @@ var graph_ajax = function (data, obj, callback) {
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
-                    }
+                    },
+                    interval:'0'
                 },
-
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#333'
+                        color: '#333',
+                        fontSize: 14,
                     }
                 },
                 // axisLable: {
@@ -1976,7 +1977,7 @@ var graph_ajax = function (data, obj, callback) {
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
-                    }
+                    },
                 },
                 axisLabel: {
                     show: true,
@@ -3577,17 +3578,16 @@ var graph_ajax = function (data, obj, callback) {
                 textStyle:{
                     align:'left'
                 },
-                // formatter:function(params)
-                // {
-                //     // x轴名称
-                //     var relVal = params[0].name;
-                //     for (var i = 0, l = params.length; i < l; i++) {
-                //         relVal += '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:'+params[i].color+';"></span>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
-                //     }
-                //     return relVal;
-                // }
-
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+                formatter:function(params)
+                {
+                    // x轴名称
+                    var relVal = params[0].name
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:'+params[i].color+';"></span>' + params[i].seriesName + ' : ' + params[i].value+graphdata['unit'];
+                    }
+                    return relVal;
+                }
+                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             // legend: {
             //     //图例
