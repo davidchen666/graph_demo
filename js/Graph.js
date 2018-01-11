@@ -1826,24 +1826,22 @@ var graph_ajax = function (data, obj, callback) {
 
             ii = i % 10
 
-            var symbolSize = 0;
-            //减1
-            if (ii == 5 || ii == 6 || ii == 8) {
-                symbolSize = 9
-            }
-            //加2
-            if (ii == 2 || ii == 3 || ii == 7 || ii == 9) {
+            var symbolSize = 10;
+            if (ii == 3) {
                 symbolSize = 12
             }
-            //常规
-            if (ii == 1 || ii == 0) {
-                symbolSize = 10
-            }
-            //加2减1
             if (ii == 4) {
+                symbolSize = 11
+            }
+            if (ii == 5) {
                 symbolSize = 8
             }
-
+            if (ii == 8) {
+                symbolSize = 11
+            }
+            if (ii == 6 || ii == 7 || ii == 8 || ii == 9) {
+                symbolSize = 9
+            }
             series[i] = {
 
 
@@ -1922,6 +1920,8 @@ var graph_ajax = function (data, obj, callback) {
             legend: legend,
 
             xAxis: {
+
+
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1938,7 +1938,6 @@ var graph_ajax = function (data, obj, callback) {
                     interval:'0'
                 },
                 axisLabel: {
-                    show: true,
                     textStyle: {
                         color: '#333',
                         fontSize: 14,
@@ -1977,7 +1976,7 @@ var graph_ajax = function (data, obj, callback) {
                     lineStyle: {
                         //轴刻度颜色
                         color: axisTickColor
-                    },
+                    }
                 },
                 axisLabel: {
                     show: true,
@@ -2044,6 +2043,9 @@ var graph_ajax = function (data, obj, callback) {
                             fontFamily:"PingFangSC-Regular",
                             fontWeight:'bold',
                         }
+                        // color: "#333333", //color of value
+                        // fontSize: 14,
+                        // fontFamily:"PingFangSC-Regular"
                     },
 
                 }
@@ -2516,6 +2518,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
             toolbox: toolbox,
             grid: grid,
+
             title: title,
             animationDuration: animationDuration,
             animation: animation,
@@ -2589,7 +2592,6 @@ var graph_ajax = function (data, obj, callback) {
                     itemStyle: {
                         normal: {}
                     }
-
 
                 }
 
