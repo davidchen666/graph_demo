@@ -7,6 +7,8 @@ switch ($type) {
         $post = '{
                         "downloadimg":1,
                         "legend":1,
+                        "tooltip":1,
+                        "selectedMode":1,
                         "animation":1,
                          "x":
                              {
@@ -37,7 +39,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"k",
-                         "tooltip":1,
                          "width":723,
                          "height":548
                 }';
@@ -47,7 +48,9 @@ switch ($type) {
         $post = ' {
                          "downloadimg":1,
                          "legend":1,
+                         "tooltip":1,
                          "animation":1,
+                         "selectedMode":1,
                          "y":
                              [{
                                  "data":
@@ -67,7 +70,6 @@ switch ($type) {
                          "remarks2":"数据来源: B12",
                          "unit1":"%",
                          "unit2":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":540
                      }';
@@ -75,7 +77,8 @@ switch ($type) {
 //        地图
     case 3:
         $post = '{
-                    "downloadimg":1,            
+                        "downloadimg":1, 
+                         "tooltip":1,           
                          "y":
                              [{
                                  "data":
@@ -224,216 +227,15 @@ switch ($type) {
                          "remarks1":"基数: 所有被访者 n=400",
                          "remarks2": "数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":617
-                }';
-        break;
-//        词云1
-    case 4:
-        $post = '{
-                    "downloadimg":1,
-                         "y":
-                             [{
-                                 "data":
-                                     [1],
-                                 "name": "不错"
-                             },{
-                                 "data":
-                                     [2],
-                                 "name": "活动"
-                             },{
-                                 "data":
-                                     [3],
-                                 "name": "安全带"
-                             },{
-                                 "data":
-                                     [4],
-                                 "name": "服务态度"
-                             },{
-                                 "data":
-                                     [5],
-                                 "name": "驾驶"
-                             },{
-                                 "data":
-                                     [6],
-                                 "name": "外观"
-                             },{
-                                 "data":
-                                     [7],
-                                 "name": "汽车"
-                             },{
-                                 "data":
-                                     [8],
-                                 "name": "驾驶"
-                             },{
-                                 "data":
-                                     [9],
-                                 "name": "外观"
-                             },{
-                                 "data":
-                                     [10],
-                                 "name": "车"
-                             },{
-                                 "data":
-                                     [11],
-                                 "name": "降低"
-                             },{
-                                 "data":
-                                     [12],
-                                 "name": "降价"
-                             },{
-                                 "data":
-                                     [13],
-                                 "name": "省油"
-                             },{
-                                 "data":
-                                     [14],
-                                 "name": "提供一点"
-                             },{
-                                 "data":
-                                     [15],
-                                 "name": "发动机"
-                             },{
-                                 "data":
-                                     [16],
-                                 "name": "油耗"
-                             },{
-                                 "data":
-                                     [17],
-                                 "name": "售后"
-                             },{
-                                 "data":
-                                     [18],
-                                 "name": "动力"
-                             },{
-                                 "data":
-                                     [19],
-                                 "name": "性价比"
-                             },{
-                                 "data":
-                                     [20],
-                                 "name": "性能"
-                             },{
-                                 "data":
-                                     [21],
-                                 "name": "质量"
-                             },{
-                                 "data":
-                                     [22],
-                                 "name": "品牌"
-                             },{
-                                 "data":
-                                     [23],
-                                 "name": "促销"
-                             },{
-                                 "data":
-                                     [24],
-                                 "name": "更好保养"
-                             },{
-                                 "data":
-                                     [25],
-                                 "name": "增加力度"
-                             },{
-                                 "data":
-                                     [26],
-                                 "name": "推荐"
-                             },{
-                                 "data":
-                                     [27],
-                                 "name": "舒适"
-                             },{
-                                 "data":
-                                     [28],
-                                 "name": "配置"
-                             },{
-                                 "data":
-                                     [29],
-                                 "name": "舒适度"
-                             },{
-                                 "data":
-                                     [30],
-                                 "name": "价格"
-                             },{
-                                 "data":
-                                     [31],
-                                 "name": "体验"
-                             },{
-                                 "data":
-                                     [32],
-                                 "name": "品质"
-                             },{
-                                 "data":
-                                     [33],
-                                 "name": "配置"
-                             },{
-                                 "data":
-                                     [34],
-                                 "name": "免费"
-                             },{
-                                 "data":
-                                     [35],
-                                 "name": "内饰"
-                             },{
-                                 "data":
-                                     [36],
-                                 "name": "点"
-                             },{
-                                 "data":
-                                     [37],
-                                 "name": "坐"
-                             },{
-                                 "data":
-                                     [38],
-                                 "name": "车子"
-                             },{
-                                 "data":
-                                     [39],
-                                 "name": "外形"
-                             },{
-                                 "data":
-                                     [40],
-                                 "name": "M5"
-                             },{
-                                 "data":
-                                     [41],
-                                 "name": "GTR"
-                             },{
-                                 "data":
-                                     [42],
-                                 "name": "RS6"
-                             },{
-                                 "data":
-                                     [43],
-                                 "name": "AMG"
-                             },{
-                                 "data":
-                                     [44],
-                                 "name": "AE86"
-                             },{
-                                 "data":
-                                     [45],
-                                 "name": "Golf-R"
-                             },{
-                                 "data":
-                                     [46],
-                                 "name": "RCZ"
-                             }
-                             ],
-                         "big_title": "词云",
-                         "small_title": "副标题",
-                         "remarks1":"基数：所有被访者 n=400",
-                         "remarks2":"数据来源：B12",
-                         "unit":"人",
-                         "tooltip":1,
-                         "width":723,
-                         "height":605
                 }';
         break;
 //        仪表盘图
     case 5:
         $post = '{
                     "downloadimg": 1,
+                     "tooltip":1,
                     "x":
                         {
                             "data": ["推荐净值（NPS）"]
@@ -444,13 +246,11 @@ switch ($type) {
                                 [36],
                             "name": "品牌名称"
                         }],
-                    "animation": 1,
                     "big_title": "仪表盘NPS",
                     "small_title": "副标题",
                     "remarks1": "基数：所有被访者 n=400",
                     "remarks2": "数据来源：B12",
                     "unit": "%",
-                    "tooltip": 1,
                     "width": 723,
                     "height": 546
                 }';
@@ -458,7 +258,8 @@ switch ($type) {
 //        条形图
     case 6:
         $post = '{
-                    "downloadimg":1,
+                        "downloadimg":1,
+                         "tooltip":1,
                          "x":
                              {
                                  "data":["图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14","图表字号14"]
@@ -474,7 +275,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":624
                 }';
@@ -482,7 +282,9 @@ switch ($type) {
 //        百分比堆叠条形图
     case 7:
         $post = '{
-                    "downloadimg":1,
+                        "downloadimg":1,
+                         "tooltip":1,
+                         "selectedMode":1,
                          "x":
                              {
                                  "data":["类目名称","类目名称","类目名称"]
@@ -535,7 +337,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":419
                 }';
@@ -543,7 +344,8 @@ switch ($type) {
 //        条形象形图
     case 8:
         $post = '{
-                     "downloadimg":1,
+                        "downloadimg":1,
+                         "tooltip":1,
                          "y":
                              [{
                                  "data":[40],
@@ -560,7 +362,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":360
                 }';
@@ -568,7 +369,8 @@ switch ($type) {
 //        词云2
     case 9:
         $post = '{
-                    "downloadimg":1,
+                        "downloadimg":1,
+                         "tooltip":1,
                          "y":
                              [{
                                  "data":
@@ -761,7 +563,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":605
                 }';
@@ -769,7 +570,9 @@ switch ($type) {
 //        对比柱状图
     case 10:
         $post = '{
-                    "downloadimg":1,
+                        "downloadimg":1,
+                         "tooltip":1,
+                         "selectedMode":1,
                           "legend":1,
                          "x":
                              {
@@ -796,7 +599,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":548
                 }';
@@ -805,6 +607,8 @@ switch ($type) {
     case 11:
         $post = '{
                         "downloadimg":1,
+                        "selectedMode":1,
+                         "tooltip":1,
                          "x":{
                                  "data":["类目名称","类目名称","类目名称","类目名称","类目名称","类目名称","类目名称"]
                             },
@@ -818,7 +622,6 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"k",
-                         "tooltip":1,
                          "width":723,
                          "height":501
                 }';
@@ -826,8 +629,10 @@ switch ($type) {
 //        折柱图
     case 12:
         $post = '{
-                    "downloadimg":1,
-                          "legend":1,
+                        "downloadimg":1,
+                        "legend":1,
+                        "selectedMode":1,
+                         "tooltip":1,
                          "x":
                              {
                                  "data":["2017/9/1","2017/9/2","2017/9/3","2017/9/4","2017/9/5","2017/9/6","2017/9/7"]
@@ -849,72 +654,71 @@ switch ($type) {
                          "remarks1":"基数：所有被访者 n=400",
                          "remarks2":"数据来源：B12",
                          "unit":"人",
-                         "tooltip":1,
                          "width":723,
                          "height":548
                 }';
         break;
 //百分比堆叠柱状图
     case 21:
-        $post = '
-{
-    "downloadimg": 1,
-    "legend":2,
-    "animation":1,
-    "x": {
-        "data": [
-            "类目名称1",
-            "类目名称2",
-            "类目名称3",
-            "类目名称4",
-            "类目名称5",
-            "类目名称6"
-        ]
-    },
-    "y": [
-        {
-            "data": [
-                34,
-                24,
-                33,
-                46,
-                5,
-                33
-            ],
-            "name": "图例1"
-        },
-        {
-            "data": [
-                33,
-                46,
-                17,
-                24,
-                60,
-                57
-            ],
-            "name": "图例2"
-        },
-        {
-            "data": [
-                33,
-                30,
-                50,
-                30,
-                35,
-                10
-            ],
-            "name": "图例3"
-        }
-    ],
-    "big_title": "百分比堆叠柱状图",
-    "small_title": "%",
-    "remarks1": "基数：所有被访者 n=400",
-    "remarks2": "数据来源：B12",
-    "unit": "人",
-    "tooltip": 1,
-    "width": 723,
-    "height": 464
-}      ';
+        $post = '{
+                    "downloadimg": 1,
+                    "tooltip": 1,
+                    "legend":2,
+                    "selectedMode":1,
+                    "animation":1,
+                    "x": {
+                        "data": [
+                            "类目名称1",
+                            "类目名称2",
+                            "类目名称3",
+                            "类目名称4",
+                            "类目名称5",
+                            "类目名称6"
+                        ]
+                    },
+                    "y": [
+                        {
+                            "data": [
+                                34,
+                                24,
+                                33,
+                                46,
+                                5,
+                                33
+                            ],
+                            "name": "图例1"
+                        },
+                        {
+                            "data": [
+                                33,
+                                46,
+                                17,
+                                24,
+                                60,
+                                57
+                            ],
+                            "name": "图例2"
+                        },
+                        {
+                            "data": [
+                                33,
+                                30,
+                                50,
+                                30,
+                                35,
+                                10
+                            ],
+                            "name": "图例3"
+                        }
+                    ],
+                    "big_title": "百分比堆叠柱状图",
+                    "small_title": "%",
+                    "remarks1": "基数：所有被访者 n=400",
+                    "remarks2": "数据来源：B12",
+                    "unit": "人",
+                    "width": 723,
+                    "height": 464
+                }';
         break;
     //散点图
     case 22:
@@ -923,6 +727,7 @@ switch ($type) {
     "downloadimg": 1,
     "legend": 1,
     "animation": 1,
+    "tooltip": 1,
     "y": [
         {
             "data": [
@@ -1206,13 +1011,10 @@ switch ($type) {
     "remarks1": "基数：所有被访者 n=400",
     "remarks2": "数据来源：B12",
     "unit": "k",
-    "tooltip": 1,
     "width": 723,
     "height": 548
 }';
         break;
-
-
 }
 echo $post;
 die;
