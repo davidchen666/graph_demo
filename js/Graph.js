@@ -3925,7 +3925,8 @@ var graph_ajax = function (data, obj, callback) {
                     },
                 },
                 splitLine: {
-                    lineStyle: splitLineColor
+                    lineStyle: splitLineColor,
+                    widrh:1
                 },
                 splitArea: {
                     areaStyle: {
