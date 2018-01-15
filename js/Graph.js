@@ -811,6 +811,8 @@ var graph_ajax = function (data, obj, callback) {
     graphdata = $.parseJSON(data.data)
     // console.log(graphdata)
     var d_data = typeof data.data == 'object' ? data.data : eval('(' + data.data + ');');
+
+
     // var graph_type = ['pie-doughnut', 'bar-y-category', 'gauge', 'bar-y-category-stack'];
     //定义图表类型
     //area：堆叠区域图，gauge：仪表盘图，scatter-relationship：散点关系图，bar-y-category：纵向柱状图，bar-y-category-stack：纵向柱状堆叠图，line：折线图，k：k线图，graph：力导图
@@ -845,6 +847,31 @@ var graph_ajax = function (data, obj, callback) {
 
     // 调用echarts.registerTheme()注册主题
     echarts.registerTheme('DT', echartsTheme)
+
+
+    //数据格式化
+    var len = []
+    var lenv = []
+    if (typeof(graphdata['y'].length) != "undefined") {
+        len = graphdata['y'].length;
+        lenv = graphdata['y'][0]['data'].length;
+    }
+    for (var i = 0; i < len; i++) {
+
+        var datav = []
+        for (var l = 0; l < lenv; l++) {
+            //根据主题判断数据来源，分别进行处理
+            var ynumber = graphdata['y'][i]['data'][l] + ''
+            if (themename == 'ml' && ynumber.indexOf('.') > -1) {
+                graphdata['y'][i]['data'][l] = parseFloat(ynumber.substring(0, ynumber.indexOf('.')));
+            }
+            if (themename == 'wk_purple' || themename == 'wk_colorful' && ynumber.indexOf('.') > -1) {
+                graphdata['y'][i]['data'][l] = parseFloat(ynumber.substring(0, ynumber.indexOf('.') + 12));
+            }
+        }
+    }
+
+
     // console.log(echartsTheme.color.length)
     // echarts.registerTheme('WK_purple', echartsTheme)
     //使用echarts.init()创建图标，第二个参数即为刚才注册的主题名字。
@@ -867,25 +894,29 @@ var graph_ajax = function (data, obj, callback) {
     //data 形状
     var symbol = ['roundRect', 'circle', 'triangle', 'diamond', 'path://m0.75,72.94l98,-72.19l98,72.19l-37.43,116.81l-121.13,0l-37.43-116.81z', 'emptyroundRect', 'emptycircle', 'emptytriangle', 'emptydiamond', 'emptypath://m0.75,72.94l98,-72.19l98,72.19l-37.43,116.81l-121.13,0l-37.43-116.81z',]
 
+
     // 1.标题、副标题、备注未定义时的间距
     //对网页自适应进行判断
-    var gTop = 22;
-    var gBottom = 27;
-    var grid = {
-        top: 105,
-        right: 91,
-        bottom: 95,
-        left: 91,
-        // bottom: gBottom + '%',
-        // top: gTop + '%',
-        containLabel: true
-    };
+    var gTop = 105;
+    var lTop = '';
+    var gBottom = 95;
+    var gLeft = 99;
+
+    if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+        lTop = 99
+    }
+    if (d_data.legend == 2) {
+        lTop = 'center'
+    }
+
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 18
+        // lTop -= 18
 
     }
     if (typeof(d_data.small_title) == "undefined") {
         gTop -= 14
+        // lTop -= 14
 
     }
     if (typeof(d_data.remarks1) == "undefined") {
@@ -897,7 +928,10 @@ var graph_ajax = function (data, obj, callback) {
 
     }
 
+/////legend
     //2.legend各种情况下的位置和间距
+    var pie_center_x = '';
+    var pie_center_y = '';
     var legendValue = [];
     var legend = {
         selected: {},
@@ -921,14 +955,14 @@ var graph_ajax = function (data, obj, callback) {
         //legend水平
         legend.orient = 'horizontal';
         legend.right = '24';
-        legend.top = '99';
+        legend.top = lTop;
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
         legend.data = legendValue;
         //图例自适应
-        grid.top += 14;
+        gTop += 50;
         // radius[0] -= 14;
         // radius[1] -= 14;
     }
@@ -936,13 +970,13 @@ var graph_ajax = function (data, obj, callback) {
         //legend垂直
         legend.orient = 'vertical';
         legend.left = '24';
-        legend.top = '233';
+        legend.top = lTop;
 
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
         legend.data = legendValue;
-        grid.left += 10
+        gLeft += 10
     }
     //线条状的legend
     // if (d_data.legend == 3) {
@@ -973,11 +1007,35 @@ var graph_ajax = function (data, obj, callback) {
     if (graphdata.selectedMode == 2) {
         legend.selectedMode = false;
     }
+    //单选
+    // if (graphdata.selectedMode == 3){
+    //     legend.selectedMode = single;
+    // }
+    // //多选
+    // if (graphdata.selectedMode == 4){
+    //     legend.selectedMode = multiple;
+    // }
+
+/////legend
+
+    //pie_center
+    //当legend位置发生变化时,pie_center位置随之变化
+    function pie_center(pie_center_x,pie_center_y){
+        if (typeof(d_data.legend) == "undefined" || d_data.legend == 1){
+            pie_center_y -= 14;
+        }
+        if (d_data.legend == 2){
+            pie_center_x -= 14;
+        }
+        return
+    }
+    //pie_center
+
 
     var xaxisdata = []
     if (typeof(graphdata['x']) != "undefined") {
         for (var i = 0; i < graphdata['x']['data'].length; i++) {
-            console.log(graphdata['x']['data'][i])
+
             xaxisdata[i] = {
                 value: graphdata['x']['data'][i],
                 textStyle: {
@@ -1085,7 +1143,15 @@ var graph_ajax = function (data, obj, callback) {
     // grid.top += 14;
     // legend.top += 14;
 
-
+    var grid = {
+        top: gTop,
+        right: 91,
+        bottom: gBottom,
+        left: gLeft,
+        // bottom: gBottom + '%',
+        // top: gTop + '%',
+        containLabel: true
+    };
     // title=[{"name":"推荐净值(NPS)"},{"name":"备注"}];title.push({"name":"组名"}) ;title
 
     // data.graph = 'gauge'
@@ -1187,9 +1253,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 // {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。
                 //在图形上显示具体数值
-                formatter: '{a} <br/>{b} : {c}' + graphdata['unit2']
-                //在图形上显示数值所占百分比
-                // formatter:'{d}' + graphdata['unit']
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit2'],
             },
             legend: legend,
             // legend: {
@@ -1224,8 +1288,11 @@ var graph_ajax = function (data, obj, callback) {
                     normal: {
                         show: true,
                         position: 'inside',
-                        // formatter: "{c}"
-                        formatter: '{d}' + graphdata['unit1']
+                        // formatter: "{c}" 在图形上显示数值所占百分比
+                        //带单位
+                        // formatter: '{d}' + graphdata['unit1']
+                        //不带单位
+                        formatter: '{d}'
                     },
 
                 },
@@ -1374,8 +1441,16 @@ var graph_ajax = function (data, obj, callback) {
     //     };
     // }
 
-    //词云2
+    //词云
     if (data.graph == 'wordCloud2') {
+        // var maskImage = new Image();
+        // // var world_option = world_cloud(eval('(' +  '${cloud}' + ')'),maskImage);
+        // var world_option = world_cloud(data,maskImage);
+        // maskImage.onload = function () {
+        //     world_option.series[0].maskImage
+        //     worldChart.setOption(world_option);
+        // };
+        // maskImage.src = '../echartsDemo/img/wordbg.png';
         var series = [];
         var legend = [];
         var len = []
@@ -1396,8 +1471,9 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data']
             }
         }
+
         // var newW  = $('main').width()*3/4;
-        // var newH = $('main').width()*3/4;
+        // var newH = $('main')height()*3/4;
         option = {
             //添加水印方案2
             graphic: [
@@ -1494,11 +1570,12 @@ var graph_ajax = function (data, obj, callback) {
                 // shape: 'cardioid',
                 // shape: 'pentagon',
                 shape: 'circle',
+                // maskImage: maskImage,
                 gridSize: 1,//字符间距
                 //词云位置
                 // center:['50%','50%'],
-                // width: 501,
-                // height: 324,
+                width: 501,
+                height: 324,
                 //    width: 501,
                 // // height: 200,
                 // top: 147,
@@ -1652,21 +1729,24 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 itemStyle: {
                     normal: {
-                        borderColor: 'rgba(102, 102, 102, 1)',
+                        borderColor: 'rgba(196, 196, 196,1)',
                         borderType: 'solid',
                         borderWidth: 0.5,
-                        areaColor: '#eee',
                     },
                     emphasis: {
                         borderType: 'solid',
-                        borderColor: 'rgba(102, 102, 102, 1)',
+                        borderColor: 'rgba(102, 102, 102,1)',
                         areaColor: '#F5A623',
                         borderWidth: 0.5,
                     }
                 },
                 "data": series
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
     // console.log(data.data);
 
@@ -1861,6 +1941,10 @@ var graph_ajax = function (data, obj, callback) {
             },
             series: series
         };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
 
     //折线图(maker)
@@ -1896,7 +1980,8 @@ var graph_ajax = function (data, obj, callback) {
             }
             series[i] = {
                 symbol: symbol[i],
-                showAllSymbol:true,
+                //强制显示所有symbol
+                showAllSymbol: true,
                 symbolSize: symbolSize,
                 itemStyle: {
                     normal: {
@@ -2065,6 +2150,10 @@ var graph_ajax = function (data, obj, callback) {
             },
             series: series
         };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
 
     //条形图
@@ -2104,7 +2193,7 @@ var graph_ajax = function (data, obj, callback) {
                             color: "#333333", //color of value
                             fontSize: 14,
                             fontFamily: "PingFangSC-Regular",
-                            fontWeight: 'bold',
+                            fontWeight: 'normal',
                         }
                         // color: "#333333", //color of value
                         // fontSize: 14,
@@ -2219,7 +2308,11 @@ var graph_ajax = function (data, obj, callback) {
                 "splitLine": {"show": false},
                 "show": false,
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
 
     }
 
@@ -2385,7 +2478,11 @@ var graph_ajax = function (data, obj, callback) {
                 // "min": 0,
                 // "max": 100
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
 
     //纵向柱状图
@@ -2636,7 +2733,11 @@ var graph_ajax = function (data, obj, callback) {
                 "axisLine": {"show": false},
                 "splitLine": {"show": false},
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
     //散点图
     if (data.graph == 'scatter') {
@@ -2834,26 +2935,31 @@ var graph_ajax = function (data, obj, callback) {
             },
             series: series
         };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
 
     //仪表盘图
     if (data.graph == 'gauge') {
         title.push({
-
             subtextStyle: {
                 // rich: {fontSize:18,fontFamily:'PingFangSC-Regular'},
                 fontSize: 18,
                 fontFamily: 'PingFangSC-Regular',
                 // fontFamily:'PingFangSC-Regular',
                 color: "#333",
-                lineHeight: 18
+                lineHeight: 18,
                 // height: 18,
+                fontWeight:'normal',
             },
             textStyle: {
                 fontSize: 18,
-                fontFamily: 'PingFangSC-Medium',
+                fontFamily: 'PingFangSC-Regular',
                 color: "#333",
-                lineHeight: 18
+                lineHeight: 18,
+                fontWeight:'normal',
             },
             left: 'center',
             // top: 368,
@@ -2974,7 +3080,7 @@ var graph_ajax = function (data, obj, callback) {
                     formatter: '{value}' + graphdata['unit'],
                     // formatter: "{a} <br/>{b} : {c}" + graphdata['unit'],
                     "offsetCenter": [0, "77"],
-                    "textStyle": {"color": "#333333", "fontSize": 18, fontFamily: 'PingFangSC-Medium',},
+                    "textStyle": {"color": "#333333", "fontSize": 18, fontFamily: 'PingFangSC-Regular',fontWeight:'normal',},
                     height: 18,
                 },
                 // wukong!
@@ -3011,7 +3117,11 @@ var graph_ajax = function (data, obj, callback) {
                 // "itemStyle": {"normal": {"color": echartsTheme.visualMapColor[0]}},  //指针颜色
                 title: {fontFamily: 'PingFangSC-Medium'}
             }],
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
 
     //纵向柱状堆叠图
@@ -3351,7 +3461,11 @@ var graph_ajax = function (data, obj, callback) {
                     // barGap:4
                 ],
 
-            }
+            };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
     }
 
     //对比柱状图
@@ -3475,7 +3589,7 @@ var graph_ajax = function (data, obj, callback) {
                 //悬浮框中文字向左对齐
                 textStyle: {align: 'left'},
                 formatter: function (params) {
-                    console.log(params)
+
                     // x轴名称
                     var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
@@ -3570,7 +3684,11 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
 
     }
 
@@ -3610,7 +3728,7 @@ var graph_ajax = function (data, obj, callback) {
                             color: "#333333", //color of value
                             fontSize: 14,
                             fontFamily: "PingFangSC-Regular",
-                            fontWeight: 'bold',
+                            fontWeight: 'normal',
                         }
                     },
 
@@ -3684,7 +3802,7 @@ var graph_ajax = function (data, obj, callback) {
                     align: 'left'
                 },
                 formatter: function (params) {
-                    console.log(params)
+
                     // x轴名称
                     var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
@@ -3770,7 +3888,11 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: true},
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
 
     }
 
@@ -3926,7 +4048,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {
                     lineStyle: splitLineColor,
-                    width:1,
+                    width: 1,
                 },
                 splitArea: {
                     areaStyle: {
@@ -3977,12 +4099,20 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
             }]
-        }
+        };
+        myChart.on('click', function (params) {
+            option['legend']['selected'][params.name] = false
+            myChart.setOption(option);
+        });
 
     }
 
     console.log(option)
 // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+
+    $(window).resize(function () {
+        myChart.resize();
+    });
 
 }
