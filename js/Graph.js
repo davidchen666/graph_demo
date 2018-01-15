@@ -894,6 +894,22 @@ var graph_ajax = function (data, obj, callback) {
     var symbol = ['roundRect', 'circle', 'triangle', 'diamond', 'path://m0.75,72.94l98,-72.19l98,72.19l-37.43,116.81l-121.13,0l-37.43-116.81z', 'emptyroundRect', 'emptycircle', 'emptytriangle', 'emptydiamond', 'emptypath://m0.75,72.94l98,-72.19l98,72.19l-37.43,116.81l-121.13,0l-37.43-116.81z',]
 
 
+    //点击legend的开关
+    //selectedMode默认legend可点击
+    if (graphdata.selectedMode == 2) {
+        legend.selectedMode = false;
+    }
+    //单选
+    // if (graphdata.selectedMode == 3){
+    //     legend.selectedMode = single;
+    // }
+    // //多选
+    // if (graphdata.selectedMode == 4){
+    //     legend.selectedMode = multiple;
+    // }
+/////legend
+
+
     // 1.标题、副标题、备注未定义时的间距
     //对网页自适应进行判断
     var gTop = 105;
@@ -945,8 +961,7 @@ var graph_ajax = function (data, obj, callback) {
 
     var legendValue = [];
     var legend = {
-        selectedMode: {},
-        //selected:{},
+        selected:{},
         // icon: 'rect',
         // 图例布局设置为垂直（水平/垂直,默认为水平）
         orient: 'vertical',
@@ -1015,19 +1030,7 @@ var graph_ajax = function (data, obj, callback) {
 
 //legend
 
-    //点击legend的开关
-    //selectedMode默认legend可点击
-    if (graphdata.selectedMode == 2) {
-        legend.selectedMode = false;
-    }
-    //单选
-    // if (graphdata.selectedMode == 3){
-    //     legend.selectedMode = single;
-    // }
-    // //多选
-    // if (graphdata.selectedMode == 4){
-    //     legend.selectedMode = multiple;
-    // }
+
 
 /////legend
 

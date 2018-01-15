@@ -627,10 +627,12 @@ switch ($type) {
         break;
     //散点图
     case 22:
-        $post = '{
+        $post = '
+                {
                     "feature": 1,
                     "legend": 1,
                     "animation": 1,
+                    "selectedMode":1,
                     "tooltip": 1,
                     "y": [
                         {
