@@ -900,56 +900,44 @@ var graph_ajax = function (data, obj, callback) {
     var lTop = '';
     var gBottom = 95;
     var gLeft = 99;
+    var lLeft = '';
     //x轴位置
     var pie_center_x = 50;
     //y轴位置
     var pie_center_y = 51;
-    //内半径
-    var pie_center_i = 32.35;
-    //外半径
-    var pie_center_n = 50;
+    //圆环图内半径
+    var pie_center_i = 42;
+    //圆环图外半径
+    var pie_center_n = 65;
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         lTop = 99
-        // pie_center_y = 59.2;
-        pie_center_i -= 2.59;
-        pie_center_n -= 2.59;
+        pie_center_y = 59.2;
     }
     if (d_data.legend == 2) {
-        lTop = 'center';
+        lTop = 233;
+        lLeft = 18;
         pie_center_x = 58.2;
-        pie_center_i = 27.3;
-        pie_center_n = 54.8;
     }
 
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 18
         // lTop -= 18
         pie_center_y -= 5;
-        pie_center_i += 5;
-        pie_center_n += 5;
-
     }
     if (typeof(d_data.small_title) == "undefined") {
         gTop -= 14
         // lTop -= 14
         pie_center_y -= 5;
-        pie_center_i += 5;
-        pie_center_n += 5;
-
     }
     if (typeof(d_data.remarks1) == "undefined") {
         gBottom -= 12
         pie_center_y += 5;
-        pie_center_i += 5;
-        pie_center_n += 5;
     }
     if (typeof(d_data.remarks2) == "undefined") {
         gBottom -= 12
         pie_center_y += 5;
-        pie_center_i += 5;
-        pie_center_n += 5;
     }
 
 /////legend
@@ -957,15 +945,17 @@ var graph_ajax = function (data, obj, callback) {
 
     var legendValue = [];
     var legend = {
-        selected: {},
+        selectedMode: {},
+        //selected:{},
         // icon: 'rect',
         // 图例布局设置为垂直（水平/垂直,默认为水平）
         orient: 'vertical',
         //图例形状
+        //图例标记和文本对齐
         align: 'auto',
         // legend.left = 24.5,
         // legend.bottom = 226,
-        itemGap: 10,
+        itemGap: 13,
         itemWidth: 14,
         itemHeight: 14,
         type: 'scroll',
@@ -992,7 +982,7 @@ var graph_ajax = function (data, obj, callback) {
     if (d_data.legend == 2) {
         //legend垂直
         legend.orient = 'vertical';
-        legend.left = '24';
+        legend.left = lLeft;
         legend.top = lTop;
 
         for (var i = 0; i < graphdata['y'].length; i++) {
@@ -1091,7 +1081,6 @@ var graph_ajax = function (data, obj, callback) {
     var remarks1 = ''
     var remarks2 = ''
     if (typeof(d_data.remarks2) != "undefined") {
-
         remarks1 = graphdata['remarks1']
     }
     if (typeof(d_data.remarks2) != "undefined") {
@@ -1105,12 +1094,7 @@ var graph_ajax = function (data, obj, callback) {
     if (graphdata['tooltip'] == 2) {
         tooltip = false;
     }
-    var toolbox = {
-        itemSize: 14,
-        feature: feature,
-        right: 22,
-        top: 22
-    }
+
     // console.log(graphdata);
     var title = [
         {
@@ -1142,15 +1126,22 @@ var graph_ajax = function (data, obj, callback) {
     ]
 
     //对下载功能有无进行判断
-    // var toolbox = ''
-    if (typeof(d_data.downloadimg) == "undefined" || d_data.downloadimg == 1) {
+    if (typeof(d_data.feature) == "undefined" || d_data.feature == 1) {
         feature = {"saveAsImage": {"type": "png"}}
         // toolbox.right = 22;
         // toolbox.top = 22;
     }
+    //定义公共toolbox
+    var toolbox = {
+        itemSize: 14,
+        feature:feature,
+        right: 22,
+        top: 22
+    }
     // grid.top += 14;
     // legend.top += 14;
 
+    //定义公共grid
     var grid = {
         top: gTop,
         right: 91,
@@ -1158,7 +1149,7 @@ var graph_ajax = function (data, obj, callback) {
         left: gLeft,
         // bottom: gBottom + '%',
         // top: gTop + '%',
-        containLabel: true
+        containLabel: false
     };
     // title=[{"name":"推荐净值(NPS)"},{"name":"备注"}];title.push({"name":"组名"}) ;title
 
@@ -1237,14 +1228,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
-            toolbox: {
-                feature: feature,
-                itemSize: 14,
-                right: 22,
-                top: 22
-                // right:21,
-                // top:21
-            },
+            toolbox: toolbox,
             // toolbox:toolbox,
             // animation:animation,
             grid: grid,
@@ -1539,14 +1523,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 }
             ],
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22
-                // right:24,
-                // top:23
-            },
+            toolbox: toolbox,
             grid: grid,
             title: title,
             animation: animation,
@@ -1672,14 +1649,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22
-                // right:24,
-                // top:23
-            },
+            toolbox:toolbox,
             grid: grid,
             title: title,
             animation: animation,
@@ -1833,12 +1803,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22
-            },
+            toolbox: toolbox,
             animationDuration: animationDuration,
             grid: grid,
             title: title,
@@ -2048,12 +2013,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22
-            },
+            toolbox: toolbox,
             animationDuration: animationDuration,
             grid: grid,
             title: title,
@@ -2209,9 +2169,6 @@ var graph_ajax = function (data, obj, callback) {
                             fontFamily: "PingFangSC-Regular",
                             fontWeight: 'normal',
                         }
-                        // color: "#333333", //color of value
-                        // fontSize: 14,
-                        // fontFamily:"PingFangSC-Regular"
                     },
 
                 }
@@ -2219,13 +2176,14 @@ var graph_ajax = function (data, obj, callback) {
 
         }
         option = {
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
+            grid: grid,
+            //     {
+            //     top: 100,
+            //     // right:125,
+            //     bottom: 102,
+            //     left: 129,
+            //     containLabel: false
+            // },
             //添加水印方案2
             graphic:
                 {
@@ -2267,12 +2225,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
             title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
+            toolbox: toolbox,
             animationDuration: animationDuration,
             animation: animation,
             tooltip: {
@@ -2289,8 +2242,6 @@ var graph_ajax = function (data, obj, callback) {
                         var ynumber=params[i].value/CountData*100+''
                         relVal += '<br/>' +  parseFloat(ynumber.substring(0, ynumber.indexOf('.'))) + '%<br/>' + params[i].seriesName + ' : ' + params[i].value + graphdata['unit'];
                     }
-
-
                     return relVal;
                 },
                 axisPointer: {
@@ -2421,13 +2372,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
-            // grid: grid,
+            toolbox: toolbox,
             grid: grid,
             title: title,
             animationDuration: animationDuration,
@@ -2804,7 +2749,6 @@ var graph_ajax = function (data, obj, callback) {
 
         }
         option = {
-
             graphic:
                 {
                     type: 'group',
@@ -3029,14 +2973,7 @@ var graph_ajax = function (data, obj, callback) {
                         }
                     ]
                 },
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22
-                // right:24,
-                // top:24
-            },
+            toolbox: toolbox,
             grid: grid,
             title: title,
             // animation:animation,
@@ -3323,14 +3260,7 @@ var graph_ajax = function (data, obj, callback) {
                             }
                         ]
                     },
-                toolbox: {
-                    itemSize: 14,
-                    feature: feature,
-                    right: 22,
-                    top: 22
-                    // right:24,
-                    // top:24
-                },
+                toolbox: toolbox,
                 animation: animation,
                 animationDuration: animationDuration,
                 grid: grid,
@@ -3533,13 +3463,14 @@ var graph_ajax = function (data, obj, callback) {
 
         }
         option = {
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
+            grid:grid,
+            //     {
+            //     top: 100,
+            //     // right:125,
+            //     bottom: 102,
+            //     left: 129,
+            //     containLabel: false
+            // },
             //添加水印方案2
             graphic:
                 {
@@ -3581,12 +3512,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
             title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
+            toolbox: toolbox,
             animationDuration: animationDuration,
             animation: animation,
             tooltip: {
@@ -3750,18 +3676,19 @@ var graph_ajax = function (data, obj, callback) {
                         }
                     },
 
-                }
+                },
             }
 
         }
         option = {
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
+            grid: grid,
+            //     {
+            //     top: 100,
+            //     // right:125,
+            //     bottom: 102,
+            //     left: 129,
+            //     containLabel: false
+            // },
             //添加水印方案2
             graphic:
                 {
@@ -3803,15 +3730,10 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
             title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: feature,
-                right: 22,
-                top: 22,
-            },
+            toolbox:toolbox,
             animationDuration: animationDuration,
             animation: animation,
-            legend: legend,
+            // legend: legend,
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
@@ -3820,7 +3742,6 @@ var graph_ajax = function (data, obj, callback) {
                     align: 'left'
                 },
                 formatter: function (params) {
-
                     // x轴名称
                     var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
@@ -3946,13 +3867,7 @@ var graph_ajax = function (data, obj, callback) {
 
         }
         option = {
-            grid: {
-                top: 100,
-                // right:125,
-                bottom: 102,
-                left: 129,
-                containLabel: false
-            },
+            grid: grid,
             //添加水印方案2
             graphic:
                 {
@@ -3994,18 +3909,19 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
             title: title,
-            toolbox: {
-                itemSize: 14,
-                feature: {
-                    //这个可以用toolbox直接切换图形，有点厉害。。。
-                    // dataView: {show: true, readOnly: false},
-                    // magicType: {show: true, type: ['line', 'bar']},
-                    // restore: {show: true},
-                    saveAsImage: {show: true}
-                },
-                right: 22,
-                top: 22,
-            },
+            toolbox: toolbox,
+            //     {
+            //     itemSize: 14,
+            //     feature: {
+            //         //这个可以用toolbox直接切换图形，有点厉害。。。
+            //         // dataView: {show: true, readOnly: false},
+            //         // magicType: {show: true, type: ['line', 'bar']},
+            //         // restore: {show: true},
+            //         saveAsImage: {show: true}
+            //     },
+            //     right: 22,
+            //     top: 22,
+            // },
             animationDuration: animationDuration,
             animation: animation,
             legend: legend,
