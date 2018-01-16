@@ -563,7 +563,7 @@ switch ($type) {
                          "height":548
                 }';
         break;
-//百分比堆叠柱状图
+//        百分比堆叠柱状图
     case 21:
         $post = '{
                     "feature": 1,
@@ -627,15 +627,13 @@ switch ($type) {
         break;
     //散点图
     case 22:
-        $post = '
-                {
+        $post = '{
                     "feature": 1,
                     "legend": 1,
                     "animation": 1,
-                    "selectedMode":1,
+                    "selectedMode": 1,
                     "tooltip": 1,
-                    "y": [
-                        {
+                    "y": [{
                             "data": [
                                 [
                                     28604,
@@ -919,8 +917,8 @@ switch ($type) {
                     "unit": "k",
                     "width": 723,
                     "height": 548
-                    }';
-        break;
+                }';
+                break;
 }
 echo $post;
 die;

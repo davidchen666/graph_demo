@@ -856,16 +856,18 @@ var graph_ajax = function (data, obj, callback) {
         len = graphdata['y'].length;
         lenv = graphdata['y'][0]['data'].length;
     }
-    for (var i = 0; i < len; i++) {
-        var datav = []
-        for (var l = 0; l < lenv; l++) {
-            //根据主题判断数据来源，分别进行处理
-            var ynumber = graphdata['y'][i]['data'][l] + ''
-            if (themename == 'ml' && ynumber.indexOf('.') > -1) {
-                graphdata['y'][i]['data'][l] = parseFloat(ynumber.substring(0, ynumber.indexOf('.')));
-            }
-            if (themename == 'wk_purple' || themename == 'wk_colorful' && ynumber.indexOf('.') > -1) {
-                graphdata['y'][i]['data'][l] = parseFloat(ynumber.substring(0, ynumber.indexOf('.') + 12));
+    if(data.graph != 'scatter'){
+        for (var i = 0; i < len; i++) {
+            var datav = []
+            for (var l = 0; l < lenv; l++) {
+                //根据主题判断数据来源，分别进行处理
+                var ynumber = graphdata['y'][i]['data'][l] + ''
+                if (themename == 'ml' && ynumber.indexOf('.') > -1 ) {
+                    graphdata['y'][i]['data'][l] = parseFloat(ynumber.substring(0, ynumber.indexOf('.')));
+                }
+                if (themename == 'wk_purple' || themename == 'wk_colorful' && ynumber.indexOf('.') > -1) {
+                    graphdata['y'][i]['data'][l] = parseFloat(ynumber.substring(0, ynumber.indexOf('.') + 12));
+                }
             }
         }
     }
@@ -920,7 +922,10 @@ var graph_ajax = function (data, obj, callback) {
         lLeft = 18;
         pie_center_x = 58.2;
     }
-
+    if (d_data.legend == 3) {
+        lTop = 99
+        pie_center_y = 59.2;
+    }
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 18
         // lTop -= 18
@@ -976,7 +981,7 @@ var graph_ajax = function (data, obj, callback) {
     }
     //
     if (d_data.legend == 2) {
-        //左垂直legend
+        //左垂直方形legend，适用于圆环图
         legend.orient = 'vertical';
         legend.left = lLeft;
         legend.top = lTop;
@@ -987,7 +992,7 @@ var graph_ajax = function (data, obj, callback) {
         legend.data = legendValue;
         gLeft += 10
     }
-    //右上角方形legend
+    //右上角水平方形legend
     if (d_data.legend == 3) {
         //控制图例位置
         //legend水平
@@ -1003,7 +1008,6 @@ var graph_ajax = function (data, obj, callback) {
         //图例自适应
         gTop += 50;
     }
-
 //legend
 
     //点击legend的开关
@@ -1160,13 +1164,6 @@ var graph_ajax = function (data, obj, callback) {
             len = graphdata['y'].length;
         }
         for (var i = 0; i < len; i++) {
-            //循环折线图x轴上的legend
-            //设置图例开关
-            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-            //     legend[i] = graphdata['y'][i]['name'];
-            // } else {
-            //     legend = [];
-            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data'],
@@ -1741,9 +1738,6 @@ var graph_ajax = function (data, obj, callback) {
             len = graphdata['y'].length;
         }
         for (var i = 0; i < len; i++) {
-            //循环折线图x轴上的legend
-            //设置图例开关
-
             series[i] = {
 
                 //引入动画开关
@@ -1930,9 +1924,7 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-
             ii = i % 10
-
             var symbolSize = 10;
             if (ii == 3) {
                 symbolSize = 12
@@ -2701,10 +2693,7 @@ var graph_ajax = function (data, obj, callback) {
         }
         var ii = 0;
         for (var i = 0; i < len; i++) {
-            //循环折线图x轴上的legend
-            //设置图例开关
             ii = i % 10
-
             var symbolSize = 10;
             if (ii == 3) {
                 symbolSize = 12
@@ -2789,7 +2778,7 @@ var graph_ajax = function (data, obj, callback) {
             animation: animation,
             tooltip: {
                 show: tooltip,
-                trigger: 'axis',
+                trigger: 'item',
                 axisPointer: {
                     lineStyle: {
                         color: 'rgba(15,15,15,0)'
@@ -2799,20 +2788,11 @@ var graph_ajax = function (data, obj, callback) {
                 textStyle: {
                     align: 'left'
                 },
-                formatter: function (params) {
-                    // x轴名称
-                    var relVal = params[0].name;
-                    for (var i = 0, l = params.length; i < l; i++) {
-                        relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value + graphdata['unit'];
-                    }
-                    return relVal;
-                }
-                // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
+
+                formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
             legend: legend,
             xAxis: {
-
-
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -2842,11 +2822,8 @@ var graph_ajax = function (data, obj, callback) {
                         width: 1
                     }
                 },
-
-
             },
             yAxis: {
-
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -3841,9 +3818,9 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             if (i == 0) {
-                var type = 'line'
+                var type = 'line';
             } else {
-                var type = 'bar'
+                var type = 'bar';
             }
             series[i] = {
                 type: type,
