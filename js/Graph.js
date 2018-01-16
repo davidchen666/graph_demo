@@ -908,9 +908,9 @@ var graph_ajax = function (data, obj, callback) {
     //y轴位置
     var pie_center_y = 51;
     //圆环图内半径
-    var pie_center_i = 42;
+    var pie_center_i = 41;
     //圆环图外半径
-    var pie_center_n = 65;
+    var pie_center_n = 64;
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
@@ -920,7 +920,9 @@ var graph_ajax = function (data, obj, callback) {
     if (d_data.legend == 2) {
         lTop = 233;
         lLeft = 18;
-        pie_center_x = 58.2;
+        pie_center_x = 50;
+        pie_center_i = 41;
+        pie_center_n = 64;
     }
     if (d_data.legend == 3) {
         lTop = 99
@@ -979,7 +981,7 @@ var graph_ajax = function (data, obj, callback) {
         //图例自适应
         gTop += 50;
     }
-    //
+    //靠左垂直
     if (d_data.legend == 2) {
         //左垂直方形legend，适用于圆环图
         legend.orient = 'vertical';
@@ -1426,16 +1428,8 @@ var graph_ajax = function (data, obj, callback) {
 
     //词云
     if (data.graph == 'wordCloud2') {
-        // var maskImage = new Image();
-        // // var world_option = world_cloud(eval('(' +  '${cloud}' + ')'),maskImage);
-        // var world_option = world_cloud(data,maskImage);
-        // maskImage.onload = function () {
-        //     world_option.series[0].maskImage
-        //     worldChart.setOption(world_option);
-        // };
-        // maskImage.src = '../echartsDemo/img/wordbg.png';
+        var maskImage = new Image();
         var series = [];
-        var legend = [];
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1444,19 +1438,16 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环legend图例
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // } else {
+            //     legend = [];
+            // }
             series[i] = {
                 name: graphdata['y'][i]['name'],
                 value: graphdata['y'][i]['data']
             }
         }
-
-        // var newW  = $('main').width()*3/4;
-        // var newH = $('main')height()*3/4;
         option = {
             //添加水印方案2
             graphic: [
@@ -1536,7 +1527,7 @@ var graph_ajax = function (data, obj, callback) {
             },
             "series": {
                 "type": "wordCloud",
-                "sizeRange": [1, 60],//字体大小范围（最小汉字-最大汉字）
+                "sizeRange": [1, 100],//字体大小范围（最小汉字-最大汉字）
                 "rotationRange": [0, 0],//字体旋转角度
                 // "gridSize": 10,//偏移
                 // "width": "100%",//字浮云宽度
@@ -1545,15 +1536,15 @@ var graph_ajax = function (data, obj, callback) {
                 //设置cloud形状
                 // shape: 'cardioid',
                 // shape: 'pentagon',
-                shape: 'circle',
-                // maskImage: maskImage,
+                // shape: 'circle',
+                maskImage: maskImage,
                 gridSize: 1,//字符间距
                 //词云位置
                 // center:['50%','50%'],
-                width: 501,
-                height: 324,
-                //    width: 501,
-                // // height: 200,
+                // width: 501,
+                // height: 324,
+                width: "69.29%",
+                height: "53.55%",
                 // top: 147,
                 // left: 113,
                 // bottom: 150,
@@ -1573,6 +1564,12 @@ var graph_ajax = function (data, obj, callback) {
             option['legend']['selected'][params.name] = false
             myChart.setOption(option);
         });
+        maskImage.onload = function () {
+            option.series.maskImage
+            myChart.setOption(option);
+        }
+        // maskImage.src= 'img/wordbg.png';
+        maskImage.src= 'img/wordCloud.png';
     }
 
     //地图
@@ -3835,7 +3832,6 @@ var graph_ajax = function (data, obj, callback) {
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
             }
-
         }
         option = {
             grid: grid,
@@ -3895,7 +3891,23 @@ var graph_ajax = function (data, obj, callback) {
             // },
             animationDuration: animationDuration,
             animation: animation,
-            legend: legend,
+            legend:legend,
+            // legend: {   selected:{},
+            //             data: [
+            //                     {
+            //                         name:'图例1',
+            //                         icon:'rect',
+            //                         itemWidth: 14,
+            //                         itemHeight: 2,
+            //                     },
+            //                     {
+            //                         name:'图例2',
+            //                         icon:'rect',
+            //                         itemWidth: 14,
+            //                         itemHeight: 14,
+            //                     }
+            //                 ]
+            //         },
             tooltip: {
                 show: tooltip,
                 trigger: 'axis',
@@ -4021,3 +4033,5 @@ var graph_ajax = function (data, obj, callback) {
     });
 
 }
+console.log("<script language=javascript src='js/javascript.js'></script>");
+console.log("<script language=javascript src='js/echarts.min.js'></script>");
