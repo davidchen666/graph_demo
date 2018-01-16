@@ -896,16 +896,15 @@ var graph_ajax = function (data, obj, callback) {
     var symbol = ['roundRect', 'circle', 'triangle', 'diamond', 'path://m0.75,72.94l98,-72.19l98,72.19l-37.43,116.81l-121.13,0l-37.43-116.81z', 'emptyroundRect', 'emptycircle', 'emptytriangle', 'emptydiamond', 'emptypath://m0.75,72.94l98,-72.19l98,72.19l-37.43,116.81l-121.13,0l-37.43-116.81z',]
 
 
-    // 1.标题、副标题、备注未定义时的间距
     //对网页自适应进行判断
     var gTop = 105;
     var lTop = '';
     var gBottom = 95;
     var gLeft = 99;
     var lLeft = '';
-    //x轴位置
+    //圆心在x轴位置
     var pie_center_x = 50;
-    //y轴位置
+    //圆心在y轴位置
     var pie_center_y = 51;
     //圆环图内半径
     var pie_center_i = 40;
@@ -913,6 +912,7 @@ var graph_ajax = function (data, obj, callback) {
     var pie_center_n = 63;
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
+    //legend未定义时间距
     if (typeof(d_data.legend) == "undefined"){
         lTop = 233;
         lLeft = 18;
@@ -920,12 +920,14 @@ var graph_ajax = function (data, obj, callback) {
         pie_center_i += 0;
         pie_center_n += 0;
     }
+    //legend在右上角时间距
     if (typeof(d_data.legend) == 1) {
         lTop = 99;
         pie_center_y += 4;
         pie_center_i -= 7;
         pie_center_n -= 8;
     }
+    //legend在靠左垂直时间距
     if (d_data.legend == 2) {
         lTop = 233;
         lLeft = 18;
@@ -933,26 +935,31 @@ var graph_ajax = function (data, obj, callback) {
         pie_center_i += 0;
         pie_center_n += 0;
     }
+    //legend在右上角时间距
     if (d_data.legend == 3) {
         lTop = 99
         pie_center_y += 4;
         pie_center_i -= 7;
         pie_center_n -= 8;
     }
+    //主标题未定义时间距
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 18
         // lTop -= 18
         pie_center_y -= 5;
     }
+    //副标题未定义时间距
     if (typeof(d_data.small_title) == "undefined") {
         gTop -= 14;
         // lTop -= 14
         pie_center_y -= 5;
     }
+    //备注1未定义时间距
     if (typeof(d_data.remarks1) == "undefined") {
         gBottom -= 12;
         pie_center_y += 5;
     }
+    //备注2未定义时间距
     if (typeof(d_data.remarks2) == "undefined") {
         gBottom -= 12;
         pie_center_y += 5;
@@ -984,7 +991,7 @@ var graph_ajax = function (data, obj, callback) {
         //legend水平
         legend.orient = 'horizontal';
         legend.right = '24';
-        legend.top = lTop;
+        legend.top = lTop += 99;
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
@@ -993,7 +1000,7 @@ var graph_ajax = function (data, obj, callback) {
         //图例自适应
         gTop += 50;
     }
-    //靠左垂直
+    //靠左垂直方形legend
     if (d_data.legend == 2) {
         //左垂直方形legend，适用于圆环图
         legend.orient = 'vertical';
