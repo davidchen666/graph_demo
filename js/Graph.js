@@ -908,25 +908,36 @@ var graph_ajax = function (data, obj, callback) {
     //y轴位置
     var pie_center_y = 51;
     //圆环图内半径
-    var pie_center_i = 41;
+    var pie_center_i = 40;
     //圆环图外半径
-    var pie_center_n = 64;
+    var pie_center_n = 63;
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
-    if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-        lTop = 99
-        pie_center_y = 59.2;
+    if (typeof(d_data.legend) == "undefined"){
+        lTop = 233;
+        lLeft = 18;
+        pie_center_x += 0;
+        pie_center_i += 0;
+        pie_center_n += 0;
+    }
+    if (typeof(d_data.legend) == 1) {
+        lTop = 99;
+        pie_center_y += 4;
+        pie_center_i -= 7;
+        pie_center_n -= 8;
     }
     if (d_data.legend == 2) {
         lTop = 233;
         lLeft = 18;
-        pie_center_x = 50;
-        pie_center_i = 41;
-        pie_center_n = 64;
+        pie_center_x += 0;
+        pie_center_i += 0;
+        pie_center_n += 0;
     }
     if (d_data.legend == 3) {
         lTop = 99
-        pie_center_y = 59.2;
+        pie_center_y += 4;
+        pie_center_i -= 7;
+        pie_center_n -= 8;
     }
     if (typeof(d_data.big_title) == "undefined") {
         gTop -= 18
@@ -934,16 +945,16 @@ var graph_ajax = function (data, obj, callback) {
         pie_center_y -= 5;
     }
     if (typeof(d_data.small_title) == "undefined") {
-        gTop -= 14
+        gTop -= 14;
         // lTop -= 14
         pie_center_y -= 5;
     }
     if (typeof(d_data.remarks1) == "undefined") {
-        gBottom -= 12
+        gBottom -= 12;
         pie_center_y += 5;
     }
     if (typeof(d_data.remarks2) == "undefined") {
-        gBottom -= 12
+        gBottom -= 12;
         pie_center_y += 5;
     }
 
@@ -966,8 +977,9 @@ var graph_ajax = function (data, obj, callback) {
     }
     //循环折线图x轴上的legend
     //设置图例开关
+    //当legend未定义时，不显示legend
     //右上角圆角矩形legend
-    if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+    if (d_data.legend == 1) {
         //控制图例位置
         //legend水平
         legend.orient = 'horizontal';
@@ -1519,12 +1531,12 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
             },
-            legend: {
-                //legend超出一行时滚动
-                type: "scroll",
-                //图例
-                data: legend
-            },
+            // legend: {
+            //     //legend超出一行时滚动
+            //     type: "scroll",
+            //     //图例
+            //     data: legend
+            // },
             "series": {
                 "type": "wordCloud",
                 "sizeRange": [1, 100],//字体大小范围（最小汉字-最大汉字）
