@@ -1779,6 +1779,8 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data']
             }
         }
+        // grid.top +=10,
+        // grid.left+=20,
         option = {
             //添加水印方案2
             graphic:
@@ -1857,6 +1859,14 @@ var graph_ajax = function (data, obj, callback) {
             series: [{
                 "type": "map",
                 "mapType": "china",
+                // left:90,
+                // right:90,
+                // top:105,
+                // bottom:95,
+                left:"12.44%",
+                right:"12.44%",
+                top:"17%",
+                bottom:"15.4%",
                 label: {
                     normal: {
                         // verticalAlign:'bottom',
@@ -2783,6 +2793,8 @@ var graph_ajax = function (data, obj, callback) {
                 barMaxWidth: 50,
             }
         }
+        grid.left +=5;
+        grid.bottom +=20;
         option = {
             graphic:
                 {
