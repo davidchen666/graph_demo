@@ -898,12 +898,34 @@ var graph_ajax = function (data, obj, callback) {
 
     //对网页自适应进行判断
     //grid
+    //主标题上边距
+    var tTop = '';
+    //主标题下边距
+    var tBottom = '';
+    //主标题和副标题之间间隔
+    var sItemGap = 17;
+    //备注1上边距
+    var r1Top = '';
+    //备注1下边距
+    var r1Bottom = '';
+    //备注2上边距
+    var r2Top = '';
+    //备注2下边距
+    var r2Bottom = '';
+    //下载按钮上边距
+    var fTop = 22;
+    //legend左边距
     var lLeft = '';
+    //legend上边距
     var lTop = '';
     var gBottom = 95;
+    // var gBottom = '17.33%';
     var gLeft = 80;
+    // var gLeft = '11.06%';
     var gTop= 105;
+    // var gTop= '19.09%';
     var gRight = 30;
+    // var gRight = '0.04%';
     //标签和坐标轴的间距
     var xMargin = 12;
     //标签和坐标轴的间距
@@ -918,12 +940,24 @@ var graph_ajax = function (data, obj, callback) {
     var pie_center_n = 63;
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
+
+    // if (typeof(d_data.legend) == "undefined") {
+    //     gTop += 19;
+    //     // lTop = 97;
+    //     lTop = '17.96%';
+    //     gBottom -=40 ;
+    //     gLeft -= 9;
+    //     sItemGap +=0;
+    // }
     //legend(圆角矩形)在右上角时间距
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-        gTop += 19;
-        lTop = 97;
+        gTop += 30;
+        // lTop = 97;
+        lTop = '17.7%';
         gBottom += 12;
-        gLeft -=9;
+        gLeft -= 9;
+        sItemGap +=0;
+
         // gRight +=0;
         // pie_center_y += 4;
         // pie_center_i -= 7;
@@ -931,18 +965,50 @@ var graph_ajax = function (data, obj, callback) {
     }
     //legend在靠左垂直时间距
     if (d_data.legend == 2) {
-        lTop = 233;
-        lLeft = 18;
+        // lTop = 233;
+        // lLeft = 18;
+        lTop = '43.14814814814815%';
+        lLeft = '2.4896265560166%';
     }
     //legend（方形）在右上角时间距
     if (d_data.legend == 3) {
-        lTop = 97;
+        // lTop = 97;
+        lTop = '17.96%';
         gTop += 19;
         gLeft -=9;
         gBottom += 12;
         pie_center_y += 4;
         pie_center_i -= 7;
         pie_center_n -= 8;
+    }
+    //top=105水平方形legend
+    if (d_data.legend == 4) {
+        // lTop = 97;
+        lTop = "24%";
+        lLeft = "17.5%";
+        gTop += 19;
+        gLeft -=9;
+        gBottom += 12;
+    }
+
+
+    //主标题未定义时间距
+    if (typeof(d_data.big_title) == "undefined"){
+        gTop -=19;
+        lTop = '14%';
+        sItemGap -=18;
+    }
+    //副标题未定义时间距
+    if (typeof(d_data.small_title) == "undefined"){
+
+    }
+    //备注1未定义时间距
+    if (typeof(d_data.remarks1) == "undefined"){
+
+    }
+    //备注2未定义时间距
+    if (typeof(d_data.remarks2) == "undefined"){
+
     }
     //主标题/副标题未定义时间距
     if (typeof(d_data.big_title) == "undefined" || d_data.small_title == "undefined"){
@@ -982,9 +1048,9 @@ var graph_ajax = function (data, obj, callback) {
     }
     //主标题未定义/legend在右上角水平位置时间距
     if (typeof(d_data.big_title) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
-        gTop -= 18
-        // lTop -= 18
-        pie_center_y -= 5;
+        gTop -=19;
+        lTop = '14%';
+        sItemGap -=18;
     }
     //主标题未定义/副标题未定义/legend在靠左垂直时间距
     if (typeof(d_data.big_title) == "undefined" || d_data.small_title == "undefined" || d_data.legend == 2) {
@@ -1004,9 +1070,7 @@ var graph_ajax = function (data, obj, callback) {
     }
     //副标题未定义/legend在右上角水平位置时间距
     if (typeof(d_data.small_title) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
-        gTop -= 14;
-        // lTop -= 14
-        pie_center_y -= 5;
+
     }
     //副标题未定义/备注1未定义/legend在靠左垂直位置时间距
     if (typeof(d_data.small_title) == "undefined" || d_data.remarks1 == "undefined" || d_data.legend == 2) {
@@ -1022,8 +1086,7 @@ var graph_ajax = function (data, obj, callback) {
     }
     //备注1未定义/legend在右上角位置时间距
     if (typeof(d_data.remarks1) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
-        gBottom -= 12;
-        pie_center_y += 5;
+
     }
     //备注2未定义/legend在靠左垂直位置时间距
     if (typeof(d_data.remarks2) == "undefined" || d_data.legend == 2) {
@@ -1031,13 +1094,13 @@ var graph_ajax = function (data, obj, callback) {
     }
     //备注2未定义/legend在右上角位置时间距
     if (typeof(d_data.remarks2) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
-        gBottom -= 12;
-        pie_center_y += 5;
+
     }
 
 /////legend
     //2.legend各种情况下的位置和间距
     var legendValue = [];
+    //定义公共legend
     var legend = {
         selected:{},
         // 图例布局设置为垂直（水平/垂直,默认为水平）
@@ -1050,6 +1113,7 @@ var graph_ajax = function (data, obj, callback) {
         itemWidth: 14,
         itemHeight: 14,
         type: 'scroll',
+        // pageButtonGap:55,
     }
     //循环折线图x轴上的legend
     //设置图例开关
@@ -1059,17 +1123,19 @@ var graph_ajax = function (data, obj, callback) {
         //控制图例位置
         //legend水平
         legend.orient = 'horizontal';
-        legend.right = '24';
-        legend.top = lTop;
+        legend.right = 24;
+        // legend.top = lTop = 97;
+        legend.top = lTop = "17.7%";
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
         legend.data = legendValue;
         //图例自适应
-        gTop += 19;
+        gTop += 30;
         gBottom += 12;
         gLeft -=9;
+        sItemGap = 17;
         // gRight +=0;
     }
     //靠左垂直方形legend
@@ -1102,6 +1168,24 @@ var graph_ajax = function (data, obj, callback) {
         gTop += 19;
         gBottom += 12;
         gLeft -=9;
+    }
+    //top=105水平方形legend
+    if (d_data.legend == 4) {
+        //控制图例位置
+        //legend水平
+        legend.orient = 'horizontal';
+        legend.left = lLeft = '17.5%';
+        legend.top = lTop = '24%';
+        legend.icon = "rect";
+        //获取图例数据
+        for (var i = 0; i < graphdata['y'].length; i++) {
+            legendValue[i] = graphdata['y'][i]['name'];
+        }
+        legend.data = legendValue;
+        //图形自适应
+        gTop += 19;
+        gLeft -=9;
+        gBottom += 12;
     }
 //legend
 
@@ -1173,12 +1257,16 @@ var graph_ajax = function (data, obj, callback) {
 
     var remarks1 = ''
     var remarks2 = ''
-    if (typeof(d_data.remarks2) != "undefined") {
+    var small_title = ''
+    if (typeof(d_data.remarks1) != "undefined") {
         remarks1 = graphdata['remarks1']
     }
     if (typeof(d_data.remarks2) != "undefined") {
 
         remarks2 = graphdata['remarks2']
+    }
+    if (typeof(d_data.small_title) != "undefined") {
+        small_title = graphdata['small_title']
     }
 
     //默认显示tooltip
@@ -1189,7 +1277,7 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     // console.log(graphdata);
-    //标题
+    //定义公共标题
     var title = [
         {
             subtextStyle: {
@@ -1197,12 +1285,13 @@ var graph_ajax = function (data, obj, callback) {
                 color: '#999',
                 fontFamily: 'PingFangSC-Regular'
             },
-            left: 23,
+            left: 24,
             top: 21.5,
             //标题内边距,上右下左
             // padding: [20, 0, 0, 40],
             //主标题和副标题之间的间距
-            itemGap: 17,
+            // itemGap: 17,
+            itemGap:sItemGap,
             text: graphdata['big_title'],
             subtext: graphdata['small_title'],
             fontSize: 18,
@@ -1230,7 +1319,7 @@ var graph_ajax = function (data, obj, callback) {
         itemSize: 14,
         feature:feature,
         right: 22,
-        top: 22
+        top: fTop
     }
     // grid.top += 14;
     // legend.top += 14;
@@ -1600,6 +1689,7 @@ var graph_ajax = function (data, obj, callback) {
                 }
             ],
             toolbox: toolbox,
+            legend:legend,
             grid: grid,
             title: title,
             animation: animation,
@@ -2204,7 +2294,7 @@ var graph_ajax = function (data, obj, callback) {
 
     //条形图
     if (data.graph == 'bar-x-category') {
-        // console.log(graphdata)
+    // console.log(graphdata)
         var series = [];
         // var legend = [];
         var len = []
@@ -2223,12 +2313,14 @@ var graph_ajax = function (data, obj, callback) {
                 console.log(graphdata['y'][i]['data'][l])
             }
             series[i] = {
-                barWidth: 24,
+                // barWidth: 24,
+                barMaxWidth:50,
                 barGap: '2.8%',
                 //柱子宽度
                 //barWidth: 24,
                 //柱子间距
                 //barCategoryGap: 15,
+                barCategoryGap: 13,
                 name: graphdata['y'][i]['name'],
                 data: graphdata['y'][i]['data'],
                 type: "bar",
@@ -2249,6 +2341,8 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
+        grid.left +=67,
+        grid.top  -=46,
         option = {
             grid: grid,
             //     {
@@ -2299,6 +2393,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
             title: title,
+            // legend:legend,
             toolbox: toolbox,
             animationDuration: animationDuration,
             animation: animation,
@@ -2363,7 +2458,7 @@ var graph_ajax = function (data, obj, callback) {
     //百分比堆叠条形图
     if (data.graph == 'bar-x-category-stack') {
         // console.log(data)
-        grid.gleft -= 0
+
         var series = [];
         // var legend = [];
         var len = []
@@ -2397,13 +2492,15 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 //柱子宽度
-                //barWidth: 40,
+                // barWidth: 40,
                 // barMaxWidth:40,
                 //柱子间距
                 // barCategoryGap:17,
-                // barCategoryGap: '30%'
+                // barCategoryGap: "30%"
             }
         }
+        grid.left += 35,
+        grid.top  +=15,
         option = {
             // //柱子宽度
             // barWidth: 40,
@@ -2451,6 +2548,7 @@ var graph_ajax = function (data, obj, callback) {
             toolbox: toolbox,
             grid: grid,
             title: title,
+            legend:legend,
             animationDuration: animationDuration,
             animation: animation,
             tooltip: {
@@ -2498,6 +2596,8 @@ var graph_ajax = function (data, obj, callback) {
                 "splitLine": {"show": false},
                 axisLabel: {
                     show: true,
+                    //标签距离轴的位置
+                    margin:yMargin,
                     textStyle: {
                         //轴字体颜色
                         color: '#333',
@@ -3048,12 +3148,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 formatter: "{a} <br/>{b} : {c}" + graphdata['unit']
             },
-            legend: {
-                //legend超出一行时滚动
-                type: "scroll",
-                //图例
-                data: legend
-            },
+            legend:legend,
             "series": [{
                 "name": "推荐净值",
                 type: 'gauge',
@@ -3275,10 +3370,13 @@ var graph_ajax = function (data, obj, callback) {
     //条形象形图
     if (data.graph == 'pictorialline') {
         //控制象形图上、左边距
-        grid.left -= 0,
-            grid.top -= 0,
-            grid.right -= 0,
-            grid.bottom -= 0,
+            grid.top -=10,
+            grid.bottom = gBottom -=35,
+            grid.left += 105,
+        //     grid.left = 105,
+        //     grid.top = 95,
+            grid.height = 160,
+            grid.width = 460,
 
             option = {
                 //添加水印方案2
@@ -3348,15 +3446,12 @@ var graph_ajax = function (data, obj, callback) {
                     }
                     // formatter: '{a} <br/>{b} : {c}' + graphdata['unit']
                 },
-                legend: {
-                    //legend超出一行时滚动
-                    type: "scroll",
-                    //图例
-                    data: legend
-                },
+                // legend:legend,
                 "yAxis": {
                     "axisLabel": {
                         show: true,
+                        //标签距离轴的位置
+                        margin:yMargin,
                         textStyle: {
                             //轴字体颜色
                             color: '#333',
@@ -3743,6 +3838,7 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
+        grid.left -=15;
         option = {
             grid: grid,
             //     {

@@ -243,6 +243,7 @@ switch ($type) {
         $post = '{
                         "feature":1,
                          "tooltip":1,
+                         "legend":4,
                          "selectedMode":1,
                          "x":
                              {"data":["类目名称","类目名称","类目名称"]},
