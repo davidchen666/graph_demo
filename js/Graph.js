@@ -897,11 +897,17 @@ var graph_ajax = function (data, obj, callback) {
 
 
     //对网页自适应进行判断
-    var gTop = 105;
+    //grid
+    var lLeft = '';
     var lTop = '';
     var gBottom = 95;
-    var gLeft = 99;
-    var lLeft = '';
+    var gLeft = 80;
+    var gTop= 105;
+    var gRight = 30;
+    //标签和坐标轴的间距
+    var xMargin = 12;
+    //标签和坐标轴的间距
+    var yMargin = 12;
     //圆心在x轴位置
     var pie_center_x = 50;
     //圆心在y轴位置
@@ -913,19 +919,26 @@ var graph_ajax = function (data, obj, callback) {
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
     //legend未定义时间距
-    if (typeof(d_data.legend) == "undefined"){
-        lTop = 233;
-        lLeft = 18;
+    // if (typeof(d_data.legend) == "undefined"){
+    //     lTop = 233;
+    //     lLeft = 18;
+    //     pie_center_x += 0;
+    //     pie_center_i += 0;
+    //     pie_center_n += 0;
+    // }
+    //legend(圆角矩形)在右上角时间距
+    if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+        gTop += 19;
+        lTop = 97;
+        gBottom += 12;
+        gLeft -=8;
+        // gRight +=0;
+        // pie_center_y += 4;
+        // pie_center_i -= 7;
+        // pie_center_n -= 8;
         pie_center_x += 0;
         pie_center_i += 0;
         pie_center_n += 0;
-    }
-    //legend(圆角矩形)在右上角时间距
-    if (d_data.legend == 1) {
-        lTop = 99;
-        pie_center_y += 4;
-        pie_center_i -= 7;
-        pie_center_n -= 8;
     }
     //legend在靠左垂直时间距
     if (d_data.legend == 2) {
@@ -937,7 +950,10 @@ var graph_ajax = function (data, obj, callback) {
     }
     //legend（方形）在右上角时间距
     if (d_data.legend == 3) {
-        lTop = 99;
+        lTop = 97;
+        gTop += 19;
+        gLeft -=0;
+        gBottom += 12;
         pie_center_y += 4;
         pie_center_i -= 7;
         pie_center_n -= 8;
@@ -986,7 +1002,7 @@ var graph_ajax = function (data, obj, callback) {
     //设置图例开关
     //当legend未定义时，不显示legend
     //右上角圆角矩形legend
-    if (d_data.legend == 1) {
+    if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         //控制图例位置
         //legend水平
         legend.orient = 'horizontal';
@@ -998,7 +1014,10 @@ var graph_ajax = function (data, obj, callback) {
         }
         legend.data = legendValue;
         //图例自适应
-        gTop += 50;
+        gTop += 19;
+        gBottom += 12;
+        gLeft -=8;
+        // gRight +=0;
     }
     //靠左垂直方形legend
     if (d_data.legend == 2) {
@@ -1026,8 +1045,10 @@ var graph_ajax = function (data, obj, callback) {
             legendValue[i] = graphdata['y'][i]['name'];
         }
         legend.data = legendValue;
-        //图例自适应
-        gTop += 50;
+        //图形自适应
+        gTop += 19;
+        gBottom += 12;
+        gLeft -=0;
     }
 //legend
 
@@ -1164,7 +1185,7 @@ var graph_ajax = function (data, obj, callback) {
     //定义公共grid
     var grid = {
         top: gTop,
-        right: 91,
+        right: gRight,
         bottom: gBottom,
         left: gLeft,
         // bottom: gBottom + '%',
@@ -1748,7 +1769,6 @@ var graph_ajax = function (data, obj, callback) {
         legend['itemWidth'] = 14
         legend['itemHeight'] = 2
 
-
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1756,7 +1776,6 @@ var graph_ajax = function (data, obj, callback) {
         }
         for (var i = 0; i < len; i++) {
             series[i] = {
-
                 //引入动画开关
                 animation: animation,
                 //关闭这线上的圆点
@@ -1808,6 +1827,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
 
+
             toolbox: toolbox,
             animationDuration: animationDuration,
             grid: grid,
@@ -1837,8 +1857,6 @@ var graph_ajax = function (data, obj, callback) {
                 // name: 'x',
                 // //设置坐标轴类型，此处为类目轴
                 // type: 'category',
-
-
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -1855,6 +1873,7 @@ var graph_ajax = function (data, obj, callback) {
                     interval: '0'
                 },
                 axisLabel: {
+                    margin:xMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -1877,7 +1896,6 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 type: 'category',
-
                 data: graphdata['x']['data']
             },
             yAxis: {
@@ -1898,6 +1916,8 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLabel: {
+                    //标签距离轴的位置
+                    margin:yMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -1905,7 +1925,6 @@ var graph_ajax = function (data, obj, callback) {
                         fontSize: 14,
                     },
                 },
-                //
                 splitLine: {
                     show: true,
                     lineStyle: {
@@ -2041,8 +2060,6 @@ var graph_ajax = function (data, obj, callback) {
             },
             legend: legend,
             xAxis: {
-
-
                 axisLine: {
                     lineStyle: {
                         //轴线颜色
@@ -2060,6 +2077,7 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 axisLabel: {
                     textStyle: {
+                        margin:xMargin,
                         color: '#333',
                         fontSize: 14,
                     }
@@ -2079,7 +2097,6 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 splitLine: {show: false},
                 type: 'category',
-
                 data: graphdata['x']['data']
             },
             yAxis: {
@@ -2100,6 +2117,7 @@ var graph_ajax = function (data, obj, callback) {
                     }
                 },
                 axisLabel: {
+                    margin:xMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -2261,6 +2279,8 @@ var graph_ajax = function (data, obj, callback) {
                 "type": "category",
                 "data": graphdata['x']['data'],
                 "axisLabel": {
+                    //标签距离轴的位置
+                    margin:yMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -3560,6 +3580,8 @@ var graph_ajax = function (data, obj, callback) {
                     show: false
                 },
                 axisLabel: {
+                    //标签距离轴的位置
+                    margin:yMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -3762,6 +3784,8 @@ var graph_ajax = function (data, obj, callback) {
                     show: false
                 },
                 axisLabel: {
+                    //标签距离轴的位置
+                    margin:yMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -3778,7 +3802,6 @@ var graph_ajax = function (data, obj, callback) {
                         opacity: splitAreaOpacity
                     }
                 },
-                splitLine: {show: false},
                 // "data": graphdata['x']['data'],
                 "data": xaxisdata,
                 type: 'category'
@@ -3827,7 +3850,10 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'line-bar') {
         // console.log(graphdata)
         var series = [];
-        // var legend = [];
+        legend['icon'] = "rect"
+        legend['itemGap'] = 10
+        legend['itemWidth'] = 14
+        legend['itemHeight'] = 2
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -3976,6 +4002,7 @@ var graph_ajax = function (data, obj, callback) {
                     show: false
                 },
                 axisLabel: {
+                    margin:xMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
@@ -4015,6 +4042,7 @@ var graph_ajax = function (data, obj, callback) {
                     show: false
                 },
                 axisLabel: {
+                    margin:yMargin,
                     show: true,
                     textStyle: {
                         //轴字体颜色
