@@ -920,8 +920,8 @@ var graph_ajax = function (data, obj, callback) {
         pie_center_i += 0;
         pie_center_n += 0;
     }
-    //legend在右上角时间距
-    if (typeof(d_data.legend) == 1) {
+    //legend(圆角矩形)在右上角时间距
+    if (d_data.legend == 1) {
         lTop = 99;
         pie_center_y += 4;
         pie_center_i -= 7;
@@ -935,9 +935,9 @@ var graph_ajax = function (data, obj, callback) {
         pie_center_i += 0;
         pie_center_n += 0;
     }
-    //legend在右上角时间距
+    //legend（方形）在右上角时间距
     if (d_data.legend == 3) {
-        lTop = 99
+        lTop = 99;
         pie_center_y += 4;
         pie_center_i -= 7;
         pie_center_n -= 8;
@@ -991,7 +991,7 @@ var graph_ajax = function (data, obj, callback) {
         //legend水平
         legend.orient = 'horizontal';
         legend.right = '24';
-        legend.top = lTop += 99;
+        legend.top = lTop;
         //获取图例数据
         for (var i = 0; i < graphdata['y'].length; i++) {
             legendValue[i] = graphdata['y'][i]['name'];
@@ -1115,6 +1115,7 @@ var graph_ajax = function (data, obj, callback) {
     }
 
     // console.log(graphdata);
+    //标题
     var title = [
         {
             subtextStyle: {
@@ -1137,9 +1138,9 @@ var graph_ajax = function (data, obj, callback) {
             subtext: remarks1 + '\n\n' + remarks2,
             left: 25,
             bottom: 24,
-            fontFamily: 'PingFangSC-Regular',
+            fontFamily: 'PingFangSC-Medium',
             itemGap: 5,
-            fontSize: 12
+            fontSize: 12,
         }
 
     ]
