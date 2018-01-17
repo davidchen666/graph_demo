@@ -928,17 +928,11 @@ var graph_ajax = function (data, obj, callback) {
         // pie_center_y += 4;
         // pie_center_i -= 7;
         // pie_center_n -= 8;
-        pie_center_x += 0;
-        pie_center_i += 0;
-        pie_center_n += 0;
     }
     //legend在靠左垂直时间距
     if (d_data.legend == 2) {
         lTop = 233;
         lLeft = 18;
-        pie_center_x += 0;
-        pie_center_i += 0;
-        pie_center_n += 0;
     }
     //legend（方形）在右上角时间距
     if (d_data.legend == 3) {
@@ -950,32 +944,99 @@ var graph_ajax = function (data, obj, callback) {
         pie_center_i -= 7;
         pie_center_n -= 8;
     }
-    //主标题未定义时间距
-    if (typeof(d_data.big_title) == "undefined") {
+    //主标题/副标题未定义时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.small_title == "undefined"){
+
+    }
+    //主标题未定义/副标题未定义/备注1未定义时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.small_title == "undefined" || d_data.remarks1 == "undefined"){
+
+    }
+    //主标题未定义/副标题未定义/备注2未定义时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.small_title == "undefined" || d_data.remarks2 == "undefined"){
+
+    }
+    //主标题未定义/备注1未定义/备注2未定义时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.remarks1 == "undefined" || d_data.remarks2 == "undefined"){
+
+    }
+    //主标题未定义/备注1未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.remarks1 == "undefined" || d_data.legend == 2) {
+
+    }
+    //主标题未定义/备注2未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.remarks2 == "undefined" || d_data.legend == 2) {
+
+    }
+    //主标题未定义/备注1未定义时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.remarks1 == "undefined"){
+
+    }
+    //主标题未定义/备注2未定义时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.remarks2 == "undefined"){
+
+    }
+    //主标题未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.legend == 2) {
+
+    }
+    //主标题未定义/legend在右上角水平位置时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
         gTop -= 18
         // lTop -= 18
         pie_center_y -= 5;
     }
-    //副标题未定义时间距
-    if (typeof(d_data.small_title) == "undefined") {
+    //主标题未定义/副标题未定义/legend在靠左垂直时间距
+    if (typeof(d_data.big_title) == "undefined" || d_data.small_title == "undefined" || d_data.legend == 2) {
+
+    }
+    //副标题/备注1未定义时间距
+    if (typeof(d_data.small_title) == "undefined" || d_data.remarks1 == "undefined"){
+
+    }
+    //副标题/备注2未定义时间距
+    if (typeof(d_data.small_title) == "undefined" || d_data.remarks2 == "undefined"){
+
+    }
+    //副标题未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.small_title) == "undefined" || d_data.legend == 2) {
+
+    }
+    //副标题未定义/legend在右上角水平位置时间距
+    if (typeof(d_data.small_title) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
         gTop -= 14;
         // lTop -= 14
         pie_center_y -= 5;
     }
-    //备注1未定义时间距
-    if (typeof(d_data.remarks1) == "undefined") {
+    //副标题未定义/备注1未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.small_title) == "undefined" || d_data.remarks1 == "undefined" || d_data.legend == 2) {
+
+    }
+    //副标题未定义/备注2未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.small_title) == "undefined" || d_data.remarks2 == "undefined" || d_data.legend == 2) {
+
+    }
+    //备注1未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.remarks1) == "undefined" || d_data.legend == 2) {
+
+    }
+    //备注1未定义/legend在右上角位置时间距
+    if (typeof(d_data.remarks1) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
         gBottom -= 12;
         pie_center_y += 5;
     }
-    //备注2未定义时间距
-    if (typeof(d_data.remarks2) == "undefined") {
+    //备注2未定义/legend在靠左垂直位置时间距
+    if (typeof(d_data.remarks2) == "undefined" || d_data.legend == 2) {
+
+    }
+    //备注2未定义/legend在右上角位置时间距
+    if (typeof(d_data.remarks2) == "undefined" || d_data.legend == "undefined" || d_data.legend == 1 || d_data.legend == 3) {
         gBottom -= 12;
         pie_center_y += 5;
     }
 
 /////legend
     //2.legend各种情况下的位置和间距
-
     var legendValue = [];
     var legend = {
         selected:{},
