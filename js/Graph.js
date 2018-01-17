@@ -918,20 +918,12 @@ var graph_ajax = function (data, obj, callback) {
     var pie_center_n = 63;
     //x轴位置legend占比1.9%，y轴legend占比2.59%
     //legend在内半径占比12.72%,legend在外半径占比8.23%
-    //legend未定义时间距
-    // if (typeof(d_data.legend) == "undefined"){
-    //     lTop = 233;
-    //     lLeft = 18;
-    //     pie_center_x += 0;
-    //     pie_center_i += 0;
-    //     pie_center_n += 0;
-    // }
     //legend(圆角矩形)在右上角时间距
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         gTop += 19;
         lTop = 97;
         gBottom += 12;
-        gLeft -=8;
+        gLeft -=9;
         // gRight +=0;
         // pie_center_y += 4;
         // pie_center_i -= 7;
@@ -952,7 +944,7 @@ var graph_ajax = function (data, obj, callback) {
     if (d_data.legend == 3) {
         lTop = 97;
         gTop += 19;
-        gLeft -=0;
+        gLeft -=9;
         gBottom += 12;
         pie_center_y += 4;
         pie_center_i -= 7;
@@ -1016,7 +1008,7 @@ var graph_ajax = function (data, obj, callback) {
         //图例自适应
         gTop += 19;
         gBottom += 12;
-        gLeft -=8;
+        gLeft -=9;
         // gRight +=0;
     }
     //靠左垂直方形legend
@@ -1048,7 +1040,7 @@ var graph_ajax = function (data, obj, callback) {
         //图形自适应
         gTop += 19;
         gBottom += 12;
-        gLeft -=0;
+        gLeft -=9;
     }
 //legend
 
