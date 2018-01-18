@@ -2543,8 +2543,10 @@ var graph_ajax = function (data, obj, callback) {
                 // barCategoryGap: "30%"
             }
         }
-        grid.left += 35,
+        grid.left -=31,
         grid.top  +=15,
+        grid.bottom-=52,
+
         option = {
             // //柱子宽度
             // barWidth: 40,
@@ -2821,6 +2823,7 @@ var graph_ajax = function (data, obj, callback) {
                 data: datav,
                 type: "bar",
                 stack: "总量",
+                barMaxWidth:50,
                 label: {
                     normal: {
                         show: true,
@@ -3889,7 +3892,7 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
-        grid.left -=110;
+        grid.left -=111;
         grid.right -=26;
         grid.bottom -=28;
         // grid.top -=50;
