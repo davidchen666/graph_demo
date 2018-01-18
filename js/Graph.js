@@ -903,7 +903,7 @@ var graph_ajax = function (data, obj, callback) {
     //主标题下边距
     var tBottom = '';
     //主标题和副标题之间间隔
-    var sItemGap = 17;
+    var sItemGap = 16;
     //备注1上边距
     var r1Top = '';
     //备注1下边距
@@ -3891,8 +3891,9 @@ var graph_ajax = function (data, obj, callback) {
         }
         grid.left -=110;
         grid.right -=26;
-        grid.bottom -=26;
-        grid.top -=50;
+        grid.bottom -=28;
+        // grid.top -=50;
+        grid.top = "20.5%";
         option = {
             grid: grid,
             //     {
