@@ -1631,7 +1631,7 @@ var graph_ajax = function (data, obj, callback) {
     //     };
     // }
 
-    //词云
+    //词云2
     if (data.graph == 'wordCloud2') {
         var maskImage = new Image();
         var series = [];
@@ -1653,6 +1653,8 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data']
             }
         }
+        grid.top -=30;
+        grid.bottom -=60;
         option = {
             //添加水印方案2
             graphic: [
@@ -1781,7 +1783,7 @@ var graph_ajax = function (data, obj, callback) {
     //地图
     if (data.graph == 'map') {
         var series = [];
-        var legend = [];
+        // var legend = [];
         var len = [];
         var datamax = [];
         // var maxHeight = '';
@@ -1795,11 +1797,11 @@ var graph_ajax = function (data, obj, callback) {
         for (var i = 0; i < len; i++) {
             //循环折线图x轴上的legend
             //设置图例开关
-            if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
-                legend[i] = graphdata['y'][i]['name'];
-            } else {
-                legend = [];
-            }
+            // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+            //     legend[i] = graphdata['y'][i]['name'];
+            // } else {
+            //     legend = [];
+            // }
             datamax[i] = graphdata['y'][i]['data'];
             series[i] = {
                 name: graphdata['y'][i]['name'],
@@ -2974,6 +2976,8 @@ var graph_ajax = function (data, obj, callback) {
                 }
 
         }
+        grid.left -=40,
+        grid.bottom -=25,
         option = {
             graphic:
                 {
