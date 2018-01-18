@@ -1951,7 +1951,7 @@ var graph_ajax = function (data, obj, callback) {
         legend['itemGap'] = 10
         legend['itemWidth'] = 14
         legend['itemHeight'] = 2
-        grid.left -=40
+        grid.left -=32
         grid.top -=2
         grid.bottom -=25
         var len = []
@@ -2179,7 +2179,7 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
-        grid.left -=32
+        grid.left -=33
         grid.top -=2
         grid.bottom -=25
         option = {
@@ -2387,8 +2387,10 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
-        grid.left +=67,
+        grid.left -=34,
         grid.top  -=46,
+        grid.bottom -=50,
+        grid.right -=39,
         option = {
             grid: grid,
             //     {
@@ -2545,8 +2547,8 @@ var graph_ajax = function (data, obj, callback) {
                 // barCategoryGap: "30%"
             }
         }
-        grid.left -=31,
-        grid.top  +=15,
+        grid.left -=32,
+        grid.top  +=0,
         grid.bottom-=52,
 
         option = {
@@ -2836,8 +2838,9 @@ var graph_ajax = function (data, obj, callback) {
             }
         }
 
-        grid.left +=5;
-        grid.bottom +=20;
+        grid.left -=34;
+        grid.right -=26;
+        grid.bottom +=1;
         option = {
             graphic:
                 {
@@ -3432,6 +3435,7 @@ var graph_ajax = function (data, obj, callback) {
             // grid.bottom = gBottom -=35,
             // grid.left += 35,
             grid.left = 92,
+            // grid.left -= 35
             grid.top = 95,
             grid.height = 199,
             grid.width = 539,
@@ -3900,7 +3904,7 @@ var graph_ajax = function (data, obj, callback) {
         }
         grid.left -=111;
         grid.right -=26;
-        grid.bottom -=28;
+        grid.bottom -=26;
         // grid.top -=50;
         grid.top = "20.5%";
         option = {
@@ -4107,7 +4111,7 @@ var graph_ajax = function (data, obj, callback) {
                 data: graphdata['y'][i]['data'],
             }
         }
-        grid.left -=28
+        grid.left -=32
         // grid.top -=2
         // grid.bottom ="21.27272727272727%"
         grid.bottom +=12
