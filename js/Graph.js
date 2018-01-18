@@ -949,12 +949,31 @@ var graph_ajax = function (data, obj, callback) {
     //     gLeft -= 9;
     //     sItemGap +=0;
     // }
+
+    // if (typeof(d_data.legend) == "undefined" || d_data.legend == 1 || data.graph == 'pie' || data.graph == 'bar-y-stack') {
+    //     $('#' + obj).height($('#' + obj).height() + 8)
+    //     gTop += 30;
+    //     // lTop = 97;
+    //     lTop = '17.7%';
+    //     gBottom += 12;
+    //     gLeft -= 9;
+    //     sItemGap +=0;
+    //
+    //     // gRight +=0;
+    //     // pie_center_y += 4;
+    //     // pie_center_i -= 7;
+    //     // pie_center_n -= 8;
+    // }
+
+
+
+
     //legend(圆角矩形)在右上角时间距
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
         // $('#' + obj).height($('#' + obj).height() + 8)
         gTop += 30;
-        // lTop = 97;
-        lTop = '17.7%';
+        lTop = 97;
+        // lTop = '17.7%';
         gBottom += 12;
         gLeft -= 9;
         sItemGap +=0;
@@ -1461,7 +1480,9 @@ var graph_ajax = function (data, obj, callback) {
                         //带单位
                         // formatter: '{d}' + graphdata['unit1']
                         //不带单位
-                        formatter: '{d}'
+                        formatter: '{d}',
+                        width:17,
+                        height:14,
                     },
 
                 },
@@ -1762,7 +1783,12 @@ var graph_ajax = function (data, obj, callback) {
         var series = [];
         var legend = [];
         var len = [];
-        var datamax = []
+        var datamax = [];
+        // var maxHeight = '';
+        // var maxWidth = '';
+        // var Height = 417;
+        // var Width = 1.294964028776978*Height;
+        // console.log(Width);
         if (typeof(graphdata['y'].length) != "undefined") {
             len = graphdata['y'].length;
         }
@@ -1780,6 +1806,8 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data']
             }
         }
+        // grid.left +=10;
+        // grid.right +=60;
         option = {
             //添加水印方案2
             graphic:
@@ -1849,7 +1877,7 @@ var graph_ajax = function (data, obj, callback) {
                     ]
                 },
                 bottom: 92,
-                left: 28,
+                left: 25,
                 itemWidth: 20,
                 itemHeight: 140,
                 textGap: 10,
@@ -1862,10 +1890,10 @@ var graph_ajax = function (data, obj, callback) {
                 // right:90,
                 // top:105,
                 // bottom:95,
-                left:"12.44%",
-                right:"12.44%",
-                top:"17%",
-                bottom:"15.4%",
+                // left:"12.44%",
+                // right:"12.44%",
+                // top:"17%",
+                // bottom:"15.4%",
                 label: {
                     normal: {
                         // verticalAlign:'bottom',
@@ -1921,7 +1949,9 @@ var graph_ajax = function (data, obj, callback) {
         legend['itemGap'] = 10
         legend['itemWidth'] = 14
         legend['itemHeight'] = 2
-
+        grid.left -=28
+        grid.top -=2
+        grid.bottom -=25
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
@@ -1938,6 +1968,7 @@ var graph_ajax = function (data, obj, callback) {
                 data: graphdata['y'][i]['data'],
             }
         }
+
         option = {
             //添加水印方案2
             graphic:
@@ -2146,6 +2177,9 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
+        grid.left -=28
+        grid.top -=2
+        grid.bottom -=25
         option = {
             //添加水印方案2
             graphic:
@@ -3855,7 +3889,10 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
-        grid.left -=15;
+        grid.left -=110;
+        grid.right -=26;
+        grid.bottom -=26;
+        grid.top -=50;
         option = {
             grid: grid,
             //     {
@@ -4060,6 +4097,11 @@ var graph_ajax = function (data, obj, callback) {
                 data: graphdata['y'][i]['data'],
             }
         }
+        grid.left -=28
+        // grid.top -=2
+        // grid.bottom ="21.27272727272727%"
+        grid.bottom +=12
+        grid.height = "56.36363636363636%"
         option = {
             grid: grid,
             //添加水印方案2

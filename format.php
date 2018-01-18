@@ -607,7 +607,7 @@ switch ($type) {
                          "remarks2":"数据来源：B12",
                          "unit":"人",
                          "width":723,
-                         "height":548
+                         "height":550
                 }';
         break;
 //        百分比堆叠柱状图
