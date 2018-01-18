@@ -1951,7 +1951,7 @@ var graph_ajax = function (data, obj, callback) {
         legend['itemGap'] = 10
         legend['itemWidth'] = 14
         legend['itemHeight'] = 2
-        grid.left -=28
+        grid.left -=40
         grid.top -=2
         grid.bottom -=25
         var len = []
@@ -2179,7 +2179,7 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
-        grid.left -=28
+        grid.left -=32
         grid.top -=2
         grid.bottom -=25
         option = {
@@ -3676,6 +3676,8 @@ var graph_ajax = function (data, obj, callback) {
             }
 
         }
+        grid.left -=40,
+        grid.bottom -=24,
         option = {
             grid:grid,
             //     {
