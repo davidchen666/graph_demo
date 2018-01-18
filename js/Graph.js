@@ -951,6 +951,7 @@ var graph_ajax = function (data, obj, callback) {
     // }
     //legend(圆角矩形)在右上角时间距
     if (typeof(d_data.legend) == "undefined" || d_data.legend == 1) {
+        // $('#' + obj).height($('#' + obj).height() + 8)
         gTop += 30;
         // lTop = 97;
         lTop = '17.7%';
@@ -3385,13 +3386,13 @@ var graph_ajax = function (data, obj, callback) {
     //条形象形图
     if (data.graph == 'pictorialline') {
         //控制象形图上、左边距
-            grid.top -=10,
-            grid.bottom = gBottom -=35,
-            grid.left += 105,
-        //     grid.left = 105,
-        //     grid.top = 95,
+        //     grid.top -=63,
+            // grid.bottom = gBottom -=35,
+            // grid.left += 35,
+            grid.left = 92,
+            grid.top = 102,
             grid.height = 160,
-            grid.width = 460,
+            grid.width = 550,
 
             option = {
                 //添加水印方案2
@@ -4018,6 +4019,21 @@ var graph_ajax = function (data, obj, callback) {
         legend['itemGap'] = 10
         legend['itemWidth'] = 14
         legend['itemHeight'] = 2
+        // legend = {
+        //             itemGap :10,
+        //             itemWidth :14,
+        //             itemHeight :2,
+        //             data:[
+        //                 {
+        //                     "name":"",
+        //                     "icon":"rect",
+        //                 },
+        //                 {
+        //                     "name":"",
+        //                     "icon":"rect",
+        //                 },
+        //                 ]
+        //         }
         var len = []
         // 第二种方案：使用循环将series循环输出
         if (typeof(graphdata['y'].length) != "undefined") {
