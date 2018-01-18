@@ -3097,7 +3097,7 @@ var graph_ajax = function (data, obj, callback) {
             },
             left: 'center',
             // top: 368,
-            top: $('#' + obj).height() * (pie_center_y / 100) + 92,
+            top: $('#' + obj).height() * (pie_center_y / 100) + 152,
             //标题内边距,上右下左
             padding: [5, 0, 0, 0],
             //主标题和副标题之间的间距
@@ -3174,10 +3174,10 @@ var graph_ajax = function (data, obj, callback) {
                 // right: 130,
                 // bottom:208,
                 // left: 132,
-                center: [pie_center_x + '%', pie_center_y + '%'],
+                center: [pie_center_x + '%', pie_center_y +10.5+ '%'],
                 //仪表盘半径
-                radius: pie_center_n + 15 + '%',
-                //这个会影响tooltip显示
+                radius: pie_center_n + 22 + '%',
+                //这个会影响tooltip是否显示
                 silent: false,
                 // wukong!
                 "axisLine": {
@@ -3240,7 +3240,8 @@ var graph_ajax = function (data, obj, callback) {
                 },
                 //字体间距
                 "splitNumber": 4,
-                "pointer": {"width": 12, "length": "47%", "color": "#000"},
+                //指针相关设置
+                "pointer": {"width": 12, "length": "46%", "color": "#000"},
                 // "itemStyle": {"normal": {"color": echartsTheme.visualMapColor[0]}},  //指针颜色
                 title: {fontFamily: 'PingFangSC-Medium'}
             }],
@@ -3390,9 +3391,9 @@ var graph_ajax = function (data, obj, callback) {
             // grid.bottom = gBottom -=35,
             // grid.left += 35,
             grid.left = 92,
-            grid.top = 102,
-            grid.height = 160,
-            grid.width = 550,
+            grid.top = 95,
+            grid.height = 199,
+            grid.width = 539,
 
             option = {
                 //添加水印方案2
