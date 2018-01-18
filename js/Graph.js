@@ -1332,7 +1332,7 @@ var graph_ajax = function (data, obj, callback) {
         left: gLeft,
         // bottom: gBottom + '%',
         // top: gTop + '%',
-        containLabel: false
+        containLabel: true,
     };
     // title=[{"name":"推荐净值(NPS)"},{"name":"备注"}];title.push({"name":"组名"}) ;title
 
@@ -1779,8 +1779,6 @@ var graph_ajax = function (data, obj, callback) {
                 value: graphdata['y'][i]['data']
             }
         }
-        // grid.top +=10,
-        // grid.left+=20,
         option = {
             //添加水印方案2
             graphic:
@@ -1890,6 +1888,7 @@ var graph_ajax = function (data, obj, callback) {
                         fontSize: 12,
                         color: echartsTheme.visualMapColor[0],
                     }
+
                 },
                 itemStyle: {
                     normal: {
@@ -2750,6 +2749,9 @@ var graph_ajax = function (data, obj, callback) {
     if (data.graph == 'bar-y-stack') {
         // console.log(data)
         var series = [];
+        legend['top'] =186
+        legend['left']=22
+        legend['itemGap'] =13
         var len = []
         var lenv = []
         // 第二种方案：使用循环将series循环输出
@@ -2793,6 +2795,7 @@ var graph_ajax = function (data, obj, callback) {
                 barMaxWidth: 50,
             }
         }
+
         grid.left +=5;
         grid.bottom +=20;
         option = {
