@@ -215,7 +215,7 @@ hr {
     -o-transition: width 1s;
 }
 .main {
-    height: 80%;
+    height: 100%;
     /*width: 778px !important;*/
     overflow: hidden;
     padding : 10px;

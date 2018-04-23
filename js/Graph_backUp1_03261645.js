@@ -1,7 +1,4 @@
-//version 20180418-1853
 (function (window) {
-    var baseUrl = 'http://106.14.248.228/graph_demo';//develop环境
-    // var baseUrl = '/echarts';//test环境
     var colorRgb = function (sColor, Opacity) {
         var sColorChange = [];
         for (var i = 1; i < 7; i += 2) {
@@ -294,10 +291,8 @@
             "borderColor": "#ccc",
             "borderWidth": 0,
             "visualMapColor": [
-                // "#732fc3",
-                // "#c0b7ff"
                 "#732fc3",
-                "#eeeeee"
+                "#c0b7ff"
             ],
             "dataZoomColor": ["#732FC3", ],
             "legendTextColor": "#333",
@@ -814,179 +809,14 @@
         }
     }
 
-    //############ begin 文字换行 相关处理函数 #############
-    //判断是否是中文，以及中文字符，中文返回数组，否则返回null
-    var ischinese = function(_str){
-        // return _str.match(/[\u4e00-\u9fa5]/g);
-        return _str.match(/[\u4E00-\u9FA5\uF900-\uFA2D\uFF00-\uFFEF|\u3001]/g);
-    }
-    //去字符串两边的空格
-    var trim=function(strings){
-        return (strings||"").replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,"");
-        //+表示匹配一次或多次，|表示或者，\s和\u00A0匹配空白字符，/^以……开头，$以……结尾，/g全局匹配,/i忽略大小写
-    }
 
-    //返回字符串的字节数中文算是2个字节，英文以及符号算1个字节
-    var countnums=(function(){
-        return function(_str){
-            _str=trim(_str);   //去除字符串的左右两边空格
-            var strlength=_str.length;
-            if(!strlength){   //如果字符串长度为零，返回零
-                return 0;
-            }
-            // var chinese=_str.match(/[\u4e00-\u9fa5]/g); //匹配中文，match返回包含中文的数组
-            var chinese = ischinese(_str); //匹配中文，match返回包含中文的数组
-            return strlength+(chinese?chinese.length:0); //计算字符个数
-        }
-    })();
-
-    //处理字符串换行参数说明：
-    // _str->需要处理的字符串
-    // num->每一行最多显示的文字（已中文字符个数为准，英文的个数是中文的两倍）
-    //bstr->不超过一行最大值的字符左边补充的字符串（说明如果需要补充请补充空格'  ',不需要补充则填写''）
-    //maxLine->最多显示多少行，最后一行最后几个字将以...替换，默认是2行
-    var getNewStr = function(_str,num,bstr,maxLine){
-        var bstr = arguments[2] ? arguments[2] : '';
-        var maxLine = arguments[3] ? arguments[3] : 2;
-        if(!_str){
-            return _str;
-        }
-        _str = trim(_str);//去空格
-        //当前字符串的字节数目
-        var _strCurrentNum = countnums(_str);
-        //期望的换行字节数
-        var _strHopeNum = num * 2;
-        //返回新的字符串
-        var newStr = '';
-        //判断是否超过换行的数量
-        if(_strCurrentNum > _strHopeNum){ //超过换行的数量
-            var lineNum = 1;//行数
-            var currentLineStrNum = 0;//当前行的字符数
-            for(var i=0;i<_str.length;i++){
-                // console.log(_str.charAt(i));
-                var baseNum = ischinese(_str.charAt(i)) ? 2 : 1;
-                currentLineStrNum += baseNum;
-                //不换行
-                if(currentLineStrNum < _strHopeNum){//当前行没有超过期望值
-                    newStr += _str.charAt(i);
-                    // console.log(newStr);
-                }else if(currentLineStrNum === _strHopeNum){
-                    //换行(正好满足一行期望的字符数)
-                    newStr += _str.charAt(i) + '\n';
-                    lineNum += 1;
-                    currentLineStrNum = 0;
-                    // console.log(newStr);
-                }else{//超过期望值,换行操作
-                    //中文包括中文字符是两位，英文以及数字是一位所以超过的这种情况只能是英文，因此需要补空格
-                    // newStr = ' ' + newStr + '\n' + _str.charAt(i);
-                    if(bstr){
-                        newStr = bstr + newStr + '\n' + _str.charAt(i);
-                    }else{
-                        newStr = newStr + '\n' + _str.charAt(i);
-                    }
-
-                    lineNum += 1;
-                    currentLineStrNum = baseNum;
-                }
-                //判断是否达到需要的字数
-                if(maxLine === lineNum && ((_strHopeNum-currentLineStrNum === 2) || (_strHopeNum-currentLineStrNum === 3))){
-                    newStr += '...';
-                    break;
-                }
-            }
-        }else if(_strCurrentNum === _strHopeNum){
-            var lineNum = 1;//行数
-            newStr = _str;
-        }else{
-            var lineNum = 1;//行数
-            var spaceNum = _strHopeNum - _strCurrentNum;
-            for (var k = 0; k < spaceNum; k++) {
-                _str = bstr + _str;
-            }
-            newStr = _str;
-        }
-        // console.log('srt',newStr);
-        // console.log('lineNum',lineNum);
-        return newStr;
-    }
-    //处理换行参数说明：
-    // option->option(echarts);
-    // number->每一行最多显示的文字（已中文字符个数为准，英文的个数是中文的两倍）
-    //axis->更改文字的轴
-    function newline(option, number, axis, bstr, maxLine){
-        /* 此处注意你的json是数组还是对象 */
-        option[axis]['axisLabel']={
-            interval: 0,
-            formatter: function(params){
-                return getNewStr(params,number,bstr,maxLine);
-            }
-        }
-        return option;
-    }
-    var getNewTitleStr = function(tilteStr,my_width){
-        //获取高度，计算截取的字符串
-        // console.log(tilteStr,my_width);
-        var wordNum = 0;
-        var newSS = '';
-        wordNum = Math.round((my_width-50)/18.5);
-        if(tilteStr.length <= wordNum){
-            newSS = tilteStr;
-        }else{
-            newSS = tilteStr.substr(0,wordNum) + '...';
-        }
-        return newSS;
-    }
-    //图例换行
-    var getNewLegendLine = function(legendData){
-        var dataArr = legendData.data;
-        var newArr = [];
-        var baseNum = 5;
-        var s = parseInt(dataArr.length / baseNum);
-        var n = 0;
-        for (var i = 1; i <= s; i++) {
-            var star = (i - 1) * baseNum;
-            newArr[n++] = dataArr.slice(star, star + baseNum);
-        }
-        var y = dataArr.length - s * baseNum;
-        if (y > 0) {
-            newArr[n++] = dataArr.slice(s * baseNum);
-        }
-        if(newArr.length <= 1){
-            return legendData;
-        }else{
-            var newLegend = [];
-            for(var j = 0; j < newArr.length; j++){
-                newLegend[j] = {
-                    align: legendData.align,
-                    icon: legendData.icon,
-                    itemGap: legendData.itemGap,
-                    itemHeight: legendData.itemHeight,
-                    itemWidth: legendData.itemWidth,
-                    left: legendData.left,
-                    orient: legendData.orient,
-                    pageButtonGap: legendData.pageButtonGap,
-                    right: legendData.right,
-                    selected: legendData.selected,
-                    selectedMode: legendData.selectedMode,
-                    top: legendData.top,
-                    type: legendData.type,
-                    data: newArr[j]
-                };
-                if(j > 0){
-                    newLegend[j].top = newLegend[j-1].top + 20;
-                }
-            }
-            return newLegend;
-        }
-    }
-    //############ end 文字换行 相关处理函数 ############
-
-    window.graph_ajax = function ($, echarts, params, mapJson, callback) {
-        // console.log('mapJson---->',mapJson);
+    window.graph_ajax = function ($, echarts, params, mapJson, callback = null) {
+        console.log(mapJson)
         var data = params.option;
         var obj = params.element;
         var graphdata = {};
-        graphdata = data.data;
+        graphdata = data.data
+        //console.log(data)
         var d_data = data.data;
         //定义图表类型
         var graph_type = [
@@ -1145,110 +975,19 @@
         }
         //top=105水平方形legend
         if (d_data.legend == 4) {
-            //console.log('joson4: ' + $('#' + obj));
-            // lTop -= 43;
-            // lTop -= 53;
-            lTop = 60 + 3; //大标题与次标题间隔为30px
-            lLeft += 75;
-            // gTop += 15;
-            // gTop -= 16;
-            gTop = 60+5+20;
-            gLeft -= 9;
-            // rBottom += 2;
-            rBottom = 60;
-            lpGap += 20;
-
-            //当高度不存在时，计算高度值
-            if(!data.data.height && data.data.x){
-                var dataNum = data.data.x.data.length;
-                if(typeof(d_data.graphic) == 'undefined'){ //不存在水印
-                    $('#' + obj).height(200 + dataNum * 68 + 70 -60);
-                    gTop = 60+20+6;
-                    if(dataNum === 1){
-                        gTop = 60+20+4;
-                        // $('#' + obj).height($('#' + obj).height() - 9);
-                    }
-                    rBottom = 0;
-                    lpGap += 30;
-                    // gBottom = 40;
-                    gBottom = 30;
-                }else{//存在水印
-                    $('#' + obj).height(200 + dataNum * 68 + 70);
-                }
-            }
             $('#' + obj).height($('#' + obj).height() - 70);
+            //console.log('joson4: ' + $('#' + obj));
+            lTop -= 43;
+            lLeft += 75;
+            gTop += 15;
+            gLeft -= 9;
+            rBottom += 2;
+            lpGap += 20;
         } else if (typeof(d_data.legend) == "undefined") {
             $('#' + obj).height($('#' + obj).height() - 41);
             gTop -= 13;
             rBottom += 40;
-        }
 
-        //设置位置--条形图
-        if(data.graph && data.graph === "clustered_bar"){
-            //当高度不存在时，计算高度值
-            rBottom = 0;
-            gTop = 60+30+30 + 1;
-            gBottom = 90 + 30 + 3;
-            gRight += 10;
-            if(!data.data.height && data.data.x){
-                var data_Num = data.data.x.data.length;
-                if(typeof(d_data.graphic) == 'undefined'){ //不存在水印
-                    $('#' + obj).height(130 + data_Num * 40 + 20);
-                    // gTop = 60+20;
-                    // rBottom = 0;
-                    // lpGap += 130;
-                    // gBottom = 40;
-                }else{//存在水印
-                    $('#' + obj).height(130 + data_Num * 40 + 20);
-                }
-            }
-        }
-
-        //设置位置--圆环图
-        if(data.graph && data.graph === "ring"){
-            gTop = 30;
-            //圆环图高度固定
-            if (typeof(d_data.dataZoom) == "undefined"){
-                $('#' + obj).height(472 + 20);
-            }else{
-                $('#' + obj).height(472);
-            }
-            gBottom = 10;
-            rBottom = 0;
-            // //圆环图内半径
-            ring_center_i = 110;
-            // //圆环图外半径
-            ring_center_n = 170;
-            //距离轴的距离
-            ring_center_y = 50.6;
-            // gBottom = 30;
-        }
-
-        //设置位置--仪表盘图
-        if(data.graph && data.graph === "gauge"){
-            gTop = 30;
-            //当高度未定义，设置高度
-            if(!data.data.height){
-                $('#' + obj).height(478 + 20);
-            }
-            gBottom = 100;
-            rBottom = 0;
-            // //圆环图内半径
-            ring_center_i = 140;
-            // //圆环图外半径
-            ring_center_n = 230;
-            //距离y轴的距离
-            ring_center_y = 51.9;
-        }
-
-        //设置位置--条形象形图
-        if(data.graph && data.graph === "pictorialline"){
-            gTop = 66;
-            gBottom = 100;
-            //当高度未定义，设置高度
-            if(!data.data.height){
-                $('#' + obj).height(340 + 20);
-            }
         }
 
         //主标题未定义/Legend未定义时间距
@@ -1621,16 +1360,6 @@
         //var echartsObj = document.getElementById(obj);
         var echartsObj = window.document.getElementById(obj);
         echartsObj.style.height == "" ? echartsObj.style.height = "723px" : echartsObj.style.height = graphdata.height + 'px';
-        // console.log(echartsObj.style.height,graphdata.height)
-        // echartsObj.style.height = (graphdata.height && typeof(graphdata.height) != "undefined")? graphdata.height + 'px' : "723px" ;
-        console.log(data)
-        // if(typeof(graphdata.height) == "undefined"){
-        //     echartsObj.style.height = "723px"
-        //     console.log('gra--->',graphdata)
-        //     // echartsObj.style.height = "650px"
-        // }else{
-        //     echartsObj.style.height = graphdata.height + 'px'
-        // }
         echartsObj.style.width = '100%';
         var myChart = echarts.init(echartsObj, 'DT');
 
@@ -1704,10 +1433,6 @@
                 legendValue[i] = graphdata['y'][i]['name'];
             }
             legend.data = legendValue;
-            //设置图例文字换行,圆环图，百分比堆叠柱状图
-            legend.formatter = function(params){
-                return getNewStr(params,10,'',2);
-            }
         }
         //右上角水平方形legend
         if (d_data.legend == 3) {
@@ -1834,7 +1559,7 @@
         var title = [
             {
                 subtextStyle: {
-                    fontSize: 14,
+                    fontSize: 12,
                     color: '#999',
                     fontFamily: 'PingFangSC-Regular'
                 },
@@ -2116,7 +1841,6 @@
                             formatter: function (params) {
                                 return (params.value / sum * 100).toFixed(0)
                             },
-                            fontSize: 14,
                             width: 17,
                             height: 14
                         }
@@ -2208,8 +1932,7 @@
                         "type": "pie",
                         //圆环内半径、外半径
                         // "radius": [110, 170],
-                        // radius: [ring_center_i + '%', ring_center_n + '%'],
-                        radius: [ring_center_i, ring_center_n],
+                        radius: [ring_center_i + '%', ring_center_n + '%'],
                         // "height": 230,
                         //图表上的数据
                         "data": series,
@@ -2260,7 +1983,7 @@
                 }
             }
             //词云图title
-            var title = [
+            const title = [
                 {
                     subtextStyle: {
                         fontSize: 12,
@@ -2320,10 +2043,8 @@
                         //maskImage: maskImage,
                         gridSize: 1,//字符间距
                         //词云位置
-                        // width: "69.29%",
-                        width: "84.7%",
-                        // height: "53.55%",
-                        height: "84%",
+                        width: "69.29%",
+                        height: "53.55%",
                     }
                 ],
             };
@@ -2340,19 +2061,17 @@
         }
 
         //地图
-        if (data.graph == 'heapmap') {
+       if (data.graph == 'heapmap') {
             var series = [];
             // var legend = [];
-            // var len = [];
-            var len = 0;
+            var len = [];
             var i = 0;
-            var sum = 0;
+            var sum =0;
             var datamax = [];
             var formatter = {};
 
             if (typeof(graphdata['y'].length) != "undefined") {
-                // len = graphdata['y'].length;
-                len = graphdata['y'][0]['data1'].length
+                len = graphdata['y'].length;
             }
             for (i = 0; i < len; i++) {
                 datamax[i] = graphdata['y'][0]['data1'][i]['value'];
@@ -2360,7 +2079,7 @@
                 //数组求和
                 sum += parseFloat(yNum);
                 series = graphdata['y'][0]['data1']
-                // console.log(series);
+                console.log(series);
             }
             option = {
                 //添加水印方案2
@@ -2370,7 +2089,8 @@
                 title: title,
                 animation: animation,
                 animationDuration: animationDuration,
-                tooltip: {
+                tooltip:
+                    {
                     show: tooltip,
                     trigger: 'item',
                     //悬浮框中文字向左对齐
@@ -2378,41 +2098,26 @@
                         align: 'left'
                     },
                     // formatter: '{b}' + '<br/>' +'{c}' + graphdata['unit']
-                    formatter: function (params) {
-                        //百分比值
-                        // var params_value = (params.value / sum * 100);
-                        //判断接口是否含有percent
-                        if(isNaN(params.value)){
-                            return '';
-                        }
-                        if(params.data && params.data.percent){
-                            var params_value = params.data.percent[0];
-                        }else{
-                            if(sum !== 0){
-                                var params_value = (parseInt(params.value) / sum * 100);
-                            }else{
-                                var params_value = 0;
-                            }
-                        }
-                        
-                        //保留小数点
-                        var params_nums = 0;
-                        //验证小数点位数
-                        if (params_value.toString().indexOf(".") <= 0) {
-                            params_nums = 0;
-                        } else {
-                            if (params_value.toString().split(".")[1].length >= 10) {
-                                params_nums = 10;
+                        formatter : function (params) {
+                            //百分比值
+                            var params_value = (params.value/sum*100);
+                            //保留小数点
+                            var params_nums = 0;
+                            //验证小数点位数
+                            if(params_value.toString().indexOf(".") <= 0){
+                                params_nums = 0;
                             } else {
-                                params_nums = params_value.toString().split(".")[1].length;
-                            }
+                                if(params_value.toString().split(".")[1].length >= 10) {
+                                    params_nums = 10;
+                                } else {
+                                    params_nums = params_value.toString().split(".")[1].length;
+                                }
+                            };
+                            //返回
+                            return params.name + "<br/>" +
+                                params_value.toFixed(4) + '%<br/>' +
+                                params.value + graphdata['unit'];
                         }
-                        ;
-                        //返回
-                        return params.name + "<br/>" +
-                            params_value.toFixed(4) + '%<br/>' +
-                            params.value + graphdata['unit'];
-                    },
                 },
                 visualMap: {
                     "type": "continuous",
@@ -2427,11 +2132,10 @@
                         ]
                     },
                     bottom: 92,
-                    left: 0,
+                    left: 25,
                     itemWidth: 20,
                     itemHeight: 140,
                     textGap: 10,
-
                 },
                 series: [{
                     "type": "map",
@@ -2873,21 +2577,16 @@
            //绘制全国地图
            //$.getJSON('json/china.json', function(data){
            // test
-           //  const chinaData = mapJson.china
-                //注册地图
-            echarts.registerMap('china', mapJson.china);
+            
             //console.log(data);
             //地图点击事件
             myChart.on('click', function (params) {
                 //console.log( params );
                 var selectedProvince = params.name;
                 //引用远程地址
-                var requestUrl = baseUrl + '/json/provinces/' + provinces[selectedProvince] + '.json';
-                var provinceName = provinces[selectedProvince]
-                if(typeof(provinces[selectedProvince]) == 'undefined' || provinceName == 'undefined'){
-                    return;
-                }
-                var cityData = mapJson[provinceName]
+                var requestUrl =' http://106.14.248.228/graph_demo/json/provinces/' + provinces[selectedProvince] + '.json'
+                const provinceName = provinces[selectedProvince]
+                const cityData = mapJson[provinceName]
                 echarts.registerMap( params.name, cityData);
 				var newObject = $.extend(true, {}, option);
 				//console.log(newObject);
@@ -2924,7 +2623,7 @@
                 }
 				
 				//返回中国按钮
-				var chinaData = mapJson.china
+				const chinaData = mapJson.china
 				if (chinaData) {
                 var d = [];
                 for( var i=0;i<chinaData.features.length;i++ ){
@@ -2937,8 +2636,8 @@
                 echarts.registerMap('china', chinaData);
                 var wrap_map_html =
 					'<ul class="wrap-return">'
-					+'<li class="icon-china" id="return"><img src="' + baseUrl + '/img/icon_china.png" />中国</li>'
-                    +'<li class="icon-arrow"><img src="' + baseUrl + '/img/icon_arrow.png" /></li>'
+					+'<li class="icon-china" id="return"><img src="http://106.14.248.228/graph_demo/img/icon_china.png" />中国</li>'
+                    +'<li class="icon-arrow"><img src="http://106.14.248.228/graph_demo/img/icon_arrow.png" /></li>'
                     +'<li class="current-city">上海</li>'
                     +'</ul></div>';
 				$('#' + obj).append(wrap_map_html);
@@ -3001,24 +2700,21 @@
                 sdata[i] = {};
 
                 var sb = ''
+
                 if (typeof(graphdata['y'][0]['percent']) == "undefined") {
-                    // sb = Math.round(graphdata['y'][0]['data'][i])
-                    sb = parseFloat(graphdata['y'][0]['data'][i]);
+                    sb = Math.round(graphdata['y'][0]['data'][i])
                     var max = null
                 } else {
-                    // sb = Math.round(graphdata['y'][0]['percent'][i])
-                    var max = 100;
-                    sb = parseFloat(graphdata['y'][0]['percent'][i]);
-                    //滑块100评分题将max设置为100
-                    if(typeof(graphdata['grayType']) != "undefined" && graphdata['grayType'][0]['type'] == "sliding"){
-                        max = 100;
-                    }
+                    sb = Math.round(graphdata['y'][0]['percent'][i])
+                    var max = 100
                 }
                 if ($.inArray(i, graphdataV) > -1) {
                     for (l = 0; l < graphdata['grayBar'].length; l++) {
                         if (graphdata['grayBar'][l]['index'] == i) {
                             var itemStyle = {"normal": {"color": graphdata['grayBar'][l]['color']}}
                         }
+
+
                     }
 
                     sdata[i] = {
@@ -3054,28 +2750,6 @@
                     data: sdata,
                     type: "bar",
                     label: label,
-                }
-                //存在百分比，四舍五入显示百分比的整数
-                if(typeof(graphdata['y'][0]['percent']) !== "undefined"){
-                    series[i].label.normal.formatter = function(params) {
-                        // console.log(params);
-                        return String(Math.round(params.value));
-                    } ;
-                    series[i].label.normal.position = 'right';
-                    series[i].label.normal.show = true;
-                }else{
-                    //不存在百分比，显示data值
-                    series[i].label.normal.formatter = function(params) {
-                        //判断参数float===2，表示是小数数字题，需要显示两位小数
-                        if(typeof(graphdata['float']) !== "undefined" && graphdata['float'] === 2){
-                            return String(params.value.toFixed(2));
-                        }else{
-                            //显示整数部分
-                            return String(Math.round(params.value));
-                        }
-                    } ;
-                    series[i].label.normal.position = 'right';
-                    series[i].label.normal.show = true;
                 }
             }
             grid.left -= 34
@@ -3123,12 +2797,15 @@
                                 }
                             }
                         }
+                        ;
+
 
                         if (typeof graphdata['y'][0]['percent'] == "undefined") {
                             //返回浮层结果
                             return params[0].name + "<br/>" +
-                                graphdata['y'][0]['data'][params[0].dataIndex].toFixed(4) + graphdata['unit'];
+                                graphdata['y'][0]['data'][params[0].dataIndex] + graphdata['unit'];
                         } else {
+
                             return params[0].name + "<br/>" +
                                 params_value.toFixed(4) + '%<br/>' +
                                 graphdata['y'][0]['data'][params[0].dataIndex] + graphdata['unit'];
@@ -3164,9 +2841,6 @@
                                 //轴字体颜色
                                 color: '#333',
                                 fontSize: 14,
-                            },
-                            formatter: function(params){
-                                return getNewStr(params,10,'  ',2);
                             }
                         },
                         //数据排序
@@ -3190,34 +2864,25 @@
         }
 
         //百分比堆叠条形图
+
+
         if (data.graph == 'stacked_bar') {
-            console.log('grid',grid);
             var just_right = [
-                // '#726BA4',
-                // '#8A83BB',
-                // '#A099D0',
-                // '#B7B1DD',
-                // '#C0B7FF',
-                // '#ADA1FF',
-                // '#9D82EF',
-                // '#9067E0',
-                // '#824DD2',
-                // '#732FC3'
-                '#732FC3',
-                '#824DD2',
-                '#9067E0',
-                '#9D82EF',
-                '#ADA1FF',
-                '#C0B7FF',
-                '#B7B1DD',
-                '#A099D0',
+                '#726BA4',
                 '#8A83BB',
-                '#726BA4'
+                '#A099D0',
+                '#B7B1DD',
+                '#C0B7FF',
+                '#ADA1FF',
+                '#9D82EF',
+                '#9067E0',
+                '#824DD2',
+                '#732FC3'
             ]
 
-            // legend.top += 15;
-            // grid.top -= 15;
-            // grid.bottom -= 55;
+            legend.top += 15;
+            grid.top -= 15;
+            grid.bottom -= 55;
 
             var just_right2 = []
             //console.log('just_right'+just_right.length)
@@ -3226,37 +2891,23 @@
                 //console.log(i)
                 just_right2[i - just_right.length + graphdata['y'].length] = just_right[i]
             }
-            //判断题型--，如果是排序题，颜色需要使用如下色系
-            if(typeof(graphdata['colorSort']) != "undefined" && graphdata['colorSort'] === 2){
-                just_right = ['#220446','#360D67','#471681','#5718A1','#621AB6','#6A27BA','#7536BD','#7F44C4','#8652C3','#8F60C5','#986EC8','#9E7AC9','#A383C8','#AA90C8','#B39FCB','#BBACCD','#C6BAD5','#CFC4DB','#D5CCE0','#DDD4E6'];
-            }
-            // just_right = just_right
+            just_right = just_right2
             if (typeof(graphdata['grayType']) != "undefined") {
-                // if (graphdata['grayType'][0]['type'] == "likert" || graphdata['grayType'][0]['type'] == "rating") {
-                //     if (graphdata['grayType'][0]['sort'] == 2) {
-                //     }
-                // }
-                //滑块10分，100分
-                if(graphdata['grayType'][0]['type'] == "sliding"){
-                    just_right = ['#726BA4','#8A83BB','#A099D0','#B7B1DD','#C0B7FF','#ADA1FF','#9D82EF','#9067E0','#824DD2','#732FC3'];
+                if (graphdata['grayType'][0]['type'] == "likert" || graphdata['grayType'][0]['type'] == "rating") {
+                    if (graphdata['grayType'][0]['sort'] == 2) {
+
+                    }
                 }
-                //星型量表
-                if(graphdata['grayType'][0]['type'] == "rating"){
-                    just_right = ['#ADA1FF','#9D82EF','#9067E0','#824DD2','#732FC3'];
-                }
-                //里克特
-                if(graphdata['grayType'][0]['type'] == "likert"){
-                    just_right = ['#B7B1DD','#C0B7FF','#ADA1FF','#9D82EF','#9067E0','#824DD2','#732FC3'];
-                    just_right = just_right.reverse();
-                    //取出前几个颜色再反转颜色
-                    just_right = just_right.slice(0,graphdata['y'].length).reverse();
-                }
-                //正好尺度
+
+
                 if (graphdata['grayType'][0]['type'] == "just_right") {
+
                     just_right = ['#D1A3F1', '#AA69DF', '#732FC3', '#9067E0', '#ADA1FF']
                 }
-                //双极量表，5段，7段，11段
+
+
                 if (graphdata['grayType'][0]['type'] == "bipolar") {
+
                     if (graphdata['y'].length == 5) {
                         just_right = [
                             '#AA69DF',
@@ -3295,39 +2946,13 @@
 
 
                 }
+
+
             }
 
-            //判断是否有N/A，需要特殊颜色处理
-            if(legend.data && legend.data.length && legend.data.indexOf('N/A') > -1){
-                just_right[legend.data.length-1] = '#bbbbbb';
-            }
-            legend.left = 'auto';
-            legend.right = grid.right;
-            legend.pageButtonGap = 30;
-            //设置legend的左间距以及翻页处理
-            if(graphdata.x.data.length > 1){
-                legend.width = $('#'+obj).width()-282;
-            }else{
-                legend.width = $('#'+obj).width()-71;
-            }
-            legend.pageFormatter = function(params){
-                if(params.total === 1){
-                    legend.right = 92;
-                }else{
-                    legend.right = 53;
-                }
-            };
-            //legend换行处理
-            // legend = getNewLegendLine(legend);
-            //换行处理后更改间距
-            // if(typeof(legend.length) != "undefined" && legend.length > 1){
-            //     grid.top += 20*(legend.length-1);
-            //     $('#' + obj).height($('#' + obj).height()+ 20*(legend.length-1));
-            // }
-            //当没有选项文字的时候，设置左间距=右间距
-            if(graphdata['x'].data.length === 1){
-                grid.left = grid.right;
-            }
+
+            legend.left = 'auto'
+            legend.right = grid.right
             var series = [];
             var len = []
             // 第二种方案：使用循环将series循环输出
@@ -3382,8 +3007,7 @@
                 } else {
                     var seriesP = []
                     for (var l = 0; l < graphdata['y'][i]['percent'].length; l++) {
-                        //2%及以下数值仍需要显示（0%除外)
-                        if (graphdata['y'][i]['percent'][l] == 0) {
+                        if (graphdata['y'][i]['percent'][l] < 3) {
                             seriesP[l] = {
                                 value: Math.round(graphdata['y'][i]['percent'][l]),
                                 label: {
@@ -3394,18 +3018,7 @@
                             }
 
                         } else {
-                            seriesP[l] = {
-                                // value: Math.round(graphdata['y'][i]['percent'][l]),
-                                value: parseFloat(graphdata['y'][i]['percent'][l]),
-                                label: {
-                                    normal: {
-                                        formatter:String(Math.round(graphdata['y'][i]['percent'][l])),
-                                    }
-                                }
-                            }
-
-                            // seriesP[l] = graphdata['y'][i]['percent'][l].toFixed(4);
-                            // seriesP[l] = parseFloat(graphdata['y'][i]['percent'][l])
+                            seriesP[l] = Math.round(graphdata['y'][i]['percent'][l])
                         }
                     }
 
@@ -3426,7 +3039,6 @@
                             position: 'inside',
                             textStyle: {
                                 color: "#fff", //color of value
-                                fontSize: 14
                             }
                         }
                     },
@@ -3495,11 +3107,7 @@
                                 color: '#333',
                                 fontSize: 14,
                             },
-                            formatter: function(params){
-                                return getNewStr(params,10,'  ',2);
-                            }
                         },
-                        //排序
                         inverse: true
                     }
                 ],
@@ -3562,8 +3170,8 @@
                     var seriesP = []
                     for (var l = 0; l < graphdata['y'][i]['percent'].length; l++) {
                         seriesP[l] = Math.round(graphdata['y'][i]['percent'][l])
-                        //四舍五入后百分比大于2才显示
-                        if (Math.round(graphdata['y'][i]['percent'][l]) < 2) {
+
+                        if (graphdata['y'][i]['percent'][l] < 10) {
                             seriesP[l] = {
                                 value: Math.round(graphdata['y'][i]['percent'][l]),
                                 label: {
@@ -3574,17 +3182,7 @@
                             }
 
                         } else {
-                            // seriesP[l] = Math.round(graphdata['y'][i]['percent'][l])
-                            // seriesP[l] = graphdata['y'][i]['data'][l]
-                            seriesP[l] = {
-                                value: parseFloat(graphdata['y'][i]['percent'][l]),
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        formatter:String(Math.round(graphdata['y'][i]['data'][l]))
-                                    }
-                                }
-                            }
+                            seriesP[l] = Math.round(graphdata['y'][i]['percent'][l])
                         }
 
                     }
@@ -3612,9 +3210,6 @@
             grid.left -= 34;
             grid.right -= 32;
             grid.bottom += 1;
-            //图例对齐图表高度
-            legend.top = grid.top + 7;
-            legend.bottom = grid.bottom + 7;
             option = {
                 graphic: graphic,
                 toolbox: toolbox,
@@ -3644,13 +3239,9 @@
                                 relName += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + params[i].color + ';"></span>' + params[i].seriesName + ' : ' + params[i].value + graphdata['unit'] + '</br>';
 
                             } else {
-                                if(graphdata['y'][i]['data'][params[i]['dataIndex']] === 0){
-                                    var tStr = 0;
-                                }else{
-                                    var tStr = String(graphdata['y'][i]['data'][params[i]['dataIndex']].toFixed(4));
-                                }
-                                relName += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + params[i].color + ';"></span>' + params[i].seriesName + ' : ' + tStr + '</br>';
 
+
+                                relName += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + params[i].color + ';"></span>' + params[i].seriesName + ' : ' + graphdata['y'][i]['percent'][params[i]['dataIndex']].toFixed(4) + '</br>';
 
                             }
                         }
@@ -3863,7 +3454,7 @@
                 // top: $('#' + obj).height() * (ring_center_y / 100) + 152,
                 top: $('#' + obj).height() * (ring_center_y / 100) + 150,
                 //标题内边距,上右下左
-                padding: [0, 0, 0, 0],
+                padding: [5, 0, 0, 0],
                 //主标题和副标题之间的间距
                 itemGap: -78,
                 // itemGap: -84,
@@ -3914,6 +3505,8 @@
                                 params_nums = params_value.toString().split(".")[1].length;
                             }
                         }
+                        ;
+
 
                         var relValue = params_value.toFixed(4);
                         var relColor = [echartsTheme.visualMapColor[0], echartsTheme.visualMapColor[1]]
@@ -3940,7 +3533,7 @@
                         // left: 132,
                         center: [ring_center_x + '%', ring_center_y + 10.5 + '%'],
                         //仪表盘半径
-                        radius: ring_center_n,
+                        radius: ring_center_n + 22 + '%',
                         //这个会影响tooltip是否显示
                         silent: false,
                         // wukong!
@@ -3978,7 +3571,7 @@
                         },
                         // wukong!
                         "data": [
-                            {"value": Math.round(graphdata['y'][0]['data'][0])}
+                            {"value": parseInt(graphdata['y'][0]['data'][0])}
                         ],
                         "type": "gauge",
                         //起始旋转角度
@@ -4060,10 +3653,10 @@
                 sb[2] = Math.round(graphdata['y'][2]['percent'][0])
             }
 
-                grid.left = 'center';
-                // grid.top -= 45,
-                // grid.height = 199,
-                grid.width = 460;
+            grid.left = 'center'
+            grid.top -= 45,
+                grid.height = 199,
+                grid.width = 480,
 
                 option = {
                     //添加水印方案2
@@ -4166,7 +3759,7 @@
                             "data": [
                                 {
                                     "value": sb[0],
-                                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
+                                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
                                     label: {
                                         normal: {
                                             fontSize: "14px"
@@ -4186,7 +3779,7 @@
                                 },
                                 {
                                     "value": sb[2],
-                                    "symbol": "path:\/\/m 100.55702,161.03384 c -6.077439,-1.21802 -8.357637,-8.69503 -4.007038,-13.13952 4.820698,-4.92474 13.254328,-1.44121 13.254328,5.47473 0,4.87383 -4.51213,8.61379 -9.24729,7.66479 z m -0.759346,-4.37014 c 1.200056,-0.91533 2.469196,-1.08812 3.700536,-0.50381 0.54186,0.25713 1.04654,0.62735 1.12151,0.82271 0.20972,0.54653 1.13802,0.43807 1.13802,-0.13296 0,-0.97295 -2.03243,-2.15767 -3.70157,-2.15767 -1.77676,0 -3.954581,1.35381 -3.612375,2.24559 0.205632,0.53587 0.32354,0.51202 1.353879,-0.27386 z m 0.615486,-4.4059 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40929,-0.40929 -1.601547,-0.40929 -2.010836,0 -0.409289,0.40929 -0.409289,1.60154 0,2.01083 0.409289,0.40929 1.601546,0.40929 2.010836,0 z m 5.29166,0 c 0.40929,-0.40929 0.40929,-1.60154 0,-2.01083 -0.40928,-0.40929 -1.60154,-0.40929 -2.01083,0 -0.17462,0.17462 -0.3175,0.62706 -0.3175,1.00541 0,0.37836 0.14288,0.83079 0.3175,1.00542 0.40929,0.40929 1.60155,0.40929 2.01083,0 z",
+                                    "symbol": "path:\/\/M0,249 C0,386.531 111.469,498 249,498 C386.5144,498 498,386.531 498,249 C498,111.4856 386.5144,0 249,0 C111.469,0 0,111.4856 0,249 Z M290.5,182.6 C290.5,159.6754 309.092,141.1 332,141.1 C354.9246,141.1 373.5,159.6754 373.5,182.6 C373.5,205.508 354.9246,224.1 332,224.1 C309.092,224.1 290.5,205.508 290.5,182.6 Z M124.5,182.6 C124.5,159.6754 143.092,141.1 166,141.1 C188.9246,141.1 207.5,159.6754 207.5,182.6 C207.5,205.508 188.9246,224.1 166,224.1 C143.092,224.1 124.5,205.508 124.5,182.6 Z M336.5318,299.0158 C340.9806,292.3592 350.011,290.5664 356.6842,295.0318 C363.3408,299.4806 365.1336,308.511 360.6682,315.1676 C337.4614,349.8782 295.231,371.425 248.9668,371.425 C202.7524,371.425 160.5718,349.928 137.3318,315.2838 C132.8664,308.6438 134.6426,299.6134 141.3158,295.1314 C147.9724,290.666 157.0028,292.4422 161.4682,299.1154 C179.1804,325.526 212.2476,342.375 248.9668,342.375 C285.7358,342.375 318.8196,325.4762 336.5318,299.0158 Z",
                                     label: {
                                         normal: {
                                             fontSize: "14px"
@@ -5184,35 +4777,14 @@
                     ]
                 };
         }
+
+        console.log(option)
         // 使用刚指定的配置项和数据显示图表。
         //console.log(JSON.stringify(option));
-        if(option.title[0].text){
-            option.title[0].text = getNewTitleStr(option.title[0].text,$('#' + obj).width());
-        }
         myChart.setOption(option);
 
         //图表跟随窗口大小自适应
-        var currentWidth = $('#' + obj).width();
         $(window).resize(function () {
-            //宽度发生变化时
-            if(currentWidth !== $('#' + obj).width()){
-                //大标题随窗口自适应
-                if(option.title[0].text && bigTitle){
-                    option.title[0].text = getNewTitleStr(bigTitle,$('#' + obj).width());
-                }
-                //百分比堆叠条形图图例自适应
-                if (data.graph == 'stacked_bar') {
-                    //设置legend的左间距（自适应宽度）
-                    if(graphdata.x.data.length > 1){
-                        option.legend.width = $('#'+obj).width()-282;
-                    }else{
-                        option.legend.width = $('#'+obj).width()-72;
-                    }
-                    option.legend.right = 30;
-                }
-                myChart.setOption(option);
-                currentWidth = $('#' + obj).width();
-            }
             myChart.resize();
         });
         if (typeof callback === 'function') {

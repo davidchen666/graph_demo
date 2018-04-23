@@ -211,9 +211,14 @@ body {
 }
 .navbar {
   position: relative;
-  min-height: 40px;
+  /*min-height: 40px;*/
+  min-height: 61px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  /*无边框*/
+  /*border-style: none;*/
+  /*透明边框*/
+  /*border-color: transparent;*/
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
