@@ -1193,7 +1193,7 @@
             rBottom = 0;
             gTop = 60+30+30 + 1;
             gBottom = 90 + 30 + 3;
-            gRight += 10;
+            gRight += 15;
             if(!data.data.height && data.data.x){
                 var data_Num = data.data.x.data.length;
                 if(typeof(d_data.graphic) == 'undefined'){ //不存在水印
@@ -1691,7 +1691,9 @@
         if (d_data.legend == 2) {
             //左垂直方形legend,适用于圆环图
             legend.orient = 'vertical';
-            legend.left = lLeft;
+            // legend.left = lLeft;
+            legend.left = 0;
+            legend.align = 'left';
             legend.top = "center";
             legend.icon = "rect";
             //legend超出一行时滚动
@@ -1702,7 +1704,12 @@
             legend.data = legendValue;
             //设置图例文字换行,圆环图，百分比堆叠柱状图
             legend.formatter = function(params){
-                return getNewStr(params,10,'',2);
+                var sData =  getNewStr(params,10,' ',2);
+                console.log(sData);
+                if(sData.indexOf("\n") < 0 && sData.length - params.length >2){
+                    sData = params + sData.substr(0,sData.length - params.length);
+                }
+                return sData;
             }
         }
         //右上角水平方形legend
@@ -1864,7 +1871,12 @@
                     "backgroundColor": "#ffffff",
                     iconStyle: {
                         color:'#99999'
-                    }
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            borderColor: '#732FC3'
+                        }
+                    },
                 }
             }
         } else if (typeof(d_data.feature) == "undefined") {
@@ -1876,7 +1888,7 @@
             itemSize: 15,
             feature: feature,
             // right: 22,
-            right: fRight,
+            right: fRight + 5,
             top: fTop
         }
 
@@ -3139,6 +3151,7 @@
                                 fontSize: 14
                             },
                             lineHeight: 30,
+                            interval: 0,
                             formatter: function(params){
                                 return getNewStr(params,10,'  ',2);
                             }
@@ -3161,6 +3174,7 @@
                     }
                 ]
             };
+            console.log(JSON.stringify(option));
         }
 
         //百分比堆叠条形图

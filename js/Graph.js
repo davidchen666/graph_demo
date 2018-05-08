@@ -1,14 +1,13 @@
-//version 20180418-1853
+/* eslint-disable */
+//version 20180503-0503
 (function (window) {
-    var baseUrl = 'http://106.14.248.228/graph_demo';//develop环境
-    // var baseUrl = '/echarts';//test环境
+    var baseUrl = '/echarts';//正式环境
     var colorRgb = function (sColor, Opacity) {
         var sColorChange = [];
         for (var i = 1; i < 7; i += 2) {
             sColorChange.push(parseInt("0x" + sColor.slice(i, i + 2)));
         }
         return "rgba(" + sColorChange.join(",") + "," + Opacity + ")";
-
     };
     //基本配置
     // var legendTextstyleColor = '#999';              //组件字体颜色
@@ -1189,7 +1188,7 @@
             rBottom = 0;
             gTop = 60+30+30 + 1;
             gBottom = 90 + 30 + 3;
-            gRight += 10;
+            gRight += 15;
             if(!data.data.height && data.data.x){
                 var data_Num = data.data.x.data.length;
                 if(typeof(d_data.graphic) == 'undefined'){ //不存在水印
@@ -1233,9 +1232,9 @@
             }
             gBottom = 100;
             rBottom = 0;
-            // //圆环图内半径
+            // //圆环内半径
             ring_center_i = 140;
-            // //圆环图外半径
+            // //圆环外半径
             ring_center_n = 230;
             //距离y轴的距离
             ring_center_y = 51.9;
@@ -1695,7 +1694,8 @@
         if (d_data.legend == 2) {
             //左垂直方形legend,适用于圆环图
             legend.orient = 'vertical';
-            legend.left = lLeft;
+            // legend.left = lLeft;
+            legend.left = 0;
             legend.top = "center";
             legend.icon = "rect";
             //legend超出一行时滚动
@@ -1706,7 +1706,12 @@
             legend.data = legendValue;
             //设置图例文字换行,圆环图，百分比堆叠柱状图
             legend.formatter = function(params){
-                return getNewStr(params,10,'',2);
+                var sData =  getNewStr(params,10,' ',2);
+                console.log(sData.length);
+                if(sData.indexOf("\n") < 0 && sData.length - params.length >2){
+                    sData = params + sData.substr(0,sData.length - params.length);
+                }
+                return sData;
             }
         }
         //右上角水平方形legend
@@ -1864,6 +1869,14 @@
                     "show": true,
                     "type": "png",
                     "backgroundColor": "#ffffff",
+                    iconStyle: {
+                        color:'#99999'
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            borderColor: '#732FC3'
+                        }
+                    }
                 }
             }
         } else if (typeof(d_data.feature) == "undefined") {
@@ -1875,7 +1888,7 @@
             itemSize: 15,
             feature: feature,
             // right: 22,
-            right: fRight,
+            right: fRight + 5,
             top: fTop
         }
 
@@ -2882,7 +2895,7 @@
                 //console.log( params );
                 var selectedProvince = params.name;
                 //引用远程地址
-                var requestUrl = baseUrl + '/json/provinces/' + provinces[selectedProvince] + '.json';
+                // var requestUrl = baseUrl + '/json/provinces/' + provinces[selectedProvince] + '.json';
                 var provinceName = provinces[selectedProvince]
                 if(typeof(provinces[selectedProvince]) == 'undefined' || provinceName == 'undefined'){
                     return;
@@ -3165,6 +3178,7 @@
                                 color: '#333',
                                 fontSize: 14,
                             },
+                            interval: 0,
                             formatter: function(params){
                                 return getNewStr(params,10,'  ',2);
                             }
