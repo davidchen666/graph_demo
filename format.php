@@ -6,6 +6,7 @@ switch ($type) {
     case 1:
         $post = '{
                         "feature":1,
+                        "themeColor":1,
                         "legend":1,
                         "tooltip":1,
                         "graphic":1,
@@ -47,6 +48,7 @@ switch ($type) {
     case 2:
         $post = '{
 	"feature": 1,
+	"themeColor":1,
 	"legend": 2,
 	"tooltip": 1,
 	"graphic": 1,
@@ -103,6 +105,7 @@ switch ($type) {
     case 3:
         $post = '{
                     "feature": 1,
+                    "themeColor":1,
                     "legend": 5,
                     "tooltip": 1,
                     "graphic": 1,
@@ -2933,6 +2936,7 @@ switch ($type) {
     case 5:
         $post = '{
   "bigTitle": "推荐净值（NPS）",
+  "themeColor":1,
   "credit": "基数：n=4000",
   "subTitle": "%",
   "unit": "%",
@@ -2959,6 +2963,7 @@ switch ($type) {
     case 6:
         $post = '{
   "subTitle": "%",
+  "themeColor":1,
   "feature": 1,
   "tooltip": 1,
   "height": 1493,
@@ -3087,6 +3092,7 @@ switch ($type) {
     case 7:
         $post = '{
   "feature": 1,
+  "themeColor":1,
   "tooltip": 1,
   "graphic": 1,
   "legend": 4,
@@ -3286,6 +3292,7 @@ switch ($type) {
     case 9:
         $post = '{
                          "feature":1,
+                         "themeColor":1,
                          "tooltip":1,
                          "legend":5,
                          "graphic":1,
@@ -3502,6 +3509,7 @@ switch ($type) {
     case 10:
         $post = '{
                          "feature":1,
+                         "themeColor":1,
                          "legend":1,
                          "tooltip":1,
                          "graphic":1,
@@ -3539,6 +3547,7 @@ switch ($type) {
     case 11:
         $post = '{
                          "feature":1,
+                         "themeColor":1,
                          "tooltip":1,
                          "legend":5,
                          "graphic":1,
@@ -3563,6 +3572,7 @@ switch ($type) {
     case 12:
         $post = '{
                          "feature":1,
+                         "themeColor":1,
                          "legend":1,
                          "tooltip":1,
                          "graphic":1,
@@ -3596,6 +3606,7 @@ switch ($type) {
     case 13:
         $post = '{
                         "feature":1,
+                        "themeColor":1,
                         "legend":1,
                         "tooltip":1,
                         "graphic":1,
@@ -3633,6 +3644,7 @@ switch ($type) {
     case 14:
         $post = '{
                          "feature":1,
+                         "themeColor":1,
                          "tooltip":1,
                          "legend":5,
                          "graphic":1,
@@ -3657,22 +3669,30 @@ switch ($type) {
     case 15:
         $post = '{
                          "feature":1,
+                         "themeColor":1,
                          "tooltip":1,
                          "legend":5,
                          "graphic":1,
                          "dataZoom":4,
                          "animation":1,
                          "showDetail":1,
-                         "x":{"data":["类目名称","类目名称","类目名称","类目名称","类目名称","类目名称","类目名称"]},
+                         "x":{"data":["2018-05-11","2018-05-12","2018-05-13"]},
                          "y":[{
                                 "type":"average",
-                                 "data":[10000,13000,10000,13800,6000,2500,5000],
-                                 "name": "a"
+                                 "data":{"date":["2018-05-11","2018-05-12","2018-05-13"],"value":[2,1,0]},
+                            
+                                 "name": "当日完成样本量"
+                             },
+                             {
+                                "type":"average",
+                                 "data":{"value":[2,3,3]},
+                            
+                                 "name": "累计完成样本量"
                              }],
                          "bigTitle": "平均值柱状图",
                          "subTitle": "副标题",
-                         "credit":"基数：所有被访者 n=400",
-                         "subCredit":"数据来源：B12",
+                         "credit":"",
+                         "subCredit":"",
                          "unit":"k",
                          "width":723,
                          "height":516
@@ -3682,6 +3702,7 @@ switch ($type) {
     case 21:
         $post = '{
   "showDetail": 1,
+  "themeColor":1,
   "graphic": 1,
   "subTitle": "%",
   "feature": 1,
@@ -3733,6 +3754,7 @@ switch ($type) {
     case 22:
         $post = '{
                     "feature": 1,
+                    "themeColor":1,
                     "legend":1,
                     "tooltip": 1,
                     "graphic":1,
